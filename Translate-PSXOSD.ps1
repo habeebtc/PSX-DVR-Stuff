@@ -8,7 +8,7 @@ function translate-string($text, $SourceLanguage="ja", $TargetLanguage="en", $sl
     $Response[0].SyncRoot | foreach { $Translation += $_[0] }
     # Since we're gaming a secret free API - we should try and rate limit this.  Just be patient!
     # Alternately, you can sign up for a GCP eval and use the basic tier translation service with an API Key.  First 500k translations are free, $10/1 million characters after that.
-    #Start-Sleep -Milliseconds $sleepTime
+    Start-Sleep -Milliseconds $sleepTime
     
     return $Translation
 }
