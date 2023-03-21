@@ -1,4 +1,4 @@
-﻿param([string]$path, [string]$TargetLanguage="en")
+param([string]$osdpath, [string]$TargetLanguage="en")
 
 function translate-string($text, $SourceLanguage="ja", $TargetLanguage="en", $sleepTime = 1000)
 {
@@ -8,7 +8,7 @@ function translate-string($text, $SourceLanguage="ja", $TargetLanguage="en", $sl
     $Response[0].SyncRoot | foreach { $Translation += $_[0] }
     # Since we're gaming a secret free API - we should try and rate limit this.  Just be patient!
     # Alternately, you can sign up for a GCP eval and use the basic tier translation service with an API Key.  First 500k translations are free, $10/1 million characters after that.
-    Start-Sleep -Milliseconds $sleepTime
+    #Start-Sleep -Milliseconds $sleepTime
     
     return $Translation
 }
@@ -53,13 +53,13 @@ function Recurse-Translate([ref]$xmlnode)
 }
 
 $starttime = get-date
-foreach($xmlfile in  (get-childitem $original -Recurse -Filter "*.xml"))
+foreach($xmlfile in  (get-childitem $osdpath -Recurse -Filter "*.xml"))
 {
     Write-Host "Parsing file: $($xmlfile.FullName)"
     $contents = new-object XML
     $contents.Load( $xmlfile.FullName)
 
-    foreach($element in $contents.App)
+    foreach($element in $contents.LastChild)
     {
         # Root document element
         foreach($childnode in $element.ChildNodes)
@@ -75,7 +75,3 @@ $endtime = get-date
 Write-Host "Processing completed!" -ForegroundColor Green
 Write-Host "Start Time: $starttime" -ForegroundColor Yellow
 Write-Host "End Time: $endtime" -ForegroundColor Yellow
-  
-
-
-
