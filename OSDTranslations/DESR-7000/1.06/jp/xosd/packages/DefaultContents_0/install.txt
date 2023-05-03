@@ -1,0 +1,15 @@
+# --- Uninstall previous version
+RemovePackage %%%Name%%% %%%Major%%%
+DeleteDirectory %%%PackagesDir%%%/%%%Name%%%_%%%Major%%%
+
+# --- Install new version
+CreateDirectory	%%%PackagesDir%%%/%%%Name%%%_%%%Major%%%
+CopyDirectory	%%%DownloadDir%%%/%%%Name%%%_%%%Major%%%.%%%Minor%%% %%%PackagesDir%%%/%%%Name%%%_%%%Major%%%
+AddPackage	%%%PackID%%% %%%Name%%% %%%Version%%% %%%PackagesDir%%%/%%%Name%%%_%%%Major%%% %%%Flash%%%
+
+# --- Custom stuff
+CreateDirectory %%%PackagesDir%%%/%%%Name%%%_%%%Major%%%/__xcontents/dvr
+CreateDirectory %%%PackagesDir%%%/%%%Name%%%_%%%Major%%%/__xcontents/epg
+CreateDirectory %%%PackagesDir%%%/%%%Name%%%_%%%Major%%%/__xcontents/result
+CreateDirectory %%%PackagesDir%%%/%%%Name%%%_%%%Major%%%/__xcontents/scratch
+CreateDirectory %%%PackagesDir%%%/%%%Name%%%_%%%Major%%%/__xdata/temp

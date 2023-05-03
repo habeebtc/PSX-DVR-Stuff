@@ -1,0 +1,511 @@
+<?xml version="1.0"?>
+<PSML2>
+
+	<Dll name="xBitmap/xBitmap" version="0.1.0" />
+	<Dll name="xButton/xButton" version="0.1.0" />
+	<Dll name="xContainer/xContainer" version="0.1.0" />
+	<Dll name="xEdit/xEdit" version="0.1.0" />
+	<Dll name="xSlider/xSlider" version="0.1.0" />
+	<Dll name="xStr/xStr" version="0.1.0" />
+	<Dll name="xText/xText" version="0.1.0" />
+	<Dll name="xWizard/xWizard" version="0.1.0" />
+
+<Screen name="import_no_space" visible="0" z_depth="-1" focus="Exit">
+	<Text str="ハードディスクの残量が足りません。不要な" x="-199" y="-2" />
+	<Text str="タイトルやトラック、フォトを削除してください。" x="-199" y="18" />
+	<!--<Button name="Exit" x="-100" y="40">
+		<FocusOn><Text str="戻る" rgba="FFFF00"/></FocusOn>
+	</Button>-->
+</Screen>
+
+<Screen name="import_single" visible="0" z_depth="-1" script="Dialog_ImportSingle.amx" >
+    <String name="NewAlbumButton" str ="新規作成" />
+    <String name="NewAlbumAction" str ="import_album_name" />
+    <String name="MaxAlbumsAction" str ="import_maxalbums" />
+    <String name="AlbumAction" str ="import_in_progress" />
+	<Text str="このフォトを取り込みます。" x="-199" y="-68" />
+	<Text str="アルバムを選択してください。" x="-199" y="-47" />
+    <Bitmap name="scrollbarbase" file="art/ScrollBarBase.tga" visible="0" rgba="FFFFFFFF" alignment="center" x="-149" y="27" h="105" />
+    <Bitmap name="scrollbarcurrent" file="art/ScrollBarCurrent.tga" visible="0" rgba="FFFFFFFF" alignment="center" x="-149" y="33"  />
+    <Container name="choices" orientation="1" x="-127" y="-33" w="398" h="168" spacing="22" align="left">
+        <Button y="-900" name="b0" visible="1"  nav_down="button_tmpl" >
+            <Wizard name="dir" />
+            <FocusOn>
+                <Text str="" rgba="D0D000" max_w="260"/>
+            </FocusOn>
+            <FocusOff>
+                <Text str="" max_w="260"/>
+            </FocusOff>
+        </Button>
+        <Button y="-900" name="button_tmpl" visible="0"  nav_up="b0" >
+            <Wizard name="dir" />
+            <FocusOn>
+                <Text str="" rgba="D0D000" max_w="260"/>
+            </FocusOn>
+            <FocusOff>
+                <Text str="" max_w="260"/>
+            </FocusOff>
+        </Button>
+    </Container>
+</Screen>
+
+<Screen name="import_maxalbums" visible="0" z_depth="-1" focus="ok">
+	<Text str="これ以上新しいアルバムを作成できません。" x="-199" y="-23" />
+	<Text str="違うアルバムを選択してください。" x="-199" y="-2" />
+    <Button name="ok" visible="1" x="-68" y="39">
+        <Wizard action="import_single"/>
+        <FocusOn>
+            <Text str="アルバムの選択" rgba="D0D000"/>
+        </FocusOn>
+        <FocusOff>
+            <Text str="アルバムの選択"/>
+        </FocusOff>
+    </Button>
+</Screen>
+
+
+<Screen name="import_album_name" visible="0" z_depth="-1" script="Dialog_ImportAlbumName.amx" focus="AlbumName">
+    <Text str="入力された名前は重なっているか、不正です。" name="invalid1" visible="0" x="-199" y="-23" />
+    <Text str="アルバム名を変更してください。" name="invalid2" visible="0" x="-199" y="-2" />
+    <Edit str="" name="AlbumName" visible="0" x="-199" y="-43" buf_size="193" />
+    <Button name="ok" visible="1">
+        <Wizard name="dir" variable="dir" value="New Album" action="import_in_progress"/>
+    </Button>
+    <Button name="cancel" visible="0">
+        <Wizard action="import_single"/>
+    </Button>
+    <Text str="変更" name="new" visible="0" x="-16" y="39" rgba="D0D000"/>
+</Screen>
+
+<Screen name="import_in_progress" visible="0" z_depth="-1" script="Dialog_ImportProgress.amx">
+	<Text str="取り込んでいます。本機の電源を切ったり、" x="-199" y="-30" />
+	<Text str="メモリースティックを抜いたりしないでください。" x="-199" y="-9" />
+	<Button name="OK" x="-100" y="40" visible="0">
+		<Wizard variable="ok" value="1" action="import_completed"/>
+	</Button>
+	<Button name="BAD" x="-100" y="40" visible="0">
+		<Wizard variable="ok" value="0" action="import_failed"/>
+	</Button>
+    <Slider name="progressBar" x="0" y="20" w="382" visible="1" value="0"/>
+    <Text name="progressPercent" str="" x="-24" y="46" />
+</Screen>
+
+<Screen name="import_completed" visible="0" z_depth="-1" focus="Exit">
+	<Text str="取り込みが終了しました。" x="-96" y="8" />
+	<!--<Button name="Exit" x="-100" y="40">
+		<FocusOn><Text str="戻る" rgba="FFFF00"/></FocusOn>
+	</Button>-->
+</Screen>
+
+<Screen name="import_failed" visible="0" z_depth="-1" focus="Exit" script="Dialog_ImportDone.amx">
+	<Text str="取り込めませんでした。" x="-199" y="-2" />
+	<!--<Text str="正しく接続されていることを確認をしてください。" x="-199" y="18" />-->
+	<Text name="reason" str=" " x="-199" y="18"/>
+    <String name="Error 1" str="正しく接続されていることを確認をしてください。"/>
+    <String name="Error 2" str="フォトの名前が重複しています。"/>
+    <String name="Error 3" str="空のアルバムは取り込めません。"/>
+    <String name="Error 4" str="アルバム内のフォトがいっぱいです。"/>
+    <!--<String name="Error 4" str="１つのアルバムに取り込めるフォトは２００枚です。"/>-->
+	<!--<Button name="Exit" x="-100" y="40" nav_down="Album1">
+		<FocusOn><Text str="Exit" rgba="FFFF00"/></FocusOn>
+	</Button>-->
+</Screen>
+
+<!--  Directory Import -->
+<Screen name="import_dir" visible="0" z_depth="-1" script="Dialog_ImportSingle.amx" >
+    <String name="NewAlbumButton" str ="新規作成" />
+    <String name="NewAlbumAction" str ="import_album_dir_name" />
+    <String name="MaxAlbumsAction" str ="import_maxalbums_dir" />
+    <String name="AlbumAction" str ="import_dir_progress" />
+	<Text str="アルバム内のフォトを全て取り込みます。" x="-199" y="-68" />
+	<Text str="アルバムを選択してください。" x="-199" y="-47" />
+    <Bitmap name="scrollbarbase" file="art/ScrollBarBase.tga" visible="0" rgba="FFFFFFFF" alignment="center" x="-149" y="27" h="105" />
+    <Bitmap name="scrollbarcurrent" file="art/ScrollBarCurrent.tga" visible="0" rgba="FFFFFFFF" alignment="center" x="-149" y="33"  />
+    <Container name="choices" orientation="1" x="-127" y="-33" w="398" h="168" spacing="22" align="left">
+        <Button y="-900" name="b0" visible="1"  nav_down="button_tmpl" >
+            <Wizard name="dir" />
+            <FocusOn>
+                <Text str="" rgba="D0D000" max_w="260"/>
+            </FocusOn>
+            <FocusOff>
+                <Text str="" max_w="260"/>
+            </FocusOff>
+        </Button>
+        <Button y="-900" name="button_tmpl" visible="0"  nav_up="b0" >
+            <Wizard name="dir" />
+            <FocusOn>
+                <Text str="" rgba="D0D000" max_w="260"/>
+            </FocusOn>
+            <FocusOff>
+                <Text str="" max_w="260"/>
+            </FocusOff>
+        </Button>
+    </Container>
+</Screen>
+
+<Screen name="import_maxalbums_dir" visible="0" z_depth="-1" focus="ok">
+	<Text str="これ以上新しいアルバムを作成できません。" x="-199" y="-23" />
+	<Text str="違うアルバムを選択してください。" x="-199" y="-2" />
+    <Button name="ok" visible="1" x="-68" y="39">
+        <Wizard action="import_dir"/>
+        <FocusOn>
+            <Text str="アルバムの選択" rgba="D0D000"/>
+        </FocusOn>
+        <FocusOff>
+            <Text str="アルバムの選択"/>
+        </FocusOff>
+    </Button>
+</Screen>
+
+<Screen name="import_album_dir_name" visible="0" z_depth="-1" script="Dialog_ImportAlbumName.amx" focus="AlbumName">
+    <Text str="入力された名前は重なっているか、不正です。" name="invalid1" visible="0" x="-199" y="-23" />
+    <Text str="アルバム名を変更してください。" name="invalid2" visible="0" x="-199" y="-2" />
+    <Edit str="" name="AlbumName" visible="0" x="-199" y="-43" buf_size="193" />
+    <Button name="ok" visible="1">
+        <Wizard name="dir" variable="dir" value="New Album" action="import_dir_progress"/>
+    </Button>
+    <Button name="cancel" visible="0">
+        <Wizard action="import_dir"/>
+    </Button>
+    <Text str="変更" name="new" visible="0" x="-16" y="39" rgba="D0D000"/>
+</Screen>
+
+<Screen name="import_dir_progress" visible="0" z_depth="-1" script="Dialog_ImportProgress.amx">
+	<Text str="取り込んでいます。本機の電源を切ったり、" x="-199" y="-70" />
+	<Text str="メモリースティックを抜いたりしないでください。" x="-199" y="-50" />
+	<Button name="OK" x="-100" y="40" visible="0">
+		<Wizard variable="quality" value="2" action="import_completed"/>
+	</Button>
+	<Button name="BAD" x="-100" y="40" visible="0">
+		<Wizard variable="quality" value="2" action="import_failed"/>
+	</Button>
+    <Text str="アルバム" x="0" y="-15" alignment="center" />
+    <Slider name="progressBarAll" x="0" y="-5" w="382" visible="1" value="0"/>
+    <Text name="progressPercentAll" str="" x="-24" y="20" />
+    <Text str="フォト" x="0" y="52" alignment="center" />
+    <Slider name="progressBar" x="0" y="62" w="382" visible="1" value="0"/>
+    <Text name="progressPercent" str="" x="-24" y="87" />
+</Screen>
+
+<!--  Delete Dir -->
+
+<Screen name="delete_dir" visible="0" z_depth="-1" focus="No">
+	<Text str="このアルバム内の全てのフォトを削除します。" x="-199" y="-23" />
+	<Text str="よろしいですか？" x="-199" y="-2" />
+    <Button name="Yes" x="-72" y="39" visible="1" nav_right="No" alignment="right">
+        <Wizard variable="ok" value="yes" action="delete_in_progress"/>
+        <FocusOn><Text str="はい" rgba="FFFF00"/></FocusOn>
+        <FocusOff><Text str="はい"/></FocusOff>
+    </Button>
+    <Button name="No" x="24" y="39" visible="1" nav_left="Yes" alignment="left">
+        <FocusOn><Text str="いいえ" rgba="FFFF00"/></FocusOn>
+        <FocusOff><Text str="いいえ"/></FocusOff>
+    </Button>
+</Screen>
+
+<!--  Delete Image -->
+
+<Screen name="delete_single" visible="0" z_depth="-1" focus="No">
+	<Text str="このフォトを削除します。" x="-199" y="-23" />
+	<Text str="よろしいですか？" x="-199" y="-2" />
+    <Button name="Yes" x="-72" y="39" visible="1" nav_right="No" alignment="right">
+        <Wizard variable="ok" value="yes" action="delete_in_progress"/>
+        <FocusOn><Text str="はい" rgba="FFFF00"/></FocusOn>
+        <FocusOff><Text str="はい"/></FocusOff>
+    </Button>
+    <Button name="No" x="24" y="39" visible="1" nav_left="Yes" alignment="left">
+        <FocusOn><Text str="いいえ" rgba="FFFF00"/></FocusOn>
+        <FocusOff><Text str="いいえ"/></FocusOff>
+    </Button>
+</Screen>
+
+<Screen name="delete_in_progress" visible="0" z_depth="-1" script="Dialog_ImportProgress.amx">
+	<Text str="削除しています。しばらくお待ちください。" x="-199" y="-30" />
+	<Text str="削除中は本機の電源を切らないでください。" x="-199" y="-9" />
+	<Button name="OK" x="-100" y="40" visible="0">
+		<Wizard variable="ok" value="1" action="delete_completed"/>
+	</Button>
+	<Button name="BAD" x="-100" y="40" visible="0">
+		<Wizard variable="ok" value="0" action="delete_failed"/>
+	</Button>
+    <Slider name="progressBar" x="0" y="20" w="382" visible="1" value="0"/>
+    <Text name="progressPercent" str="" x="-24" y="46" />
+</Screen>
+
+<Screen name="delete_completed" visible="0" z_depth="-1" focus="Exit">
+	<Text str="削除が完了しました。" x="-80" y="8" />
+	<!--<Button name="Exit" x="-100" y="40">
+		<FocusOn><Text str="戻る" rgba="FFFF00"/></FocusOn>
+	</Button>-->
+</Screen>
+
+<Screen name="delete_failed" visible="0" z_depth="-1" focus="Exit" script="Dialog_ImportDone.amx">
+	<Text str="削除できませんでした。" x="-88" y="8"/>
+	<!-- <Text name="reason" str=" " x="-200" y="-20"/>
+    <String name="Error 1" str="File could not be deleted."/> -->  <!-- Hiramatsu Nov.18.2003 -->
+	<!--<Button name="Exit" x="-100" y="40">
+		<FocusOn><Text str="Ok" rgba="FFFF00"/></FocusOn>
+	</Button>-->
+</Screen>
+
+<Screen name="disp_info_photo" visible="0" z_depth="-1" focus="Filename"><!-- script="../../data/amx/Dialog_DisplayPhoto.amx">-->
+	<Component name="Icon" x="-36" y="-26" />
+
+    <Text str="画像名" x="-100" y="10" alignment="right"/>
+
+    <Text name="Filename" str="" x="-80" y="10"/>
+    <!--<Edit name="Filename" str="" x="-80" y="-20">
+        <FocusOn>
+            <Bitmap3x3 name="focus" file="pack:barc/0.1.0/art/TextFocus.tga" x="90" y="-5" h="30" w="210" corner_w="25" corner_h="17" />
+        </FocusOn>
+    </Edit>-->
+
+    <Text str="サイズ" x="-100" y="36" alignment="right"/>
+    <Text name="Size" str="" x="-80" y="36"/>
+    <Text str="撮影日時" x="-100" y="62" alignment="right"/>
+    <Text name="DateTaken" str="" x="-80" y="62"/>
+    <Text str="作成日時" x="-100" y="88" alignment="right"/>
+    <Text name="DateChanged" str="" x="-80" y="88"/>
+    <Text str="解像度" x="-100" y="114" alignment="right"/>
+    <Text name="WidthHeight" str="" x="-80" y="114"/>
+    <Text str="撮影機器名" x="-100" y="140" alignment="right" visible="0"/>
+    <Text name="Model" str="" x="-80" y="140" visible="0"/>
+    <Text name="Length Text" str="Length" x="-100" y="166" alignment="right" visible="0"/>
+    <Text name="Length" str="" x="-80" y="166" visible="0"/>
+</Screen>
+
+
+<Screen name="disp_info_album" visible="0" z_depth="-1" focus="AlbumName"><!-- script="../../data/amx/Dialog_DisplayPhoto.amx">-->
+    <Component name="Icon" x="-56" y="-50"/>
+
+    <Text str="アルバム名" x="-100" y="10" alignment="right"/>
+    <Text name="AlbumName" str="" x="-80" y="10"/>
+    <!--<Edit name="AlbumName" str="" x="-80" y="-20">
+		<FocusOn>
+			<Bitmap3x3 name="focus" file="pack:barc/0.1.0/art/TextFocus.tga" x="90" y="-5" h="30" w="210" corner_w="25" corner_h="17" />
+        </FocusOn>
+    </Edit>-->
+    <Text str="ファイル数" x="-100" y="36" alignment="right"/>
+    <Text name="NumFiles" str="" x="-80" y="36"/>
+    <Text str="サイズ" x="-100" y="62" alignment="right"/>
+    <Text name="Size" str="" x="-80" y="62"/>
+    <!--Text str="作成日時" x="-100" y="88" alignment="right"/-->
+    <!--Text name="Date" str="" x="-80" y="88"/-->
+
+    <!--<Slider name="progressBar" x="-40" y="162" w="319" visible="1" value="0"/>-->
+</Screen>
+
+<Screen name="export_single_sure" visible="0" z_depth="-1" focus="No">
+	<Text str="このフォトをメモリースティックに書き出します。" x="-199" y="-23" />
+	<Text str="よろしいですか？" x="-199" y="-2" />
+    <Button name="Yes" visible="1" nav_right="No" x="-72" y="39" alignment="right">
+        <Wizard variable="ok" value="yes" action="export_single"/>
+        <FocusOn><Text str="はい" rgba="FFFF00"/></FocusOn>
+        <FocusOff><Text str="はい"/></FocusOff>
+    </Button>
+    <Button name="No" visible="1" nav_left="Yes" x="24" y="39" alignment="left">
+        <FocusOn><Text str="いいえ" rgba="FFFF00"/></FocusOn>
+        <FocusOff><Text str="いいえ"/></FocusOff>
+    </Button>
+</Screen>
+
+<Screen name="export_dir_sure" visible="0" z_depth="-1" focus="No">
+	<Text str="このアルバム内の全てのフォトを" x="-199" y="-33" />
+	<Text str="メモリースティックに書き出します。" x="-199" y="-12" />
+	<Text str="よろしいですか？" x="-199" y="8" />
+    <Button name="Yes" visible="1" nav_right="No" x="-72" y="49" alignment="right">
+        <Wizard variable="ok" value="yes" action="export_dir_progress"/>
+        <FocusOn><Text str="はい" rgba="FFFF00"/></FocusOn>
+        <FocusOff><Text str="はい"/></FocusOff>
+    </Button>
+    <Button name="No" visible="1" nav_left="Yes" x="24" y="49" alignment="left">
+        <FocusOn><Text str="いいえ" rgba="FFFF00"/></FocusOn>
+        <FocusOff><Text str="いいえ"/></FocusOff>
+    </Button>
+</Screen>
+
+
+<Screen name="export_no_space" visible="0" z_depth="-1" focus="Exit">
+	<Text str="書き出しできませんでした。" x="-199" y="-2" />
+	<Text str="メモリースティックの残量が不足しています。" x="-199" y="18" />
+	<!--<Button name="Exit" x="-100" y="40">
+		<FocusOn><Text str="戻る" rgba="FFFF00"/></FocusOn>
+	</Button>-->
+</Screen>
+
+<Screen name="export_single" visible="0" z_depth="-1" script="Dialog_Export.amx">
+	<!-- Text str="You are about to export a single image." x="-200" y="-40"/> -->
+	<Text str="このフォトを書き出すアルバムを選択してください。" x="-192" y="-68" />
+    <Container name="choices" orientation="1"  x="-128" y="-30" w="320" h="100" spacing="22" align="left">
+        <Button name="button_tmpl" visible="1">
+            <Wizard name="dir" variable="dir" value="New" action="export_in_progress"/>
+            <FocusOn><Text str="新規作成" rgba="FFFF00"/></FocusOn>
+            <FocusOff><Text str="新規作成"/></FocusOff>
+        </Button>
+    </Container>
+    <!--Prim type="rect" x="-200" y="20" w="320" h="100" rgba="5544F580"/-->
+</Screen>
+
+<Screen name="export_in_progress" visible="0" z_depth="-1" script="Dialog_ExportProgress.amx">
+	<Text str="書き出しています。本機の電源を切ったり、" x="-199" y="-30" />
+	<Text str="メモリースティックを抜いたりしないでください。" x="-199" y="-9" />
+	<Button name="OK" x="-100" y="40" visible="0">
+		<Wizard variable="ok" value="1" action="export_completed"/>
+	</Button>
+	<Button name="BAD" x="-100" y="40" visible="0">
+		<Wizard variable="ok" value="0" action="export_failed"/>
+	</Button>
+    <Slider name="progressBar" x="0" y="20" w="382" visible="1" value="0"/>
+</Screen>
+
+<Screen name="export_completed" visible="0" z_depth="-1" focus="Exit">
+	<Text str="書き出しが終了しました。" x="-96" y="8" />
+	<!--<Button name="Exit" x="-100" y="40">
+		<FocusOn><Text str="戻る" rgba="FFFF00"/></FocusOn>
+	</Button>-->
+</Screen>
+
+<Screen name="export_failed" visible="0" z_depth="-1" focus="Exit" script="Dialog_ExportDone.amx">
+	<Text str="書き出しできませんでした。" x="-199" y="-2" />
+	<Text name="reason" str=" " x="-199" y="18"/>
+    <String name="Error 1" str="ファイルをコピーできませんでした。"/>
+    <String name="Error 2" str="選択したアルバム内のフォトが多すぎます。"/>
+    <String name="Error 3" str="メモリースティック内のアルバムが多すぎます。"/>
+	<Button name="Exit" x="-100" y="40" nav_down="Album1">
+		<FocusOn><Text str="Exit" rgba="FFFF00"/></FocusOn>
+	</Button>
+</Screen>
+
+<!--  Directory Export -->
+<!-- Ignore this screen, it's been removed -->
+<Screen name="export_dir" visible="0" z_depth="-1" script="Dialog_Export.amx">
+	<Text str="You are about to export a photo album." x="-200" y="-40"/>
+	<Text str="Please choose destination folder." x="-200" y="-20"/>
+    <Container name="choices" orientation="1"  x="-128" y="-30" w="320" h="100" spacing="22" align="left">
+        <Button name="button_tmpl" visible="1">
+            <Wizard name="dir" variable="dir" value="1" action="export_dir_progress"/>
+            <FocusOn><Text str="新規作成" rgba="FFFF00"/></FocusOn>
+            <FocusOff><Text str="新規作成"/></FocusOff>
+        </Button>
+    </Container>
+</Screen>
+
+<Screen name="export_dir_progress" visible="0" z_depth="-1" script="Dialog_ExportProgress.amx">
+	<Text str="書き出しています。本機の電源を切ったり、" x="-199" y="-76" />
+	<Text str="メモリースティックを抜いたりしないでください。" x="-199" y="-55" />
+	<Button name="OK" x="-100" y="40" visible="0">
+		<Wizard variable="quality" value="2" action="export_completed"/>
+	</Button>
+	<Button name="BAD" x="-100" y="40" visible="0">
+		<Wizard variable="quality" value="2" action="export_failed"/>
+	</Button>
+    <Text str="アルバム" x="0" y="-15" alignment="center" />
+    <Slider name="progressBarAll" x="0" y="-5" w="382" visible="1" value="0"/>
+    <Text str="フォト" x="0" y="56" alignment="center" />
+    <Slider name="progressBar" x="0" y="66" w="382" visible="1" value="0"/>
+</Screen>
+
+<!--  Format -->
+
+<Screen name="format" visible="0" z_depth="-1" focus="No">
+	<Text str="初期化を行うとメモリースティックに入っている" x="-199" y="-33" />
+	<Text str="全てのデータが削除されます。" x="-199" y="-12" />
+	<Text str="初期化してよろしいですか？" x="-199" y="8" />
+    <Button name="Yes" visible="1" nav_right="No" x="-72" y="39" alignment="right">
+        <Wizard variable="ok" value="yes" action="format_in_progress"/>
+        <FocusOn><Text str="はい" rgba="FFFF00"/></FocusOn>
+        <FocusOff><Text str="はい"/></FocusOff>
+    </Button>
+    <Button name="No" visible="1" nav_left="Yes" x="24" y="39" alignment="left">
+        <FocusOn><Text str="いいえ" rgba="FFFF00"/></FocusOn>
+        <FocusOff><Text str="いいえ"/></FocusOff>
+    </Button>
+</Screen>
+
+<Screen name="format_in_progress" visible="0" z_depth="-1" script="Dialog_ImportProgress.amx">
+	<Text str="初期化しています。しばらくお待ちください。" x="-199" y="-41" />
+	<Text str="本機の電源を切ったり、メモリースティックを" x="-199" y="-20" />
+	<Text str="抜いたりしないでください。" x="-199" y="1" />
+	<Button name="OK" x="-100" y="40" visible="0">
+		<Wizard variable="ok" value="1" action="format_completed"/>
+	</Button>
+	<Button name="BAD" x="-100" y="40" visible="0">
+		<Wizard variable="ok" value="0" action="format_failed"/>
+	</Button>
+    <Slider name="progressBar" x="0" y="31" w="382" visible="1" value="0"/>
+</Screen>
+
+<Screen name="format_completed" visible="0" z_depth="-1" focus="Exit">
+	<Text str="初期化が終了しました。" x="-88" y="8" />
+	<!--<Button name="Exit" x="-100" y="40">
+		<FocusOn><Text str="戻る" rgba="FFFF00"/></FocusOn>
+	</Button>-->
+</Screen>
+
+<Screen name="format_failed" visible="0" z_depth="-1" focus="Exit" script="Dialog_ImportDone.amx">
+	<Text str="初期化できませんでした。" x="-199" y="-13" />
+	<Text str="メモリースティックが正しく挿入されていることを" x="-199" y="8" />
+	<Text str="確認してください。" x="-199" y="29" />
+
+    <!-- Hiramatsu Nov.18.2003
+    <String name="Error 1" str="Memory Stick has been removed."/>
+    <String name="Error 2" str="Memory Stick format failed."/>
+    ... Hiramatsu -->
+	<!-- <Text name="reason" str="" x="-200" y="-20"/>  -->
+	<!--<Button name="Exit" x="-100" y="40">
+		<FocusOn><Text str="Ok" rgba="FFFF00"/></FocusOn>
+	</Button>-->
+</Screen>
+
+<Screen name="disp_info_device" visible="0" z_depth="-1">
+    <Component name="Icon" x="-16" y="0" />
+
+    <Text str="機器名" x="-100" y="10" alignment="right"/>
+    <Text name="DeviceName" str="" x="-80" y="10"/>
+    <Text str="サイズ" x="-100" y="36" alignment="right"/>
+    <Text name="Size" str="" x="-80" y="36"/>
+</Screen>
+
+<Screen name="disp_info_ms" visible="0" z_depth="-1">
+    <Component name="Icon" x="-16" y="0" >
+	    <!--Bitmap file="art/frame.bmp" x="0" y="0" /-->
+    </Component>
+
+    <Text str="サイズ" x="-100" y="10" alignment="right"/>
+    <Text name="Size" str="" x="-80" y="10"/>
+</Screen>
+
+
+<!--
+<Screen name="rename_photo" visible="0" z_depth="-1" focus="Filename" script="Dialog_Rename.sma">
+    <Text str="Rename Photo" x="-200" y="-50"/>
+
+    <Text str="Filename:" x="-100" y="-20" alignment="right"/>
+    <Edit name="Filename" str="" x="-80" y="-20" nav_down="Ok">
+        <FocusOn>
+            <Bitmap3x3 name="focus" file="pack:barc/0.1.0/art/TextFocus.tga" x="90" y="-5" h="30" w="210" corner_w="25" corner_h="17" />
+        </FocusOn>
+    </Edit>
+    <Button name="Ok" visible="1" nav_up="Filename">
+        <FocusOn><Text str="Ok" rgba="FFFF00"/></FocusOn>
+        <FocusOff><Text str="Ok"/></FocusOff>
+    </Button>
+</Screen>
+
+<Screen name="rename_album" visible="0" z_depth="-1" focus="AlbumName" script="Dialog_Rename.sma">
+    <Text str="Rename Album" x="-200" y="-50"/>
+
+    <Text str="Album:" x="-100" y="-20" alignment="right"/>
+    <Edit name="AlbumName" str="" x="-80" y="-20" nav_down="Ok">
+        <FocusOn>
+            <Bitmap3x3 name="focus" file="pack:barc/0.1.0/art/TextFocus.tga" x="90" y="-5" h="30" w="210" corner_w="25" corner_h="17" />
+        </FocusOn>
+    </Edit>
+    <Button name="Ok" visible="1" nav_up="AlbumName">
+        <FocusOn><Text str="Ok" rgba="FFFF00"/></FocusOn>
+        <FocusOff><Text str="Ok"/></FocusOff>
+    </Button>
+
+</Screen>
+-->
+</PSML2>

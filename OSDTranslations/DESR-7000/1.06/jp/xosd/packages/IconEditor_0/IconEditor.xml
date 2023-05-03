@@ -1,0 +1,163 @@
+﻿<App name="IconEditor" focus="PlayButton" script="IconEditor.amx">
+
+  <!-- these are all used from within the script -->
+  <Dll name="xContainer/xContainer" version="0.1.0" />
+  <Dll name="xText/xText" version="0.1.0" />
+  <Dll name="xIcon/xIcon" version="0.1.0" />
+  <Dll name="IconEditor/IconEditor" version="0.1.0" />
+  <Dll name="xBitmap/xBitmap" version="0.0.0" />
+  <Dll name="xBitmap3x3/xBitmap3x3" version="0.0.0" />
+  <Dll name="xStr/xStr" version="0.0.0" />
+  <Dll name="xEdit/xEdit" version="0.0.0" />
+  <Dll name="xFB/xFB" version="0.0.0" />
+  <Dll name="xFB/xFB_Folder" version="0.1.0" />
+  <Dll name="xFB/xFB_GameSave" version="0.1.0" />
+  <Dll name="xFB/xFB_HDD" version="0.1.0" />
+  <Dll name="xFB/xFB_MC" version="0.1.0" />
+  <Dll name="xMc/xMc" version="0.1.0" />
+
+  <Bitmap name="help_icon0" file="art/BtnNav-Cir-917.tga" x2d="420" y2d="416" />
+  <Bitmap name="help_icon1" file="art/BtnNav-Crs-917.tga" x2d="500" y2d="416" />
+  <Bitmap name="help_folder" file="pack:xBarPluginGame/0.1.0/Nail-MC-Folder.png" visible="0" x2d="0" y2d="0" />
+  <Bitmap name="help_folder1" file="pack:xBarPluginGame/0.1.0/Nail-MC-Folder.png" visible="0" x2d="0" y2d="0" />
+  <Bitmap name="help_mc" file="pack:xBarPluginGame/0.1.0/Nail-MC-PS2.png" x2d="0" y2d="0" />
+
+  <Bitmap name="dialog_background" file="art/MCM-DialogCarpet.tga" visible="0" rgba="FFFFFF80" x2d="327" y2d="0" w="371" h="480" z_depth="-7"/>
+  <Bitmap name="dialog_top" file="pack:barc/0.1.0/art/DialogBorder.tga" visible="0" rgba="FFFFFFFF" x2d="360" y2d="195" w="314" z_depth="-7"/>
+  <Bitmap name="dialog_bottom" file="pack:barc/0.1.0/art/DialogBorder.tga" visible="0" rgba="FFFFFFFF" x2d="360" y2d="285" w="314" z_depth="-7"/>
+
+  <Bitmap3x3 name="text_focus" file="art/TextFocus.tga" visible="0" rgba="FFFFFFFF" w="310" corner_w="25" corner_h="17" z_depth="-11"/>
+  <Bitmap3x3 name="text_focus_ok" file="art/TextFocus.tga" visible="0" rgba="FFFFFFFF" x2d="431" y2d="242" w="76" corner_w="25" corner_h="17" z_depth="-11"/>
+  <Bitmap3x3 name="text_focus_no" file="art/TextFocus.tga" visible="0" rgba="FFFFFFFF" x2d="497" y2d="242" w="90" corner_w="25" corner_h="17" z_depth="-11"/>
+
+  <Bitmap name="mc_background" file="pack:xBarPluginGame/0.1.0/Wallpaper-MC.png" visible="0" rgba="D0D0D0D0" x2d="0" y2d="0" w="704" h="480" z_depth="5"/>
+
+  <Bitmap name="scrollbarbase" file="art/ScrollBarBase.tga" visible="0" rgba="FFFFFFFF" alignment="center" x2d="374" y2d="161" h="170" z_depth="-8" />
+  <Bitmap name="scrollbarcurrent" file="art/ScrollBarCurrent.tga" visible="0" rgba="FFFFFFFF" alignment="center" x2d="374" y2d="161" z_depth="-9" />
+
+  <Text name="help_ok" str="はい"  size="16" visible="0" rgba="FFFFFFFF" alignment="right" x2d="486" y2d="266" z_depth="-10" />
+  <Text name="help_no" str="いいえ"  size="16" visible="0" rgba="FFFF00FF" x2d="518" y2d="266" z_depth="-10" />
+  <Text name="help_back_button" str="戻る"  size="16" visible="0" rgba="FFFF00FF" z_depth="-10" />
+
+  <Text name="copy_icon_dialog_title" str="コピー先の選択"  size="16" visible="0" rgba="FFFFFFFF" x2d="386" y2d="135" z_depth="-10"/>
+  <Text name="copy_icon_size" str="KB"  size="16" visible="0" rgba="FFFFFFFF" x2d="46" y2d="375" z_depth="-10" />
+  <Text name="copy_icon_size_1" str="KB"  size="16" visible="0" rgba="FFFFFFFF" x2d="46" y2d="375" z_depth="-10" />
+
+  <Component name="copy_icon_processing" visible="0" x2d="330" y2d="240" z_depth="-10" >
+    <Text name="copy_icon_processing_1" str="セーブデータをコピーしています。" spacing_h="0" size="16" rgba="FFFFFFFF" x2d="400" y2d="210" z_depth="-10" />
+    <Text name="copy_icon_processing_2" str="コピー中は本機の電源を切ったり、" spacing_h="0" size="16" rgba="FFFFFFFF" x2d="400" y2d="230" z_depth="-10" />
+    <Text name="copy_icon_processing_3" str="メモリーカードを抜かないでください。" spacing_h="0" size="16" rgba="FFFFFFFF" x2d="400" y2d="250" z_depth="-10" />
+  </Component>
+
+  <Text name="copy_icon_finished" str="コピーが完了しました。"  size="16" visible="0" alignment="center" rgba="FFFFFFFF" x2d="517" y2d="240" z_depth="-10" />
+  <Text name="copy_icon_finished_fail" str="コピーできませんでした。"  size="16" visible="0" alignment="center" rgba="FFFFFFFF" x2d="517" y2d="240" z_depth="-10" />
+
+  <Component name="copy_icon_overwrite" visible="0" x2d="365" y2d="230" z_depth="-10" >
+    <Text name="copy_icon_overwrite_1" str="コピー先のセーブデータを" spacing_h="1" size="16" rgba="FFFFFFFF" x2d="400" y2d="230" z_depth="-10" />
+    <Text name="copy_icon_overwrite_2" str="上書きしますか？" spacing_h="1" size="16" rgba="FFFFFFFF" x2d="400" y2d="250" z_depth="-10" />
+  </Component>
+
+  <Text name="copy_icon_fail" str="このメディアにはコピーできません。" spacing_h="0" size="16" visible="0" rgba="FFFFFFFF" x2d="386" y2d="401" z_depth="-10" />
+  <Text name="copy_icon_fail1" str="コピー先の空き容量が不足しています。" spacing_h="-1" size="16" visible="0" rgba="FFFFFFFF" x2d="386" y2d="401" z_depth="-10" />
+  <Text name="copy_icon_fail2" str="コピー先がありません。" spacing_h="1" size="16" visible="0" rgba="FFFFFFFF" x2d="386" y2d="401" z_depth="-10" />
+  <Text name="copy_icon_fail3" str="このデータはコピーできません。" spacing_h="0" size="16" visible="0" rgba="FFFFFFFF" x2d="386" y2d="401" z_depth="-10" />
+
+
+  <Text name="move_icon_dialog_title" str="移動先の選択"  size="16" visible="0" rgba="FFFFFFFF" x2d="386" y2d="135"  z_depth="-10"/>
+  <Text name="move_icon_size" str="KB"  size="16" visible="0" rgba="FFFFFFFF" x2d="46" y2d="375" z_depth="-10" />
+  <Text name="move_icon_size_1" str="KB"  size="16" visible="0" rgba="FFFFFFFF" x2d="46" y2d="375" z_depth="-10" />
+
+  <Component name="move_icon_processing" visible="0" x2d="330" y2d="240" z_depth="-10" >
+    <Text name="move_icon_processing_1" str="セーブデータを移動しています。" spacing_h="0" size="16" rgba="FFFFFFFF" x2d="400" y2d="210" z_depth="-10" />
+    <Text name="move_icon_processing_2" str="移動中は本機の電源を切ったり、" spacing_h="0" size="16" rgba="FFFFFFFF" x2d="400" y2d="230" z_depth="-10" />
+    <Text name="move_icon_processing_3" str="メモリーカードを抜かないでください。" spacing_h="0" size="16" rgba="FFFFFFFF" x2d="400" y2d="250" z_depth="-10" />
+  </Component>
+
+  <Text name="move_icon_finished" str="移動が完了しました。"  size="16" visible="0" alignment="center" rgba="FFFFFFFF" x2d="517" y2d="240" z_depth="-10" />
+  <Text name="move_icon_finished_fail" str="移動できませんでした。"  size="16" visible="0" alignment="center" rgba="FFFFFFFF" x2d="517" y2d="240" z_depth="-10" />
+
+  <Component name="move_icon_overwrite" visible="0" x2d="365" y2d="230" z_depth="-10" >
+    <Text name="move_icon_overwrite_1" str="移動先のセーブデータを" spacing_h="1" size="16" rgba="FFFFFFFF" x2d="400" y2d="230" z_depth="-10" />
+    <Text name="move_icon_overwrite_2" str="上書きしますか？" spacing_h="1" size="16" rgba="FFFFFFFF" x2d="400" y2d="250" z_depth="-10" />
+  </Component>
+
+  <Text name="move_icon_confirmation" str="移動しますか？"  size="16" visible="0" rgba="FFFFFFFF" alignment="center" x2d="511" y2d="230" z_depth="-10" />
+  <Text name="move_icon_fail" str="このメディアには移動できません。" size="16" visible="0" rgba="FFFFFFFF" x2d="386" y2d="401" z_depth="-10" />
+  <Text name="move_icon_fail1" str="移動先の空き容量が不足しています。" spacing_h="0" size="16" visible="0" rgba="FFFFFFFF" x2d="386" y2d="401" z_depth="-10" />
+  <Text name="move_icon_fail2" str="移動先がありません。" spacing_h="1" size="16" visible="0" rgba="FFFFFFFF" x2d="386" y2d="401" z_depth="-10" />
+  <Text name="move_icon_fail3" str="このデータは移動できません。" spacing_h="0" size="16" visible="0" rgba="FFFFFFFF" x2d="386" y2d="401" z_depth="-10" />
+
+  <Component name="delete_icon_processing" visible="0" x2d="330" y2d="240" z_depth="-10" >
+    <Text name="delete_icon_processing_1" str="セーブデータを削除しています。" spacing_h="0" size="16" rgba="FFFFFFFF" x2d="400" y2d="210" z_depth="-10" />
+    <Text name="delete_icon_processing_2" str="削除中は本機の電源を切ったり、" spacing_h="0" size="16" rgba="FFFFFFFF" x2d="400" y2d="230" z_depth="-10" />
+    <Text name="delete_icon_processing_3" str="メモリーカードを抜かないでください。" spacing_h="0" size="16" rgba="FFFFFFFF" x2d="400" y2d="250" z_depth="-10" />
+  </Component>
+
+  <Text name="delete_icon_finished" str="削除が完了しました。"  size="16" visible="0" alignment="center" rgba="FFFFFFFF" x2d="517" y2d="240" z_depth="-10" />
+  <Text name="delete_icon_finished_fail" str="削除できませんでした。"  size="16" visible="0" alignment="center" rgba="FFFFFFFF" x2d="517" y2d="240" z_depth="-10" />
+  <Text name="delete_icon_size" str="KB"  size="16" visible="0" rgba="FFFFFFFF" x2d="46" y2d="375" z_depth="-10" />
+  <Text name="delete_icon_size_1" str="KB"  size="16" visible="0" rgba="FFFFFFFF" x2d="46" y2d="375" z_depth="-10" />
+  <Text name="delete_icon_confirmation" str="削除しますか？"  size="16" visible="0" rgba="FFFFFFFF" alignment="center" x2d="511" y2d="230" z_depth="-10" />
+
+  <Text name="info_icon_title" str="タイトル"  size="16" visible="0" rgba="FFFFFFFF" alignment="right" x2d="232" y2d="236" z_depth="-10" />
+  <Text name="info_icon_location" str="場所"  size="16" visible="0" rgba="FFFFFFFF" alignment="right" x2d="232" y2d="275" z_depth="-10" />
+  <Text name="info_icon_size" str="サイズ"  size="16" visible="0" rgba="FFFFFFFF" alignment="right" x2d="232" y2d="305" z_depth="-10" />
+  <Text name="info_icon_date" str="更新日時"  size="16" visible="0" rgba="FFFFFFFF" alignment="right" x2d="232" y2d="335" z_depth="-10" />
+  <Text name="info_icon_type" str="種類"  size="16" visible="0" rgba="FFFFFFFF" alignment="right" x2d="232" y2d="365" z_depth="-10" />
+  <Text name="info_icon_mode" str="操作条件"  size="16" visible="0" rgba="FFFFFFFF" alignment="right" x2d="232" y2d="395" z_depth="-10" />
+  <Text name="info_icon_type_1" str="セーブデータ(PlayStation®)"  size="16" visible="0" rgba="FFFFFFFF" alignment="right" x2d="232" y2d="365" z_depth="-10" />
+  <Text name="info_icon_type_2" str="セーブデータ(PlayStation®2)"  size="16" visible="0" rgba="FFFFFFFF" alignment="right" x2d="232" y2d="365" z_depth="-10" />
+  <Text name="info_icon_type_3" str="設定ファイル(PlayStation®2)"  size="16" visible="0" rgba="FFFFFFFF" alignment="right" x2d="232" y2d="365" z_depth="-10" />
+  <Text name="info_icon_type_4" str="システムドライバー(PlayStation®2)"  size="16" visible="0" rgba="FFFFFFFF" alignment="right" x2d="232" y2d="365" z_depth="-10" />
+  <Text name="info_icon_type_5" str="破損データ"  size="16" visible="0" rgba="FFFFFFFF" alignment="right" x2d="232" y2d="365" z_depth="-10" />
+  <Text name="info_icon_type_6" str="PlayStation®2規格ソフトウェア"  size="16" visible="0" rgba="FFFFFFFF" alignment="right" x2d="232" y2d="365" z_depth="-10" />
+
+  <Text name="info_icon_mode_0" str="なし"  size="16" visible="0" rgba="FFFFFFFF" x2d="248" y2d="395" z_depth="-10" />
+  <Text name="info_icon_mode_4" str="コピー不可"  size="16" visible="0" rgba="FFFFFFFF" x2d="248" y2d="395" z_depth="-10" />
+  <Text name="info_icon_mode_5" str="コピー禁止 移動禁止"  size="16" visible="0" rgba="FFFFFFFF" x2d="248" y2d="395" z_depth="-10" />
+
+  <Text name="format_mc_processing" str="初期化中です。"  size="16" visible="0" alignment="center" rgba="FFFFFFFF" x2d="517" y2d="240" z_depth="-10" />
+  <Text name="format_mc_finished" str="初期化が完了しました。"  size="16" visible="0" alignment="center" rgba="FFFFFFFF" x2d="517" y2d="240" z_depth="-10" />
+  <Text name="format_mc_unformatted" str="未初期化" spacing_h="1" size="16" visible="0" rgba="FFFFFFFF" x2d="386" y2d="401" z_depth="-10" />
+
+  <Component name="format_mc_confirmation" visible="0" x2d="385" y2d="230" z_depth="-10" >
+    <Text name="format_mc_confirmation_1" str="初期化されていません。" spacing_h="1" size="16" rgba="FFFFFFFF" x2d="400" y2d="230" z_depth="-10" />
+    <Text name="format_mc_confirmation_2" str="初期化しますか？" spacing_h="1" size="16" rgba="FFFFFFFF" x2d="400" y2d="250" z_depth="-10" />
+  </Component>
+
+  <Text name="copy_folder_processing" str="コピー中です..."  size="16" visible="0" alignment="center" rgba="FFFFFFFF" x2d="517" y2d="240" z_depth="-10" />
+  <Text name="copy_folder_finished" str="コピーが完了しました。"  size="16" visible="0" alignment="center" rgba="FFFFFFFF" x2d="517" y2d="240" z_depth="-10" />
+  <Text name="copy_folder_finished_failed" str="コピーできませんでした。"  size="16" visible="0" alignment="center" rgba="FFFFFFFF" x2d="517" y2d="240" z_depth="-10" />
+  <Text name="copy_folder_finished_failed_1" str="コピー先のフォルダ名が重複しています。" spacing_h="0" size="16" visible="0" alignment="center" rgba="FFFFFFFF" x2d="517" y2d="240" z_depth="-10" />
+  <Component name="copy_folder_finished_failed_2" visible="0" x2d="375" y2d="232" z_depth="-10" >
+    <Text name="copy_folder_finished_failed_2_1" str="空き容量が不足しています。" spacing_h="0" size="16" rgba="FFFFFFFF" x2d="375" y2d="232" z_depth="-10" />
+    <Text name="copy_folder_finished_failed_2_2" str="不要なデータを削除してください。" spacing_h="0" size="16" rgba="FFFFFFFF" x2d="375" y2d="252" z_depth="-10" />
+  </Component>
+
+  <Component name="delete_folder_confirmation" visible="0" x2d="370" y2d="225" z_depth="-10" >
+    <Text name="delete_folder_confirmation_1" str="このフォルダ内のすべてのデータが" spacing_h="0" size="16" rgba="FFFFFFFF" x2d="370" y2d="225" z_depth="-10" />
+    <Text name="delete_folder_confirmation_2" str="削除されます。" spacing_h="0" size="16" rgba="FFFFFFFF" x2d="370" y2d="245" z_depth="-10" />
+    <Text name="delete_folder_confirmation_3" str="削除しますか？" spacing_h="0" size="16" rgba="FFFFFFFF" x2d="370" y2d="265" z_depth="-10" />
+  </Component>
+
+  <Text name="delete_folder_processing" str="削除中です..."  size="16" visible="0" alignment="center" rgba="FFFFFFFF" x2d="517" y2d="240" z_depth="-10" />
+  <Text name="delete_folder_finished" str="削除が完了しました。"  size="16" visible="0" alignment="center" rgba="FFFFFFFF" x2d="517" y2d="240" z_depth="-10" />
+
+  <Text name="create_folder_failed" str="入力した名前は長すぎます。"  size="16" visible="0" alignment="center" rgba="FFFFFFFF" x2d="517" y2d="240" z_depth="-10" />
+  <Component name="create_folder_failed_1" visible="0" x2d="385" y2d="232" z_depth="-10" >
+    <Text name="create_folder_failed_1_1" str="フォルダの作成のための" spacing_h="0" size="16" rgba="FFFFFFFF" x2d="385" y2d="232" z_depth="-10" />
+    <Text name="create_folder_failed_1_2" str="空き容量が不足しています。" spacing_h="0" size="16" rgba="FFFFFFFF" x2d="385" y2d="252" z_depth="-10" />
+  </Component>
+  <Text name="rename_folder_failed" str="入力した名前は長すぎます。"  size="16" visible="0" alignment="center" rgba="FFFFFFFF" x2d="517" y2d="240" z_depth="-10" />
+
+  <Text name="info_folder_title" str="タイトル"  size="16" visible="0" rgba="FFFFFFFF" alignment="right" x2d="232" y2d="245" z_depth="-10" />
+  <Text name="info_folder_size" str="サイズ"  size="16" visible="0" rgba="FFFFFFFF" alignment="right" x2d="232" y2d="275" z_depth="-10" />
+  <Text name="info_folder_date" str="更新日時"  size="16" visible="0" rgba="FFFFFFFF" alignment="right" x2d="232" y2d="305" z_depth="-10" />
+
+  <Text name="new_folder_title" str="新しいフォルダ"  size="16" visible="0" rgba="FFFFFFFF" alignment="right" x2d="232" y2d="365" z_depth="-10" />
+
+  <Text name="mc_free_space" str="Foo"  size="16" visible="0" rgba="FFFFFFFF" x2d="386" y2d="401" z_depth="-10"/>
+  <Text name="mc_free_space_1" str="空き容量"  size="16" visible="0" rgba="FFFFFFFF" x2d="386" y2d="401" z_depth="-10" />
+  <Text name="mc_free_space_2" str="KB"  size="16" visible="0" rgba="FFFFFFFF" x2d="386" y2d="401" z_depth="-10" />
+
+</App>

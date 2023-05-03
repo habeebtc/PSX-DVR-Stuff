@@ -1,0 +1,352 @@
+<?xml version="1.0"?>
+<PSML2>
+
+    <Dll name="xBitmap/xBitmap" version="0.1.0" />
+    <Dll name="xButton/xButton" version="0.1.0" />
+    <Dll name="xContainer/xContainer" version="0.1.0" />
+    <Dll name="xEdit/xEdit" version="0.1.0" />
+    <Dll name="xText/xText" version="0.1.0" />
+    <Dll name="xStr/xStr" version="0.1.0" />
+    <Dll name="xSlider/xSlider" version="0.1.0" />
+    <Dll name="xWizard/xWizard" version="0.1.0" />
+
+    <Screen name="import_redbook_test" visible="0" z_depth="-1" focus="Test">
+        <Button name="Test" x="-72" y="59" nav_right="dBack" alignment="right">
+            <Wizard action="import_redbook_end"/>
+            <FocusOn>
+                <Text str="TEST" rgba="D0D000"/>
+            </FocusOn>
+            <FocusOff>
+                <Text str="TEST"/>
+            </FocusOff>
+        </Button>
+    </Screen>
+
+    <Screen name="import_redbook_nofiles" visible="0" z_depth="-1" focus="dOK">
+        <Text str="取り込むトラックがありません。" x="-120" y="8" />
+    </Screen>
+
+    <Screen name="import_redbook" visible="0" z_depth="-1" >
+        <Text str="ハードディスクの残量を確認しています。　" x="-199" y="-13" />
+        <Text str="しばらくお待ちください。" x="-199" y="8" />
+        <Text str="本機の電源を切ったりしないでください。" x="-199" y="29" />
+        <Button name="OK1tmp"  visible="0" x="-100" y="40" nav_down="Cancel1tmp">
+            <Wizard action="import_redbook_dst"/>
+            <FocusOn>
+                <Text str="OK ( tmp )" rgba="D0D000"/>
+            </FocusOn>
+            <FocusOff>
+                <Text str="OK ( tmp )" />
+            </FocusOff>
+        </Button>
+        <Button name="Cancel1tmp"  visible="0" x="-100" y="60" nav_up="OK1tmp">
+            <Wizard action="import_redbook_nospace"/>
+            <FocusOn>
+                <Text str="Not enough space ( tmp )" rgba="D0D000"/>
+            </FocusOn>
+            <FocusOff>
+                <Text str="Not enough space ( tmp )" />
+            </FocusOff>
+        </Button>
+    </Screen>
+
+    <Screen name="import_redbook_nospace" visible="0" z_depth="-1" focus="Cancel">
+        <Text str="ハードディスクの残量が足りません。" x="-199" y="-13" />
+        <Text str="不要なタイトルやトラック、フォトを" x="-199" y="8" />
+        <Text str="削除してください。" x="-199" y="29" />
+    </Screen>
+
+    <Screen name="import_redbook_dst" visible="0" z_depth="-1" script="DlgRedbookChooseAlbum.amx" >
+        <String name="NewAlbumButton" str ="新規作成" />
+        <String name="NewAlbumAction" str ="import_redbook_newdst" />
+        <String name="MaxAlbumsAction" str ="import_redbook_maxalbums" />
+        <String name="AlbumAction" str ="import_redbook_process" />
+        <Text str="取り込んだトラックを入れるアルバムを" x="-199" y="-68" />
+        <Text str="選択してください。" x="-199" y="-47" />
+        <Bitmap name="scrollbarbase" file="ScrollBarBase.tga" visible="0" rgba="FFFFFFFF" alignment="center" x="-149" y="27" h="105" />
+        <Bitmap name="scrollbarcurrent" file="ScrollBarCurrent.tga" visible="0" rgba="FFFFFFFF" alignment="center" x="-149" y="33"  />
+        <Container name="choices" orientation="1" x="-127" y="-33" w="398" h="168" spacing="22" align="left">
+            <Button y="-900" name="b0" visible="1" nav_down="button_tmpl">
+                <Wizard name="dir" />
+                <FocusOn>
+                    <Text str="" rgba="D0D000"/>
+                </FocusOn>
+                <FocusOff>
+                    <Text str=""/>
+                </FocusOff>
+            </Button>
+            <Button y="-900" name="button_tmpl" visible="0" nav_up="b0">
+                <Wizard name="dir" />
+                <FocusOn>
+                    <Text str="" rgba="D0D000"/>
+                </FocusOn>
+                <FocusOff>
+                    <Text str=""/>
+                </FocusOff>
+            </Button>
+        </Container>
+    </Screen>
+
+<Screen name="import_redbook_maxalbums" visible="0" z_depth="-1" focus="ok">
+	<Text str="これ以上新しいアルバムを作成できません。" x="-199" y="-23" />
+	<Text str="違うアルバムを選択してください。" x="-199" y="-2" />
+    <Button name="ok" visible="1" x="-68" y="39">
+        <Wizard action="import_redbook_dst"/>
+        <FocusOn>
+            <Text str="アルバムの選択" rgba="D0D000"/>
+        </FocusOn>
+        <FocusOff>
+            <Text str="アルバムの選択"/>
+        </FocusOff>
+    </Button>
+</Screen>
+
+<Screen name="import_redbook_toomanytracks_hdd" visible="0" z_depth="-1" focus="Cancel">
+	<Text str="選択したアルバムに入っているトラックの数が" x="-199" y="-2" />
+	<Text str="多すぎます。取り込みを中止します。" x="-199" y="18" />
+	<Button name="Cancel" x="-100" y="40">
+		<FocusOn><Text str="Back ( invisible)" rgba="D0D000"/></FocusOn>
+		<FocusOff><Text str="Back ( invisible)"/></FocusOff>
+	</Button>
+</Screen>
+
+
+    <Screen name="import_redbook_newdst" visible="0" z_depth="-1" script="DlgRedbookNewAlbum.amx" focus="AlbumName">
+        <Text str="入力された名前は重なっているか、不正です。" name="invalid1" visible="0" x="-199" y="-23" />
+        <Text str="アルバム名を変更してください。" name="invalid2" visible="0" x="-199" y="-2" />
+        <Edit str="" name="AlbumName" visible="0" x="-199" y="-43" />
+        <Button name="ok" visible="1">
+            <Wizard name="dir" variable="dir" value="New Album" action="import_redbook_process"/>
+        </Button>
+        <Button name="cancel" visible="0">
+            <Wizard action="import_redbook_dst"/>
+        </Button>
+        <Text str="変更" name="new" visible="0" x="-16" y="39" rgba="D0D000"/>
+    </Screen>
+
+    <Screen name="import_redbook_process" visible="0" z_depth="-1" script="DlgRedbookProcess.amx">
+        <Text str="トラックを取り込み中です。本機の電源を切ったり、" x="-199" y="-70" />
+        <Text str="ＣＤを抜かないでください。" x="-199" y="-50" />
+	
+        <!-- this forces the font cache to cache all these chars to reduce blinking -->
+        <Text str="0123456789" x="-999" y="-999" />
+
+        <Text str="全体" x="0" y="-15" alignment="center" />
+        <Slider name="AlbumProgress" x="0" y="-5" w="382"/>
+        <!--Text str="" name="AlbumProgressPercentage" x="20" y="20" alignment="right"/-->
+        <Text str="" name="AlbumProgressPercentage" x="0" y="20" alignment="center"/>
+	
+
+        <Text str="トラック %i" name="TitleName" x="0" y="52" alignment="center" />
+        <Slider name="TitleProgress" x="0" y="62" w="382" />
+        <!--Text str="" name="TitleProgressPercentage" x="20" y="87" alignment="right"/-->
+        <Text str="" name="TitleProgressPercentage" x="0" y="87" alignment="center"/>
+	
+
+        <Button name="RedbookProcessFinished" visible="0" x="-159" y="150">
+            <Wizard action="import_redbook_end"/>
+        </Button>
+        <Button name="RedbookProcessError" visible="0" x="-159" y="150">
+            <Wizard action="import_redbook_error"/>
+        </Button>
+        <Button name="RedbookProcessMaxTrack" visible="0" x="-159" y="170">
+            <Wizard action="import_redbook_maxtrack"/>
+        </Button>
+        <Button name="DBXCancel" visible="0" x="-159" y="150">
+            <Wizard action="import_cancel"/>
+        </Button>
+    </Screen>
+
+    <!-- single version -->
+    <Screen name="import_redbook_single" visible="0" z_depth="-1" focus="OK1tmp">
+        <Text str="ハードディスクの残量を確認しています。　" x="-199" y="-13" />
+        <Text str="しばらくお待ちください。" x="-199" y="8" />
+        <Text str="本機の電源を切ったりしないでください。" x="-199" y="29" />
+        <Button name="OK1tmp" x="-100" y="40" nav_down="Cancel1tmp" visible="0" >
+            <Wizard action="import_redbook_dst_single"/>
+            <FocusOn>
+                <Text str="OK ( invisible )" rgba="D0D000"/>
+            </FocusOn>
+            <FocusOff>
+                <Text str="OK ( invisible )" />
+            </FocusOff>
+        </Button>
+        <Button name="Cancel1tmp" x="-100" y="60" nav_up="OK1tmp" visible="0" >
+            <Wizard action="import_redbook_nospace_single"/>
+            <FocusOn>
+                <Text str="Not enough space ( invisible )" rgba="D0D000"/>
+            </FocusOn>
+            <FocusOff>
+                <Text str="Not enough space ( invisible )" />
+            </FocusOff>
+        </Button>
+    </Screen>
+
+    <Screen name="import_redbook_nospace_single" visible="0" z_depth="-1" focus="Cancel">
+        <Text str="ハードディスクの残量が足りません。" x="-199" y="-13" />
+        <Text str="不要なタイトルやトラック、フォトを" x="-199" y="8" />
+        <Text str="削除してください。" x="-199" y="29" />
+    </Screen>
+
+    <Screen name="import_redbook_dst_single" visible="0" z_depth="-1" script="DlgRedbookChooseAlbum.amx">
+        <String name="NewAlbumButton" str ="新規作成" />
+        <String name="NewAlbumAction" str ="import_redbook_newdst_single" />
+        <String name="MaxAlbumsAction" str ="import_redbook_maxalbums_single" />
+        <String name="AlbumAction" str ="import_redbook_process_single" />
+        <Text str="取り込んだトラックを入れるアルバムを" x="-199" y="-68" />
+        <Text str="選択してください。" x="-199" y="-47" />
+        <Bitmap name="scrollbarbase" file="ScrollBarBase.tga" visible="0" rgba="FFFFFFFF" alignment="center" x="-149" y="27" h="105" />
+        <Bitmap name="scrollbarcurrent" file="ScrollBarCurrent.tga" visible="0" rgba="FFFFFFFF" alignment="center" x="-149" y="33"  />
+        <Container name="choices" orientation="1" x="-127" y="-33" w="398" h="168" spacing="22" align="left">
+            <Button y="-900" name="b0" visible="1" nav_down="button_tmpl">
+                <Wizard name="dir" />
+                <FocusOn>
+                    <Text str="" rgba="D0D000"/>
+                </FocusOn>
+                <FocusOff>
+                    <Text str=""/>
+                </FocusOff>
+            </Button>
+            <Button y="-900" name="button_tmpl" visible="0" nav_up="b0">
+                <Wizard name="dir" />
+                <FocusOn>
+                    <Text str="" rgba="D0D000"/>
+                </FocusOn>
+                <FocusOff>
+                    <Text str=""/>
+                </FocusOff>
+            </Button>
+        </Container>
+    </Screen>
+
+<Screen name="import_redbook_maxalbums_single" visible="0" z_depth="-1" focus="ok">
+	<Text str="これ以上新しいアルバムを作成できません。" x="-199" y="-23" />
+	<Text str="違うアルバムを選択してください。" x="-199" y="-2" />
+    <Button name="ok" visible="1" x="-68" y="39">
+        <Wizard action="import_redbook_dst_single"/>
+        <FocusOn>
+            <Text str="アルバムの選択" rgba="D0D000"/>
+        </FocusOn>
+        <FocusOff>
+            <Text str="アルバムの選択"/>
+        </FocusOff>
+    </Button>
+</Screen>
+
+    <Screen name="import_redbook_newdst_single" visible="0" z_depth="-1" script="DlgRedbookNewAlbum.amx" focus="AlbumName">
+        <Text str="入力された名前は重なっているか、不正です。" name="invalid1" visible="0" x="-199" y="-23" />
+        <Text str="アルバム名を変更してください。" name="invalid2" visible="0" x="-199" y="-2" />
+        <Edit visible="0" name="AlbumName"  str="" x="-80" y="-20"/>
+        <Text name="whitename" str="" x="-80" y="-20"/>
+        <Button name="ok" visible="1">
+            <Wizard name="dir" variable="dir" value="New Album" action="import_redbook_process_single"/>
+        </Button>
+        <Button name="cancel" visible="0">
+            <Wizard action="import_redbook_dst_single"/>
+        </Button>
+        <Text str="変更" name="new" visible="0" x="-16" y="39" rgba="D0D000"/>
+    </Screen>
+
+    <Screen name="import_redbook_process_single" visible="0" z_depth="-1" script="DlgRedbookProcess.amx">
+        <Text name="TitleName" str="トラック %i を取り込んでいます。" x="-199" y="-41" />
+        <Text str="本機の電源を切ったり、" x="-199" y="-20" />
+        <Text str="ＣＤを抜かないでください。" x="-199" y="1" />
+
+        <!-- this forces the font cache to cache all these chars to reduce blinking -->
+        <Text str="0123456789" x="-999" y="-999" />
+
+        <Slider name="TitleProgress" x="0" y="31" w="382"/>
+        <!--Text name="TitleProgressPercentage" str="" x="20" y="57" alignment="right"/-->
+        <Text name="TitleProgressPercentage" str="" x="0" y="57" alignment="center"/>
+	
+
+        <Button name="RedbookProcessFinished" visible="0" x="-159" y="170">
+            <Wizard action="import_redbook_end_single"/>
+        </Button>
+        <Button name="RedbookProcessError" visible="0" x="-159" y="170">
+            <Wizard action="import_redbook_error"/>
+        </Button>
+        <Button name="RedbookProcessMaxTrack" visible="0" x="-159" y="170">
+            <Wizard action="import_redbook_maxtrack"/>
+        </Button>
+        <Button name="DBXCancel" visible="0" x="-159" y="170">
+            <Wizard action="import_cancel"/>
+        </Button>
+    </Screen>
+
+    <!-- -->
+
+    <Screen name="import_redbook_end_single" visible="0" z_depth="-1" focus="ok2">
+        <Text str="取り込みが終了しました。" x="-96" y="8" />
+        <Button name="ok2" x="-100" y="40" visible="0" >
+            <FocusOn>
+                <Text str="戻る" rgba="D0D000"/>
+            </FocusOn>
+            <FocusOff>
+                <Text str="戻る"/>
+            </FocusOff>
+        </Button>
+    </Screen>
+
+    <Screen name="import_redbook_end" visible="0" z_depth="-1" focus="ok2">
+        <Text str="取り込みが終了しました。" x="-96" y="8" />
+        <Button name="ok2" x="-100" y="40" visible="0" >
+            <FocusOn>
+                <Text str="戻る" rgba="D0D000"/>
+            </FocusOn>
+            <FocusOff>
+                <Text str="戻る"/>
+            </FocusOff>
+        </Button>
+    </Screen>
+
+    <Screen name="import_redbook_error" visible="0" z_depth="-1" >
+        <Text str="取り込みに失敗しました。" x="-199" y="-2" />
+        <Text str="取り込めなかったトラックがあります。" x="-199" y="18" />
+
+        <!-- THIS NEXT LINE WILL ONLY BE VISBLE IN SPECIAL DIAGNOSTIC BUILDS -->
+        <!--Text name="ErrorMsg" str="" visible="0" x="-199" y="38" rgba="D00000"/-->
+    </Screen>
+
+ <Screen name="import_redbook_maxtrack" visible="0" z_depth="-1" >
+	<Text str="取り込みが終了しましたが、" x="-199" y="-13" />
+	<Text str="アルバム内のトラック数が99トラックを越えたので" x="-199" y="8" />
+	<Text str="いくつかのトラックは取り込めませんでした。" x="-199" y="29" />
+</Screen>
+
+    <Screen name="import_cancel" visible="0" z_depth="-1" focus="dBack">
+            <Text str="取り込みを中止します。よろしいですか？" x="-152" y="-12" />
+
+            <Button name="dOK" x="-72" y="28" nav_right="dBack" alignment="right">
+                <Wizard action="DBXCancelConfirm"/>
+                <FocusOn>
+                    <Text str="はい" rgba="D0D000"/>
+                </FocusOn>
+                <FocusOff>
+                    <Text str="はい"/>
+                </FocusOff>
+            </Button>
+            <Button name="dBack" x="24" y="28" nav_left="dOK" alignment="left">
+                <Wizard action="DBXCancelNoConfirm"/>
+                <FocusOn>
+                    <Text str="いいえ" rgba="D0D000"/>
+                </FocusOn>
+                <FocusOff>
+                    <Text str="いいえ"/>
+                </FocusOff>
+            </Button>
+    </Screen>
+    
+      <Screen name="import_redbook_illegal" visible="0" z_depth="-1" focus="ok2">
+        <Text str="このディスクを取り込むことはできません。" x="-152" y="8" />
+        <Button name="ok2" x="-100" y="40" visible="0" >
+            <FocusOn>
+                <Text str="戻る" rgba="D0D000"/>
+            </FocusOn>
+            <FocusOff>
+                <Text str="戻る"/>
+            </FocusOff>
+        </Button>
+    </Screen>
+
+</PSML2>

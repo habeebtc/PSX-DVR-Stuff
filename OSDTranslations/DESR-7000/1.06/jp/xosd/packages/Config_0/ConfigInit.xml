@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<App name="ConfigInit" focus="WizardList" script="ConfigInit.amx" visibile="0" >
+	<Dll name="pvr/pvrNative" version="0.1.0" />
+	<Dll name="xBitmap/xBitmap" version="0.1.0" />
+	<Dll name="xBitmap3x3/xBitmap3x3" version="0.1.0" />
+	<Dll name="xPrim/xPrim" version="0.1.0" />
+	<Dll name="xText/xText" version="0.1.0" />
+	<Dll name="xSlider/xSlider" version="0.1.0" />
+	<Dll name="xAudio/xAudio" version="0.1.0" />
+	<Dll name="xCDVD/xCDVD" version="0.1.0" />
+    <Dll name="xSettings/xSettings" version="0.1.0" />
+
+	<Bitmap name="bg" file="art/wizard_bg.png" x="0" y="0" w="720" h="480" />
+	<Component name="WizardList" x="-360" y="-240" >
+
+		<Component name="cell0" x="-720" y="0" rgba="D0D0D000" >
+			<Component name="text" x="216" y="202">
+				<Text name="text0" str="全ての設定を出荷時に戻しますか？" y="0" size="16" alignment="left" />
+				<Bitmap name="arrowUD" file="art/arrow_UD.tga" x="8" y="20" />
+				<Text name="text1" str="で選んで" x="16" y="24" size="16" />
+				<Bitmap name="enter" file="art/BtnNav-EnterCir-917-wide.tga" x="118" y="20" />
+				<Text name="text2" str="を押してください。" x="152" y="24" size="16" />
+			</Component>
+			<Text name="val0" str="戻す" x="344" y="273" size="16" alignment="left" />
+			<Text name="val1" str="戻さない" x="328" y="297" size="16" alignment="left" />
+		</Component>
+
+		<Component name="cell1" x="0" y="0" rgba="D0D0D0FF" >
+			<Text name="text0" str="出荷時設定に戻しています。" x="360" y="166" size="16" alignment="center" />
+			<Text name="text1" str="戻している間は本機の電源を切らないでください。" x="360" y="190" size="16" alignment="center" />
+			<Text name="text2" str="進行状況" x="110" y="230" size="14" />
+			<Component name="bar" y="240" />
+			<Text name="prog" str="" x="610" y="265" size="14" alignment="right" />
+		</Component>
+
+		<Component name="cell2" x="720" y="0" rgba="D0D0D0FF" >
+			<Component name="text" >
+				<Text name="text0" str="すべての設定を出荷時に戻さずに" x="360" y="228" size="16" alignment="center" />
+				<Text name="text1" str="終了する場合は" x="222" y="252" size="16" />
+				<Bitmap name="cross" file="art/BtnNav-Crs-917.png" x="350" y="248" />
+				<Text name="text2" str="を押してください。" x="358" y="252" size="16" />
+			</Component>
+			<Component name="textE" >
+				<Text name="text3" str="出荷時設定に戻しました。" x="360" y="240" size="16" alignment="center" />
+			</Component>
+		</Component>
+
+		<Component name="cell3" x="720" y="0" rgba="D0D0D0FF" />
+		<Component name="cell4" x="720" y="0" rgba="D0D0D000" />
+
+		<Component name="ModifyFocus" x="360" y="220" />
+		<Component name="ModifyFocus2" x="360" y="220" />
+
+		<Component name="ListArrow" y="240" >
+			<Bitmap name="ListArrowLeft"  file="art/GT000020.tga" x="60"  y="-5" rot_y="0.5" w="28"  h="30" visible="0" />
+			<Bitmap name="ListArrowRight" file="art/GT000020.tga" x="646" y="-5" w="28"  h="30" visible="0" />
+		</Component>
+	</Component>
+
+	<Component name="Dialog1" x="-360" y="-240" visible="0" >
+		<Prim name="Bg" type="rect" rgba="000018D0" x="0" y="0" w="720" h="480" />
+		<Bitmap name="Line1" file="art/DialogBorder.tga"  y="240" x="360" w="450" />
+		<Bitmap name="Line2" file="art/DialogBorder.tga"  y="240" x="360" w="450" />
+		<Component name="Base" x="205" y="175" >
+			<Text name="text1" str="出荷時設定に戻すと、" y="0" size="16" rgba="D0D0D0FF" />
+			<Text name="text2" str="本機の設定値がすべて初期状態に" y="24" size="16" rgba="D0D0D0FF" />
+			<Text name="text3" str="なりますがよろしいですか？" y="48" size="16" rgba="D0D0D0FF" />
+			<Text name="text4" str="ハードディスクに保存した映像や写真、" y="82" size="16" rgba="D0D0D0FF" />
+			<Text name="text5" str="音楽などのデータは削除されません。" y="106" size="16" rgba="D0D0D0FF" />
+			<Text name="textY" str="開始する" x="50" y="145" size="16" rgba="D0D0D0FF" />
+			<Text name="textN" str="開始しない" x="178" y="145" size="16" rgba="D0D0D0FF" />
+		</Component>
+		<Component name="DialogFocus" x="360" y="320" />
+		<Component name="DialogFocus2" x="360" y="320" />
+	</Component>
+
+	<Component name="Dialog2" x="-360" y="-240" visible="0" >
+		<Prim name="Bg" type="rect" rgba="000018D0" x="0" y="0" w="720" h="480" />
+		<Bitmap name="Line1" file="art/DialogBorder.tga"  y="240" x="360" w="450" />
+		<Bitmap name="Line2" file="art/DialogBorder.tga"  y="240" x="360" w="450" />
+		<Component name="Base" x="161" y="228" >
+			<Text name="text1" str="出荷時設定に戻すを中止しますか？" x="65" y="0" size="16" rgba="D0D0D0FF" />
+			<Text name="textY" str="中止する" x="95" y="40" size="16" rgba="D0D0D0FF" />
+			<Text name="textN" str="中止しない" x="223" y="40" size="16" rgba="D0D0D0FF" />
+		</Component>
+		<Component name="DialogFocus" x="360" y="268" />
+		<Component name="DialogFocus2" x="360" y="268" />
+	</Component>
+	<Component name="Dialog3" x="-360" y="-240" visible="0" >
+		<Prim name="Bg" type="rect" rgba="000018D0" x="0" y="0" w="720" h="480" />
+		<Bitmap name="Line1" file="art/DialogBorder.tga"  y="240" x="360" w="450" />
+		<Bitmap name="Line2" file="art/DialogBorder.tga"  y="240" x="360" w="450" />
+		<Component name="Base" x="161" y="204" >
+			<Text name="text1" str="録画予約時刻開始まで10分を切りました。" x="40" y="0" size="16" rgba="D0D0D0FF" />
+			<Text name="text2" str="録画開始時刻になると中止して終了します。" x="40" y="24" size="16" rgba="D0D0D0FF" />
+			<Text name="text3" str="ウィザードを中止しますか？" y="48" x="40" size="16" rgba="D0D0D0FF" />
+			<Text name="textY" str="中止する" x="95" y="88" size="16" rgba="D0D0D0FF" />
+			<Text name="textN" str="中止しない" x="223" y="88" size="16" rgba="D0D0D0FF" />
+		</Component>
+		<Component name="DialogFocus" x="360" y="292" />
+		<Component name="DialogFocus2" x="360" y="292" />
+	</Component>
+
+	<Component name="TopBar" x="-360" y="-240" >
+		<Bitmap name="TopBarBg" file="art/TopBar.tga" x="360" y="32" w="720" h="64" />
+		<Text name="Title" str="本体の設定 / 出荷時設定に戻す" x="80" y="51" size="16" rgba="D0D0D0FF" />
+		<Bitmap name="TopIcon" file="art/sICN-Conf-917.tga" x="59" y="45" w="39" h="32" />
+		<Text name="Page" str="" x="580" y="51" size="16" />
+	</Component>
+	<Component name="BotBar" x="-360" y="-240" >
+		<Bitmap name="BotBarBg" file="art/TopBar.tga" x="360" y="448" w="720" h="64" rot_z="0.5" />
+		<Text name="TXTCross" str="戻る" x="271" y="442" size="16" rgba="D0D0D0FF" />
+		<Bitmap name="IcnCross" file="art/BtnNav-Crs-917.png" x="258" y="438" />
+		<Text name="TXTCircle" str="決定" x="409" y="442" size="16" rgba="D0D0D0FF" />
+		<Bitmap name="IcnCiecle" file="art/BtnNav-EnterCir-917-wide.tga" x="375" y="438" />
+	</Component>
+</App>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<App name="ConfigVideoPass" focus="list1" script="ConfigVideoPass.amx" visible="0">
+	<Dll name="pvr/pvrNative" version="0.1.0" />
+	<Dll name="xStr/xStr" version="0.1.0" />
+	<Dll name="xText/xText" version="0.1.0" />
+	<Dll name="xBitmap/xBitmap" version="0.1.0" />
+	<Dll name="xBitmap3x3/xBitmap3x3" version="0.1.0" />
+	<Component name="list0" x="135" y="-27" z="0" visible="1">
+		<Text name="cell0" str="0" x="0" y="30" rgba="D0D000FF"/>
+	</Component>
+	<Component name="list1" x="155" y="-27" z="0" visible="1">
+		<Text name="cell0" str="0" x="0" y="30" rgba="D0D0D0FF" />
+	</Component>
+	<Component name="list2" x="175" y="-27" z="0" visible="1">
+		<Text name="cell0" str="0" x="0" y="30" rgba="D0D0D0FF" />
+	</Component>
+	<Component name="list3" x="195" y="-27" z="0" visible="1">
+		<Text name="cell0" str="0" x="0" y="30" rgba="D0D0D0FF" />
+	</Component>
+	<Bitmap name="guide_up" x="141" y="-22" file="art/arrow_U.tga" w="14" h="12" visible="1"/>
+	<Bitmap name="guide_down" x="141" y="18" file="art/arrow_U.tga" w="14" h="12" rot_x="0.5" visible="1"/>
+</App>

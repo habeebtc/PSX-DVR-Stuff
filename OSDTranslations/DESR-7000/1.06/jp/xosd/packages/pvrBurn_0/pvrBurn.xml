@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<App name="pvrBurn" script="pvrBurn.amx">
+	<Dll name="pvr/pvrNative" version="0.1.0" />
+	<Dll name="xBitmap/xBitmap" version="0.1.0" />
+	<Dll name="xBitmap3x3/xBitmap3x3" version="0.1.0" />
+	<Dll name="xTex/xTex" version="0.1.0" />
+	<Dll name="xText/xText" version="0.1.0" />
+	<Dll name="xMemo/xMemo" version="0.1.0" />
+	<Dll name="xSlider/xSlider" version="0.1.0" />
+	<Dll name="pvrBurn/psxdvdauth" version="0.1.0" />
+
+	<!--Bitmap name="bg" file="art/pvrBurnBG.png" w="704" h="480" /-->
+	<Bitmap name="bg" file="art/BGBurnH.png" w="704" h="480" />
+	<Bitmap name="LArw" file="art/R_arw.tga" x="-275" w="28" h="30" rot_y="0.5" rgba="ffffff00"/>
+	<Bitmap name="RArw" file="art/R_arw.tga" x="275"  w="28" h="30" rgba="ffffff00"/>
+	<Slider name="PrgBar" w="330" visible="0"/>
+
+	<Component name="pg0" rgba="ffffff00">
+		<Memo name="msg" read_only="1" buf_size="1024" lines_max="3" have_scrollbar="0" x="-240" y="-32" w="480" />
+		<Text name="textmsg1" x="-240" y="-14" w="480" />
+		<Text name="textmsg2" x="-240" y="7" w="480" />
+		<!-- Text name="textmsg3" x="-240" y="38" w="480" /-->
+		<Bitmap name="IcnCircle" file="pack:barc/0.1.0/art/BtnNav-EnterCir-917-wide.tga" x="65" y="3" w="72" h="32" z_depth="-6" rgba="FFFFFF00"/>
+	</Component>
+
+	<Component name="pg1" rgba="ffffff00">
+		<Bitmap name="Zab" file="art/burnTitle_carpet3.png" x="47" y="-1" w="290" h="55" rgba="FFFFFF7E" />
+		<Text name="TitleName" x="-90" y="-5" size="18" />
+		<Text name="InfoTime" x="-90" y="20" /> 
+		<Bitmap name="BMPrec" x="-78" y="43" />
+		<Bitmap name="BMPaudio" x="-35" y="43" />
+		<!-- Bitmap name="BMPlock" file="../pvr_1/art/ICN_lock.tga" x="5" y="35" w="20" h="20" /-->
+		<Bitmap name="BMPgg" file="pack:pvr/0.1.0/art/ICN_GG.png" x="10" y="43" w="32" h="23" />
+		<Text name="Size" x="30" y="48" />
+		<Component name="MemSpace" x="200" y="0">
+			<Bitmap file="art/GraphBase.tga"/>
+			<Bitmap file="art/GraphShadow.tga" x="-7" y="-16" />
+			<Component name="krkr">
+				<Bitmap file="art/GraphShadow.tga" x="7" y="-16" rot_y="0.5" />
+			</Component>
+			<Text str="空き容量" x="-30" y="60" />
+			<Text name="EmpSize" x="50" y="85" alignment="right" />
+		</Component>
+		<Bitmap name="Focus" file="art/Focus.png" x="-144" w="82" h="64" z_depth="-10" rgba="FFFF88FF"/>
+		<Bitmap file="art/arrow_UD.png" x="-250" y="157" />
+		<Text str="でダビングしたいタイトルを選択し" x="-235" y="164" z_depth="-6"/>
+		<Bitmap name="IcnCircle" file="pack:barc/0.1.0/art/BtnNav-EnterCir-917-wide.tga" x="70" y="160" w="72" h="32" z_depth="-6" />
+		<Text str="を押してください。" x="105" y="164" z_depth="-6"/>
+	</Component>
+	
+	<Component name="pg2" rgba="ffffff00">
+		<Component name="MsgSpace" x="-90" y="0">
+			<Text name="BurnStart" str="DVDに書き込む順番を確認してください。" y="-10"/>
+			<Bitmap name="IcnCircle" file="pack:barc/0.1.0/art/BtnNav-EnterCir-917-wide.tga" x="30" y="6" w="72" h="32" z_depth="-6"/> 
+			<Text name="BurnStart2" str="を押すとダビングを開始します。" x="63" y="11"/>
+		</Component>
+	</Component>
+
+
+	<Component name="list" x="-144" z_depth="-5">
+		<Component name="cell0" y="-270" rgba="FFFFFF00">
+			<Bitmap name="BMPtumb" w="72" h="54" />
+			<Bitmap name="ChkTumb" x="-55" file="art/ICN_mark.tga" />
+			<Text name="ChkNo" x="-70" y="6"  alignment="right"/>
+		</Component>
+		<Component name="cell1" y="-216" rgba="FFFFFF60">
+			<Bitmap name="BMPtumb" w="72" h="54" />
+			<Bitmap name="ChkTumb" x="-55" file="art/ICN_mark.tga" />
+			<Text name="ChkNo" x="-70" y="6"  alignment="right" />
+		</Component>
+		<Component name="cell2" y="-162" rgba="FFFFFF80">
+			<Bitmap name="BMPtumb" w="72" h="54" />
+			<Bitmap name="ChkTumb" x="-55" file="art/ICN_mark.tga" />
+			<Text name="ChkNo" x="-70" y="6"  alignment="right"/>
+		</Component>
+		<Component name="cell3" y="-108">
+			<Bitmap name="BMPtumb" w="72" h="54" />
+			<Bitmap name="ChkTumb" x="-55" file="art/ICN_mark.tga" />
+			<Text name="ChkNo" x="-70" y="6"  alignment="right"/>
+		</Component>
+		<Component name="cell4" y="-54">
+			<Bitmap name="BMPtumb" w="72" h="54" />
+			<Bitmap name="ChkTumb" x="-55" file="art/ICN_mark.tga" />
+			<Text name="ChkNo" x="-70" y="6"  alignment="right"/>
+		</Component>
+		<Component name="cell5" y="0" >
+			<Bitmap name="BMPtumb" w="72" h="54" />
+			<Bitmap name="ChkTumb" x="-55" file="art/ICN_mark.tga" />
+			<Text name="ChkNo" x="-70" y="6"  alignment="right"/>
+		</Component>
+		<Component name="cell6" y="54" >
+			<Bitmap name="BMPtumb" w="72" h="54" />
+			<Bitmap name="ChkTumb" x="-55" file="art/ICN_mark.tga" />
+			<Text name="ChkNo" x="-70" y="6"  alignment="right"/>
+		</Component>
+		<Component name="cell7" y="108" >
+			<Bitmap name="BMPtumb" w="72" h="54" />
+			<Bitmap name="ChkTumb" x="-55" file="art/ICN_mark.tga" />
+			<Text name="ChkNo" x="-70" y="6"  alignment="right"/>
+		</Component>
+		<Component name="cell8" y="162" rgba="FFFFFF80">
+			<Bitmap name="BMPtumb" w="72" h="54" />
+			<Bitmap name="ChkTumb" x="-55" file="art/ICN_mark.tga" />
+			<Text name="ChkNo" x="-70" y="6"  alignment="right"/>
+		</Component>
+		<Component name="cell9" y="216" rgba="FFFFFF60">
+			<Bitmap name="BMPtumb" w="72" h="54" />
+			<Bitmap name="ChkTumb" x="-55" file="art/ICN_mark.tga" />
+			<Text name="ChkNo" x="-70" y="6"  alignment="right"/>
+		</Component>
+		<Component name="cell10" y="270" rgba="FFFFFF00">
+			<Bitmap name="BMPtumb" w="72" h="54" />
+			<Bitmap name="ChkTumb" x="-55" file="art/ICN_mark.tga" />
+			<Text name="ChkNo" x="-70" y="6"  alignment="right"/>
+		</Component>
+	</Component>
+</App>

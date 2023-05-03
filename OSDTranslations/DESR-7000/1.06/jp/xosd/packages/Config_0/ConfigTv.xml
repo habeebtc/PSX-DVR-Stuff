@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<App name="ConfigTv" focus="config_list_tv" script="ConfigTv.amx" z_depth="0">
+	<Dll name="pvr/pvrNative" version="0.1.0" />
+	<Dll name="xPrim/xPrim" version="0.1.0" />
+	<Dll name="xStr/xStr" version="0.1.0" />
+	<Dll name="xText/xText" version="0.1.0" />
+	<Dll name="xBitmap/xBitmap" version="0.1.0" />
+	<Dll name="xBitmap3x3/xBitmap3x3" version="0.1.0" />
+
+	<Component name="config_list_tv" visible="1" y="-16">
+		<Component name="select_x" x="-130" y="16" z="0" a="255" visible="0" />
+
+		<Component name="cell0" x="-180" y="-275" z="0" rgba="D0D0D000">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10" />
+			<Bitmap name="BMPthumb_1" w="54" h="54" />
+			<Bitmap name="BMPthumb_2" file="art/TitleZab1.tga" x="148" y="0" w="230" h="54" visible="0" />
+			<Text name="label0" x="40" y="2" size="18" z_depth="-9"/>
+			<Text name="label1" x="315" y="2" size="16" z_depth="-9"/>
+		</Component>
+		<Component name="cell1" x="-180" y="-221" z="0" rgba="D0D0D0FF">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10" />
+			<Bitmap name="BMPthumb_1" w="54" h="54" />
+			<Bitmap name="BMPthumb_2" file="art/TitleZab1.tga" x="148" y="0" w="230" h="54" visible="0" />
+			<Text name="label0" x="40" y="2" size="18" z_depth="-9"/>
+			<Text name="label1" x="315" y="2" size="16" z_depth="-9"/>
+		</Component>
+		<Component name="cell2" x="-180" y="-167" z="0" rgba="D0D0D0FF">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10" />
+			<Bitmap name="BMPthumb_1" w="54" h="54" />
+			<Bitmap name="BMPthumb_2" file="art/TitleZab1.tga" x="148" y="0" w="230" h="54" visible="0" />
+			<Text name="label0" x="40" y="2" size="18" z_depth="-9"/>
+			<Text name="label1" x="315" y="2" size="16" z_depth="-9"/>
+		</Component>
+		<Component name="cell3" x="-180" y="-113" z="0" rgba="D0D0D0FF">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10" />
+			<Bitmap name="BMPthumb_1" w="54" h="54" />
+			<Bitmap name="BMPthumb_2" file="art/TitleZab1.tga" x="148" y="0" w="230" h="54" visible="0" />
+			<Text name="label0" x="40" y="2" size="18" z_depth="-9"/>
+			<Text name="label1" x="315" y="2" size="16" z_depth="-9"/>
+		</Component>
+		<Component name="cell4" x="-180" y="-59" z="0" rgba="D0D0D0FF">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10" />
+			<Bitmap name="BMPthumb_1" w="54" h="54" />
+			<Bitmap name="BMPthumb_2" file="art/TitleZab1.tga" x="148" y="0" w="230" h="54" visible="0" />
+			<Text name="label0" x="40" y="2" size="18" z_depth="-9"/>
+			<Text name="label1" x="315" y="2" size="16" z_depth="-9"/>
+		</Component>
+		<Component name="cell5" x="-180" y="16" z="0" rgba="D0D0D0FF">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10" />
+			<Bitmap name="BMPthumb_1" w="54" h="54" />
+			<Bitmap name="BMPthumb_2" file="art/TitleZab1.tga" x="148" y="0" w="230" h="54" visible="0" />
+			<Text name="label0" x="40" y="2" size="18" z_depth="-9"/>
+			<Text name="label1" x="315" y="2" size="16" z_depth="-9"/>
+		</Component>
+		<Component name="cell6" x="-180" y="91" z="0" rgba="D0D0D0FF">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10" />
+			<Bitmap name="BMPthumb_1" w="54" h="54" />
+			<Bitmap name="BMPthumb_2" file="art/TitleZab1.tga" x="148" y="0" w="230" h="54" visible="0" />
+			<Text name="label0" x="40" y="2" size="18" z_depth="-9"/>
+			<Text name="label1" x="315" y="2" size="16" z_depth="-9"/>
+		</Component>
+		<Component name="cell7" x="-180" y="145" z="0" rgba="D0D0D0FF">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10" />
+			<Bitmap name="BMPthumb_1" w="54" h="54" />
+			<Bitmap name="BMPthumb_2" file="art/TitleZab1.tga" x="148" y="0" w="230" h="54" visible="0" />
+			<Text name="label0" x="40" y="2" size="18" z_depth="-9"/>
+			<Text name="label1" x="315" y="2" size="16" z_depth="-9"/>
+		</Component>
+		<Component name="cell8" x="-180" y="199" z="0" rgba="D0D0D0FF">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10" />
+			<Bitmap name="BMPthumb_1" w="54" h="54" />
+			<Bitmap name="BMPthumb_2" file="art/TitleZab1.tga" x="148" y="0" w="230" h="54" visible="0" />
+			<Text name="label0" x="40" y="2" size="18" z_depth="-9"/>
+			<Text name="label1" x="315" y="2" size="16" z_depth="-9"/>
+		</Component>
+		<Component name="cell9" x="-180" y="253" z="0" rgba="D0D0D0FF">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10" />
+			<Bitmap name="BMPthumb_1" w="54" h="54" />
+			<Bitmap name="BMPthumb_2" file="art/TitleZab1.tga" x="148" y="0" w="230" h="54" visible="0" />
+			<Text name="label0" x="40" y="2" size="18" z_depth="-9"/>
+			<Text name="label1" x="315" y="2" size="16" z_depth="-9"/>
+		</Component>
+		<Component name="cell10" x="-180" y="307" z="0" rgba="D0D0D0FF">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10" />
+			<Bitmap name="BMPthumb_1" w="54" h="54" />
+			<Bitmap name="BMPthumb_2" file="art/TitleZab1.tga" x="148" y="0" w="230" h="54" visible="0" />
+			<Text name="label0" x="40" y="2" size="18" z_depth="-9"/>
+			<Text name="label1" x="315" y="2" size="16" z_depth="-9"/>
+			<Text name="label2" x="315" y="26" size="16" z_depth="-9"/>
+		</Component>
+		<Component name="cell11" x="-180" y="361" z="0" rgba="D0D0D0FF">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10" />
+			<Bitmap name="BMPthumb_1" w="54" h="54" />
+			<Bitmap name="BMPthumb_2" file="art/TitleZab1.tga" x="148" y="0" w="230" h="54" visible="0" />
+			<Text name="label0" x="40" y="2" size="18" z_depth="-9"/>
+			<Text name="label1" x="315" y="2" size="16" z_depth="-9"/>
+		</Component>
+		<Component name="cell12" x="-180" y="415" z="0" rgba="D0D0D0FF">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10" />
+			<Bitmap name="BMPthumb_1" w="54" h="54" />
+			<Bitmap name="BMPthumb_2" file="art/TitleZab1.tga" x="148" y="0" w="230" h="54" visible="0" />
+			<Text name="label0" x="40" y="2" size="18" z_depth="-9"/>
+			<Text name="label1" x="315" y="2" size="16" z_depth="-9"/>
+		</Component>
+		<Component name="cell13" x="-180" y="469" z="0" rgba="D0D0D0FF">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10" />
+			<Bitmap name="BMPthumb_1" w="54" h="54" />
+			<Bitmap name="BMPthumb_2" file="art/TitleZab1.tga" x="148" y="0" w="230" h="54" visible="0" />
+			<Text name="label0" x="40" y="2" size="18" z_depth="-9"/>
+			<Text name="label1" x="315" y="2" size="16" z_depth="-9"/>
+		</Component>
+		<Component name="cell14" x="-180" y="523" z="0" rgba="D0D0D000">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10" />
+			<Bitmap name="BMPthumb_1" w="54" h="54" />
+			<Bitmap name="BMPthumb_2" file="art/TitleZab1.tga" x="148" y="0" w="230" h="54" visible="0" />
+			<Text name="label0" x="40" y="2" size="18" z_depth="-9"/>
+			<Text name="label1" x="315" y="2" size="16" z_depth="-9"/>
+		</Component>
+	</Component>
+
+	<Component name="config_submenu_tv" x="240" visible="0">
+		<Bitmap name="BMPzab" file="art/ZabOptMenu.tga" w="250" h="480" />
+		<Component name="config_submenu_tv_list">
+			<Component name="cell0" x="-110" y="-26" z="0" a="255">
+				<Text name="label0" x="5" y="2" size="16" a="0" z_depth="-9"/>
+			</Component>
+			<Component name="cell1" x="-110" y="0" z="0" a="255">
+				<Text name="label0" x="5" y="2" size="16" a="0" z_depth="-9"/>
+			</Component>
+			<Component name="cell2" x="-110" y="26" z="0" a="255">
+				<Text name="label0" x="5" y="2" size="16" a="0" z_depth="-9"/>
+			</Component>
+		</Component>
+
+		<Component name="config_tv_epg_time" x="-110" y="1" a="255" visible="0">
+			<Text name="no0" str="1" x="5" y="0" size="16" z_depth="-9"/>
+			<Text name="time0" str="" x="25" y="0" size="16" z_depth="-9"/>
+			<Text name="sp0" str=":" x="55" y="0" size="16" z_depth="-9"/>
+			<Text name="time1" str="" x="67" y="0" size="16" z_depth="-9"/>
+			<Text name="notation0" str="" x="100" y="0" size="16" z_depth="-9"/>
+			<Text name="no1" str="2" x="5" y="26" size="16" z_depth="-9"/>
+			<Text name="time2" str="" x="25" y="26" size="16" z_depth="-9"/>
+			<Text name="sp1" str=":" x="55" y="26" size="16" z_depth="-9"/>
+			<Text name="time3" str="" x="67" y="26" size="16" z_depth="-9"/>
+			<Text name="notation1" str="" x="100" y="26" size="16" z_depth="-9"/>
+		</Component>
+		<Component name="config_tv_epg_ch" x="-110" y="0" a="255" visible="0">
+			<Text name="ch" str="" x="15" y="2" size="16" alignment="center" z_depth="-9"/>
+			<Text str="CH" x="35" y="2" size="16" z_depth="-9"/>
+		</Component>
+		<Component name="config_tv_epg_area" x="-110" y="0" a="255" visible="0">
+			<Component name="AreaList" x="20" y="-180">
+				<Component name="Bar" x="-34" y="188" />
+				<Component name="cell0" x="0" y="-52" rgba="D0D0D000">
+					<Text name="text" str="" size="16" alignment="left" z_depth="-9"/>
+				</Component>
+				<Component name="cell1" x="0" y="-26" rgba="D0D0D080">
+					<Text name="text" str="" size="16" alignment="left" z_depth="-9"/>
+				</Component>
+				<Component name="cell2" x="0" y="0" rgba="D0D0D0A0">
+					<Text name="text" str="" size="16" alignment="left" z_depth="-9"/>
+				</Component>
+				<Component name="cell3" x="0" y="26" rgba="D0D0D0C0">
+					<Text name="text" str="" size="16" alignment="left" z_depth="-9"/>
+				</Component>
+				<Component name="cell4" x="0" y="52" rgba="D0D0D0FF">
+					<Text name="text" str="" size="16" alignment="left" z_depth="-9"/>
+				</Component>
+				<Component name="cell5" x="0" y="78" rgba="D0D0D0FF">
+					<Text name="text" str="" size="16" alignment="left" z_depth="-9"/>
+				</Component>
+				<Component name="cell6" x="0" y="104" rgba="D0D0D0FF">
+					<Text name="text" str="" size="16" alignment="left" z_depth="-9"/>
+				</Component>
+				<Component name="cell7" x="0" y="130" rgba="D0D0D0FF">
+					<Text name="text" str="" size="16" alignment="left" z_depth="-9"/>
+				</Component>
+				<Component name="cell8" x="0" y="156" rgba="D0D0D0FF">
+					<Text name="text" str="" size="16" alignment="left" z_depth="-9"/>
+				</Component>
+				<Component name="cell9" x="0" y="182" rgba="D0D0D0FF">
+					<Text name="text" str="" size="16" alignment="left" z_depth="-9"/>
+				</Component>
+				<Component name="cell10" x="0" y="208" rgba="D0D0D0FF">
+					<Text name="text" str="" size="16" alignment="left" z_depth="-9"/>
+				</Component>
+				<Component name="cell11" x="0" y="234" rgba="D0D0D0FF">
+					<Text name="text" str="" size="16" alignment="left" z_depth="-9"/>
+				</Component>
+				<Component name="cell12" x="0" y="260" rgba="D0D0D0FF">
+					<Text name="text" str="" size="16" alignment="left" z_depth="-9"/>
+				</Component>
+				<Component name="cell13" x="0" y="286" rgba="D0D0D0FF">
+					<Text name="text" str="" size="16" alignment="left" z_depth="-9"/>
+				</Component>
+				<Component name="cell14" x="0" y="312" rgba="D0D0D0FF">
+					<Text name="text" str="" size="16" alignment="left" z_depth="-9"/>
+				</Component>
+				<Component name="cell15" x="0" y="338" rgba="D0D0D0C0">
+					<Text name="text" str="" size="16" alignment="left" z_depth="-9"/>
+				</Component>
+				<Component name="cell16" x="0" y="364" rgba="D0D0D0A0">
+					<Text name="text" str="" size="16" alignment="left" z_depth="-9"/>
+				</Component>
+				<Component name="cell17" x="0" y="390" rgba="D0D0D080">
+					<Text name="text" str="" size="16" alignment="left" z_depth="-9"/>
+				</Component>
+				<Component name="cell18" x="0" y="416" rgba="D0D0D000">
+					<Text name="text" str="" size="16" alignment="left" z_depth="-9"/>
+				</Component>
+			</Component>
+		</Component>
+		<Component name="ModifyFocus" y="0" visible="0" >
+			<Bitmap name="ModifyFocusBar" file="art/TextFocus.tga" y="-3" w="38" h="22" />
+			<Component name="ModifyFocusArrow">
+				<Bitmap name="ModifyFocusArrowUp" file="art/arrow_U.tga" y="-17" w="14" h="12" />
+				<Bitmap name="ModifyFocusArrowDn" file="art/arrow_U.tga" y="10" rot_x="0.5" w="14" h="12" />
+			</Component>
+		</Component>
+	</Component>
+	<Component name="config_mainmenuitem0">
+		<String name="text0" str="手動チャンネル設定" />
+		<String name="text1" str="自動チャンネル設定" />
+		<String name="text2" str="ミュート設定" />
+		<String name="text3" str="外部映像入力" />
+		<String name="text4" str="自動ステレオ受信" />
+		<String name="text5" str="BSチャンネル飛ばし" />
+		<String name="text6" str="BSアンテナレベル表示" />
+		<String name="text7" str="BSアンテナ電源" />
+		<String name="text8" str="地域番号設定" />
+		<String name="text9" str="番組表取得チャンネル" />
+		<String name="text10" str="番組表取得時刻" />
+	</Component>
+	<Component name="config_submenuitem0_0" />
+	<Component name="config_submenuitem0_1" />
+	<Component name="config_submenuitem0_2">
+		<String name="text0" str="しない" />
+		<String name="text1" str="する" />
+
+		<String name="value0" str="0" />
+		<String name="value1" str="1" />
+	</Component>
+	<Component name="config_submenuitem0_3">
+		<String name="text0" str="映像" />
+		<String name="text1" str="S映像" />
+
+		<String name="value0" str="0" />
+		<String name="value1" str="1" />
+	</Component>
+	<Component name="config_submenuitem0_4">
+		<String name="text0" str="入" />
+		<String name="text1" str="切" />
+
+		<String name="value0" str="1" />
+		<String name="value1" str="0" />
+	</Component>
+	<Component name="config_submenuitem0_5" />
+	<Component name="config_submenuitem0_6" />
+	<Component name="config_submenuitem0_7">
+		<String name="text0" str="入" />
+		<String name="text1" str="切" />
+
+		<String name="value0" str="0" />
+		<String name="value1" str="1" />
+	</Component>
+	<Component name="config_submenuitem0_8" />
+	<Component name="config_submenuitem0_9" />
+	<Component name="config_submenuitem0_10" />
+</App>

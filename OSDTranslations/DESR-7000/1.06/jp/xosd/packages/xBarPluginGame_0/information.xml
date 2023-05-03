@@ -1,0 +1,31 @@
+﻿<?xml version="1.0"?>
+<PSML2>
+
+	<Dll name="xBitmap/xBitmap" version="0.1.0" />
+	<Dll name="xText/xText" version="0.1.0" />
+
+    <Screen name="GameInfoDialog" visible="0" z_depth="-1">
+	<Bitmap name="GroMarkIcon" x="-182" y="-136" />
+        <Bitmap name="GameInfoIcon" x="-112" y="-94" />
+    
+        <Text str="タイトル" x="-120" y="-5" alignment="right" rgba="D0D0D0"/>
+        <Text name="GameName" str="" x="-104" y="-5" rgba="D0D0D0"/>		<!-- For 1 Line Title -->
+        <Text name="GameName1" str="" x="-104" y="-16" rgba="D0D0D0"/>		<!-- For 1st Line of 2 Line Title -->
+        <Text name="GameName2" str="" x="-104" y="10" rgba="D0D0D0"/>		<!-- For 2nd Line of 2 Line Title -->
+    
+        <Text str="発売元" x="-120" y="36" alignment="right" rgba="D0D0D0"/>
+        <Text name="GamePublisher" str="" x="-104" y="36" rgba="D0D0D0"/>
+    
+        <Text str="品番" x="-120" y="62" alignment="right" rgba="D0D0D0"/>
+        <Text name="GameDiscNo" str="" x="-104" y="62" rgba="D0D0D0"/>
+    
+        <Text str="種類" x="-120" y="88" alignment="right" rgba="D0D0D0"/>
+        <Text name="GameFormat" str="" x="-104" y="88" rgba="D0D0D0"/>
+    
+        <Text str="作成日時" x="-120" y="114" alignment="right" rgba="D0D0D0"/>
+        <Text name="GameDate" str="" x="-104" y="114" rgba="D0D0D0"/>
+    
+        <Text str="サイズ" x="-120" y="140" alignment="right" rgba="D0D0D0"/>
+        <Text name="GameSize" str="" x="-104" y="140" rgba="D0D0D0"/>
+    </Screen>
+</PSML2>

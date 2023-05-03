@@ -1,0 +1,392 @@
+<?xml version="1.0"?>
+<PSML2>
+
+<Dll name="xButton/xButton" version="0.1.0" />
+<Dll name="xContainer/xContainer" version="0.1.0" />
+<Dll name="xEdit/xEdit" version="0.1.0" />
+<Dll name="xText/xText" version="0.1.0" />
+<Dll name="xSlider/xSlider" version="0.1.0" />
+<Dll name="xStr/xStr" version="0.1.0" />
+<Dll name="xWizard/xWizard" version="0.1.0" />
+
+<!-- album version -->
+ <Screen name="import_mp3_ms" visible="0" z_depth="-1" focus="dOK">
+	<Text str="メモリースティック内の音楽を全て取り込みますか？" x="-200" y="-40"/>
+	<Button name="dOK" x="-100" y="40" nav_down="dBack">
+		<Wizard action="import_mp3_ms_checkzise"/>
+		<FocusOn><Text str="はい" rgba="D0D000"/></FocusOn>
+		<FocusOff><Text str="はい"/></FocusOff>
+	</Button>
+	<Button name="dBack" x="-100" y="60" nav_up="dOK">
+		<FocusOn><Text str="いいえ" rgba="D0D000"/></FocusOn>
+		<FocusOff><Text str="いいえ"/></FocusOff>
+	</Button>
+</Screen>
+
+ <Screen name="import_mp3_ms_nofiles" visible="0" z_depth="-1" focus="dOK">
+	<Text str="No music files availble to import" x="-200" y="-40"/>
+</Screen>
+
+<Screen name="import_mp3_ms_checkzise" visible="0" z_depth="-1" focus="OK1tmp">
+	<Text str="ハードディスクの空き容量を確認しています" x="-200" y="-40"/>
+	<Text str="しばらくお待ち下さい" x="-200" y="-20"/>
+	<Button name="OK1tmp" visible="0" x="-100" y="40" nav_down="Cancel1tmp">
+		<Wizard action="import_mp3_ms_dst"/>
+		<FocusOn><Text str="OK ( tmp )" rgba="D0D000"/></FocusOn>
+		<FocusOff><Text str="OK ( tmp )" /></FocusOff>
+	</Button>
+	<Button name="Cancel1tmp" visible="0" x="-100" y="60" nav_up="OK1tmp">
+		<Wizard action="import_mp3_ms_nospace"/>
+		<FocusOn><Text str="Not enough space ( tmp )" rgba="D0D000"/></FocusOn>
+		<FocusOff><Text str="Not enough space ( tmp )" /></FocusOff>
+	</Button>
+</Screen>
+
+<Screen name="import_mp3_ms_nospace" visible="0" z_depth="-1" focus="Cancel">
+	<Text str="ハードディスクの空き容量が不足しています。" x="-200" y="-40"/>
+	<Text str="不要な曲や映像を削除して空き容量を確保してください。" x="-200" y="-20"/>
+	<Button name="Cancel" x="-100" y="40">
+		<FocusOn><Text str="戻る" rgba="D0D000"/></FocusOn>
+		<FocusOff><Text str="戻る"/></FocusOff>
+	</Button>
+</Screen>
+
+<Screen name="import_mp3_ms_dst" visible="0" z_depth="-1" script="DlgRedbookChooseAlbum.amx" focus="NewAlbum">
+	<Text str="取り込んだ音楽を入れるアルバムを選択してください。" x="-200" y="-40"/>
+	<Container name="choices" orientation="1" x="-100" y="-20" w="320" h="100" spacing="22" align="left">
+		<Button name="NewAlbum" nav_down="button_tmpl">
+			<Wizard variable="dir" value="New Album" action="import_mp3_ms_newdst"/>
+			<FocusOn><Text str="新規作成" rgba="D0D000"/></FocusOn>
+			<FocusOff><Text str="新規作成"/></FocusOff>	
+		</Button>
+		<Button name="button_tmpl" visible="0" nav_up="NewAlbum">
+			<Wizard name="dir" variable="dir" value="-1" action="import_mp3_ms_process"/>
+			<FocusOn><Text str="" rgba="D0D000"/></FocusOn>
+			<FocusOff><Text str=""/></FocusOff>	
+		</Button>
+	</Container>
+</Screen>
+
+<Screen name="import_mp3_ms_newdst" visible="0" z_depth="-1" script="DlgRedbookNewAlbum.amx" focus="AlbumName">
+	<Text str="新規作成" x="-200" y="-50"/>
+    <Text str="Album Name:" x="-100" y="-20" alignment="right"/>
+    <Edit visible="0" name="AlbumName"  str="NewAlbum" x="-80" y="-20"/>
+	<Text name="whitename" str="" x="-80" y="-20"/>
+	<Text name="invalid" visible="0" str="is invalid or already used." x="-200" y="10"/>
+    <Button name="ok" visible="0">
+        <Wizard name="dir" variable="dir" value="New Album" action="import_mp3_ms_process"/>
+    </Button>
+    <Button name="cancel" visible="0">
+        <Wizard action="import_mp3_ms_dst"/>
+    </Button>
+    <Text name="new" visible="0" x="-100" y="40" str="Choose a new name..." rgba="D0D000"/>
+</Screen>
+
+<Screen name="import_mp3_ms_process" visible="0" z_depth="-1" script="DlgImportMp3Process.amx">
+	<String name="TitleNameStr" str="を取り込んでいます。"/>
+	<Text str="音楽を取り込んでいます。"  x="-159" y="-40"/>
+	<Text str="本機の電源を切ったり、メモリースティックを抜かないでください。" x="-159" y="-20"/>
+	
+	<Text str="取り込み状況" x="-200" y="20"/>
+	<Text str="全体" x="-40" y="40"/>
+	<Slider name="AlbumProgress" x="0" y="50" w="450"/>
+	<Text name="AlbumProgressPercentage" str="1" x="20" y="75" alignment="right"/>
+	
+	<Text name="TitleName" str="Title" x="-200" y="112"/>
+	<Slider name="TitleProgress" x="0" y="122" w="450"/>
+	<Text name="TitleProgressPercentage" str="2" x="20" y="147" alignment="right"/>
+	
+	<Button name="Mp3ImportProcessFinished" visible="0" x="-159" y="170">
+		<Wizard action="import_mp3_end"/>
+	</Button>
+	<Button name="Mp3ImportProcessError" visible="0" x="-159" y="170">
+		<Wizard action="import_mp3_error"/>
+	</Button>
+</Screen>
+
+<!-- single version -->
+<Screen name="import_mp3_ms_single" visible="0" z_depth="-1" focus="dOK">
+	<Text str="この音楽を取り込みますか？" x="-200" y="-40"/>
+	<Button name="dOK" x="-100" y="40" nav_down="dBack">
+		<Wizard action="import_mp3_ms_checkzise_single"/>
+		<FocusOn><Text str="はい" rgba="D0D000"/></FocusOn>
+		<FocusOff><Text str="はい"/></FocusOff>
+	</Button>
+	<Button name="dBack" x="-100" y="60" nav_up="dOK">
+		<FocusOn><Text str="いいえ" rgba="D0D000"/></FocusOn>
+		<FocusOff><Text str="いいえ"/></FocusOff>
+	</Button>
+</Screen>
+
+<Screen name="import_mp3_ms_checkzise_single" visible="0" z_depth="-1" focus="OK1tmp">
+	<Text str="ハードディスクの空き容量を確認しています" x="-200" y="-40"/>
+	<Text str="しばらくお待ち下さい" x="-200" y="-20"/>
+	<Button name="OK1tmp" x="-100" y="40" nav_down="Cancel1tmp">
+		<Wizard variable="quality" value="2" action="import_mp3_ms_dst_single"/>
+		<FocusOn><Text str="OK ( tmp )" rgba="D0D000"/></FocusOn>
+		<FocusOff><Text str="OK ( tmp )" /></FocusOff>
+	</Button>
+	<Button name="Cancel1tmp" x="-100" y="60" nav_up="OK1tmp">
+		<Wizard variable="quality" value="2" action="import_mp3_ms_nospace_single"/>
+		<FocusOn><Text str="Not enough space ( tmp )" rgba="D0D000"/></FocusOn>
+		<FocusOff><Text str="Not enough space ( tmp )" /></FocusOff>
+	</Button>
+</Screen>
+
+<Screen name="import_mp3_ms_nospace_single" visible="0" z_depth="-1" focus="Cancel">
+	<Text str="ハードディスクの空き容量が不足しています。" x="-200" y="-40"/>
+	<Text str="不要な曲や映像を削除して空き容量を確保してください。" x="-200" y="-20"/>
+	<Button name="Cancel" x="-100" y="40">
+		<FocusOn><Text str="戻る" rgba="D0D000"/></FocusOn>
+		<FocusOff><Text str="戻る"/></FocusOff>
+	</Button>
+</Screen>
+
+<Screen name="import_mp3_ms_dst_single" visible="0" z_depth="-1" script="DlgRedbookChooseAlbum.amx" focus="NewAlbum">
+	<Text str="取り込んだ音楽を入れるアルバムを選択してください。" x="-200" y="-40"/>
+	<Container name="choices" orientation="1" x="-100" y="-20" w="320" h="100" spacing="22" align="left">
+		<Button name="NewAlbum" nav_down="button_tmpl">
+			<Wizard variable="dir" value="New Album" action="import_mp3_ms_newdst_single"/>
+			<FocusOn><Text str="新規作成" rgba="D0D000"/></FocusOn>
+			<FocusOff><Text str="新規作成"/></FocusOff>	
+		</Button>
+		<Button name="button_tmpl" visible="0" nav_up="NewAlbum">
+			<Wizard name="dir" variable="dir" value="-1" action="import_mp3_ms_process_single"/>
+			<FocusOn><Text str="" rgba="D0D000"/></FocusOn>
+			<FocusOff><Text str=""/></FocusOff>	
+		</Button>
+	</Container>
+</Screen>
+
+<Screen name="import_mp3_ms_newdst_single" visible="0" z_depth="-1" script="DlgRedbookNewAlbum.amx" focus="AlbumName">
+	<Text str="新規作成" x="-200" y="-50"/>
+    <Text str="Album Name:" x="-100" y="-20" alignment="right"/>
+    <Edit visible="0" name="AlbumName"  str="NewAlbum" x="-80" y="-20"/>
+	<Text name="whitename" str="" x="-80" y="-20"/>
+	<Text name="invalid" visible="0" str="is invalid or already used." x="-200" y="10"/>
+    <Button name="ok" visible="0">
+        <Wizard name="dir" variable="dir" value="New Album" action="import_mp3_ms_process_single"/>
+    </Button>
+    <Button name="cancel" visible="0">
+        <Wizard action="import_mp3_ms_dst_single"/>
+    </Button>
+    <Text name="new" visible="0" x="-100" y="40" str="Choose a new name..." rgba="D0D000"/>
+</Screen>
+
+<Screen name="import_mp3_ms_process_single" visible="0" z_depth="-1" script="DlgImportMp3Process.amx">
+	<!--Text str="xxx.mp3を取り込んでいます。" x="-250" y="-40"/-->
+	<String name="TitleNameStr" str="を取り込んでいます。"/>
+	<Text name="TitleName" str="Title" x="-250" y="-40"/>
+	<Text str="本機の電源を切ったり、メモリースティックを抜かないでください。" x="-250" y="-20"/>
+	<Text str="取り込み状況" x="-200" y="92"/>
+	<Slider name="TitleProgress" x="0" y="102" w="450"/>
+	<Text name="TitleProgressPercentage" str="2" x="20" y="127" alignment="right"/>
+	
+	<Button name="Mp3ImportProcessFinished" visible="0" x="-159" y="170">
+		<Wizard action="import_mp3_end"/>
+	</Button>
+	<Button name="Mp3ImportProcessError" visible="0" x="-159" y="170">
+		<Wizard action="import_mp3_error"/>
+	</Button>
+</Screen>
+
+<!--cd import-->
+
+<!-- album version -->
+ <Screen name="import_mp3_disc" visible="0" z_depth="-1" focus="dOK">
+	<Text str="メモリースティック内の音楽を全て取り込みますか？" x="-200" y="-40"/>
+	<Button name="dOK" x="-100" y="40" nav_down="dBack">
+		<Wizard action="import_mp3_disc_checkzise"/>
+		<FocusOn><Text str="はい" rgba="D0D000"/></FocusOn>
+		<FocusOff><Text str="はい"/></FocusOff>
+	</Button>
+	<Button name="dBack" x="-100" y="60" nav_up="dOK">
+		<FocusOn><Text str="いいえ" rgba="D0D000"/></FocusOn>
+		<FocusOff><Text str="いいえ"/></FocusOff>
+	</Button>
+</Screen>
+
+<Screen name="import_mp3_disc_nofiles" visible="0" z_depth="-1" focus="dOK">
+   <Text str="No music files availble to import" x="-200" y="-40"/>
+</Screen>
+
+<Screen name="import_mp3_disc_checkzise" visible="0" z_depth="-1" focus="OK1tmp">
+	<Text str="ハードディスクの空き容量を確認しています" x="-200" y="-40"/>
+	<Text str="しばらくお待ち下さい" x="-200" y="-20"/>
+	<Button name="OK1tmp" x="-100" y="40" nav_down="Cancel1tmp">
+		<Wizard action="import_mp3_disc_dst"/>
+		<FocusOn><Text str="OK ( tmp )" rgba="D0D000"/></FocusOn>
+		<FocusOff><Text str="OK ( tmp )" /></FocusOff>
+	</Button>
+	<Button name="Cancel1tmp" x="-100" y="60" nav_up="OK1tmp">
+		<Wizard action="import_mp3_disc_nospace"/>
+		<FocusOn><Text str="Not enough space ( tmp )" rgba="D0D000"/></FocusOn>
+		<FocusOff><Text str="Not enough space ( tmp )" /></FocusOff>
+	</Button>
+</Screen>
+
+<Screen name="import_mp3_disc_nospace" visible="0" z_depth="-1" focus="Cancel">
+	<Text str="ハードディスクの空き容量が不足しています。" x="-200" y="-40"/>
+	<Text str="不要な曲や映像を削除して空き容量を確保してください。" x="-200" y="-20"/>
+	<Button name="Cancel" x="-100" y="40">
+		<FocusOn><Text str="戻る" rgba="D0D000"/></FocusOn>
+		<FocusOff><Text str="戻る"/></FocusOff>
+	</Button>
+</Screen>
+
+<Screen name="import_mp3_disc_dst" visible="0" z_depth="-1" script="DlgRedbookChooseAlbum.amx" focus="NewAlbum">
+	<Text str="取り込んだ音楽を入れるアルバムを選択してください。" x="-200" y="-40"/>
+	<Container name="choices" orientation="1" x="-100" y="-20" w="320" h="100" spacing="22" align="left">
+		<Button name="NewAlbum" nav_down="button_tmpl">
+			<Wizard variable="dir" value="New Album" action="import_mp3_disc_newdst"/>
+			<FocusOn><Text str="新規作成" rgba="D0D000"/></FocusOn>
+			<FocusOff><Text str="新規作成"/></FocusOff>	
+		</Button>
+		<Button name="button_tmpl" visible="0" nav_up="NewAlbum">
+			<Wizard name="dir" variable="dir" value="-1" action="import_mp3_disc_process"/>
+			<FocusOn><Text str="" rgba="D0D000"/></FocusOn>
+			<FocusOff><Text str=""/></FocusOff>	
+		</Button>
+	</Container>
+</Screen>
+
+<Screen name="import_mp3_disc_newdst" visible="0" z_depth="-1" script="DlgRedbookNewAlbum.amx" focus="AlbumName">
+	<Text str="新規作成" x="-200" y="-50"/>
+    <Text str="Album Name:" x="-100" y="-20" alignment="right"/>
+    <Edit visible="0" name="AlbumName"  str="NewAlbum" x="-80" y="-20"/>
+	<Text name="whitename" str="" x="-80" y="-20"/>
+	<Text name="invalid" visible="0" str="is invalid or already used." x="-200" y="10"/>
+    <Button name="ok" visible="0">
+        <Wizard name="dir" variable="dir" value="New Album" action="import_mp3_disc_process"/>
+    </Button>
+    <Button name="cancel" visible="0">
+        <Wizard action="import_mp3_disc_dst"/>
+    </Button>
+    <Text name="new" visible="0" x="-100" y="40" str="Choose a new name..." rgba="D0D000"/>
+</Screen>
+
+<Screen name="import_mp3_disc_process" visible="0" z_depth="-1" script="DlgImportMp3Process.amx">
+	<Text str="音楽を取り込んでいます。"  x="-159" y="-40"/>
+	<Text str="本機の電源を切ったり、メモリースティックを抜かないでください。" x="-159" y="-20"/>
+	
+	<Text str="取り込み状況" x="-200" y="20"/>
+	<Text str="全体" x="-40" y="40"/>
+	<Slider name="AlbumProgress" x="0" y="50" w="450"/>
+	<Text name="AlbumProgressPercentage" str="1" x="20" y="75" alignment="right"/>
+	
+	<Text name="TitleName" str="Title" x="-200" y="112"/>
+	<Slider name="TitleProgress" x="0" y="122" w="450"/>
+	<Text name="TitleProgressPercentage" str="2" x="20" y="147" alignment="right"/>
+	
+	<Button name="Mp3ImportProcessFinished" visible="0" x="-159" y="170">
+		<Wizard action="import_mp3_end"/>
+	</Button>
+	<Button name="Mp3ImportProcessError" visible="0" x="-159" y="170">
+		<Wizard action="import_mp3_error"/>
+	</Button>
+</Screen>
+
+<!-- single version -->
+<Screen name="import_mp3_disc_single" visible="0" z_depth="-1" focus="dOK">
+	<Text str="この音楽を取り込みますか？" x="-200" y="-40"/>
+	<Button name="dOK" x="-100" y="40" nav_down="dBack">
+		<Wizard action="import_mp3_disc_checkize_s"/>
+		<FocusOn><Text str="はい" rgba="D0D000"/></FocusOn>
+		<FocusOff><Text str="はい"/></FocusOff>
+	</Button>
+	<Button name="dBack" x="-100" y="60" nav_up="dOK">
+		<FocusOn><Text str="いいえ" rgba="D0D000"/></FocusOn>
+		<FocusOff><Text str="いいえ"/></FocusOff>
+	</Button>
+</Screen>
+
+<Screen name="import_mp3_disc_checkize_s" visible="0" z_depth="-1" focus="OK1tmp">
+	<Text str="ハードディスクの空き容量を確認しています" x="-200" y="-40"/>
+	<Text str="しばらくお待ち下さい" x="-200" y="-20"/>
+	<Button name="OK1tmp" x="-100" y="40" nav_down="Cancel1tmp">
+		<Wizard variable="quality" value="2" action="import_mp3_disc_dst_single"/>
+		<FocusOn><Text str="OK ( tmp )" rgba="D0D000"/></FocusOn>
+		<FocusOff><Text str="OK ( tmp )" /></FocusOff>
+	</Button>
+	<Button name="Cancel1tmp" x="-100" y="60" nav_up="OK1tmp">
+		<Wizard variable="quality" value="2" action="import_mp3_disc_nospace_single"/>
+		<FocusOn><Text str="Not enough space ( tmp )" rgba="D0D000"/></FocusOn>
+		<FocusOff><Text str="Not enough space ( tmp )" /></FocusOff>
+	</Button>
+</Screen>
+
+<Screen name="import_mp3_disc_nospace_single" visible="0" z_depth="-1" focus="Cancel">
+	<Text str="ハードディスクの空き容量が不足しています。" x="-200" y="-40"/>
+	<Text str="不要な曲や映像を削除して空き容量を確保してください。" x="-200" y="-20"/>
+	<Button name="Cancel" x="-100" y="40">
+		<FocusOn><Text str="戻る" rgba="D0D000"/></FocusOn>
+		<FocusOff><Text str="戻る"/></FocusOff>
+	</Button>
+</Screen>
+
+<Screen name="import_mp3_disc_dst_single" visible="0" z_depth="-1" script="DlgRedbookChooseAlbum.amx" focus="NewAlbum">
+	<Text str="取り込んだ音楽を入れるアルバムを選択してください。" x="-200" y="-40"/>
+	<Container name="choices" orientation="1" x="-100" y="-20" w="320" h="100" spacing="22" align="left">
+		<Button name="NewAlbum" nav_down="button_tmpl">
+			<Wizard variable="dir" value="New Album" action="import_mp3_disc_newdst_single"/>
+			<FocusOn><Text str="新規作成" rgba="D0D000"/></FocusOn>
+			<FocusOff><Text str="新規作成"/></FocusOff>	
+		</Button>
+		<Button name="button_tmpl" visible="0" nav_up="NewAlbum">
+			<Wizard name="dir" variable="dir" value="-1" action="import_mp3_disc_process_single"/>
+			<FocusOn><Text str="" rgba="D0D000"/></FocusOn>
+			<FocusOff><Text str=""/></FocusOff>	
+		</Button>
+	</Container>
+</Screen>
+
+<Screen name="import_mp3_disc_newdst_single" visible="0" z_depth="-1" script="DlgRedbookNewAlbum.amx" focus="AlbumName">
+	<Text str="新規作成" x="-200" y="-50"/>
+    <Text str="Album Name:" x="-100" y="-20" alignment="right"/>
+    <Edit visible="0" name="AlbumName"  str="NewAlbum" x="-80" y="-20"/>
+	<Text name="whitename" str="" x="-80" y="-20"/>
+	<Text name="invalid" visible="0" str="is invalid or already used." x="-200" y="10"/>
+    <Button name="ok" visible="0">
+        <Wizard name="dir" variable="dir" value="New Album" action="import_mp3_disc_process_single"/>
+    </Button>
+    <Button name="cancel" visible="0">
+        <Wizard action="import_mp3_disc_dst_single"/>
+    </Button>
+    <Text name="new" visible="0" x="-100" y="40" str="Choose a new name..." rgba="D0D000"/>
+</Screen>
+
+<Screen name="import_mp3_disc_process_single" visible="0" z_depth="-1" script="DlgImportMp3Process.amx">
+	<Text str="xxx.mp3を取り込んでいます。" x="-159" y="-40"/>
+	<Text str="本機の電源を切ったり、メモリースティックを抜かないでください。" x="-159" y="-20"/>
+	<Text str="取り込み状況" x="-200" y="92"/>
+	<Text name="TitleName" str="Title" x="-40" y="112"/>
+	<Slider name="TitleProgress" x="0" y="102" w="450"/>
+	<Text name="TitleProgressPercentage" str="2" x="20" y="127" alignment="right"/>
+	
+	<Button name="Mp3ImportProcessFinished" visible="0" x="-159" y="170">
+		<Wizard action="import_mp3_end"/>
+	</Button>
+	<Button name="Mp3ImportProcessError" visible="0" x="-159" y="170">
+		<Wizard action="import_mp3_error"/>
+	</Button>
+</Screen>
+
+<!-- common -->
+<Screen name="import_mp3_end" visible="0" z_depth="-1" focus="ok2">
+	<Text str="取り込みが完了しました。" x="-200" y="-40"/>
+	<Button name="ok2" x="-100" y="40">
+		<FocusOn><Text str="はい" rgba="D0D000"/></FocusOn>
+		<FocusOff><Text str="はい"/></FocusOff>
+	</Button>
+</Screen>
+
+<Screen name="import_mp3_error" visible="0" z_depth="-1" focus="ok2">
+	<Text str="取り込みが終了しましたがx曲取り込めませんでした。" x="-200" y="-40"/>
+	<Button name="ok2" x="-100" y="40">
+		<FocusOn><Text str="戻る" rgba="D0D000"/></FocusOn>
+		<FocusOff><Text str="戻る"/></FocusOff>
+	</Button>
+</Screen>
+
+
+</PSML2>

@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<App name="UpdateCenter" focus="GoUpdate" native="UpdateCenter/UpdateCenter">
+    <Dll name="xBitmap/xBitmap" version="0.1.0" />
+    <Dll name="xButton/xButton" version="0.1.0" />
+    <Dll name="xText/xText" version="0.1.0" />
+    <Dll name="xSlider/xSlider" version="0.1.0" />
+    <Dll name="xUpdateCenter/xUpdateCenter" version="0.1.0" />
+
+	<Bitmap file="art/background.gif" rgba="808080" w="640" h="448" />
+    
+    <!--
+        <Text str="Source" x="-250" y="-100" />
+        <Edit name="source" str="host0:~/../../../Images/1" x="-150" y="-100" w="300" nav_up="add" nav_down="date"  font="font3" />
+    
+        <Text str="Date" x="-250" y="-50" />
+        <Edit name="date" str="20030518" x="-150" y="-50" w="300" nav_up="source" nav_down="add" font_size="18" />
+     
+    <Button name="GoUpdate" x="-175" y="-60" nav_up="Status" nav_down="GoInstall">
+      <FocusOff>
+        <Text str="Update" font="default" />
+      </FocusOff>
+      <FocusOn>
+        <Text str="Update" font="default" rgba="FFFF00" />
+      </FocusOn>    
+    </Button>
+
+    <Button name="GoInstall" x="-175" y="-25" nav_up="GoUpdate" nav_down="GoUninstall">
+      <FocusOff>
+        <Text str="Install" font="default" />
+      </FocusOff>
+      <FocusOn>
+        <Text str="Install" font="default" rgba="FFFF00" />
+      </FocusOn>    
+    </Button>
+
+    <Button name="GoUninstall" x="-175" y="10" nav_up="GoInstall" nav_down="RestoreLastConfiguration">
+      <FocusOff>
+        <Text str="Uninstall" font="default" />
+      </FocusOff>
+      <FocusOn>
+        <Text str="Uninstall" font="default" rgba="FFFF00" />
+      </FocusOn>    
+    </Button>
+
+    <Button name="RestoreLastConfiguration" x="-175" y="45" nav_up="GoUninstall" nav_down="RestoreFactoryDefault">
+      <FocusOff>
+        <Text str="Restore Last Configuration" font="default" />
+      </FocusOff>
+      <FocusOn>
+        <Text str="Restore Last Configuration" font="default" rgba="FFFF00" />
+      </FocusOn>    
+    </Button>
+
+    <Button name="RestoreFactoryDefault" x="-175" y="80" nav_up="RestoreLastConfiguration" nav_down="RunDummy">
+      <FocusOff>
+        <Text str="Restore Factory Default" font="default" />
+      </FocusOff>
+      <FocusOn>
+        <Text str="Restore Factory Default" font="default" rgba="FFFF00" />
+      </FocusOn>    
+    </Button>
+
+    <Button name="RunDummy" x="-175" y="115" nav_up="RestoreFactoryDefault" nav_down="Reload">
+      <FocusOff>
+        <Text str="Run Dummy" font="default" />
+      </FocusOff>
+      <FocusOn>
+        <Text str="Run Dummy" font="default" rgba="FFFF00" />
+      </FocusOn>    
+    </Button>
+
+    <Button name="Reload" x="-175" y="150" nav_up="RunDummy" nav_down="Status">
+      <FocusOff>
+        <Text str="Reload" font="default" />
+      </FocusOff>
+      <FocusOn>
+        <Text str="Reload" font="default" rgba="FFFF00" />
+      </FocusOn>    
+    </Button>
+-->   
+
+    <Button name="GoUpdate" x="-175" y="-60" nav_up="GoCancel" nav_down="GoInstall">
+      <FocusOff>
+        <Text str="Update" font="default" />
+      </FocusOff>
+      <FocusOn>
+        <Text str="Update" font="default" rgba="FFFF00" />
+      </FocusOn>    
+    </Button>
+
+    <Button name="GoInstall" x="-175" y="-25" nav_up="GoUpdate" nav_down="GoCancel">
+      <FocusOff>
+        <Text str="Install" font="default" />
+      </FocusOff>
+      <FocusOn>
+        <Text str="Install" font="default" rgba="FFFF00" />
+      </FocusOn>    
+    </Button>
+
+<Button name="GoCancel" x="-175" y="10" nav_up="GoInstall" nav_down="GoUpdate">
+      <FocusOff>
+        <Text str="Cancel" font="default" />
+      </FocusOff>
+      <FocusOn>
+        <Text str="Cancel" font="default" rgba="FFFF00" />
+      </FocusOn>    
+    </Button>
+
+    <Slider name="Progress" value="0" x="0" y="160" w="550" />
+    <Text name="Status" x="-203" y="182" rgba="CCCCFF" />
+
+</App>
+

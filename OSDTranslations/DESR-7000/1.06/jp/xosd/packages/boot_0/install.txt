@@ -1,0 +1,17 @@
+# --- Uninstall previous version
+RemovePackage %%%Name%%% %%%Major%%%
+DeleteDirectory %%%PackagesDir%%%/%%%Name%%%_%%%Major%%%
+
+# --- Install new version
+CreateDirectory	%%%PackagesDir%%%/%%%Name%%%_%%%Major%%%
+CopyDirectory	%%%DownloadDir%%%/%%%Name%%%_%%%Major%%%.%%%Minor%%% %%%PackagesDir%%%/%%%Name%%%_%%%Major%%%
+AddPackage	%%%PackID%%% %%%Name%%% %%%Version%%% %%%PackagesDir%%%/%%%Name%%%_%%%Major%%% %%%Flash%%%
+
+CopyFile %%%PackagesDir%%%/%%%Name%%%_%%%Major%%%/psxmain.xml __system?:psxmain.xml
+CopyFile %%%PackagesDir%%%/%%%Name%%%_%%%Major%%%/registry.db __system?:registry.db
+
+CreateBootFile %%%BootFile%%%
+CopyBootFileToHDD %%%BootFile%%%
+# CopyFileToMBR %%%PackagesDir%%%/%%%Name%%%_%%%Major%%%/xosdmain.elf ???
+CopyBootFileToFlash %%%BootFile%%%
+CopyFile %%%PackagesDir%%%/%%%Name%%%_%%%Major%%%/xosdmain.elf xfrom:/BIEXEC-SYSTEM/xosdmain.elf

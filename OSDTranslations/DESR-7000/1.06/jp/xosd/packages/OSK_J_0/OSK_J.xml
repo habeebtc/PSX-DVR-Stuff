@@ -1,0 +1,31 @@
+﻿<?xml version="1.0"?>
+<App name="OSK_APP" focus="osk_input" native="OSK_J/OSK_J" z_depth="-10" >
+    <Dll name="xPrim/xPrim" version="0.1.0" />
+    <Dll name="xText/xText" version="0.1.0" />
+    <Dll name="xEdit/xEdit" version="0.1.0" />
+    <Dll name="xStr/xStr" version="0.1.0" />
+    <Dll name="xBitmap/xBitmap" version="0.1.0" />
+    <Dll name="xBitmap3x3/xBitmap3x3" version="0.1.0" />
+    <Dll name="xAudio/xAudio" version="0.1.0" />
+
+    <Prim name="osk_bg" type="rect" rgba="20202080" x="-320" y="-224" w="640" h="448" z_depth="10" />
+    <Edit name="osk_input" str="" x="-226" y="-115" w="450" z_depth="-5" buf_size="1024" osk_input="1" shadow="0" />
+    <Bitmap3x3 name="osk_input_bg" file="art/3_3.png" rgba="FFFFFFFF" x2d="116" y="-121" w="470" h="28" z_depth="1" />
+
+    <Bitmap name="key_on" file="art/on.png" rgba="FFFFFFFF" x2d="247" y2d="168" z_depth="-12" />
+    <Bitmap name="key_on_enter" file="art/on_Enter.png" rgba="FFFFFFFF" x2d="247" y2d="168" z_depth="-12" />
+    <Bitmap3x3 name="key_focus" file="art/focus.png" rgba="FFFFFFFF" x2d="245" y2d="166" z_depth="-13" />
+    <Bitmap3x3 name="key_focus_enter" file="art/focus_Enter.png" rgba="FFFFFFFF" x2d="245" y2d="166" z_depth="-13" />
+    <Bitmap name="key_shift" file="art/on.png" rgba="FFFFFFFF" x2d="245" y2d="200" z_depth="-13" />
+    <Bitmap name="key_shift2" file="art/on.png" rgba="FFFFFFFF" x2d="245" y2d="200" z_depth="-13" />
+    <Bitmap name="key_caps" file="art/on.png" rgba="FFFFFFFF" x2d="245" y2d="200" z_depth="-13" />
+    <Bitmap name="key_zenkaku" file="art/on.png" rgba="FFFFFFFF" x2d="245" y2d="200" z_depth="-13" />
+    <Bitmap name="scrollbarbase" file="pack:barc/0.1.0/art/Parts-ScrollBar/ScrollBarBase.tga" rgba="FFFFFFFF" x2d="119" y2d="161" h="170" z_depth="-13" />
+    <Bitmap name="scrollbarcurrent" file="pack:barc/0.1.0/art/Parts-ScrollBar/ScrollBarCurrent.tga" rgba="FFFFFFFF" x2d="119" y2d="161" z_depth="-14" />
+
+    <Bitmap name="kb_type1" file="art/sentaku1.png" rgba="FFFFFFFF" x2d="500" y2d="360" z_depth="-11" />
+    <Bitmap name="kb_type2" file="art/sentaku2.png" rgba="FFFFFFFF" x2d="500" y2d="360" z_depth="-11" />
+    <Bitmap name="kb_type3" file="art/sentaku3.png" rgba="FFFFFFFF" x2d="500" y2d="360" z_depth="-11" />
+    <Bitmap name="kb_type4" file="art/sentaku4.png" rgba="FFFFFFFF" x2d="500" y2d="360" z_depth="-11" />
+    <Bitmap name="kb_type5" file="art/sentaku5.png" rgba="FFFFFFFF" x2d="500" y2d="360" z_depth="-11" />
+</App>

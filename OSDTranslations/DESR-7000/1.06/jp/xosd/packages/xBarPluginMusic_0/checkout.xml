@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<PSML2>
+ 
+ <Dll name="xButton/xButton" version="0.1.0" />
+ <Dll name="xText/xText" version="0.1.0" />
+ <Dll name="xSlider/xSlider" version="0.1.0" />
+ <Dll name="xWizard/xWizard" version="0.1.0" />
+
+ <!-- select checkout devices -->
+ <Screen name="checkout" visible="0" z_depth="-1" focus="ms">
+	<Text str="Select the device" x="-200" y="-40"/>
+	<Button name="ms" x="-100" y="60" nav_down="netmd">
+		<Wizard action="checkout_ms_checksize"/>
+		<FocusOn><Text str="MagicGate Memory Stick" rgba="FFFF00"/></FocusOn>
+		<FocusOff><Text str="MagicGate Memory Stick"/></FocusOff>
+	</Button>
+	<Button name="netmd" x="-100" y="80" nav_up="ms">
+		<Wizard action="checkout_netmd_checksize"/>
+		<FocusOn><Text str="NetMD" rgba="FFFF00"/></FocusOn>
+		<FocusOff><Text str="NetMD"/></FocusOff>
+	</Button>
+</Screen>
+ 
+ <!-- MS -->
+ <Screen name="checkout_ms" visible="0" z_depth="-1" focus="OK1tmp">
+	<Text str="You are about to check out the entire directory tree to Memory Stick." x="-200" y="-40"/>
+	<Button name="OK1tmp" x="-100" y="80">
+		<Wizard action="checkout_ms_checksize"/>
+		<FocusOn><Text str="Ok" rgba="FFFF00"/></FocusOn>
+		<FocusOff><Text str="Ok"/></FocusOff>
+	</Button>
+</Screen>
+
+<Screen name="checkout_ms_checksize" visible="0" z_depth="-1" focus="OK1tmp">
+	<Text str="Checking available space on the Memory Stick, please wait..." x="-200" y="-40"/>
+	<Button name="OK1tmp" x="-100" y="40" nav_down="Cancel1tmp">
+		<Wizard action="checkout_ms_process"/>
+		<FocusOn><Text str="OK ( tmp )" rgba="FFFF00"/></FocusOn>
+		<FocusOff><Text str="OK ( tmp )" /></FocusOff>
+	</Button>
+	<Button name="Cancel1tmp" x="-100" y="60" nav_up="OK1tmp">
+		<Wizard action="checkout_ms_notenoughspace"/>
+		<FocusOn><Text str="Not enough space ( tmp )" rgba="FFFF00"/></FocusOn>
+		<FocusOff><Text str="Not enough space ( tmp )" /></FocusOff>
+	</Button>
+</Screen>
+
+<Screen name="checkout_ms_notenoughspace" visible="0" z_depth="-1" focus="Cancel">
+	<Text str="There is not enough available space on the Memory Stick" x="-200" y="-40"/>
+	<Text str="to perform the requested operation" x="-200" y="-20"/>
+	<Button name="Cancel" x="-100" y="40">
+		<FocusOn><Text str="Cancel" rgba="FFFF00"/></FocusOn>
+		<FocusOff><Text str="Cancel"/></FocusOff>
+	</Button>
+</Screen>
+
+<Screen name="checkout_ms_process" visible="0" z_depth="-1" script="DlgCheckoutProcess.amx">
+	<Text str="Checking out..." x="-159" y="-60"/>
+	<Text str="Please don't remove the Memory Stick" x="-159" y="-40"/>
+	<Text str="or turn off the power of PSX." x="-159" y="-20"/>
+	
+	<Text str="Album" x="-40" y="20"/>
+	<Slider name="AlbumProgress" x="0" y="30" w="450"/>
+	<Text name="AlbumProgressPercentage" str="1" x="-20" y="55"/>
+	
+	<Text name="TitleName" str="Title 0" x="-40" y="92"/>
+	<Slider name="TitleProgress" x="0" y="102" w="450"/>
+	<Text name="TitleProgressPercentage" str="2" x="-20" y="127"/>
+	
+	<Button name="CheckoutFinished" visible="0" x="-159" y="170">
+		<Wizard action="checkout_end"/>
+	</Button>
+	<Button name="CheckoutError" visible="0" x="-159" y="170">
+		<Wizard action="checkout_error"/>
+	</Button>
+</Screen>
+
+<!-- netMD -->
+
+<Screen name="checkout_netmd" visible="0" z_depth="-1" focus="OK1tmp">
+	<Text str="You are about to check out the entire directory tree to netmd." x="-200" y="-40"/>
+	<Button name="OK1tmp" x="-100" y="80">
+		<Wizard action="checkout_netmd_checksize"/>
+		<FocusOn><Text str="Ok" rgba="FFFF00"/></FocusOn>
+		<FocusOff><Text str="Ok"/></FocusOff>
+	</Button>
+</Screen>
+
+<Screen name="checkout_netmd_checksize" visible="0" z_depth="-1" focus="OK1tmp">
+	<Text str="Checking available space on the Memory Stick, please wait..." x="-200" y="-40"/>
+	<Button name="OK1tmp" x="-100" y="40" nav_down="Cancel1tmp">
+		<Wizard action="checkout_netmd_process"/>
+		<FocusOn><Text str="OK ( tmp )" rgba="FFFF00"/></FocusOn>
+		<FocusOff><Text str="OK ( tmp )" /></FocusOff>
+	</Button>
+	<Button name="Cancel1tmp" x="-100" y="60" nav_up="OK1tmp">
+		<Wizard action="checkout_netmd_nospace"/>
+		<FocusOn><Text str="Not enough space ( tmp )" rgba="FFFF00"/></FocusOn>
+		<FocusOff><Text str="Not enough space ( tmp )" /></FocusOff>
+	</Button>
+</Screen>
+
+<Screen name="checkout_netmd_nospace" visible="0" z_depth="-1" focus="Cancel">
+	<Text str="There is not enough available space on the Memory Stick" x="-200" y="-40"/>
+	<Text str="to perform the requested operation" x="-200" y="-20"/>
+	<Button name="Cancel" x="-100" y="40">
+		<FocusOn><Text str="Cancel" rgba="FFFF00"/></FocusOn>
+		<FocusOff><Text str="Cancel"/></FocusOff>
+	</Button>
+</Screen>
+
+<Screen name="checkout_netmd_process" visible="0" z_depth="-1" script="DlgCheckoutProcess.amx">
+	<Text str="Checking out..." x="-159" y="-60"/>
+	<Text str="Please don't remove the Memory Stick" x="-159" y="-40"/>
+	<Text str="or turn off the power of PSX." x="-159" y="-20"/>
+	
+	<Text str="Album" x="-40" y="20"/>
+	<Slider name="AlbumProgress" x="0" y="30" w="450"/>
+	<Text name="AlbumProgressPercentage" str="1" x="-20" y="55"/>
+	
+	<Text name="TitleName" str="Title 0" x="-40" y="92"/>
+	<Slider name="TitleProgress" x="0" y="102" w="450"/>
+	<Text name="TitleProgressPercentage" str="2" x="-20" y="127"/>
+	
+	<Button name="CheckoutFinished" visible="0" x="-159" y="170">
+		<Wizard action="checkout_end"/>
+	</Button>
+	<Button name="CheckoutError" visible="0" x="-159" y="170">
+		<Wizard action="checkout_error"/>
+	</Button>
+</Screen>
+
+<!-- common -->
+
+<Screen name="checkout_end" visible="0" z_depth="-1" focus="ok2">
+	<Text str="Import complete." x="-200" y="-40"/>
+	<Button name="ok2" x="-100" y="40">
+		<FocusOn><Text str="OK" rgba="FFFF00"/></FocusOn>
+		<FocusOff><Text str="OK"/></FocusOff>
+	</Button>
+</Screen>
+
+<Screen name="checkout_error" visible="0" z_depth="-1" focus="ok2">
+	<Text str="Failure. The import is incomplete due to an internal error." x="-200" y="-40"/>
+	<Button name="ok2" x="-100" y="40">
+		<FocusOn><Text str="Back" rgba="FFFF00"/></FocusOn>
+		<FocusOff><Text str="Back"/></FocusOff>
+	</Button>
+</Screen>
+
+</PSML2>

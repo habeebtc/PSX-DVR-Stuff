@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<PSML2>
+	<Dll name="xBitmap/xBitmap" version="0.1.0" />
+	<Dll name="xText/xText" version="0.1.0" />
+
+	<Screen name="VideoInfo" visible="0" z_depth="-1">
+		<Bitmap name="Icon" x="-120" y="-96" />
+		<Text str="タイトル名" x="-140" y="-12" alignment="right" />
+		<Text name="title" x="-132" y="-12">
+		</Text>
+		<Bitmap name="Hasami" x="200" y="-15">
+		</Bitmap>
+		<Bitmap name="GG" x="240" y="-16">
+		</Bitmap>
+		<Text str="録画日時" x="-140" y="12" alignment="right" />
+		<Text name="Date" x="-132" y="12">
+		</Text>
+		<Text str="総再生時間" x="-140" y="36" alignment="right" />
+		<Text name="Time" x="-132" y="36">
+		</Text>
+		<Component name="EDIT">
+			<Text str="(編集後" x="32" y="36" alignment="right" />
+			<Text name="Time" x="40" y="36">
+			</Text>
+		</Component>
+		<Text str="録画モード" x="-140" y="60" alignment="right" />
+		<Bitmap name="RecMode" x="-100" y="56">
+		</Bitmap>
+		<Text str="音声モード" x="-140" y="84" alignment="right" />
+		<Bitmap name="SndMode" x="-100" y="80">
+		</Bitmap>
+		<Text str="ダビング" x="-140" y="108" alignment="right" />
+		<Text name="Protect" x="-132" y="108">
+		</Text>
+		<Text str="放送局" x="-140" y="132" alignment="right" />
+		<Text name="BCName" x="-132" y="132">
+		</Text>
+		<Text str="ジャンル" x="-140" y="156" alignment="right" />
+		<Text name="Genre" x="-132" y="156">
+		</Text>
+	</Screen>
+</PSML2>

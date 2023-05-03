@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<App name="ConfigHddPartition" focus="WizardList" script="ConfigHddPartition.amx" visible="0" >
+	<Dll name="xBitmap/xBitmap" version="0.1.0" />
+	<Dll name="xBitmap3x3/xBitmap3x3" version="0.1.0" />
+	<Dll name="xPrim/xPrim" version="0.1.0" />
+	<Dll name="xText/xText" version="0.1.0" />
+	<Dll name="xAudio/xAudio" version="0.1.0" />
+	<Dll name="xCDVD/xCDVD" version="0.1.0" />
+    <Dll name="xSettings/xSettings" version="0.1.0" />
+
+	<Bitmap name="bg" file="art/wizard_bg.png" x="0" y="0" w="720" h="480" />
+	<Component name="WizardList" x="-360" y="-240" >
+
+		<Component name="cell0" x="-720" y="0" rgba="D0D0D000" >
+			<Text name="text" str="これからHDD領域設定を開始します。" x="360" y="240" size="16" alignment="center" />
+		</Component>
+
+		<Component name="cell1" x="0" y="0" rgba="D0D0D0FF" >
+			<Component name="text0" x="160" y="208">
+				<Text name="text1" str="HDD領域設定で、ゲーム領域の変更を"  y="0" size="16" alignment="left" />
+				<Text name="text2" str="することが出来ます。" y="24" size="16"  alignment="left" />
+				<Text name="text3" str="HDD領域設定を行うと、ハードディスクの内容は" y="48" size="16"  alignment="left" />
+				<Text name="text4" str="すべて消去されます。" y="72" size="16" alignment="left" />
+			</Component>
+		</Component>
+
+		<Component name="cell2" x="720" y="0" rgba="D0D0D0FF" >
+			<Component name="text" x="208" y="200">
+				<Text name="text0" str="ハードディスクの領域を変更できます。" x="0" y="0" size="16" />
+				<Bitmap name="arrowR" file="art/arrow_R.tga" x="6" y="20" />
+				<Text name="text1" str="を押して次の画面に移ってください。" x="16" y="24" size="16" />
+			</Component>
+			<Text name="text2" str="現在のゲーム領域" x="360" y="255" size="16" alignment="center" />
+			<Text name="text3" str="ゲーム領域 :" x="290" y="279" size="16" />
+			<Text name="val" str="?GB" x="390" y="279" size="16" />
+		</Component>
+
+		<Component name="cell3" x="720" y="0" rgba="D0D0D0FF" >
+			<Component name="textA" x="180" y="170">
+				<Text name="text0" str="ゲーム領域を削除しますか？" x="0" y="0" size="16" />
+				<Bitmap name="enter" file="art/BtnNav-EnterCir-917-wide.tga" x="34" y="20" />
+				<Text name="text1" str="を押すと、ゲーム領域を削除します。" x="68" y="24" size="16" />
+				<Text name="text2" str="ご注意" x="0" y="64" size="16" />
+				<Text name="text3" str="ゲーム領域を削除すると、" x="0" y="88" size="16" />
+				<Text name="text4" str="ハードディスクを使用するゲームが" x="0" y="112" size="16" />
+				<Text name="text5" str="遊べなくなります。" x="0" y="136" size="16" />
+			</Component>
+
+			<Component name="textB" x="180" y="170">
+				<Text name="text0" str="ゲーム領域を作成しますか？" x="0" y="0" size="16" />
+				<Bitmap name="enter" file="art/BtnNav-EnterCir-917-wide.tga" x="34" y="20" />
+				<Text name="text1" str="を押すと、ゲーム領域を作成します。" x="68" y="24" size="16" />
+				<Text name="text2" str="ご注意" x="0" y="64" size="16" />
+				<Text name="text3" str="ゲーム領域を作成すると、" x="0" y="88" size="16" />
+				<Text name="text4" str="録画時間が約17時間(SP録画時)短く" x="0" y="112" size="16" />
+				<Text name="text5" str="なります。" x="0" y="136" size="16" />
+			</Component>
+		</Component>
+
+		<Component name="cell4" x="720" y="0" rgba="D0D0D0FF" >
+			<Component name="text" x="225" y="216">
+				<Bitmap name="enter" file="art/BtnNav-EnterCir-917-wide.tga" x="34" y="-4" />
+				<Text name="text" str="を押して再起動してください。" x="68" y="0" size="16" />
+				<Text name="text" str="再起動後、ハードディスク領域設定を" x="0" y="24" size="16" />
+				<Text name="text" str="開始します。" x="0" y="48" size="16"  />
+			</Component>
+		</Component>
+
+		<Component name="cell5" x="720" y="0" rgba="D0D0D0FF" />
+		<Component name="cell6" x="720" y="0" rgba="D0D0D000" />
+
+		<Component name="ListArrow" y="240" >
+			<Bitmap name="ListArrowLeft"  file="art/GT000020.tga" x="65"  y="-5" rot_y="0.5" w="28"  h="30" visible="0" />
+			<Bitmap name="ListArrowRight" file="art/GT000020.tga" x="646" y="-5" w="28"  h="30" visible="0" />
+		</Component>
+	</Component>
+
+	<Component name="Dialog1" x="-360" y="-240" visible="0" >
+		<Prim name="Bg" type="rect" rgba="000018D0" x="0" y="0" w="720" h="480" />
+		<Bitmap name="Line1" file="art/DialogBorder.tga"  y="240" x="360" w="450" />
+		<Bitmap name="Line2" file="art/DialogBorder.tga"  y="240" x="360" w="450" />
+		<Component name="Base" x="220" y="192" >
+			<Text name="text1" str="ハードディスクの領域設定を行うと、" y="0" size="16" rgba="D0D0D0FF" />
+			<Text name="text2" str="映像、音楽、写真、番組表のデータは" y="24" size="16" rgba="D0D0D0FF" />
+			<Text name="text3" str="すべて削除されますが、" y="48" size="16" rgba="D0D0D0FF" />
+			<Text name="text3" str="実行してもよろしいですか？" y="72" size="16" rgba="D0D0D0FF" />
+			<Text name="textY" str="はい" x="68" y="112" size="16" rgba="D0D0D0FF" />
+			<Text name="textN" str="いいえ" x="164" y="112" size="16" rgba="D0D0D0FF" />
+		</Component>
+		<Component name="DialogFocus" x="360" y="304" />
+		<Component name="DialogFocus2" x="360" y="304" />
+	</Component>
+
+	<Component name="Dialog2" x="-360" y="-240" visible="0" >
+		<Prim name="Bg" type="rect" rgba="000018D0" x="0" y="0" w="720" h="480" />
+		<Bitmap name="Line1" file="art/DialogBorder.tga"  y="240" x="360" w="450" />
+		<Bitmap name="Line2" file="art/DialogBorder.tga"  y="240" x="360" w="450" />
+		<Component name="Base" x="161" y="228" >
+			<Text name="text1" str="ハードディスクの領域設定を中止しますか？" x="30" y="0" size="16" rgba="D0D0D0FF" />
+			<Text name="textY" str="中止する" x="95" y="40" size="16" rgba="D0D0D0FF" />
+			<Text name="textN" str="中止しない" x="223" y="40" size="16" rgba="D0D0D0FF" />
+		</Component>
+		<Component name="DialogFocus" x="360" y="268" />
+		<Component name="DialogFocus2" x="360" y="268" />
+	</Component>
+	<Component name="Dialog3" x="-360" y="-240" visible="0" >
+		<Prim name="Bg" type="rect" rgba="000018D0" x="0" y="0" w="720" h="480" />
+		<Bitmap name="Line1" file="art/DialogBorder.tga"  y="240" x="360" w="450" />
+		<Bitmap name="Line2" file="art/DialogBorder.tga"  y="240" x="360" w="450" />
+		<Component name="Base" x="161" y="204" >
+			<Text name="text1" str="録画予約時刻開始まで10分を切りました。" x="40" y="0" size="16" rgba="D0D0D0FF" />
+			<Text name="text2" str="録画開始時刻になると中止して終了します。" x="40" y="24" size="16" rgba="D0D0D0FF" />
+			<Text name="text3" str="ウィザードを中止しますか？" y="48" x="40" size="16" rgba="D0D0D0FF" />
+			<Text name="textY" str="中止する" x="95" y="88" size="16" rgba="D0D0D0FF" />
+			<Text name="textN" str="中止しない" x="223" y="88" size="16" rgba="D0D0D0FF" />
+		</Component>
+		<Component name="DialogFocus" x="360" y="292" />
+		<Component name="DialogFocus2" x="360" y="292" />
+	</Component>
+
+	<Component name="TopBar" x="-360" y="-240" >
+		<Bitmap name="TopBarBg" file="art/TopBar.tga" x="360" y="32" w="720" h="64" />
+		<Text name="Title" str="本体の設定 / HDD領域設定" x="80" y="51" size="16" rgba="D0D0D0FF" />
+		<Bitmap name="TopIcon" file="art/sICN-Conf-917.tga" x="59" y="45" w="39" h="32" />
+		<Text name="Page" str="" x="580" y="51" size="16" />
+	</Component>
+	<Component name="BotBar" x="-360" y="-240" >
+		<Bitmap name="BotBarBg" file="art/TopBar.tga" x="360" y="448" w="720" h="64" rot_z="0.5" />
+		<Text name="TXTCross" str="戻る" x="271" y="442" size="16" rgba="D0D0D0FF" />
+		<Bitmap name="IcnCross" file="art/BtnNav-Crs-917.png" x="258" y="438" />
+		<Text name="TXTCircle0" str="再起動" x="409" y="442" size="16" rgba="D0D0D0FF" />
+		<Text name="TXTCircle1" str="決定" x="409" y="442" size="16" rgba="D0D0D0FF" />
+		<Bitmap name="IcnCiecle" file="art/BtnNav-EnterCir-917-wide.tga" x="375" y="438" />
+	</Component>
+</App>

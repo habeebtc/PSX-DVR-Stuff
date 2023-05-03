@@ -1,0 +1,175 @@
+<?xml version="1.0"?>
+<PSML2>
+<!--Delete Dialog Boxes ( contains 11 dialog boxes )-->
+<!--delete_album_MS_0-->
+<!--delete_track_MS_0-->
+<!--delete_album_NetMD_0-->
+<!--delete_track_NetMD_0-->
+<!--delete_album_HDD_0-->
+<!--delete_track_HDD_0-->
+
+	<Dll name="xButton/xButton" version="0.1.0" />
+	<Dll name="xText/xText" version="0.1.0" />
+	<Dll name="xSlider/xSlider" version="0.1.0" />
+	<Dll name="xWizard/xWizard" version="0.1.0" />
+
+	<!--Memory Stick-->
+	<Screen name="delete_album_MS_0" visible="0" z_depth="-1" focus="d_no">
+		<Text str="Do you want to delete permanently this album ?" x="-200" y="-40"/>
+		<Button name="d_yes" x="-120" y="40" nav_right="d_no">
+			<Wizard variable="album" value="1" action="delete_MS_0"/>
+			<FocusOn><Text str="Delete" rgba="FFFF00"/></FocusOn>
+			<FocusOff><Text str="Delete"/></FocusOff>	
+		</Button>
+		<Button name="d_no" x="50" y="40" nav_left="d_yes">
+			<FocusOn><Text str="Do not delete" rgba="FFFF00"/></FocusOn>
+			<FocusOff><Text str="Do not delete"/></FocusOff>
+		</Button>
+	</Screen>
+
+	<Screen name="delete_track_MS_0" visible="0" z_depth="-1" focus="d_no">
+		<Text str="Do you want to delete permanently this track ?" x="-200" y="-40"/>
+		<Button name="d_yes" x="-120" y="40" nav_right="d_no">
+			<Wizard action="delete_MS_0"/>
+			<FocusOn><Text str="Delete" rgba="FFFF00"/></FocusOn>
+			<FocusOff><Text str="Delete"/></FocusOff>	
+		</Button>
+		<Button name="d_no" x="50" y="40" nav_left="d_yes">
+			<FocusOn><Text str="Do not delete" rgba="FFFF00"/></FocusOn>
+			<FocusOff><Text str="Do not delete"/></FocusOff>
+		</Button>
+	</Screen>
+
+	<Screen name="delete_MS_0" visible="0" z_depth="-1" focus="DeleteCompleted">
+		<Text str="Deleting..." x="-200" y="-60"/>
+		<Text str="Do not remove the Memory Stick or turn off the PSX" x="-200" y="-40"/>
+		
+		<Text str="Progress" x="-200" y="30"/>
+		<Slider name="DeleteProgress" x="0" y="40" w="450"/>
+		<Text name="DeleteProgressPercentage" str="80%" x="180" y="64"/>
+		
+		<Button name="DeleteComplete" visible="1" x="-159" y="170">
+			<Wizard action="delete_complete"/>
+			<FocusOn><Text str="Finished" rgba="FFFF00"/></FocusOn>
+			<FocusOff><Text str="Finished" /></FocusOff>
+		</Button>
+		<Button name="DeleteError" visible="1" x="-159" y="170">
+			<Wizard action="delete_error"/>
+			<FocusOn><Text str="Error" rgba="FFFF00"/></FocusOn>
+			<FocusOff><Text str="Error" /></FocusOff>
+		</Button>
+	</Screen>
+
+	<!--NetMD-->
+	<Screen name="delete_album_NetMD_0" visible="0" z_depth="-1" focus="d_no">
+		<Text str="Do you want to delete permanently this album ?" x="-200" y="-40"/>
+		<Button name="d_yes" x="-100" y="40" nav_right="d_no">
+			<Wizard variable="album" value="1" action="delete_NetMD_0"/>
+			<FocusOn><Text str="Delete" rgba="FFFF00"/></FocusOn>
+			<FocusOff><Text str="Delete"/></FocusOff>	
+		</Button>
+		<Button name="d_no" x="100" y="40" nav_left="d_yes">
+			<FocusOn><Text str="Do not delete" rgba="FFFF00"/></FocusOn>
+			<FocusOff><Text str="Do not delete"/></FocusOff>
+		</Button>
+	</Screen>
+
+	<Screen name="delete_track_NetMD_0" visible="0" z_depth="-1" focus="d_no">
+		<Text str="Do you want to delete permanently this track ?" x="-200" y="-40"/>
+		<Button name="d_yes" x="-100" y="40" nav_right="d_no">
+			<Wizard action="delete_NetMD_0"/>
+			<FocusOn><Text str="Delete" rgba="FFFF00"/></FocusOn>
+			<FocusOff><Text str="Delete"/></FocusOff>	
+		</Button>
+		<Button name="d_no" x="100" y="40" nav_left="d_yes">
+			<FocusOn><Text str="Do not delete" rgba="FFFF00"/></FocusOn>
+			<FocusOff><Text str="Do not delete"/></FocusOff>
+		</Button>
+	</Screen>
+
+	<Screen name="delete_NetMD_0" visible="0" z_depth="-1" focus="DeleteCompleted">
+		<Text str="Deleting..." x="-200" y="-60"/>
+		<Text str="Do not disconnect the portable device." x="-200" y="-60"/>
+		<Text str="Do not turn off the PSX." x="-200" y="-40"/>
+
+		<Text str="Progress" x="-200" y="30"/>
+		<Slider name="DeleteProgress" x="0" y="40" w="450"/>
+		<Text name="DeleteProgressPercentage" str="80%" x="180" y="64"/>
+		
+		<Button name="DeleteComplete" visible="1" x="-159" y="170">
+			<Wizard action="delete_complete"/>
+			<FocusOn><Text str="Finished" rgba="FFFF00"/></FocusOn>
+			<FocusOff><Text str="Finished" /></FocusOff>
+		</Button>
+		<Button name="DeleteError" visible="1" x="-159" y="170">
+			<Wizard action="delete_error"/>
+			<FocusOn><Text str="Error" rgba="FFFF00"/></FocusOn>
+			<FocusOff><Text str="Error" /></FocusOff>
+		</Button>
+	</Screen>
+	
+	<!--HDD-->
+	<Screen name="delete_album_HDD_0" visible="0" z_depth="-1" focus="d_no">
+		<Text str="Do you want to delete permanently this album ?" x="-200" y="-40"/>
+		<Button name="d_yes" x="-100" y="40" nav_right="d_no">
+			<Wizard variable="album" value="1" action="delete_HDD_0"/>
+			<FocusOn><Text str="Delete" rgba="FFFF00"/></FocusOn>
+			<FocusOff><Text str="Delete"/></FocusOff>	
+		</Button>
+		<Button name="d_no" x="100" y="40" nav_left="d_yes">
+			<FocusOn><Text str="Do not delete" rgba="FFFF00"/></FocusOn>
+			<FocusOff><Text str="Do not delete"/></FocusOff>
+		</Button>
+	</Screen>
+
+	<Screen name="delete_track_HDD_0" visible="0" z_depth="-1" focus="d_no">
+		<Text str="Do you want to delete permanently this track ?" x="-200" y="-40"/>
+		<Button name="d_yes" x="-100" y="40" nav_right="d_no">
+			<Wizard action="delete_HDD_0"/>
+			<FocusOn><Text str="Delete" rgba="FFFF00"/></FocusOn>
+			<FocusOff><Text str="Delete"/></FocusOff>	
+		</Button>
+		<Button name="d_no" x="100" y="40" nav_left="d_yes">
+			<FocusOn><Text str="Do not delete" rgba="FFFF00"/></FocusOn>
+			<FocusOff><Text str="Do not delete"/></FocusOff>
+		</Button>
+	</Screen>
+
+	<Screen name="delete_HDD_0" visible="0" z_depth="-1" focus="DeleteCompleted">
+		<Text str="Deleting..." x="-200" y="-60"/>
+		<Text str="Do not turn off the PSX." x="-200" y="-40"/>
+		
+		<Text str="Progress" x="-200" y="30"/>
+		<Slider name="DeleteProgress" x="0" y="40" w="450"/>
+		<Text name="DeleteProgressPercentage" str="80%" x="180" y="64"/>
+		
+		<Button name="DeleteComplete" visible="1" x="-159" y="170">
+			<Wizard action="delete_complete"/>
+			<FocusOn><Text str="Finished" rgba="FFFF00"/></FocusOn>
+			<FocusOff><Text str="Finished" /></FocusOff>
+		</Button>
+		<Button name="DeleteError" visible="1" x="-159" y="170">
+			<Wizard action="delete_error"/>
+			<FocusOn><Text str="Error" rgba="FFFF00"/></FocusOn>
+			<FocusOff><Text str="Error" /></FocusOff>
+		</Button>
+	</Screen>
+	
+	<!--Common-->
+	<Screen name="delete_complete" visible="0" z_depth="-1" focus="d_ok">
+		<Text str="Delete complete." x="-200" y="-40"/>
+		<Button name="d_ok" x="-100" y="40">
+			<FocusOn><Text str="OK" rgba="FFFF00"/></FocusOn>
+			<FocusOff><Text str="OK"/></FocusOff>
+		</Button>
+	</Screen>
+
+	<Screen name="delete_error" visible="0" z_depth="-1" focus="d_ok">
+		<Text str="An error occured during the deletion." x="-200" y="-40"/>
+		<Button name="d_ok" x="-100" y="40">
+			<FocusOn><Text str="Cancel" rgba="FFFF00"/></FocusOn>
+			<FocusOff><Text str="Cancel"/></FocusOff>
+		</Button>
+	</Screen>
+	
+</PSML2>

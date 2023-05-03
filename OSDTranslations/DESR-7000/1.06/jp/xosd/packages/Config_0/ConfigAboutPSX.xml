@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<App name="ConfigAboutPSX" focus="base" script="ConfigAboutPSX.amx" z_depth="-1">
+
+	<Dll name="xBitmap/xBitmap" version="0.1.0" />
+	<Dll name="xPrim/xPrim" version="0.1.0" />
+	<Dll name="xText/xText" version="0.1.0" />
+
+	<Component name="base" x="-360" y="-240" >
+		<Component name="data0" visible="0" >
+			<Text name="control" str="   420" visible="0" />
+			<Text name="scroll" str="160" visible="0" />
+			<Text name="" str="PSXについて" x="360" y="220" size="12" alignment="center" />
+			<Text name="" str="&quot;" x="240" y="300" size="12" alignment="left" />
+			<Bitmap name="" file="art/PS.tga" x="258" y="294" />
+			<Text name="" str="&quot;、&quot;PSX&quot;および&quot;PlayStation&quot;は" x="370" y="300" size="12" alignment="center" />
+			<Text name="" str="株式会社ソニー・コンピュータエンタテインメントの登録商標です。" x="360" y="330" size="12" alignment="center" />
+			<Text name="" str="MagicGate、MEMORY STICK、ATRAC3、ATRAC3plus、OpenMG、" x="360" y="360" size="12" alignment="center" />
+			<Text name="" str="およびそれぞれのロゴ、またメモリースティックは、" x="360" y="390" size="12" alignment="center" />
+			<Text name="" str="ソニー株式会社の商標または登録商標です。" x="360" y="420" size="12" alignment="center" />
+		</Component>
+
+		<Component name="data1" visible="0">
+			<Text name="control" str="   630" visible="0" />
+			<Text name="scroll" str="200" visible="0" />
+			<Prim name="" type="rect" rgba="D0D0D0FF" x="270" y="480" w="180" h="90" />
+			<Bitmap name="" file="art/dolby_digital.gif" x="360" y="525" />
+			<Text name="" str="本製品は、ドルビーラボラトリーズからの実施権に基づき製造されています。" x="360" y="600" size="12" alignment="center" />
+			<Text name="" str="Dolby、ドルビー及びダブルD記号はドルビーラボラトリーズの商標です。" x="360" y="630" size="12" alignment="center" />
+		</Component>
+
+		<Component name="data2" visible="0">
+			<Text name="control" str="   625" visible="0" />
+			<Text name="scroll" str="200" visible="0" />
+			<Bitmap name="" file="art/DTS_D_Out_p.gif" rgba="D0D0D0FF" x="360" y="535" />
+			<Text name="" str="&quot;DTS&quot; and &quot;DTS Digital Out&quot; are trademarks of Digital Theater Systems, Inc." x="360" y="625" size="12" alignment="center" />
+		</Component>
+
+		<Component name="data3" visible="0">
+			<Text name="control" str="   480" visible="0" />
+			<Text name="scroll" str="70" visible="0" />
+			<Text name="" str="This software is based in part of the work of the FreeType Team." x="360" y="480" size="12" alignment="center" />
+		</Component>
+
+		<Component name="data4" visible="0">
+			<Text name="control" str="   630" visible="0" />
+			<Text name="scroll" str="220" visible="0" />
+			<Bitmap name="" file="art/atok_mark.bmp" rgba="D0D0D0FF" x="360" y="540" />
+			<Text name="" str="「ATOK」は株式会社ジャストシステムの登録商標です。" x="360" y="630" size="12" alignment="center" />
+		</Component>
+
+		<Component name="data5" visible="0">
+			<Text name="control" str="   570" visible="0" />
+			<Text name="scroll" str="150" visible="0" />
+			<Text name="" str="本製品は、著作権保護技術を採用しており、マクロビジョン社およびその他の著作権利者が保有する" x="360" y="480" size="12" alignment="center" />
+			<Text name="" str="米国特許およびその他の知的財産権によって保護されています。この著作権保護技術の使用は、" x="360" y="510" size="12" alignment="center" />
+			<Text name="" str="マクロビジョン社の許可が必要で、また、マクロビジョン社の特別な許可がない限り家庭用および" x="360" y="540" size="12" alignment="center" />
+			<Text name="" str="その他の一部の鑑賞用の使用に制限されています。分解や、改造することも禁じられています。" x="360" y="570" size="12" alignment="center" />
+		</Component>
+
+		<Component name="data6" visible="0">
+			<Text name="control" str="   510" visible="0" />
+			<Text name="scroll" str="90" visible="0" />
+			<Text name="" str="TIFF Software  	Copyright (c) 1988-1997 Sam Leffler" x="360" y="480" size="12" alignment="center" />
+			<Text name="" str="Copyright (c) 1991-1997 Silicon Graphics,Inc." x="360" y="510" size="12" alignment="center" />
+		</Component>
+
+		<Component name="data7" visible="0">
+			<Text name="control" str="   480" visible="0" />
+			<Text name="scroll" str="70" visible="0" />
+			<Text name="" str="GIF decoder　　(c)1997 Eric S. Raymond" x="360" y="480" size="12" alignment="center" />
+		</Component>
+
+		<Component name="data8" visible="0">
+			<Text name="control" str="   480" visible="0" />
+			<Text name="scroll" str="70" visible="0" />
+			<Text name="" str="libjpeg   This software is based in part on the work of the independent JPEG Group" x="360" y="480" size="12" alignment="center" />
+		</Component>
+
+		<Component name="data9" visible="0">
+			<Text name="control" str="   690" visible="0" />
+			<Text name="scroll" str="260" visible="0" />
+			<Bitmap name="" file="art/Verance150.jpg" rgba="D0D0D0FF" x="360" y="555" />
+			<Text name="" str="Portions of this product are protected under copyright law and are " x="360" y="660" size="12" alignment="center" />
+			<Text name="" str="provided under license by ARIS/Solana/4C." x="360" y="690" size="12" alignment="center" />
+		</Component>
+
+		<Component name="data10" visible="0">
+			<Text name="control" str="   540" visible="0" />
+			<Text name="scroll" str="130" visible="0" />
+			<Text name="" str="The International Components for Unicode-Internationalization Classes" x="360" y="480" size="12" alignment="center" />
+			<Text name="" str="for Unix Copyright &#169;2000" x="360" y="510" size="12" alignment="center" />
+			<Text name="" str="International Business Machines Corporation and others. All Rights Reserved." x="360" y="540" size="12" alignment="center" />
+		</Component>
+
+		<Component name="data11" visible="0">
+			<Text name="control" str="   540" visible="0" />
+			<Text name="scroll" str="130" visible="0" />
+			<Text name="" str="本製品の通信機能にはNetBSD Foundation, Inc.およびその協力者によって" x="360" y="480" size="12" alignment="center" />
+			<Text name="" str="開発されたソフトウェアが使用されています。" x="360" y="510" size="12" alignment="center" />
+			<Text name="" str="詳細については「PSXについて」の後の「BSDライセンスについて」をご覧ください。" x="360" y="540" size="12" alignment="center" />
+		</Component>
+
+		<Component name="data12" visible="0">
+			<Text name="control" str="   510" visible="0" />
+			<Text name="scroll" str="100" visible="0" />
+			<Text name="" str="d3des  Copyright &#169; 1988, 1989, 1990, 1991, 1992 by Richard Outerbridge. " x="360" y="480" size="12" alignment="center" />
+			<Text name="" str="(GEnie : OUTER; CIS : [71755:204]) Graven Imagery, 1992." x="360" y="510" size="12" alignment="center" />
+		</Component>
+
+		<Component name="data13" visible="0">
+			<Text name="control" str="   600" visible="0" />
+			<Text name="scroll" str="190" visible="0" />
+			<Text name="" str="本製品は&quot;DNAS&quot; (Dynamic Network Authentication System)という著作権および" x="360" y="480" size="12" alignment="center" />
+			<Text name="" str="セキュリティの保護を可能にする株式会社ソニー・コンピュータエンタテインメント独自の" x="360" y="510" size="12" alignment="center" />
+			<Text name="" str="認証システムを使用しています。このシステムの無効化装置若しくはプログラムを譲渡し、" x="360" y="540" size="12" alignment="center" />
+			<Text name="" str="引渡し、展示し、輸出し、輸入し、または送信することは、法律により禁止されています。" x="360" y="570" size="12" alignment="center" />
+			<Text name="" str="また、&quot;DNAS&quot;は同社の商標です。" x="360" y="600" size="12" alignment="center" />
+		</Component>
+
+		<Component name="data14" visible="0">
+			<Text name="control" str="  770" visible="0" />
+			<Text name="scroll" str="340" visible="0" />
+			<Bitmap name="" file="art/RSA_Secured.gif" rgba="D0D0D0FF" x="360" y="550" />
+			<Text name="" str="本製品は、RSA Security Inc.のRSA(R) BSAFE TM Crypt-C" x="360" y="650" size="12" alignment="center" />
+			<Text name="" str="及びRSA(R) BSAFE TM SSL-C を搭載しております。" x="360" y="680" size="12" alignment="center" />
+			<Text name="" str="RSAおよびBSAFEは、RSA Security Inc.の日本、米国および" x="360" y="710" size="12" alignment="center" />
+			<Text name="" str="その他の国における商標または登録商標です。" x="360" y="740" size="12" alignment="center" />
+			<Text name="" str="RSA Security Inc. All rights reserved." x="360" y="770" size="12" alignment="center" />
+		</Component>
+
+		<Component name="data15" visible="0">
+			<Text name="control" str="   480" visible="0" />
+			<Text name="scroll" str="70" visible="0" />
+			<Text name="" str="その他記載されている会社名、製品名は各社の商標または登録商標です。" x="360" y="480" size="12" alignment="center" />
+		</Component>
+
+		<Component name="data16" visible="0">
+			<Text name="control" str="   1350" visible="0" />
+			<Text name="scroll" str="400" visible="0" />
+			<Bitmap name="" file="art/eenet28_01.png" x="360" y="950" />
+			<Text name="" str="BSDライセンスについて" x="360" y="480" size="12" alignment="center" />
+			<Prim name="" type="rect" rgba="000000FF" x="664" y="400" w="64" h="1024" />
+			<Prim name="" type="rect" rgba="000000FF" x="0" y="1390" w="720" h="80" />
+		</Component>
+
+		<Component name="data17" visible="0">
+			<Text name="control" str="   1280" visible="0" />
+			<Text name="scroll" str="430" visible="0" />
+			<Bitmap name="" file="art/eenet28_02.png" x="360" y="880" />
+			<Prim name="" type="rect" rgba="000000FF" x="664" y="400" w="64" h="1024" />
+			<Prim name="" type="rect" rgba="000000FF" x="0" y="1300" w="720" h="80" />
+		</Component>
+
+		<Component name="data18" visible="0">
+			<Text name="control" str="   1360" visible="0" />
+			<Text name="scroll" str="430" visible="0" />
+			<Bitmap name="" file="art/eenet28_03.png" x="360" y="920" />
+			<Prim name="" type="rect" rgba="000000FF" x="664" y="400" w="64" h="1024" />
+			<Prim name="" type="rect" rgba="000000FF" x="0" y="1370" w="720" h="80" />
+		</Component>
+
+		<Component name="data19" visible="0">
+			<Text name="control" str="   1360" visible="0" />
+			<Text name="scroll" str="430" visible="0" />
+			<Bitmap name="" file="art/eenet28_04.png" x="360" y="920" />
+			<Prim name="" type="rect" rgba="000000FF" x="664" y="400" w="64" h="1024" />
+			<Prim name="" type="rect" rgba="000000FF" x="0" y="1370" w="720" h="80" />
+		</Component>
+
+		<Component name="data20" visible="0">
+			<Text name="control" str="   1300" visible="0" />
+			<Text name="scroll" str="430" visible="0" />
+			<Bitmap name="" file="art/eenet28_05.png" x="360" y="860" />
+			<Prim name="" type="rect" rgba="000000FF" x="664" y="400" w="64" h="1024" />
+			<Prim name="" type="rect" rgba="000000FF" x="0" y="1270" w="720" h="80" />
+		</Component>
+	</Component>
+</App>

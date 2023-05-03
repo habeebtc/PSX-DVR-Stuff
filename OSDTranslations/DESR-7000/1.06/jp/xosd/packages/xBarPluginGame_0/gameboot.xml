@@ -1,0 +1,98 @@
+﻿<?xml version="1.0"?>
+<PSML2>
+<!--Warning Dialog Box-->
+	<Dll name="xButton/xButton" version="0.1.0" />
+	<Dll name="xText/xText" version="0.1.0" />
+	<Dll name="xWizard/xWizard" version="0.1.0" />
+
+	<!-- Exec Disc Game Message-->
+	<Screen name="exec_disc_game" visible="0" z_depth="-1">
+		<Text str="ゲームが起動するまでしばらくお待ちください。" x="-196" y="+8"/>
+		<!--Text str="本機の電源を切らないでください。" x="-196" y="8"/-->
+		<!--Text str="ディスクを取り出さないでください。" x="-196" y="32"/-->
+		<Button name="ErrDiskGeneric" visible="0">
+			<Wizard action="err_disk_generic"/>
+		</Button>
+		<Button name="ErrDiskNoboot" visible="0">
+			<Wizard action="err_disk_noboot"/>
+		</Button>
+		<Button name="ErrDiskIllegal" visible="0">
+			<Wizard action="err_disk_illegal"/>
+		</Button>
+		<Button name="ErrHddNoboot" visible="0">
+			<Wizard action="err_hdd_noboot"/>
+		</Button>
+		<Button name="ErrHddNoDisk" visible="0">
+			<Wizard action="err_hdd_nodisk"/>
+		</Button>
+		<Button name="ErrHddAnotherdisk" visible="0">
+			<Wizard action="err_hdd_anotherdisk"/>
+		</Button>
+	</Screen>
+
+	<!-- Exec HDD Bott Message-->
+	<Screen name="exec_hdd" visible="0" z_depth="-1">
+		<Text str="ゲームが起動するまでしばらくお待ちください。" x="-196" y="-2"/>
+		<!--Text str="本機の電源を切らないで下さい。" x="-196" y="22"/-->
+		<Button name="ErrDiskGeneric" visible="0">
+			<Wizard action="err_disk_generic"/>
+		</Button>
+		<Button name="ErrDiskNoboot" visible="0">
+			<Wizard action="err_disk_noboot"/>
+		</Button>
+		<Button name="ErrDiskIllegal" visible="0">
+			<Wizard action="err_disk_illegal"/>
+		</Button>
+		<Button name="ErrHddNoboot" visible="0">
+			<Wizard action="err_hdd_noboot"/>
+		</Button>
+		<Button name="ErrHddNoDisk" visible="0">
+			<Wizard action="err_hdd_nodisk"/>
+		</Button>
+		<Button name="ErrHddAnotherdisk" visible="0">
+			<Wizard action="err_hdd_anotherdisk"/>
+		</Button>
+		<Button name="ErrHddCorrupt" visible="0">
+			<Wizard action="err_hdd_corrupt"/>
+		</Button>
+	</Screen>
+
+	<!-- EXEAPP_ERR_DISC_GENERIC-->
+	<Screen name="err_disk_generic" visible="0" z_depth="-1">
+		<Text str="ディスクの読み込みに失敗しました。" x="0" y="8" alignment="center"/>
+	</Screen>
+
+	<!-- EXEAPP_ERR_DISC_NOBOOT-->
+	<Screen name="err_disk_noboot" visible="0" z_depth="-1">
+		<Text str="起動できないディスクです。" x="0" y="8" alignment="center"/>
+	</Screen>
+
+	<!-- EXEAPP_ERR_DISC_ILLEGAL-->
+	<Screen name="err_disk_illegal" visible="0" z_depth="-1">
+		<Text str="PlayStation®またはPlaystation®2規格の" x="-196" y="-2"/>
+		<Text str="ディスクではありません。" x="-196" y="22"/>
+	</Screen>
+
+	<!-- EXEAPP_ERR_HDD_NOBOOT-->
+	<Screen name="err_hdd_noboot" visible="0" z_depth="-1">
+		<Text str="起動できないゲームです。" x="0" y="8" alignment="center"/>
+	</Screen>
+
+	<!-- EXEAPP_ERR_HDD_NODISC-->
+	<Screen name="err_hdd_nodisk" visible="0" z_depth="-1">
+		<Text str="このゲームは起動時にディスクが必要です。" x="-196" y="-2"/>
+		<Text str="ディスクを挿入してください。" x="-196" y="22"/>
+	</Screen>
+
+	<!-- EXEAPP_ERR_HDD_ANOTHERDISC-->
+	<Screen name="err_hdd_anotherdisk" visible="0" z_depth="-1">
+		<Text str="ディスクが違います。" x="0"  y="8" alignment="center"/>
+	</Screen>
+
+	<!-- EXEAPP_ERR_HDD_CORRUPT-->
+	<Screen name="err_hdd_corrupt" visible="0" z_depth="-1">
+		<Text str="このデータは破損しています。" x="-196" y="-2"/>
+		<Text str="削除してください。" x="-196" y="22"/>
+	</Screen>
+
+</PSML2>

@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+  <App name="MusicPlayer" focus="Play" script="MusicPlayer.amx">
+  <Dll name="xBitmap/xBitmap" version="0.1.0" />
+  <Dll name="xBitmap3x3/xBitmap3x3" version="0.1.0" />
+  <Dll name="xButton/xButton" version="0.1.0" />
+  <Dll name="xPrim/xPrim" version="0.1.0" />
+  <Dll name="xText/xText" version="0.1.0" />
+  <Dll name="xSlider/xSlider" version="0.1.0" />
+  <Dll name="xContainer/xContainer" version="0.1.0" />
+  <Dll name="xVisualizer/xVisualizer" version="0.1.0" />
+  <Dll name="MusicPlayer/MusicPlayer" version="0.1.0" />
+  <Dll name="xFB/xFB" version="0.0.0" />
+  <Dll name="xFB/xFB_CDDA" version="0.1.0" />
+  <Dll name="xFB/xFB_CDDATA" version="0.1.0" />
+  <Dll name="xFB/xFB_Folder" version="0.1.0" />
+  <Dll name="xFB/xFB_GMM" version="0.1.0" />
+  <Dll name="xFB/xFB_MC" version="0.1.0" />
+  <Dll name="xFB/xFB_Music" version="0.1.0" />
+  <Dll name="xFB/xFB_USBMass" version="0.1.0" />
+  
+  <Visualizer name="VisualizerComp" x="0" y="0" w="704" h="480" />
+                                                                                 
+  <Bitmap name="PlayingState_Play" file="art/CP_Play.png" x="-292" y="155" />
+  <Bitmap name="PlayingState_Stop" file="art/CP_Stop.png" x="-292" y="155" visible="0"/>
+  <Bitmap name="PlayingState_Pause" file="art/CP_Pause.png" x="-292" y="155" visible="0"/>
+  <Bitmap name="PlayingState_Previous" file="art/CP_Prev.png" x="-292" y="155" visible="0"/>
+  <Bitmap name="PlayingState_Next" file="art/CP_Next.png" x="-292" y="155" visible="0"/>
+  <Slider name="TitleProgress" x="-136" y="155" w="274" />
+  <Text name="DigitalClock" str="" x="10" y="162" />
+    
+  <Container name="control_panel" orientation="vertical" align="center" spacing="36" y2d="160" visible="1" focus="menu_r2">
+  <Container name="menu_r1" orientation="horizontal" align="center" spacing="36" x2d="240" focus="__AREA__">
+  		<Button name="Visualizer" nav_right="Import" x="0" y="0" nav_down="menu_r2">
+			<FocusOff>
+				<Bitmap file="art/CP_Visualizer.png" rgba="D0D0D0"/>
+			</FocusOff>    
+			<FocusOn>
+		        <Bitmap file="art/CP_Visualizer.png" rgba="D0D000"/>
+			</FocusOn>    
+		</Button>
+		<Button name="Import" nav_left="Visualizer" nav_right="CheckIn" nav_down="menu_r2">
+			<FocusOff>
+				<Bitmap file="art/CP_Import.png" rgba="D0D0D0"/>
+			</FocusOff>    
+			<FocusOn>
+		        <Bitmap file="art/CP_Import.png" rgba="D0D000"/>
+			</FocusOn>    
+		</Button>
+		<Button name="CheckIn" nav_left="Import" nav_right="CheckOut" nav_down="menu_r2">
+			<FocusOff>
+				<Bitmap file="art/CP_CheckIn.png" rgba="D0D0D0"/>
+			</FocusOff>    
+			<FocusOn>
+		        <Bitmap file="art/CP_CheckIn.png" rgba="D0D000"/>
+			</FocusOn>    
+		</Button>
+		<Button name="CheckOut" nav_left="CheckIn" nav_right="Delete" nav_down="menu_r2">
+			<FocusOff>
+				<Bitmap file="art/CP_CheckOut.png" rgba="D0D0D0"/>
+			</FocusOff>    
+			<FocusOn>
+		        <Bitmap file="art/CP_CheckOut.png" rgba="D0D000"/>
+			</FocusOn>    
+		</Button>
+		<Button name="Delete" nav_left="CheckOut" nav_right="Display" nav_down="menu_r2">
+			<FocusOff>
+				<Bitmap file="art/CP_Delete.png" rgba="D0D0D0"/>
+			</FocusOff>    
+			<FocusOn>
+		        <Bitmap file="art/CP_Delete.png" rgba="D0D000"/>
+			</FocusOn>    
+		</Button>
+		<Button name="Display" nav_left="Delete" nav_down="menu_r2">
+			<FocusOff>
+				<Bitmap file="art/CP_Display.png" rgba="D0D0D0"/>
+			</FocusOff>    
+			<FocusOn>
+		        <Bitmap file="art/CP_Display.png" rgba="D0D000"/>
+			</FocusOn>    
+		</Button>
+    </Container>
+    
+    <Container name="menu_r2" orientation="horizontal" align="center" spacing="36" x2d="240" visible="1" focus="__AREA__">
+		<Button name="Previous" nav_right="Next" nav_up="menu_r1">
+			<FocusOff>
+				<Bitmap file="art/CP_Prev.png" rgba="D0D0D0"/>
+			</FocusOff>    
+			<FocusOn>
+		        <Bitmap file="art/CP_Prev.png" rgba="D0D000"/>
+			</FocusOn>    
+		</Button>
+		<Button name="Next" x="54" nav_left="Previous" nav_right="Play"  nav_up="menu_r1">
+			<FocusOff>
+				<Bitmap file="art/CP_Next.png" rgba="D0D0D0"/>
+			</FocusOff>    
+			<FocusOn>
+		        <Bitmap file="art/CP_Next.png" rgba="D0D000"/>
+			</FocusOn>    
+		</Button>
+		<Button name="Play" x="90" nav_left="Next" nav_right="Pause"  nav_up="menu_r1">
+			<FocusOff>
+				<Bitmap file="art/CP_Play.png" rgba="D0D0D0"/>
+			</FocusOff>    
+			<FocusOn>
+		        <Bitmap file="art/CP_Play.png" rgba="D0D000"/>
+			</FocusOn>    
+		</Button>
+		<Button name="Pause" x="126" nav_left="Play" nav_right="Stop"  nav_up="menu_r1">
+			<FocusOff>
+				<Bitmap file="art/CP_Pause.png" rgba="D0D0D0"/>
+			</FocusOff>    
+			<FocusOn>
+		        <Bitmap file="art/CP_Pause.png" rgba="D0D000"/>
+			</FocusOn>    
+		</Button>
+		<Button name="Stop" x="162" nav_left="Pause" nav_up="menu_r1">
+			<FocusOff>
+				<Bitmap file="art/CP_Stop.png" rgba="D0D0D0"/>
+			</FocusOff>    
+			<FocusOn>
+		        <Bitmap file="art/CP_Stop.png" rgba="D0D000"/>
+			</FocusOn>    
+		</Button>
+    </Container>
+  </Container>
+  <Container name="legend_container" orientation="horizontal" align="center" spacing="36" x2d="240" visible="0">
+       <Text name="Legend" str="" size="18" rgba="D0D000" alignment="center"/>
+   </Container>
+   
+   <Text name="noNextTrack" rgba="D0D0D0" str="次のトラックがありません。" visible="0" alignment="center"/>
+   <Text name="noPreviousTrack" rgba="D0D0D0" str="前のトラックがありません。" visible="0" alignment="center"/>
+</App>

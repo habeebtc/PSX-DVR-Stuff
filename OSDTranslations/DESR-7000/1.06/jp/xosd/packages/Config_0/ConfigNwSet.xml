@@ -1,0 +1,532 @@
+<?xml version="1.0"?>
+<App name="ConfigNwSet" focus="config_sys_WizardList" script="ConfigNwSet.amx">
+	<Dll name="xTime/xTime" version="0.1.0" />
+	<Dll name="xEdit/xEdit" version="0.1.0" />
+	<Dll name="xText/xText" version="0.1.0" />
+	<Dll name="xStr/xStr" version="0.1.0" />
+    <Dll name="xNetConfig/xNetConfig" version="0.1.0" />
+    <Dll name="xNetSmall/xNetSmall" version="0.1.0" />
+	<Dll name="xBitmap/xBitmap" version="0.1.0" />
+	<Dll name="xBitmap3x3/xBitmap3x3" version="0.1.0" />
+	<Dll name="xPrim/xPrim" version="0.1.0" />
+
+	<Bitmap name="bg" file="art/wizard_bg.png" x="0" y="0" w="720" h="480" />
+	
+	<Component name="config_sys_WizardList" x="-360" y="-240" z="0" rot_x="0" rot_y="0" rot_z="0"   visible="1" >
+		<Component name="cell0" x="-720" y="0" rgba="FFFFFF00" >
+		</Component>
+
+		<Component name="cell1" x="-720" y="0"   >
+		</Component>
+
+		<Component name="cell2" x="0" y="0"   >
+		</Component>
+
+		<Component name="cell3" x="720" y="0"   >
+			<Text name="text0" str="ここではネットワークに接続するための"           x="165" y="214" size="16"     />
+			<Text name="text1" str="設定の確認と変更"                               x="165" y="238" size="16"     />
+			<Text name="text2" str="現在の設定での接続テストを行うことができます。" x="165" y="262" size="16"     />
+		</Component>
+
+		<Component name="cell4" x="720" y="0"   visible="0" >
+			<Text name="func0_text0" str="ネットワーク設定を開始します。"               x="125" y="214" size="16"     />
+			<Text name="func0_text1" str="イーサーネットケーブルを正しく接続してから、" x="125" y="238" size="16"     />
+			<Bitmap name="func0_text2" file="art/arrow_R.tga"                           x="510" y="233" />
+			<Text name="func0_text3" str="を押して"                                     x="518" y="238" size="16"     />
+			<Text name="func0_text4" str="ネットワーク設定を開始してください。"         x="125" y="262" size="16"     />
+		</Component>
+
+		<Component name="cell5" x="720" y="0"   >
+			<Text name="func0_text0" str="ＰＰＰｏＥを使用しますか？"         x="165" y="192" size="16"     />
+			<Bitmap name="func0_text1" file="art/arrow_UD.tga"                x="172"   y="210" />
+			<Text name="func0_text2" str="で選んで"                           x="182" y="215" size="16"     />
+			<Bitmap name="func0_text3" file="art/arrow_R.tga"                 x="260" y="210" />
+			<Text name="func0_text4" str="を押して次の画面へ移ってください。" x="268" y="215" size="16"   />
+			
+			<Text name="pppoe0" str="使用する" x="306" y="260" size="16"     />
+			<Text name="pppoe1" str="使用しない" x="306" y="284" size="16"     />
+		</Component>
+
+		<Component name="cell6" x="720" y="0"   >
+			<Text name="func0_pppoe0_text2" str="入力する項目を"                      x="112" y="148" size="16"     />
+			<Bitmap name="func0_pppoe0_text3" file="art/arrow_UD.tga"                 x="241" y="143" />
+			<Text name="func0_pppoe0_text4" str="で選び"                              x="250" y="148" size="16"     />
+			<Bitmap name="func0_pppoe0_text5" file="art/BtnNav-EnterCir-917-wide.tga" x="330" y="143" />
+			<Text name="func0_pppoe0_text6" str="を押してください。"                  x="360" y="148" size="16"     />
+			
+			<Text name="func0_pppoe0_text7" str="入力が終了したら、"                  x="112" y="172" size="16"     />
+			<Bitmap name="func0_pppoe0_text8" file="art/arrow_R.tga"                  x="275" y="166" />
+			<Text name="func0_pppoe0_text9" str="を押して次の画面に移ってください。"  x="283" y="172" size="16"     />
+			
+			<Component name="func0_pppoe0_text0" x="112" y="216">
+				<Text name="text" str="ユーザーＩＤ" size="16"     />
+				<Prim type="outline"   x="-2" y="8" w="480" h="24" />
+				<Edit name="func0_pppoe0_usidedit"  osk_param="10005" x="3" y="24" w="470" size="16"  buf_size="256"   />
+				<Text name="text_usiddsp"  size="16" x="3" y="24"     />
+			</Component>
+			<Component name="func0_pppoe0_text1" x="112" y="284">
+				<Text name="text" str="パスワード" size="16"     />
+				<Prim type="outline"   x="-2" y="8" w="480" h="24" />
+				<Edit name="func0_pppoe0_passedit" osk_param="10005" x="3" y="24" w="470" size="16"  buf_size="256"   password="1" />
+				<Text name="text_upassdsp"  size="16" x="3" y="24"   password="1"  />
+			</Component>
+
+			<Text name="func0_pppoe1_text0" str="IPアドレスの設定方法を変更します。" x="130" y="192" size="16"   />
+			<Bitmap name="func0_pppoe1_text1" file="art/arrow_UD.tga"                x="138" y="210" />
+			<Text name="func0_pppoe1_text2" str="で選んで"                           x="148" y="215" size="16"     />
+			<Bitmap name="func0_pppoe1_text3" file="art/arrow_R.tga"                 x="226" y="210" />
+			<Text name="func0_pppoe1_text4" str="を押して次の画面へ移ってください。" x="234" y="215" size="16"   />
+			
+			<Text name="ip0" str="自動設定する" x="290" y="260" size="16"     />
+			<Text name="ip1" str="自動設定しない" x="290" y="284" size="16"     />
+		</Component>
+
+		<Component name="cell7" x="720" y="0"   >
+			<Text name="func0_pppoe0_text0" str="DNS（ドメインネームシステム）の設定方法を変更します。" x="130" y="192" size="16"   />
+			<Bitmap name="func0_pppoe0_text1" file="art/arrow_UD.tga"                x="138" y="210" />
+			<Text name="func0_pppoe0_text2" str="で選んで"                           x="148" y="215" size="16"     />
+			<Bitmap name="func0_pppoe0_text3" file="art/arrow_R.tga"                 x="226" y="210" />
+			<Text name="func0_pppoe0_text4" str="を押して次の画面へ移ってください。" x="234" y="215" size="16"   />
+
+			<Text name="func0_pppoe1_ip0_text0" str="DNS（ドメインネームシステム）の設定方法を変更します。" x="130" y="192" size="16"   />
+			<Bitmap name="func0_pppoe1_ip0_text1" file="art/arrow_UD.tga"                x="138" y="210" />
+			<Text name="func0_pppoe1_ip0_text2" str="で選んで"                           x="148" y="215" size="16"     />
+			<Bitmap name="func0_pppoe1_ip0_text3" file="art/arrow_R.tga"                 x="226" y="210" />
+			<Text name="func0_pppoe1_ip0_text4" str="を押して次の画面へ移ってください。" x="234" y="215" size="16"   />
+
+			<Text name="dns0" str="自動設定する" x="290" y="260" size="16"     />
+			<Text name="dns1" str="自動設定しない" x="290" y="284" size="16"     />
+
+
+			<Text name="func0_pppoe1_ip1_text6" str="入力する項目を"                      x="112" y="168" size="16"     />
+			<Bitmap name="func0_pppoe1_ip1_text7" file="art/arrow_UD.tga"                 x="241" y="163" />
+			<Text name="func0_pppoe1_ip1_text8" str="で選び"                              x="250" y="168" size="16"     />
+			<Bitmap name="func0_pppoe1_ip1_text9" file="art/BtnNav-EnterCir-917-wide.tga" x="330" y="163" />
+			<Text name="func0_pppoe1_ip1_text10" str="を押してください。"                 x="360" y="168" size="16"     />
+			
+			<Text name="func0_pppoe1_ip1_text11" str="入力が終了したら、"                  x="112" y="192" size="16"     />
+			<Bitmap name="func0_pppoe1_ip1_text12" file="art/arrow_R.tga"                  x="275" y="187" />
+			<Text name="func0_pppoe1_ip1_text13" str="を押して次の画面に移ってください。"  x="283" y="192" size="16"     />
+
+			<Component name="func0_pppoe1_ip1_text0" x="280" y="236">
+				<Component name="ip_set"        x="0" y="-2" z="0" a="255">
+					<Text name="addr0" str="0"  x="110"   y="2"  size="16"   alignment="right"/>
+					<Text name="addr4" str="."  x="120"   y="2"  size="16"   />
+					<Text name="addr1" str="0"  x="170"   y="2"  size="16"   alignment="right"/>
+					<Text name="addr5" str="."  x="180"   y="2"  size="16"   />
+					<Text name="addr2" str="0"  x="230"   y="2"  size="16"   alignment="right"/>
+					<Text name="addr6" str="."  x="240"   y="2"  size="16"   />
+					<Text name="addr3" str="0"  x="290"   y="2"  size="16"   alignment="right"/>
+				</Component>
+			</Component>
+			<Component name="func0_pppoe1_ip1_text1" x="280" y="280">
+				<Component name="ip_set"        x="0" y="-2" z="0" a="255">
+					<Text name="addr0" str="255"  x="110"   y="2"  size="16"   alignment="right"/>
+					<Text name="addr4" str="."    x="120"   y="2"  size="16"   />
+					<Text name="addr1" str="255"  x="170"   y="2"  size="16"   alignment="right"/>
+					<Text name="addr5" str="."    x="180"   y="2"  size="16"   />
+					<Text name="addr2" str="255"  x="230"   y="2"  size="16"   alignment="right"/>
+					<Text name="addr6" str="."    x="240"   y="2"  size="16"   />
+					<Text name="addr3" str="0"    x="290"   y="2"  size="16"   alignment="right"/>
+				</Component>
+			</Component>
+			<Component name="func0_pppoe1_ip1_text2" x="280" y="324">
+				<Component name="ip_set"        x="0" y="-2" z="0" a="255">
+					<Text name="addr0" str="0"  x="110"   y="2"  size="16"   alignment="right"/>
+					<Text name="addr4" str="."  x="120"   y="2"  size="16"   />
+					<Text name="addr1" str="0"  x="170"   y="2"  size="16"   alignment="right"/>
+					<Text name="addr5" str="."  x="180"   y="2"  size="16"   />
+					<Text name="addr2" str="0"  x="230"   y="2"  size="16"   alignment="right"/>
+					<Text name="addr6" str="."  x="240"   y="2"  size="16"   />
+					<Text name="addr3" str="0"  x="290"   y="2"  size="16"   alignment="right"/>
+				</Component>
+			</Component>
+
+			<Text name="func0_pppoe1_ip1_text3" str="ＩＰアドレス"     x="112" y="236" size="16"     />
+			<Text name="func0_pppoe1_ip1_text4" str="ネットマスク"     x="112" y="280" size="16"     />
+			<Text name="func0_pppoe1_ip1_text5" str="デフォルトルータ" x="112" y="324" size="16"     />
+
+
+
+		</Component>
+
+		<Component name="cell8" x="720" y="0"   >
+			<Text name="func0_pppoe0_dns0_text0" str="設定内容一覧"  x="360" y="184" size="16"    alignment="center" />
+			<Text name="func0_pppoe0_dns0_text1" str="ユーザーID"    x="150" y="228" size="16"     />
+			<Text name="func0_pppoe0_dns0_text2" str="パスワード"    x="150" y="252" size="16"     />
+			<Text name="func0_pppoe0_dns0_text3" str="プライマリDNS" x="150" y="276" size="16"     />
+			<Text name="func0_pppoe0_dns0_text4" str="セカンダリDNS" x="150" y="300" size="16"     />
+			<Text name="func0_pppoe0_dns0_text5" str=""         x="340" y="228" size="16"     />
+			<Text name="func0_pppoe0_dns0_text6" str=""         x="340" y="252" size="16"     />
+			<Text name="func0_pppoe0_dns0_text7" str="自動設定" x="340" y="276" size="16"     />
+			<Text name="func0_pppoe0_dns0_text8" str="自動設定" x="340" y="300" size="16"     />
+
+
+
+			<Text name="func0_pppoe1_ip0_dns0_text0" str="設定内容一覧"     x="360" y="172" size="16"   alignment="center"  />
+			<Text name="func0_pppoe1_ip0_dns0_text1" str="IPアドレス"       x="220" y="216" size="16"     />
+			<Text name="func0_pppoe1_ip0_dns0_text2" str="ネットマスク"     x="220" y="240" size="16"     />
+			<Text name="func0_pppoe1_ip0_dns0_text3" str="デフォルトルータ" x="220" y="264" size="16"     />
+			<Text name="func0_pppoe1_ip0_dns0_text4" str="プライマリDNS"    x="220" y="288" size="16"     />
+			<Text name="func0_pppoe1_ip0_dns0_text5" str="セカンダリDNS"    x="220" y="312" size="16"     />
+			<Text name="func0_pppoe1_ip0_dns0_text5" str="自動設定" x="430" y="216" size="16"     />
+			<Text name="func0_pppoe1_ip0_dns0_text6" str="自動設定" x="430" y="240" size="16"     />
+			<Text name="func0_pppoe1_ip0_dns0_text7" str="自動設定" x="430" y="264" size="16"     />
+			<Text name="func0_pppoe1_ip0_dns0_text8" str="自動設定" x="430" y="288" size="16"     />
+			<Text name="func0_pppoe1_ip0_dns0_text9" str="自動設定" x="430" y="312" size="16"     />
+
+
+
+			<Text name="func0_pppoe0_dns1_text2" str="入力する項目を"                      x="112" y="192" size="16"     />
+			<Bitmap name="func0_pppoe0_dns1_text3" file="art/arrow_UD.tga"                 x="241" y="187" />
+			<Text name="func0_pppoe0_dns1_text4" str="で選び"                              x="250" y="192" size="16"     />
+			<Bitmap name="func0_pppoe0_dns1_text5" file="art/BtnNav-EnterCir-917-wide.tga" x="330" y="187" />
+			<Text name="func0_pppoe0_dns1_text6" str="を押してください。"                  x="360" y="192" size="16"     />
+			
+			<Text name="func0_pppoe0_dns1_text7" str="入力が終了したら、"                  x="112" y="216" size="16"     />
+			<Bitmap name="func0_pppoe0_dns1_text8" file="art/arrow_R.tga"                  x="275" y="211" />
+			<Text name="func0_pppoe0_dns1_text9" str="を押して次の画面に移ってください。"  x="283" y="216" size="16"     />
+
+			<Text name="func0_pppoe0_dns1_text10" str="プライマリＤＮＳ" x="112" y="260" size="16"     />
+			<Text name="func0_pppoe0_dns1_text11" str="セカンダリＤＮＳ" x="112" y="304" size="16"     />
+			<Component name="func0_pppoe0_dns1_text0" x="280" y="260">
+				<Component name="ip_set"        x="0" y="-2" z="0" a="255">
+					<Text name="addr0" str="0"  x="110"   y="2"  size="16"   alignment="right"/>
+					<Text name="addr4" str="."  x="120"   y="2"  size="16"   />
+					<Text name="addr1" str="0"  x="170"   y="2"  size="16"   alignment="right"/>
+					<Text name="addr5" str="."  x="180"   y="2"  size="16"   />
+					<Text name="addr2" str="0"  x="230"   y="2"  size="16"   alignment="right"/>
+					<Text name="addr6" str="."  x="240"   y="2"  size="16"   />
+					<Text name="addr3" str="0"  x="290"   y="2"  size="16"   alignment="right"/>
+				</Component>
+			</Component>
+			<Component name="func0_pppoe0_dns1_text1" x="280" y="304">
+				<Component name="ip_set"        x="0" y="-2" z="0" a="255">
+					<Text name="addr0" str="0"  x="110"   y="2"  size="16"   alignment="right"/>
+					<Text name="addr4" str="."  x="120"   y="2"  size="16"   />
+					<Text name="addr1" str="0"  x="170"   y="2"  size="16"   alignment="right"/>
+					<Text name="addr5" str="."  x="180"   y="2"  size="16"   />
+					<Text name="addr2" str="0"  x="230"   y="2"  size="16"   alignment="right"/>
+					<Text name="addr6" str="."  x="240"   y="2"  size="16"   />
+					<Text name="addr3" str="0"  x="290"   y="2"  size="16"   alignment="right"/>
+				</Component>
+			</Component>
+
+
+
+			<Text name="func0_pppoe1_ip0_dns1_text2" str="入力する項目を"                      x="112" y="192" size="16"     />
+			<Bitmap name="func0_pppoe1_ip0_dns1_text3" file="art/arrow_UD.tga"                 x="241" y="187" />
+			<Text name="func0_pppoe1_ip0_dns1_text4" str="で選び"                              x="250" y="192" size="16"     />
+			<Bitmap name="func0_pppoe1_ip0_dns1_text5" file="art/BtnNav-EnterCir-917-wide.tga" x="330" y="187" />
+			<Text name="func0_pppoe1_ip0_dns1_text6" str="を押してください。"                  x="360" y="192" size="16"     />
+			
+			<Text name="func0_pppoe1_ip0_dns1_text7" str="入力が終了したら、"                  x="112" y="216" size="16"     />
+			<Bitmap name="func0_pppoe1_ip0_dns1_text8" file="art/arrow_R.tga"                  x="275" y="211" />
+			<Text name="func0_pppoe1_ip0_dns1_text9" str="を押して次の画面に移ってください。"  x="283" y="216" size="16"     />
+
+			<Text name="func0_pppoe1_ip0_dns1_text10" str="プライマリＤＮＳ" x="112" y="260" size="16"     />
+			<Text name="func0_pppoe1_ip0_dns1_text11" str="セカンダリＤＮＳ" x="112" y="304" size="16"     />
+			<Component name="func0_pppoe1_ip0_dns1_text0" x="280" y="260">
+				<Component name="ip_set"        x="0" y="-2" z="0" a="255">
+					<Text name="addr0" str="0"  x="110"   y="2"  size="16"   alignment="right"/>
+					<Text name="addr4" str="."  x="120"   y="2"  size="16"   />
+					<Text name="addr1" str="0"  x="170"   y="2"  size="16"   alignment="right"/>
+					<Text name="addr5" str="."  x="180"   y="2"  size="16"   />
+					<Text name="addr2" str="0"  x="230"   y="2"  size="16"   alignment="right"/>
+					<Text name="addr6" str="."  x="240"   y="2"  size="16"   />
+					<Text name="addr3" str="0"  x="290"   y="2"  size="16"   alignment="right"/>
+				</Component>
+			</Component>
+			<Component name="func0_pppoe1_ip0_dns1_text1" x="280" y="304">
+				<Component name="ip_set"        x="0" y="-2" z="0" a="255">
+					<Text name="addr0" str="0"  x="110"   y="2"  size="16"   alignment="right"/>
+					<Text name="addr4" str="."  x="120"   y="2"  size="16"   />
+					<Text name="addr1" str="0"  x="170"   y="2"  size="16"   alignment="right"/>
+					<Text name="addr5" str="."  x="180"   y="2"  size="16"   />
+					<Text name="addr2" str="0"  x="230"   y="2"  size="16"   alignment="right"/>
+					<Text name="addr6" str="."  x="240"   y="2"  size="16"   />
+					<Text name="addr3" str="0"  x="290"   y="2"  size="16"   alignment="right"/>
+				</Component>
+			</Component>
+
+
+			<Text name="func0_pppoe1_ip1_text0" str="DNS（ドメインネームシステム）の設定方法を変更します。" x="130" y="192" size="16"   />
+			<Bitmap name="func0_pppoe1_ip1_text1" file="art/arrow_UD.tga"                x="138" y="210" />
+			<Text name="func0_pppoe1_ip1_text2" str="で選んで"                           x="148" y="215" size="16"     />
+			<Bitmap name="func0_pppoe1_ip1_text3" file="art/arrow_R.tga"                 x="226" y="210" />
+			<Text name="func0_pppoe1_ip1_text4" str="を押して次の画面へ移ってください。" x="234" y="215" size="16"   />
+
+			<Text name="dns0" str="自動設定する" x="290" y="260" size="16"     />
+			<Text name="dns1" str="自動設定しない" x="290" y="284" size="16"     />
+
+		</Component>
+
+
+		<Component name="cell9" x="720" y="0"   >
+			<Text name="func0_pppoe0_dns0_text0" str="設定した内容をハードディスクに保存して、"      x="164" y="214" size="16"     />
+			<Text name="func0_pppoe0_dns0_text1" str="ネットワークに接続します。"                    x="164" y="238" size="16"     />
+			<Bitmap name="func0_pppoe0_dns0_text2" file="art/BtnNav-EnterCir-917-wide.tga"           x="192" y="257" />
+			<Text name="func0_pppoe0_dns0_text3" str="を押して、接続テストを開始してください。"      x="222" y="262" size="16"     />
+
+			<Text name="func0_pppoe1_ip0_dns0_text0" str="設定した内容をハードディスクに保存して、"      x="164" y="214" size="16"     />
+			<Text name="func0_pppoe1_ip0_dns0_text1" str="ネットワークに接続します。"                    x="164" y="238" size="16"     />
+			<Bitmap name="func0_pppoe1_ip0_dns0_text2" file="art/BtnNav-EnterCir-917-wide.tga"           x="192" y="257" />
+			<Text name="func0_pppoe1_ip0_dns0_text3" str="を押して、接続テストを開始してください。"      x="222" y="262" size="16"     />
+
+			<Text name="func0_pppoe0_dns1_text0" str="設定内容一覧"  x="360" y="184" size="16"   alignment="center"  />
+			<Text name="func0_pppoe0_dns1_text1" str="ユーザーID"    x="150" y="228" size="16"     />
+			<Text name="func0_pppoe0_dns1_text2" str="パスワード"    x="150" y="252" size="16"     />
+			<Text name="func0_pppoe0_dns1_text3" str="プライマリDNS" x="150" y="276" size="16"     />
+			<Text name="func0_pppoe0_dns1_text4" str="セカンダリDNS" x="150" y="300" size="16"     />
+			<Text name="func0_pppoe0_dns1_text5" str="" x="300" y="228" size="16"     />
+			<Text name="func0_pppoe0_dns1_text6" str="" x="300" y="252" size="16"     />
+			<Text name="func0_pppoe0_dns1_text7" str="" x="300" y="276" size="16"     />
+			<Text name="func0_pppoe0_dns1_text8" str="" x="300" y="300" size="16"     />
+
+			<Text name="func0_pppoe1_ip0_dns1_text0" str="設定内容一覧"     x="360" y="172" size="16"    alignment="center" />
+			<Text name="func0_pppoe1_ip0_dns1_text1" str="IPアドレス"       x="150" y="216" size="16"     />
+			<Text name="func0_pppoe1_ip0_dns1_text2" str="ネットマスク"     x="150" y="240" size="16"     />
+			<Text name="func0_pppoe1_ip0_dns1_text3" str="デフォルトルータ" x="150" y="264" size="16"     />
+			<Text name="func0_pppoe1_ip0_dns1_text4" str="プライマリDNS"    x="150" y="288" size="16"     />
+			<Text name="func0_pppoe1_ip0_dns1_text5" str="セカンダリDNS"    x="150" y="312" size="16"     />
+			<Text name="func0_pppoe1_ip0_dns1_text6" str="自動設定" x="380" y="216" size="16"     />
+			<Text name="func0_pppoe1_ip0_dns1_text7" str="自動設定" x="380" y="240" size="16"     />
+			<Text name="func0_pppoe1_ip0_dns1_text8" str="自動設定" x="380" y="264" size="16"     />
+			<Text name="func0_pppoe1_ip0_dns1_text9" str=""         x="380" y="288" size="16"     />
+			<Text name="func0_pppoe1_ip0_dns1_text10" str=""        x="380" y="312" size="16"     />
+
+			<Text name="func0_pppoe1_ip1_dns0_text0" str="設定内容一覧"     x="360" y="172" size="16"    alignment="center" />
+			<Text name="func0_pppoe1_ip1_dns0_text1" str="IPアドレス"       x="150" y="216" size="16"     />
+			<Text name="func0_pppoe1_ip1_dns0_text2" str="ネットマスク"     x="150" y="240" size="16"     />
+			<Text name="func0_pppoe1_ip1_dns0_text3" str="デフォルトルータ" x="150" y="264" size="16"     />
+			<Text name="func0_pppoe1_ip1_dns0_text4" str="プライマリDNS"    x="150" y="288" size="16"     />
+			<Text name="func0_pppoe1_ip1_dns0_text5" str="セカンダリDNS"    x="150" y="312" size="16"     />
+			<Text name="func0_pppoe1_ip1_dns0_text6" str=""          x="380" y="216" size="16"     />
+			<Text name="func0_pppoe1_ip1_dns0_text7" str=""          x="380" y="240" size="16"     />
+			<Text name="func0_pppoe1_ip1_dns0_text8" str=""          x="380" y="264" size="16"     />
+			<Text name="func0_pppoe1_ip1_dns0_text9" str="自動設定"  x="380" y="288" size="16"     />
+			<Text name="func0_pppoe1_ip1_dns0_text10" str="自動設定" x="380" y="312" size="16"     />
+
+			<Text name="func0_pppoe1_ip1_dns1_text2" str="入力する項目を"                      x="112" y="192" size="16"     />
+			<Bitmap name="func0_pppoe1_ip1_dns1_text3" file="art/arrow_UD.tga"                 x="241" y="187" />
+			<Text name="func0_pppoe1_ip1_dns1_text4" str="で選び"                              x="250" y="192" size="16"     />
+			<Bitmap name="func0_pppoe1_ip1_dns1_text5" file="art/BtnNav-EnterCir-917-wide.tga" x="330" y="187" />
+			<Text name="func0_pppoe1_ip1_dns1_text6" str="を押してください。"                  x="360" y="192" size="16"     />
+			
+			<Text name="func0_pppoe1_ip1_dns1_text7" str="入力が終了したら、"                  x="112" y="216" size="16"     />
+			<Bitmap name="func0_pppoe1_ip1_dns1_text8" file="art/arrow_R.tga"                  x="275" y="211" />
+			<Text name="func0_pppoe1_ip1_dns1_text9" str="を押して次の画面に移ってください。"  x="283" y="216" size="16"     />
+
+			<Text name="func0_pppoe1_ip1_dns1_text10" str="プライマリＤＮＳ" x="112" y="260" size="16"     />
+			<Text name="func0_pppoe1_ip1_dns1_text11" str="セカンダリＤＮＳ" x="112" y="304" size="16"     />
+			<Component name="func0_pppoe1_ip1_dns1_text0" x="280" y="260">
+				<Component name="ip_set"        x="0" y="-2" z="0" a="255">
+					<Text name="addr0" str="0"  x="110"   y="2"  size="16"   alignment="right"/>
+					<Text name="addr4" str="."  x="120"   y="2"  size="16"   />
+					<Text name="addr1" str="0"  x="170"   y="2"  size="16"   alignment="right"/>
+					<Text name="addr5" str="."  x="180"   y="2"  size="16"   />
+					<Text name="addr2" str="0"  x="230"   y="2"  size="16"   alignment="right"/>
+					<Text name="addr6" str="."  x="240"   y="2"  size="16"   />
+					<Text name="addr3" str="0"  x="290"   y="2"  size="16"   alignment="right"/>
+				</Component>
+			</Component>
+			<Component name="func0_pppoe1_ip1_dns1_text1" x="280" y="304">
+				<Component name="ip_set"        x="0" y="-2" z="0" a="255">
+					<Text name="addr0" str="0"  x="110"   y="2"  size="16"   alignment="right"/>
+					<Text name="addr4" str="."  x="120"   y="2"  size="16"   />
+					<Text name="addr1" str="0"  x="170"   y="2"  size="16"   alignment="right"/>
+					<Text name="addr5" str="."  x="180"   y="2"  size="16"   />
+					<Text name="addr2" str="0"  x="230"   y="2"  size="16"   alignment="right"/>
+					<Text name="addr6" str="."  x="240"   y="2"  size="16"   />
+					<Text name="addr3" str="0"  x="290"   y="2"  size="16"   alignment="right"/>
+				</Component>
+			</Component>
+
+
+		</Component>
+
+
+
+
+		<Component name="cell10" x="720" y="0"   >
+			<Text name="func0_pppoe0_dns1_text0" str="設定した内容をハードディスクに保存して、"      x="164" y="214" size="16"     />
+			<Text name="func0_pppoe0_dns1_text1" str="ネットワークに接続します。"                    x="164" y="238" size="16"     />
+			<Bitmap name="func0_pppoe0_dns1_text2" file="art/BtnNav-EnterCir-917-wide.tga"           x="192" y="257" />
+			<Text name="func0_pppoe0_dns1_text3" str="を押して、接続テストを開始してください。"      x="222" y="262" size="16"     />
+
+			<Text name="func0_pppoe1_ip0_dns1_text0" str="設定した内容をハードディスクに保存して、"      x="164" y="214" size="16"     />
+			<Text name="func0_pppoe1_ip0_dns1_text1" str="ネットワークに接続します。"                    x="164" y="238" size="16"     />
+			<Bitmap name="func0_pppoe1_ip0_dns1_text2" file="art/BtnNav-EnterCir-917-wide.tga"           x="192" y="257" />
+			<Text name="func0_pppoe1_ip0_dns1_text3" str="を押して、接続テストを開始してください。"      x="222" y="262" size="16"     />
+
+
+			<Text name="func0_pppoe1_ip1_dns0_text0" str="設定した内容をハードディスクに保存して、"      x="164" y="214" size="16"     />
+			<Text name="func0_pppoe1_ip1_dns0_text1" str="ネットワークに接続します。"                    x="164" y="238" size="16"     />
+			<Bitmap name="func0_pppoe1_ip1_dns0_text2" file="art/BtnNav-EnterCir-917-wide.tga"           x="192" y="257" />
+			<Text name="func0_pppoe1_ip1_dns0_text3" str="を押して、接続テストを開始してください。"      x="222" y="262" size="16"     />
+
+			<Text name="func0_pppoe1_ip1_dns1_text0" str="設定内容一覧"     x="360" y="172" size="16"   alignment="center"  />
+			<Text name="func0_pppoe1_ip1_dns1_text1" str="IPアドレス"       x="150" y="216" size="16"     />
+			<Text name="func0_pppoe1_ip1_dns1_text2" str="ネットマスク"     x="150" y="240" size="16"     />
+			<Text name="func0_pppoe1_ip1_dns1_text3" str="デフォルトルータ" x="150" y="264" size="16"     />
+			<Text name="func0_pppoe1_ip1_dns1_text4" str="プライマリDNS"    x="150" y="288" size="16"     />
+			<Text name="func0_pppoe1_ip1_dns1_text5" str="セカンダリDNS"    x="150" y="312" size="16"     />
+			<Text name="func0_pppoe1_ip1_dns1_text6" str=""  x="380" y="216" size="16"     />
+			<Text name="func0_pppoe1_ip1_dns1_text7" str=""  x="380" y="240" size="16"     />
+			<Text name="func0_pppoe1_ip1_dns1_text8" str=""  x="380" y="264" size="16"     />
+			<Text name="func0_pppoe1_ip1_dns1_text9" str=""  x="380" y="288" size="16"     />
+			<Text name="func0_pppoe1_ip1_dns1_text10" str="" x="380" y="312" size="16"     />
+
+		</Component>
+
+
+
+		<Component name="cell11" x="720" y="0"   >
+			<Text name="func0_pppoe1_ip1_dns1_text0" str="設定した内容をハードディスクに保存して、"      x="164" y="214" size="16"     />
+			<Text name="func0_pppoe1_ip1_dns1_text1" str="ネットワークに接続します。"                    x="164" y="238" size="16"     />
+			<Bitmap name="func0_pppoe1_ip1_dns1_text2" file="art/BtnNav-EnterCir-917-wide.tga"           x="192" y="257" />
+			<Text name="func0_pppoe1_ip1_dns1_text3" str="を押して、接続テストを開始してください。"      x="222" y="262" size="16"     />
+		</Component>
+
+
+		<Component name="cell12" x="720" y="0"   >
+		</Component>
+		<Component name="cell13" x="720" y="0" rgba="FFFFFF00" >
+		</Component>
+
+		<Component name="ListArrow" y="240" >
+			<Bitmap name="ListArrowLeft"  file="art/GT000020.tga" x="60"  y="-5" w="28" h="30" rot_z="0.5"    />
+			<Bitmap name="ListArrowRight" file="art/GT000020.tga" x="650" y="-5" w="28" h="30"    />
+		</Component>
+		
+		<Component name="ip_focus" >
+			<Bitmap name="focusArrowUp" file="art/arrow_U.tga" x="0" w="14" h="12"   visible="0" />
+			<Bitmap name="focusArrowDw" file="art/arrow_U.tga" x="0"  rot_x="0.5" w="14" h="12"   visible="0" />
+		</Component>
+
+		<Bitmap name="editfocus" file="art/NailFocus-72x54.tga" w="480" h="24" a="170"  z_sort="-10" visible="0" />
+
+	</Component>
+	<Component name="nw_connect0" x="-360" y="-240" visible="0" >
+		<Text name="text" str="ネットワークに接続しています。" x="360" y="240" size="16"  alignment="center"   />
+	</Component>
+
+	<Component name="Dialog2" x="-360" y="-240" visible="0" >
+		<Prim name="Bg" type="rect" rgba="000018D0" x="0" y="0" w="720" h="480" />
+		<Bitmap name="Line1" file="art/DialogBorder.tga"  y="240" x="360" w="450" />
+		<Bitmap name="Line2" file="art/DialogBorder.tga"  y="240" x="360" w="450" />
+		<Bitmap name="DNAS_OK" file="art/dnas_small_basicA.tga"   y="105" x="640" visible="0" z_depth="-4"/>
+		<Bitmap name="DNAS_NG" file="art/dnas_small_failA.tga"   y="105" x="640"  visible="0" z_depth="-4"/>
+		<Component name="Base" x="190" y="220">
+			<Text name="text0_0" str="ネットワーク設定を中止しますか？"               x="-20" y="0"  size="16"   />
+			<Text name="text0_1" str="中止する場合、今までの作業内容は保存されません" x="-20" y="24" size="16"   />
+			<Text name="text0_Y" str="中止する" x="85" y="60" size="16" alignment="center" />
+			<Text name="text0_N" str="中止しない" x="240" y="60" size="16" alignment="center" />
+
+			<Text name="text1_0" str="ネットワークの接続を中止しました。" y="0" size="16"   />
+
+			<Text name="text2_0" str="設定した内容を本機に保存できませんでした。" y="0" size="16"   />
+			<Text name="err2_1" str=""                                   y="24" size="16"   />
+
+			<Text name="text3_0" str="ネットワークに接続できませんでした。" y="0" size="16"   />
+			<Text name="err3_1" str=""                                   y="24" size="16"   />
+
+			<Text name="text4_0" str="DNAS認証エラーです" y="0" size="16"   />
+			<Text name="err4_1" str=""                                   y="24" size="16"   />
+
+			<Text name="text5_0" str="ネットワーク設定を読み込めません。" y="0" size="16"   />
+			<Text name="err5_1" str=""                                   y="24" size="16"   />
+
+			<Text name="text6_0" str="録画予約時刻開始まで10分を切りました。" y="-24" size="16"   />
+			<Text name="text6_1" str="録画開始時刻になると自動的に終了します。" y="0" size="16"   />
+			<Text name="text6_2" str="ウィザードを中止しますか？" y="24" size="16"   />
+			<Text name="text6_Y" str="中止する" x="85" y="60" size="16" alignment="center" />
+			<Text name="text6_N" str="中止しない" x="240" y="60" size="16" alignment="center" />
+
+			<Text name="text7_0" str="&#34;DNAS&#34;認証中です。"         y="0"  size="16"   />
+			<Text name="text7_1" str="しばらくお待ちください。"           y="24" size="16"   />
+
+			<Text name="text8_0" str=""         y="0"  size="16"   />
+
+			<Text name="text9_0" str="現在&#34;DNAS&#34;サーバーが処理を受け付けることが"        y="0"  size="16"   />
+			<Text name="text9_1" str="できません。"                                      y="24" size="16"   />
+			<Text name="text9_2" str="しばらく時間をおいてから再接続してください。"      y="48" size="16"   />
+
+			<Text name="text10_0" str="タイトルの&#34;DNAS&#34;認証サービス期間以前です。"        y="0"  size="16"   />
+
+			<Text name="text11_0" str="タイトルの&#34;DNAS&#34;認証サービス期間が終了しました。" y="0"  size="16"   />
+
+			<Text name="text12_0" str="全ての&#34;DNAS&#34;サービスが終了しました。" y="0"  size="16"   />
+
+
+			<Text name="text13_0" str="&#34;DNAS&#34;サーバーとの接続がタイムアウトしました。" y="0"  size="16"   />
+			<Text name="text13_1" str="しばらく時間をおいてから再接続してください。"               y="24" size="16"   />
+
+			<Text name="text14_0" str="サーバーが正常に動作しておりません。" y="0"  size="16"   />
+			<Text name="text14_1" str="しばらく時間をおいてから再接続してください。"               y="24" size="16"   />
+
+			<Text name="text15_0" str="&#34;DNAS&#34;エラーがおこりました。" y="0"  size="16"   />
+			<Text name="text15_1" str=""               y="24" size="16"   />
+
+			<Text name="text16_0" str="&#34;DNAS&#34;サーバーエラーです。" y="0"  size="16"   />
+
+			<Text name="text17_0" str="ユニークIDエラーです。" y="0"  size="16"   />
+
+			<Text name="text18_0" str="ダウンロードエラーです。" y="0"  size="16"   />
+
+			<Text name="text19_0" str="機器情報エラーです。" y="0"  size="16"   />
+			<Text name="text19_1" str=""               y="24" size="16"   />
+
+			<Text name="text20_0" str="&#34;DNAS&#34;エラーがおこりました。" y="0"  size="16"   />
+
+			<Text name="text21_0" str="ネットワーク接続を中断しました。" y="0"  size="16"   />
+
+			<Text name="text22_0" str="プロキシの設定にエラーがあります。" y="0"  size="16"   />
+			<Text name="text22_1" str=""               y="24" size="16"   />
+
+			<Text name="text23_0" str="通信がタイムアウトしました。" y="0"  size="16"   />
+			<Text name="text23_1" str="しばらく時間をおいてから再接続してください。"               y="24" size="16"   />
+
+			<Text name="text24_0" str="DNSサーバがみつかりません。" y="0"  size="16"   />
+			<Text name="text24_1" str="ネットワーク設定を確認してください。"               y="24" size="16"   />
+
+			<Text name="text25_0" str="DNSサーバの応答にエラーがあります。" y="0"  size="16"   />
+			<Text name="text25_1" str="ネットワーク設定を確認してください。"               y="24" size="16"   />
+
+			<Text name="text26_0" str="DNSエラーです。" y="0"  size="16"   />
+			<Text name="text26_1" str="ネットワーク設定を確認してください。"               y="24" size="16"   />
+
+			<Text name="text27_0" str="&#34;DNAS&#34;サーバへの接続に失敗しました。" y="0"  size="16"   />
+
+			<Text name="text28_0" str="通信エラーです。" y="0"  size="16"   />
+
+			<Text name="texterr_0" str=""                                 y="0" size="16"   />
+			<Text name="texterr_1" str=""                                 y="24" size="16"   />
+			<Text name="texterr_2" str=""                                 y="48" size="16"   />
+			<Text name="texterr_3" str=""                                 y="72" size="16"   />
+
+		</Component>
+		<Component name="DialogFocus" x="430" y="283" />
+		<Component name="DialogFocus2" x="275" y="283" />
+	</Component>
+
+	<Component name="nw_connect1" x="-360" y="-240" visible="0" >
+		<Text name="connect1_text0" str="接続に成功しました。" x="360" y="240" size="16"  alignment="center"   />
+		<Text name="connect1_text1" str="接続を中断しました。" x="120" y="240" size="16"     />
+		<Text name="connect1_text2" str="接続に失敗しました。" x="120" y="240" size="16"     />
+		<Text name="connect1_text3" str="" x="120" y="280" size="16"     />
+	</Component>
+
+	<Component name="TopBar" x="-360" y="-240">
+		<Bitmap name="TopBarBg" file="art/TopBar.tga" x="360" y="32" w="720" h="64" />
+		<Text name="Title" str="ネットワークの設定" x="80" y="51" size="16" z_depth="-4"/>
+		<Bitmap name="TopIcon" file="art/sICN-Conf-917.tga" x="59" y="45" w="39" h="32" z_depth="-4"/>
+	</Component>
+	<Component name="BotBar" x="-360" y="-240" >
+		<Bitmap name="BotBarBg" file="art/TopBar.tga" x="360" y="448" w="720" h="64" rot_z="0.5" />
+		<Text name="TXTCross" str="戻る" x="273" y="442" size="16"   />
+		<Bitmap name="IcnCross" file="art/BtnNav-Crs-917.png" x="260" y="438" />
+		<Text name="TXTCircle" str="変更" x="409" y="442" size="16"   />
+		<Bitmap name="IcnCiecle" file="art/BtnNav-EnterCir-917-wide.tga" x="378" y="438" />
+	</Component>
+</App>

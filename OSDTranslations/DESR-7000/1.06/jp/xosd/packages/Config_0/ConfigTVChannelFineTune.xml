@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<App name="ConfigTVChannelFineTune" focus="base" script="ConfigTVChannelFineTune.amx" >
+	<Dll name="pvr/pvrNative" version="0.1.0" />
+	<Dll name="xBitmap/xBitmap" version="0.1.0" />
+	<Dll name="xPrim/xPrim" version="0.1.0" />
+	<Dll name="xText/xText" version="0.1.0" />
+
+	<Component name="base" x="-360" y="-240" >
+		<Text name="Channel" str="" x="580" y="51" size="16" alignment="left" rgba="D0D0D0B0" />
+
+		<Component name="slider" y="380" >
+			<Bitmap name="barBg" file="art/timeline.tga"  y="0" x="360" w="510" />
+			<Bitmap name="barFg" file="art/timeline_point_focued.tga" x="360" />
+		</Component>
+	</Component>
+	<Component name="TopBar" x="-360" y="-240" >
+		<Text name="Title" str="テレビの設定 / 手動チャンネル設定 / チャンネルの微調整" x="80" y="51" size="16" rgba="D0D0D0FF" />
+		<Bitmap name="TopIcon" file="art/sICN-Conf-917.tga" x="59" y="45" w="39" h="32" />
+		<Bitmap name="TopBarBg" file="art/TopBar.tga" x="360" y="32" w="720" h="64" rgba="FFFFFF60" />
+	</Component>
+	<Component name="BotBar" x="-360" y="-240" >
+		<Text name="TXTCross" str="戻る" x="271" y="442" size="16" rgba="D0D0D0FF" />
+		<Bitmap name="IcnCross" file="art/BtnNav-Crs-917.png" x="258" y="438" />
+		<Text name="TXTCircle" str="変更" x="409" y="442" size="16" rgba="D0D0D0FF" />
+		<Bitmap name="IcnCiecle" file="art/BtnNav-EnterCir-917-wide.tga" x="375" y="438" />
+		<Bitmap name="BotBarBg" file="art/TopBar.tga" x="360" y="448" w="720" h="64" rot_z="0.5" rgba="FFFFFF60" />
+	</Component>
+</App>

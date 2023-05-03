@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<App name="ConfigGame" focus="config_list_game" script="ConfigGame.amx">
+	<Dll name="xBitmap/xBitmap" version="0.1.0" />
+	<Dll name="xBitmap3x3/xBitmap3x3" version="0.1.0" />
+	<Dll name="xStr/xStr" version="0.1.0" />
+	<Dll name="xText/xText" version="0.1.0" />
+	<Dll name="xAudio/xAudio" version="0.1.0" />
+	<Dll name="xCDVD/xCDVD" version="0.1.0" />
+	<Dll name="xSettings/xSettings" version="0.1.0" />
+	<String name="Trckbmp_file1" str="art/ZabTrackThick.tga" />
+	<String name="Trckbmp_file2" str="art/ZabTrackThin.tga" />
+	<String name="Trckbmp_file3" str="art/GT000006.tga" />
+	<String name="Trckbmp_file4" str="art/TitleZab1.tga" />
+
+	<Component name="config_list_game" visible="1" y="-16" rgba="D0D0D0FF">
+		<Bitmap name="BMPthumb_2" file="art/TitleZab1.tga"    x="-38"  y="15" w="230" h="54" rgba="FFFFFFFF" visible="0" />
+		<Component name="cell0" x="-180" y="-275" z="0" a="128">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10"></Bitmap>
+			<Bitmap name="BMPthumb_1" w="54" h="54" rgba="FFFFFFFF"></Bitmap>
+			<Text name="text0" x="40" y="-6" size="18"/>
+			<Text name="label0" x="40" y="14" size="18"/>
+			<Text name="label1" x="315" y="4" size="16"/>
+		</Component>
+		<Component name="cell1" x="-180" y="-221" z="0" a="255">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10"></Bitmap>
+			<Bitmap name="BMPthumb_1" w="54" h="54" rgba="FFFFFFFF"></Bitmap>
+			<Text name="text0" x="40" y="-6" size="18"/>
+			<Text name="label0" x="40" y="14" size="18"/>
+			<Text name="label1" x="315" y="4" size="16"/>
+		</Component>
+		<Component name="cell2" x="-180" y="-167" z="0" a="255">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10"></Bitmap>
+			<Bitmap name="BMPthumb_1" w="54" h="54" rgba="FFFFFFFF"></Bitmap>
+			<Text name="text0" x="40" y="-6" size="18"/>
+			<Text name="label0" x="40" y="14" size="18"/>
+			<Text name="label1" x="315" y="4" size="16"/>
+		</Component>
+		<Component name="cell3" x="-180" y="-113" z="0" a="255">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10"></Bitmap>
+			<Bitmap name="BMPthumb_1" fileres="Trckbmp_file3" w="54" h="54" rgba="FFFFFFFF"></Bitmap>
+			<Text name="text0" x="40" y="-6" />
+			<Text name="label0" x="40" y="5" size="18"/>
+		</Component>
+		<Component name="cell4" x="-180" y="-59" z="0" a="255">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10"></Bitmap>
+			<Bitmap name="BMPthumb_1" w="54" h="54" rgba="FFFFFFFF"></Bitmap>
+			<Text name="text0" x="40" y="-6" />
+			<Text name="label0" x="40" y="5" size="18"/>
+		</Component>
+		<Component name="cell5" x="-180" y="16" z="0" a="255">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10"></Bitmap>
+			<Bitmap name="BMPthumb_1" w="54" h="54" rgba="FFFFFFFF"></Bitmap>
+			<Text name="text0" x="40" y="-6" />
+			<Text name="label0" x="40" y="5" size="18"/>
+		</Component>
+		<Component name="cell6" x="-180" y="91" z="0" a="255">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10"></Bitmap>
+			<Bitmap name="BMPthumb_1" fileres="Trckbmp_file3" w="54" h="54" rgba="FFFFFFFF"></Bitmap>
+			<Text name="text0" x="40" y="-6" />
+			<Text name="label0" x="40" y="5" size="18"/>
+		</Component>
+		<Component name="cell7" x="-180" y="145" z="0" a="255">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10"></Bitmap>
+			<Bitmap name="BMPthumb_1" w="54" h="54" rgba="FFFFFFFF"></Bitmap>
+			<Text name="text0" x="40" y="-6" />
+			<Text name="label0" x="40" y="5" size="18"/>
+		</Component>
+		<Component name="cell8" x="-180" y="199" z="0" a="255">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10"></Bitmap>
+			<Bitmap name="BMPthumb_1" w="54" h="54" rgba="FFFFFFFF"></Bitmap>
+			<Text name="text0" x="40" y="-6" />
+			<Text name="label0" x="40" y="5" size="18"/>
+		</Component>
+		<Component name="cell9" x="-180" y="253" z="0" a="128">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10"></Bitmap>
+			<Bitmap name="BMPthumb_1"  w="54" h="54" rgba="FFFFFFFF"></Bitmap>
+			<Text name="text0" x="40" y="-6" />
+			<Text name="label0" x="40" y="5" size="18"/>
+		</Component>
+	</Component>
+	<Bitmap name="BMPzab" file="art/ZabOptMenu.tga" x="172" h="480" visible="1" />
+	<Component name="config_submenu_game"  x="250" y="4" visible="1">
+		<Text name="cell0" x="-115" y="-60" size="16" z="0"/>
+		<Text name="cell1" x="-115" y="-30" size="16" z="0"/>
+		<Text name="cell2" x="-115" y="0" size="16" z="0"/>
+		<Text name="cell3" x="-115" y="30" size="16" z="0"/>
+		<Text name="cell4" x="-115" y="60" size="16" z="0"/>
+	</Component>
+	<Component name="config_submenuitem0_0">
+		<String name="text0" str="入" />
+		<String name="text1" str="切" />
+	</Component>
+	<Component name="config_submenuitem0_1">
+		<String name="text0" str="入" />
+		<String name="text1" str="切" />
+	</Component>
+</App>

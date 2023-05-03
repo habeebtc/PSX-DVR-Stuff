@@ -1,0 +1,265 @@
+<?xml version="1.0"?>
+<App name="bar" native="barc/barc" z_depth="-1">
+
+  <Dll name="xBitmap/xBitmap" version="0.1.0" />
+  <Dll name="xBitmap3x3/xBitmap3x3" version="0.1.0" />
+  <Dll name="xButton/xButton" version="0.1.0" />
+  <Dll name="xPrim/xPrim" version="0.1.0" />
+  <Dll name="xText/xText" version="0.1.0" />
+  <Dll name="xSet/xSet" version="0.1.0" />
+  <Dll name="xStr/xStr" version="0.1.0" />
+
+  <Prim name="box" type="rect" visible="0" w="80" h="80" />
+
+  <Prim name="bg" rgba="00000000" type="rect" x="-352" y="-240" w="704" h="480" />
+
+  <Text name="message" spacing_v="5" x="12" z_depth="-1" />
+
+  <Anim name="wallpaper" loop="no">
+        <AnimSegment length="100" loop="yes" duration="800" curve="0">
+            <Channel type="C" delta="0" closed="0">
+                <Frame time="00" r="0.0" g="0.0" b="0.0" a="0.1"/>
+                <Frame time="12" r="0.6" g="0.6" b="0.6" a="0.8"/>
+                <Frame time="100" r="1.0" g="1.0" b="1.0" a="1.0"/>
+            </Channel>
+        </AnimSegment>
+  </Anim>
+
+  <Component name="error" rgba="FFFFFF00" z_depth="-10">
+    <Prim type="rect" rgba="000000D0" x="-352" y="-240" w="704" h="480" />
+    <Bitmap name="vline1" file="art/8bitPNG-dialog-vline.png" x="-225" />
+    <Bitmap name="vline2" file="art/8bitPNG-dialog-vline.png" x="225" />
+    <Text name="text" spacing_v="5" x="-199" />
+    <Bitmap file="art/BtnNav-Crs-917.png" x2d="232" y2d="416">
+      <Text str="戻る" size="16" x="13" y="5" />
+    </Bitmap>
+  </Component>
+
+  <Component name="freespace" visible="0" x="235" z_depth="-1">
+    <Bitmap name="carpet" file="art/FreeSpaceCarpet-w235.tga" x2d="488" y2d="0" h="480" />
+    <Bitmap3x3 name="bar0" file="art/FreeSpaceBase.tga" corner_w="0" corner_h="61" h="170" x2d="526">
+      <Bitmap name="bar1" file="art/FreeSpaceCurrent.tga" />
+    </Bitmap3x3>
+    <Text  name="text0" str="ディスク残量 100%" x2d="508" y2d="137" />
+    <Text name="text1" str="03H02M" x2d="579" y2d="173">
+      <Bitmap name="bitmap" file="art/RecMode_HQ_917.tga" x="-20" y="-5" />
+    </Text>
+    <Text name="text2" str="04H00M" x2d="579" y2d="202">
+      <Bitmap name="bitmap" file="art/RecMode_HSP_917.tga" x="-20" y="-5" />
+    </Text>
+    <Text name="text3" str="06H31M" x2d="579" y2d="231">
+      <Bitmap name="bitmap" file="art/RecMode_SP_917.tga" x="-20" y="-5" />
+    </Text>
+    <Text name="text4" str="08H00M" x2d="579" y2d="260">
+      <Bitmap name="bitmap" file="art/RecMode_LP_917.tga" x="-20" y="-5" />
+    </Text>
+    <Text name="text5" str="12H56M" x2d="579" y2d="289">
+      <Bitmap name="bitmap" file="art/RecMode_EP_917.tga" x="-20" y="-5" />
+    </Text>
+    <Text name="text6" str="18H00M" x2d="579" y2d="318">
+      <Bitmap name="bitmap" file="art/RecMode_SLP_917.tga" x="-20" y="-5" />
+    </Text>
+  </Component>
+
+  <Component name="menu_panel" x="160" z_depth="-1">
+    <Bitmap file="art/Base_OptMenu.tga" x2d="544" h="480" />
+  </Component>
+
+  <Component name="dialog_panel" visible="0" z_depth="-1">
+      <Prim name="bg" type="rect" rgba="00000000" x="-352" y="-240" w="704" h="480" />
+      <Bitmap name="line0" file="art/DialogBorder.tga" />
+      <Bitmap name="line1" file="art/DialogBorder.tga" />
+  </Component>
+
+  <Component name="dialog_box_hook" z_depth="-1">
+  </Component>
+
+  <Component name="top_panel" y="-64" z_depth="-1">
+    <Bitmap file="art/TopBar-Thick.tga" y2d="0" w="704" />
+    <!--Bitmap name="TopTitleBar.tga" file="art/TopTitleBar.tga" y2d="28" w="704" /-->
+  </Component>
+
+  <Component name="busy" rgba="FFFFFF00" x="289" y="-156" z_depth="-9">
+    <Set frames="2" looping="1" state="1">
+      <Bitmap file="art/busy/01.png" />
+      <Bitmap file="art/busy/02.png" />
+      <Bitmap file="art/busy/03.png" />
+      <Bitmap file="art/busy/04.png" />
+      <Bitmap file="art/busy/05.png" />
+      <Bitmap file="art/busy/06.png" />
+      <Bitmap file="art/busy/07.png" />
+      <Bitmap file="art/busy/08.png" />
+      <Bitmap file="art/busy/09.png" />
+      <Bitmap file="art/busy/10.png" />
+      <Bitmap file="art/busy/11.png" />
+      <Bitmap file="art/busy/12.png" />
+      <Bitmap file="art/busy/13.png" />
+      <Bitmap file="art/busy/14.png" />
+      <Bitmap file="art/busy/15.png" />
+    </Set>
+  </Component>
+
+  <Component name="busyboot" rgba="FFFFFF00" x="289" y="-156">
+    <Set frames="2" looping="1" state="1">
+      <Bitmap file="art/busyboot/01.png" />
+      <Bitmap file="art/busyboot/02.png" />
+      <Bitmap file="art/busyboot/03.png" />
+      <Bitmap file="art/busyboot/04.png" />
+      <Bitmap file="art/busyboot/05.png" />
+      <Bitmap file="art/busyboot/06.png" />
+      <Bitmap file="art/busyboot/07.png" />
+      <Bitmap file="art/busyboot/08.png" />
+      <Bitmap file="art/busyboot/09.png" />
+      <Bitmap file="art/busyboot/10.png" />
+      <Bitmap file="art/busyboot/11.png" />
+      <Bitmap file="art/busyboot/12.png" />
+      <Bitmap file="art/busyboot/13.png" />
+      <Bitmap file="art/busyboot/14.png" />
+      <Bitmap file="art/busyboot/15.png" />
+      <Bitmap file="art/busyboot/16.png" />
+      <Bitmap file="art/busyboot/17.png" />
+      <Bitmap file="art/busyboot/18.png" />
+      <Bitmap file="art/busyboot/19.png" />
+      <Bitmap file="art/busyboot/20.png" />
+      <Bitmap file="art/busyboot/21.png" />
+      <Bitmap file="art/busyboot/22.png" />
+      <Bitmap file="art/busyboot/23.png" />
+      <Bitmap file="art/busyboot/24.png" />
+      <Bitmap file="art/busyboot/25.png" />
+      <Bitmap file="art/busyboot/26.png" />
+      <Bitmap file="art/busyboot/27.png" />
+      <Bitmap file="art/busyboot/28.png" />
+      <Bitmap file="art/busyboot/29.png" />
+      <Bitmap file="art/busyboot/30.png" />
+    </Set>
+  </Component>
+
+  <Bitmap name="boot1" file="art/boot_tv_indicator_01.png" rgba="FFFFFF00" x="204" y="175" />
+  <Bitmap name="boot2" file="art/boot_tv_indicator_02-left.png" rgba="FFFFFF00" x2d="406" y2d="50" />
+
+  <Component name="bottom_panel" y="64" z_depth="-1">
+    <Bitmap file="art/TopBar-Thick.tga" rot_z="0.5" y2d="409" w="704" />
+    <Component name="help" rgba="FFFFFF00" z_depth="-1">
+      <Bitmap name="help_icon0" file="art/BtnNav-Sqr-917.png" x2d="35" y2d="416">
+        <Text name="help_text" size="16" x="13" y="5" />
+      </Bitmap>
+      <Bitmap name="help_icon1" file="art/BtnNav-Crs-917.png" x2d="232" y2d="416">
+        <Text name="help_text" size="16" x="13" y="5" />
+      </Bitmap>
+      <Bitmap name="help_icon2" file="art/BtnNav-EnterCir-917-wide.tga" x2d="330" y2d="416">
+        <Text name="help_text" size="16" x="35" y="5" />
+      </Bitmap>
+      <Bitmap name="help_icon3" file="art/BtnNav-Tri-917.png" y2d="416">
+        <Text name="help_text" size="16" x="14" y="5" />
+      </Bitmap>
+    </Component>
+  </Component>
+
+  <Bitmap name="Glogo" file="art/GLogo_Shadow.png" x="256" y="-190" rgba="FFFFFFFF" visible="0" z_depth="-2" />
+
+  <String name="no_data_mc" str="データがありません。" />
+  <String name="no_data_music" str="トラックがありません。" />
+  <String name="no_data_photo" str="フォトがありません。" />
+
+  <Component name="BarPluginPhoto_Translations" visible="0">
+    <String name="BarPhotoString_SlideShow" str="スライドショー"/>
+    <String name="BarPhotoString_Import" str="取り込み"/>
+    <String name="BarPhotoString_Export" str="書き出し"/>
+    <String name="BarPhotoString_Delete" str="削除"/>
+    <String name="BarPhotoString_Information" str="情報"/>
+    <String name="BarPhotoString_Show" str="再生"/>
+    <String name="BarPhotoString_RotateL" str="回転（左 )"/>
+    <String name="BarPhotoString_RotateR" str="回転（右 )"/>
+    <String name="BarPhotoString_Format" str="初期化"/>
+    <String name="BarPhotoString_Rename" str="名前変更"/>
+    <String name="BarPhotoString_Digital_Camera" str="デジタルカメラ"/>
+    <String name="BarPhotoString_Memory_Stick" str="メモリースティック"/>
+    <String name="BarPhotoString_Options" str="オプション"/>
+    <String name="BarPhotoString_Select" str="決定"/>
+    <String name="BarPhotoString_Playback" str="再生"/>
+    <String name="BarPhotoString_Back" str="戻る"/>
+    <String name="BarPhotoString_Data_CD" str ="データCD"/>
+    <String name="BarPhotoString_Mpg_NotSupported" str ="現在このムービーは再生できません。"/>
+  </Component>
+
+  <Component name="BarPluginMusic_Strings" visible="0">
+	<String name="bpmPlay" str="再生"/>
+	<String name="bpmImport" str="取り込み"/>
+	<String name="bpmDelete" str="削除" />
+	<String name="bpmInformation" str="情報" />
+	<String name="bpmFormat" str="初期化" />
+	<String name="bpmMS" str="書き出し" />
+	<String name="bpmAudioCD" str="音楽CD" />
+	<String name="bpmDataCD" str="データCD" />
+	<String name="bpmDataDVD" str="DVD" />
+	<String name="bpmAudioPlayer" str ="オーディオプレーヤー"/>
+	<String name="bpmSelect" str ="再生"/>
+	<String name="bpmBack" str ="戻る"/>
+	<String name="bpmEnter" str ="決定"/>
+	<String name="bpmOptions" str ="オプション"/>
+    <String name="bpmRename" str="名前変更"/>
+    <String name="bpmImpMsS_A" str="トラック"/>
+    <String name="bpmImpMsS_B" str="を取り込み中です。"/>
+  </Component>
+
+  <Component name="DialogBox_Strings" visible="0">
+    <String name="dbxOK" str ="決定"/>
+    <String name="dbxCancel" str ="戻る"/>
+  </Component>
+
+  <Component name="Bar_General_Translations" visible="0">
+   <!--  I'm not sure if these are valid generic words in Japanese, someone should check before they are used extensivly... -->
+     <String name="Select" str="再生"/>
+     <String name="Back" str="戻る"/>
+     <String name="Enter" str ="決定"/>
+    <String name="Import" str="取り込み"/>
+    <String name="Export" str="書き出し"/>
+    <String name="Delete" str="削除"/>
+    <String name="Information" str="情報"/>
+    <String name="Format" str="初期化"/>
+    <String name="Rename" str="名前変更"/>
+    <String name="Options" str="オプション"/>
+  </Component>
+
+  <String name="name_conf" str="設定" />
+  <String name="name_photo" str="フォト" />
+  <String name="name_music" str="ミュージック" />
+  <String name="name_video" str="ビデオ" />
+  <String name="name_tv" str="テレビ" />
+  <String name="name_game" str="ゲーム" />
+
+  <Bitmap name="fake_music" file="art/music.png" visible="0" />
+  <Bitmap name="fake_video" file="art/video.png" visible="0" />
+  <Bitmap name="fake_game" file="art/game.png" visible="0" />
+
+  <Component name="cache" visible="0">
+    <Bitmap file="pack:barc/0.1.0/art/TextFocus.tga" />
+  </Component>
+
+<Text name="DBG_mem" str="" x="320" y="200" alignment="right" ></Text>
+  <!-- Vertical lines -->
+<!--
+  <Prim type="line" rgba="FF0000FF" x="-280" y="-224" x2="-280" y2="224" />
+  <Prim type="line" rgba="FF0000FF" x="-180" y="-224" x2="-180" y2="224" />
+  <Prim type="line" rgba="FF0000FF" x="-107" y="-224" x2="-107" y2="224" />
+  <Prim type="line" rgba="FF0000FF" x="-80" y="-224" x2="-80" y2="224" />
+  <Prim type="line" rgba="FF0000FF" x="20" y="-224" x2="20" y2="224" />
+  <Prim type="line" rgba="FF0000FF" x="108" y="-224" x2="108" y2="224" />
+  <Prim type="line" rgba="FF0000FF" x="120" y="-224" x2="120" y2="224" />
+  <Prim type="line" rgba="FF0000FF" x="220" y="-224" x2="220" y2="224" />
+  <Prim type="line" rgba="FF0000FF" x="320" y="-224" x2="320" y2="224" />
+-->
+
+  <!-- Horizontal lines -->
+<!--
+  <Prim type="line" rgba="FF0000FF" x="-320" y="-160" x2="320" y2="-160" />
+  <Prim type="line" rgba="FF0000FF" x="-320" y="-74" x2="320" y2="-74" />
+  <Prim type="line" rgba="FF0000FF" x="-320" y="-68" x2="320" y2="-68" />
+  <Prim type="line" rgba="FF0000FF" x="-320" y="-24" x2="320" y2="-24" />
+  <Prim type="line" rgba="FF0000FF" x="-320" y="16" x2="320" y2="16" />
+  <Prim type="line" rgba="FF0000FF" x="-320" y="103" x2="320" y2="103" />
+  <Prim type="line" rgba="FF0000FF" x="-320" y="160" x2="320" y2="160" />
+-->
+
+</App>
+

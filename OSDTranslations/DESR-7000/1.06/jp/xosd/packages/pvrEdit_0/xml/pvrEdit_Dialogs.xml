@@ -1,0 +1,125 @@
+﻿<?xml version="1.0"?>
+<PSML2>
+	<Dll name="xButton/xButton" version="0.1.0" />
+	<Dll name="xBitmap/xBitmap" version="0.1.0" />
+	<Dll name="xBitmap3x3/xBitmap3x3" version="0.1.0" />
+	<Dll name="xText/xText" version="0.1.0" />
+	<Dll name="xWizard/xWizard" version="0.1.0" />
+
+	<Screen name="finalize_confirm_dialog" visible="0" z_depth="-1" focus="fcd_ok" >
+		<Text name="save_confirm1" rgba="FFFFFFff" x="-136" y="-35" alignment="left" spacing_v="6" str="編集を完了します。よろしいですか？
+完了すると、次回から選択した部分を
+再生しなくなります。"/>
+		<Button name="fcd_ok" x="-30" y="42" nav_right="fcd_no" >
+			<Wizard variable="answer" value="1" action="" />
+			<FocusOn>
+				<Bitmap3x3 file="pack:Config/0.1.0/art/TextFocus.tga" y="-4" w="80" h="40" corner_w="25" corner_h="17"/>
+				<Text str="はい"  rgba="D0D000FF" alignment="center"/>
+			</FocusOn>
+			<FocusOff><Text str="はい" rgba="FFFFffff" alignment="center"/></FocusOff>
+		</Button>
+		<Button name="fcd_no" x="45" y="42" nav_left="fcd_ok" >
+			<Wizard variable="answer" value="0" action="" />
+			<FocusOn>
+				<Bitmap3x3 file="pack:Config/0.1.0/art/TextFocus.tga" y="-4" w="80" h="40" corner_w="25" corner_h="17"/>
+				<Text str="いいえ"  rgba="D0D000FF"  alignment="center"/>
+			</FocusOn>
+			<FocusOff><Text str="いいえ" rgba="FFFFffff" alignment="center"/></FocusOff>
+		</Button>
+	</Screen>
+
+	<Screen name="cancel_confirm_dialog" visible="0" z_depth="-1" focus="ccd_no">
+		<Text name="save_confirm" y="-20" rgba="FFFFFFff" alignment="center" str="編集内容を保存せずに終了します。よろしいですか？" />
+		<Button name="ccd_ok" x="-35" y="20" nav_right="ccd_no" >
+			<Wizard variable="answer" value="1" action="" />
+			<FocusOn>
+				<Bitmap3x3 file="pack:Config/0.1.0/art/TextFocus.tga" y="-4" w="80" h="40" corner_w="25" corner_h="17"/>
+				<Text str="はい"  rgba="D0D000FF" alignment="center"/>
+			</FocusOn>
+			<FocusOff><Text str="はい" rgba="FFFFffff" alignment="center"/></FocusOff>
+		</Button>
+		<Button name="ccd_no" x="35" y="20" nav_left="ccd_ok" >
+			<Wizard variable="answer" value="0" action="" />
+			<FocusOn>
+				<Bitmap3x3 file="pack:Config/0.1.0/art/TextFocus.tga" y="-4" w="80" h="40" corner_w="25" corner_h="17"/>
+				<Text str="いいえ"  rgba="D0D000FF" alignment="center"/>
+			</FocusOn>
+			<FocusOff><Text str="いいえ" rgba="FFFFffff" alignment="center"/></FocusOff>
+		</Button>
+	</Screen>
+
+	<Screen name="preview_notice_dialog" visible="0" z_depth="-1" focus="prev_ok">
+		<Text name="prev_confirm1" x="-200" y="-35" spacing_v="6" rgba="FFFFffff" str="確認再生を開始します。
+確認再生を終了したいときは、確認終了ボタンか、
+　 を押してください。"/>
+		<Bitmap name="cross"   file="./art/cross.tga" x="-188" y="5" rgba="ffffffff"></Bitmap>
+		<Button name="prev_ok" x="-60" y="42" nav_right="prev_no">
+			<Wizard variable="answer" value="1" action="" />
+			<FocusOn>
+				<Bitmap3x3 file="pack:Config/0.1.0/art/TextFocus.tga" y="-4" w="80" h="40" corner_w="25" corner_h="17"/>
+				<Text str="開始する" rgba="D0D000FF" alignment="center"/>
+			</FocusOn>
+			<FocusOff><Text str="開始する" rgba="FFFFffff" alignment="center"/></FocusOff>
+		</Button>
+		<Button name="prev_no" x="44" y="42" nav_left="prev_ok">
+			<Wizard variable="answer" value="0" action="" />
+			<FocusOn>
+				<Bitmap3x3 file="pack:Config/0.1.0/art/TextFocus.tga" y="-4" w="80" h="40" corner_w="25" corner_h="17"/>
+				<Text str="開始しない"   rgba="D0D000FF" alignment="center"/>
+			</FocusOn>
+			<FocusOff><Text str="開始しない" rgba="FFFFffff" alignment="center"/></FocusOff>
+		</Button>
+	</Screen>
+
+	<Screen name="uncut_confirm_dialog" visible="0" z_depth="-1" focus="uncut_no">
+		<Text name="uncut_confirm1" str="選択した範囲を取消します。よろしいですか？" y="-20" rgba="FFFFFFff" alignment="center" />
+		<Button name="uncut_ok" x="-45" y="20" nav_right="uncut_no">
+			<Wizard variable="answer" value="1" action="" />
+			<FocusOn>
+				<Bitmap3x3 file="pack:Config/0.1.0/art/TextFocus.tga" y="-4" w="80" h="40" corner_w="25" corner_h="17"/>
+				<Text str="取消す"  rgba="D0D000FF" alignment="center"/>
+			</FocusOn>
+			<FocusOff><Text str="取消す" rgba="FFFFffff" alignment="center"/></FocusOff>
+		</Button>
+		<Button name="uncut_no" x="53" y="20" nav_left="uncut_ok">
+			<Wizard variable="answer" value="0" action="" />
+			<FocusOn>
+				<Bitmap3x3 file="pack:Config/0.1.0/art/TextFocus.tga" y="-4" w="80" h="40" corner_w="25" corner_h="17"/>
+				<Text str="取消さない"  rgba="D0D000FF" alignment="center"/>
+			</FocusOn>
+			<FocusOff><Text str="取消さない" rgba="FFFFffff" alignment="center"/></FocusOff>
+		</Button>
+	</Screen>
+
+	<Screen name="king_confirm_dialog" visible="0" z_depth="-1" focus="king_ok">
+		<Text name="king_confirm1" spacing_v="6" rgba="FFFFFFff" y="-20" alignment="center" str="編集を終了します。"/>
+		<Button name="king_ok" x="-80" y="20" nav_right="king_no">
+			<Wizard variable="answer" value="1" action="" />
+			<FocusOn>
+				<Bitmap3x3 file="pack:Config/0.1.0/art/TextFocus.tga" y="-4" w="80" h="40" corner_w="25" corner_h="17"/>
+				<Text str="保存して終了"  rgba="D0D000FF" alignment="center"/>
+			</FocusOn>
+			<FocusOff><Text str="保存して終了" rgba="FFFFffff" alignment="center"/></FocusOff>
+		</Button>
+		<Button name="king_no" x="75" y="20" nav_left="king_ok">
+			<Wizard variable="answer" value="0" action="" />
+			<FocusOn>
+				<Bitmap3x3 file="pack:Config/0.1.0/art/TextFocus.tga" y="-4" w="80" h="40" corner_w="25" corner_h="17"/>
+				<Text str="保存しないで終了"  rgba="D0D000FF" alignment="center"/>
+			</FocusOn>
+			<FocusOff><Text str="保存しないで終了" rgba="FFFFffff" alignment="center"/></FocusOff>
+		</Button>
+	</Screen>
+
+	<Screen name="cut_error_notice_dialog" visible="0" z_depth="-1" focus="cut_error_ok">
+		<Text name="cut_error_msg1" x="-192" y="-17" spacing_v="6" rgba="FFFFFFff" str="編集箇所の上限を超えています。
+これ以上編集範囲を決定することはできません。
+既存の編集範囲を取消す必要があります。"/>
+	</Screen>
+
+	<Screen name="save_error_notice_dialog" visible="0" z_depth="-1" focus="save_error_ok">
+		<Text name="save_error_msg1" spacing_v="6" rgba="FFFFFFff" x="-192" y="-17" str="編集内容を保存することができませんでした。
+ハードディスクの残量が足りないか、
+ハードディスクに問題がある可能性があります。"/>
+	</Screen>
+</PSML2>

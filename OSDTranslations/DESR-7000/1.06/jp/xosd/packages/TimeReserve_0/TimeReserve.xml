@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<App name="TimeReserve" script="TimeReserve.amx">
+  <Dll name="pvr/pvrNative" version="0.1.0" />
+  <Dll name="xBitmap/xBitmap" version="0.1.0" />
+  <Dll name="xText/xText" version="0.1.0" />
+  <Dll name="xTex/xTex" version="0.1.0" />
+  <Dll name="xBitmap3x3/xBitmap3x3" version="0.1.0" />
+
+	<Bitmap name="bg" file="pack:epg/0.1.0/art/BG.png" x="0" y="0" w="704" h="480" />
+
+	<Component name="ReserveMenu">
+		<Bitmap name="Focus0" file="art/FocusGoko.tga" w="106" h="106" />
+		<Bitmap name="btn0" file="art/resDateBg.png" y="0" w="720" rgba="FFFFFF80"/>
+		<Bitmap name="RecNow" x="-272" file="pack:epg/0.1.0/art/rec_now.png"/>
+		<Bitmap3x3 name="btn1" file="art/btn.png" x="-100" y="110" w="132" h="32" corner_w="8" rgba="FFFFFF80"/>
+		<Bitmap3x3 name="btn2" file="art/btn.png" x="100" y="110" w="132" h="32" corner_w="8" rgba="FFFFFF80"/>
+		<Bitmap3x3 name="Focus1" file="pack:Config/0.1.0/art/TextFocus.tga" rgba="FFFF80FF" w="128" h="40" corner_w="25" corner_h="17"/>
+		<Text name="Cap_Date" str="日付" x="-236" y="-36" size="16" rgba="d0d0d0ff" shadow="0" />
+		<Text name="Cap_StartTime" str="開始時刻" x="-158" y="-36" size="16" rgba="d0d0d0ff" shadow="0" />
+		<Text name="Cap_EndTime" str="終了時刻" x="-50" y="-36" size="16" rgba="d0d0d0ff" shadow="0" />
+		<Text name="Cap_Ch" str="チャンネル" x="34" y="-36" size="16" rgba="d0d0d0ff" shadow="0" spacing_h="0"/>
+		<Text name="Cap_Extend" str="延長" x="126" y="-36" size="16" rgba="d0d0d0ff" shadow="0" spacing_h="0"/>
+		<Text name="Cap_Lock" str="保護" x="178" y="-36" size="16" rgba="d0d0d0ff" shadow="0" spacing_h="0"/>
+		<Text name="Cap_Mode" str="モード" x="222" y="-36" size="16" rgba="d0d0d0ff" shadow="0" />
+
+		<Component name="Cnt0_0" y="0" w="702" />
+		<Component name="Cnt0_1" x="-100" y="110" w="120">
+			<Text str="予約確定" y="6" size="16"  alignment="center" rgba="000000A0" shadow="0" shadow_rgba="00000020"/>
+		</Component>
+		<Component name="Cnt0_2" x="100" y="110" w="120">
+			<Text name="cancel" y="6" size="16"  alignment="center" rgba="000000A0" shadow="0" shadow_rgba="00000020"/>
+		</Component>
+		<Component name="Cnt0_3" x="0" y="-80" w="500">
+			<Text name="Title" y="6" size="17" alignment="center" rgba="d0d0d0ff" shadow_rgba="00000020"/>
+		</Component>
+
+		<Text name="Text_1" str="～" x="-68" y="6" size="17" alignment="center" shadow="0"/>
+
+		<Component name="Cnt1_0" x="-216" y="0" w="128">
+			<Text name="Date" x="0" y="6" size="17"  alignment="center" shadow_rgba="00000020"/>
+		</Component>
+		<Component name="Cnt1_1" x="-153" y="0" w="50">
+			<Text name="StartHour" x="16" y="6" size="17"  alignment="right" shadow_rgba="00000020"/>
+		</Component>
+		<Component name="Cnt1_2" x="-121" y="0" w="50">
+			<Text name="StartMin" x="42" y="6" size="17"  alignment="right" shadow_rgba="00000020"/>
+		</Component>
+		<Component name="Cnt1_3" x="-43" y="0" w="50">
+			<Text name="EndHour" x="16" y="6" size="17"  alignment="right" shadow_rgba="00000020"/>
+		</Component>
+		<Component name="Cnt1_4" x="-12" y="0" w="50">
+			<Text name="EndMin" x="42" y="6" size="17"  alignment="right" shadow_rgba="00000020"/>
+		</Component>
+		<Component name="Cnt1_5" x="74" y="0" w="70">
+			<Text name="Ch" x="0" y="6" size="17"  alignment="center" shadow_rgba="00000020"/>
+		</Component>
+		<Component name="Cnt1_6" x="140" y="0" w="80">
+			<Text name="Extend" x="10" y="6" size="17"  alignment="right" shadow_rgba="00000020"/>
+			<Text name="Extend_fun" str="分" x="10" y="5" size="17" shadow_rgba="00000020" />
+		</Component>
+		<Component name="Cnt1_7" x="196" y="0" w="50">
+			<Text name="Lock" x="0" y="5.0" size="17"  alignment="center" shadow_rgba="00000020"/>
+		</Component>
+		<Component name="Cnt1_8" x="246" y="0" w="60">
+			<Bitmap name="RecMode" w="40" h="34" />
+		</Component>
+
+		<Text str="DVDダビング時のディスク使用量：" x="48" y="48" size="14" alignment="right" rgba="d0d0d0ff" shadow="0"/>
+		<Text name="Size" x="54" y="48" size="14" rgba="d0d0d0ff" shadow="0"/>
+		<Text str="このタイトルをあとでDVDにダビングする時の目安です。" y="70" size="14" alignment="center" rgba="d0d0d0ff" shadow="0"/>
+
+		<Component name="Focus2" x="0" y="0" z="0">
+			<Bitmap name="FcsArrowUp" file="art/U_arw.png" y="-20" w="14" h="12" />
+			<Bitmap name="FcsArrowDn" file="art/U_arw.png" y="20" rot_x="0.5" w="14" h="12"  />
+		</Component>
+	</Component>
+</App>

@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<PSML2>
+
+	<Dll name="xButton/xButton" version="0.1.0" />
+	<Dll name="xMemo/xMemo" version="0.1.0" />
+	<Dll name="xSlider/xSlider" version="0.1.0" />
+	<Dll name="xText/xText" version="0.1.0" />
+	<Dll name="xWizard/xWizard" version="0.1.0" />
+
+	<Screen name="DoSlider" visible="0" z_depth="-1" >
+		<Text name="text1" y="-30" alignment="center" />
+		<Slider name="sld" x="-160" y="10" w="320" />
+	</Screen>
+	<Screen name="Err1" visible="0" z_depth="-1">
+		<Text name="text1" y="-30" alignment="center" />
+	</Screen>
+	<Screen name="Err2" visible="0" z_depth="-1" focus="Er2BtnNo">
+		<Text name="text1" y="-30" alignment="center" />
+		<Button name="Er2BtnYes" x="-80" y="40" nav_right="Er2BtnNo">
+			<Wizard action="" />
+			<FocusOn><Text str="はい" rgba="ffff00" alignment="center"/></FocusOn>
+			<FocusOff><Text str="はい" rgba="ffffff" alignment="center"/></FocusOff>
+		</Button>
+		<Button name="Er2BtnNo" x="80" y="40" nav_left="Er2BtnYes">
+			<Wizard action="" />
+			<FocusOn><Text str="いいえ" rgba="ffff00" alignment="center"/></FocusOn>
+			<FocusOff><Text str="いいえ" rgba="ffffff" alignment="center"/></FocusOff>
+		</Button>
+	</Screen>
+	<Screen name="Err1_s" visible="0" z_depth="-1" focus="Er1BtnOk">
+		<Memo name="text1" x="-100" y="-100" lines_max="4" have_scrollbar="0"/>
+		<Button name="Er1BtnOk" y="40">
+			<Wizard action="" />
+			<FocusOn><Text str="O K" rgba="ffff00" alignment="center"/></FocusOn>
+			<FocusOff><Text str="O K" rgba="ffffff" alignment="center"/></FocusOff>
+		</Button>
+	</Screen>
+	<Screen name="Err2_s" visible="0" z_depth="-1" focus="Er2BtnNo">
+		<Memo name="text1" x="-100" y="-100" lines_max="4" have_scrollbar="0"/>
+		<Button name="Er2BtnYes" x="-80" y="40" nav_right="Er2BtnNo">
+			<Wizard action="" />
+			<FocusOn><Text str="はい" rgba="ffff00" alignment="center"/></FocusOn>
+			<FocusOff><Text str="はい" rgba="ffffff" alignment="center"/></FocusOff>
+		</Button>
+		<Button name="Er2BtnNo" x="80" y="40" nav_left="Er2BtnYes">
+			<Wizard action="" />
+			<FocusOn><Text str="いいえ" rgba="ffff00" alignment="center"/></FocusOn>
+			<FocusOff><Text str="いいえ" rgba="ffffff" alignment="center"/></FocusOff>
+		</Button>
+	</Screen>
+
+</PSML2>

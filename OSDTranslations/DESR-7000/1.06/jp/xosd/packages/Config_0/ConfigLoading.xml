@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<App name="ConfigLoading" z_depth="-1" visible="1">
+
+	<Dll name="xBitmap/xBitmap" version="0.1.0" />
+	<Dll name="xSet/xSet" version="0.1.0" />
+
+	<Component name="busy" rgba="FFFFFFFF" x="289" y="-176" visible="0" >
+	  <Set frames="2" looping="1" state="1">
+	    <Bitmap file="pack:barc/0.1.0/art/busy/01.png" />
+	    <Bitmap file="pack:barc/0.1.0/art/busy/02.png" />
+	    <Bitmap file="pack:barc/0.1.0/art/busy/03.png" />
+	    <Bitmap file="pack:barc/0.1.0/art/busy/04.png" />
+	    <Bitmap file="pack:barc/0.1.0/art/busy/05.png" />
+	    <Bitmap file="pack:barc/0.1.0/art/busy/06.png" />
+	    <Bitmap file="pack:barc/0.1.0/art/busy/07.png" />
+	    <Bitmap file="pack:barc/0.1.0/art/busy/08.png" />
+	    <Bitmap file="pack:barc/0.1.0/art/busy/09.png" />
+	    <Bitmap file="pack:barc/0.1.0/art/busy/10.png" />
+	    <Bitmap file="pack:barc/0.1.0/art/busy/11.png" />
+	    <Bitmap file="pack:barc/0.1.0/art/busy/12.png" />
+	    <Bitmap file="pack:barc/0.1.0/art/busy/13.png" />
+	    <Bitmap file="pack:barc/0.1.0/art/busy/14.png" />
+	    <Bitmap file="pack:barc/0.1.0/art/busy/15.png" />
+	  </Set>
+	</Component>
+
+</App>

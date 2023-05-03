@@ -1,0 +1,243 @@
+<App name="PhotoViewer" focus="PlayButton" script="PhotoViewer.amx">
+  <Dll name="xPhoto/xPhoto" version="0.1.0" />
+  <Dll name="xButton/xButton" version="0.0.0" />
+  <Dll name="xMovie/xMovie" version="0.0.0" />
+  <Dll name="xBitmap/xBitmap" version="0.0.0" />
+  <Dll name="xStr/xStr" version="0.0.0" />
+  <Dll name="xFB/xFB" version="0.0.0" />
+  <Dll name="xFB/xFB_Folder" version="0.1.0" />
+  <!--Dll name="xFB/xFB_CDDATA" version="0.1.0" /-->
+  <Dll name="xFB/xFB_GMM" version="0.1.0" />
+  <!--<Dll name="xFB/xFB_Movie" version="0.1.0" />-->
+  <Dll name="xFB/xFB_Photo" version="0.1.0" />
+  <Dll name="xFB/xFB_USBMass" version="0.1.0" />
+  <Dll name="xContainer/xContainer" version="0.1.0" />
+  <Dll name="xRegistry/xRegistry" version="0.1.0" />
+  <Dll name="xSlider/xSlider" version="0.1.0" />
+  <Dll name="xText/xText" version="0.1.0" />
+  <Dll name="xRC/xRC" version="0.1.0" />
+  
+  <!-- background <Bitmap name="back" file="../../data/art/x2/bg/bkg_mov.bmp" z_depth="50" /-->
+  <!--Import file="../../data/xml/border.xml" name="border" x2d="0" y2d="0" visible="0" �/-->
+
+  <Component name="TransitionIn">
+      <String str="fadein"/>
+      <String str="fallin"/>
+      <String str="slidein"/>
+
+    <Anim name="fadein" loop="no">
+       <AnimSegment name="C1" length="100" loop="yes" duration="1500" curve="0">
+               <Channel type="C" delta="1" closed="yes" loop="no">
+                   <Frame time="0"  r="1" g="1" b="1" a="0.0" />
+                   <Frame time="99" r="1" g="1" b="1" a="1.0" />
+                </Channel>
+       </AnimSegment>
+    </Anim>
+    <Anim name="fallin" loop="no">
+          <AnimSegment name="C1" length="100" loop="yes" duration="1200" curve="1">
+                  <Channel type="T" delta="1" closed="yes" loop="no">
+                      <Frame time="-25" y="-300" />
+                      <Frame time="0"    y="-140"  />
+                      <Frame time="25"    y="-60"  />
+                      <Frame time="50"    y="-20"  />
+                      <Frame time="75"    y="0"  />
+                      <Frame time="85"   y="7" />
+                      <Frame time="90"   y="-5" />
+                      <Frame time="95"   y="2" />
+                      <Frame time="99"   y="0" />
+                      <Frame time="105" y="-1" />
+                      <Frame time="110" y="-3" />
+                   </Channel>
+          </AnimSegment>
+       </Anim>
+       <Anim name="slidein" loop="no">
+          <AnimSegment  length="100" loop="yes" duration="1700" curve="1">
+                  <Channel type="T" delta="1" closed="yes" loop="no">
+                      <Frame time="-25" x="-600" />
+                      <Frame time="0"    x="-300"  />
+                      <Frame time="25"  x="-150"  />
+                      <Frame time="50"  x="-60"  />
+                      <Frame time="75"  x="-20"  />
+                      <Frame time="99"  x="0" />
+                      <Frame time="125" x="5" />
+                      <Frame time="150" x="7" />
+                   </Channel>
+          </AnimSegment>
+       </Anim>
+  </Component>
+
+
+  <Component name="TransitionOut">
+      <String str="fadeout"/>
+      <String str="rotateout"/>
+
+      <Anim name="fadeout" loop="no">
+         <AnimSegment name="C1" length="100" loop="yes" duration="1500" curve="0">
+                 <Channel type="C" delta="1" closed="yes" loop="no">
+                     <Frame time="0"  r="1" g="1" b="1" a="1.0" />
+                     <Frame time="99" r="1" g="1" b="1" a="0.0" />
+                  </Channel>
+         </AnimSegment>
+      </Anim>
+      <Anim name="rotateout" loop="no">
+       <AnimSegment name="C1" length="100" loop="yes" duration="1500" curve="0">
+               <Channel type="R" delta="1" closed="yes" loop="no">
+                   <Frame time="0"   rz="0.0" />
+                   <Frame time="24" rz="0.5" />
+                   <Frame time="49" rz="1.0" />
+                   <Frame time="74" rz="1.5" />
+                   <Frame time="99" rz="2.0" />
+                </Channel>
+               <Channel type="T" delta="1" closed="yes" loop="no">
+                   <Frame time="0"   x="0" y="0" z="0"/>
+                   <Frame time="99" x="400" y="300" z="10" />
+                </Channel>
+               <Channel type="S" delta="0" closed="no" loop="no">
+                   <Frame time="0" sy="1.0" sx="1.0"/>
+                   <Frame time="99" sy="0.0" sx="0.0"/>
+               </Channel>
+       </AnimSegment>
+    </Anim>
+  </Component>
+  
+  <Bitmap name="imageEngine" z_depth="2" visible="0">
+      <String name="display_time" str="280" />
+  </Bitmap>
+  <Bitmap name="imageEngine2" z_depth="1" visible="0"/>
+                                                         
+  <Movie name="movieEngine" x="0" y="0" w="704" h="480" visible="0"/>
+
+  <Container name="control_panel" orientation="vertical" align="center" spacing="36" y2d="0" visible="1" focus="menu_r2">
+   <Container name="menu_r1" orientation="horizontal" align="center" spacing="36" x2d="240" focus="__AREA__">
+     <Button name="RotateLeft" nav_right="RotateRight" x="0" y="0" nav_down="menu_r2">
+       <String name="Label" str="回転（左 )" />
+       <FocusOff>
+           <Bitmap file="art/CP_RotateLeft.png" rgba="C0C0C0D0"/>
+       </FocusOff>    
+       <FocusOn>
+           <Bitmap file="art/CP_RotateLeft.png" rgba="FFFF00D0"/>
+       </FocusOn>    
+     </Button>
+     <Button name="RotateRight" nav_left="RotateLeft" nav_right="Trim" nav_down="menu_r2">
+         <String name="Label" str="回転（右 )" />
+           <FocusOff>
+               <Bitmap file="art/CP_RotateRight.png" rgba="C0C0C0D0"/>
+           </FocusOff>    
+           <FocusOn>
+               <Bitmap file="art/CP_RotateRight.png" rgba="FFFF00D0"/>
+           </FocusOn>    
+       </Button>
+       <Button name="Trim" nav_left="RotateRight" nav_right="BT" nav_down="menu_r2">
+           <String name="Label" str="Trim" />
+           <FocusOff>
+               <Bitmap file="art/CP_Trim.png" rgba="C0C0C0D0"/>
+           </FocusOff>    
+           <FocusOn>
+               <Bitmap file="art/CP_Trim.png" rgba="FFFF00D0"/>
+           </FocusOn>    
+       </Button>
+       <Button name="BT" nav_left="Trim" nav_right="EMS" nav_down="menu_r2">
+           <String name="Label" str="アルバムジャケットにする" />
+           <FocusOff>
+               <Bitmap file="art/CP_BeThumbnail.png" rgba="C0C0C0D0"/>
+           </FocusOff>    
+           <FocusOn>
+               <Bitmap file="art/CP_BeThumbnail.png" rgba="FFFF00D0"/>
+           </FocusOn>    
+       </Button>
+       <Button name="EMS" nav_left="BT" nav_right="Import" nav_down="menu_r2">
+           <String name="Label" str="書き出し" />
+           <FocusOff>
+               <Bitmap file="art/CP_ExportToMS.png" rgba="C0C0C0D0"/>
+           </FocusOff>    
+           <FocusOn>
+               <Bitmap file="art/CP_ExportToMS.png" rgba="FFFF00D0"/>
+           </FocusOn>    
+       </Button>
+       <Button name="Import" nav_left="EMS" nav_right="Delete" visible="0" nav_down="menu_r2">
+           <String name="Label" str="このフォトを取り込み" />
+           <FocusOff>
+               <Bitmap file="art/CP_Import.png" rgba="C0C0C0D0"/>
+           </FocusOff>    
+           <FocusOn>
+               <Bitmap file="art/CP_Import.png" rgba="FFFF00D0"/>
+           </FocusOn>    
+       </Button>
+       <Button name="Delete" nav_left="Import" nav_right="Display" nav_down="menu_r2">
+           <String name="Label" str="削除" />
+           <FocusOff>
+               <Bitmap file="art/CP_Delete.png" rgba="C0C0C0D0"/>
+           </FocusOff>    
+           <FocusOn>
+               <Bitmap file="art/CP_Delete.png" rgba="FFFF00D0"/>
+           </FocusOn>    
+       </Button>
+       <Button name="Display" nav_left="Delete" nav_down="menu_r2">
+           <String name="Label" str="画面表示" />
+           <FocusOff>
+               <Bitmap file="art/CP_Display.png" rgba="C0C0C0D0"/>
+           </FocusOff>    
+           <FocusOn>
+               <Bitmap file="art/CP_Display.png" rgba="FFFF00D0"/>
+           </FocusOn>    
+       </Button>
+   </Container>
+
+   <Container name="menu_r2" orientation="horizontal" align="center" spacing="36" x2d="240" visible="1" focus="__AREA__">
+    <Button name="Previous" nav_right="Next" nav_up="menu_r1">
+        <String name="Label" str="前の写真" />
+      <FocusOff>
+          <Bitmap file="art/CP_Prev.png" rgba="C0C0C0D0"/>
+      </FocusOff>    
+      <FocusOn>
+          <Bitmap file="art/CP_Prev.png" rgba="FFFF00D0"/>
+      </FocusOn>    
+    </Button>
+    <Button name="Next" nav_left="Previous" nav_right="Play" nav_up="menu_r1">
+        <String name="Label" str="次の写真" />
+          <FocusOff>
+              <Bitmap file="art/CP_Next.png" rgba="C0C0C0D0"/>
+          </FocusOff>    
+          <FocusOn>
+              <Bitmap file="art/CP_Next.png" rgba="FFFF00D0"/>
+          </FocusOn>    
+      </Button>
+      <Button name="Play" nav_left="Next" nav_right="Pause" nav_up="menu_r1">
+          <String name="Label" str="再生" />
+          <FocusOff>
+              <Bitmap file="art/CP_Play.png" rgba="C0C0C0D0"/>
+          </FocusOff>    
+          <FocusOn>
+              <Bitmap file="art/CP_Play.png" rgba="FFFF00D0"/>
+          </FocusOn>    
+      </Button>
+      <Button name="Pause" nav_left="Play" nav_right="Stop" nav_up="menu_r1">
+          <String name="Label" str="一時停止" />
+          <FocusOff>
+              <Bitmap file="art/CP_Pause.png" rgba="C0C0C0D0"/>
+          </FocusOff>    
+          <FocusOn>
+              <Bitmap file="art/CP_Pause.png" rgba="FFFF00D0"/>
+          </FocusOn>    
+      </Button>
+      <Button name="Stop" nav_left="Pause" nav_up="menu_r1">
+          <String name="Label" str="停止" />
+          <FocusOff>
+              <Bitmap file="art/CP_Stop.png" rgba="C0C0C0D0"/>
+          </FocusOff>    
+          <FocusOn>
+              <Bitmap file="art/CP_Stop.png" rgba="FFFF00D0"/>
+          </FocusOn>    
+      </Button>
+      </Container>
+   <Container name="legend_container" orientation="horizontal" align="center" spacing="36" x2d="240" visible="1">
+       <Text name="Legend" str="" rgba="FFFF00D0" alignment="center" size="18"/>
+   </Container>
+  </Container>
+
+  <!--Prim type="line" x="-300" y="162" x2="300" y2="162" rgba="FF0000"/-->
+  <!--Prim type="line" x="-80" y="-200" x2="-80" y2="200" rgba="FF0000"/-->
+  
+  <Slider name="movieProgress" x2d="83" y="150" w="319" visible="0"/>
+    
+</App>

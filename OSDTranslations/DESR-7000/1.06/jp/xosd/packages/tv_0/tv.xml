@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<App name="tv" focus="conpane" script="tv.amx" visible="1" z_depth="-2">
+<!--App name="tv" focus="conpane" script="tv.amx" visible="1"-->
+	<Dll name="pvr/pvrNative" version="0.1.0" />
+	<Dll name="xBitmap/xBitmap" version="0.1.0" />
+	<Dll name="xBitmap3x3/xBitmap3x3" version="0.1.0" />
+	<Dll name="xPrim/xPrim" version="0.1.0" />
+	<Dll name="xText/xText" version="0.1.0" />
+	<Dll name="dvrDrv/dvrDrv_Small" version="0.1.0" />
+
+	<Component name="infostatus" visible="0" x="-280.0" y="150.0">
+		<Bitmap name="cushion" file="art/CP_Rec.tga" trans_mode="1" x="0.0" y="0.0" rgba="FFFFFFD0" />
+	</Component>
+
+	<Component name="rec_time" visible="0" x="-195.0" y="150.0">
+		<Text   name="time" size="16" str="0:00:00" alignment="left" shadow="1" x="-15.0" y="5.0" rgba="FFFFFFFF" />
+		<Bitmap name="carpet" file="art/rec_num.tga" trans_mode="1" x="0.0" y="0.0" rgba="FFFFFFFF" />
+	</Component>
+
+	<Component name="rec_mode" visible="0" x="-15.0" y="150.0">
+		<Text   name="mode_mongon" size="16" str="現在の録画モード" alignment="left" shadow="1" x="-80.0" y="6.0" rgba="FFFFFFFF" />
+		<Bitmap name="mode_carpet" file="art/makura_sp.tga" trans_mode="1" x="0.0" y="0.0" rgba="FFFFFFFF" />
+	</Component>
+
+	<Component name="topbar" x="0" y="0">
+		<Text   name="title"          size="16" alignment="left"  shadow="0" x="-279" y="-250.0" rgba="FFFFFFFF" />
+		<Text   name="channel_name"   size="16" alignment="right" shadow="0" x="239"  y="-250.0" rgba="FFFFFFFF" />
+		<Bitmap name="Category" file="art/TV-Top-CategoryIcon.png" 	trans_mode="1" x="-138.0" y="-272.0" 		  rgba="FFFFFFFF" />
+		<Bitmap name="Audio" 	file="art/TV-Top-Audio-Stereo.png" 	trans_mode="1" x="108.0"  y="-272.0" 		  rgba="FFFFFFFF" />
+		<Bitmap name="Bar" 		file="art/TV-Top-Bar.png" 			trans_mode="1" x="188.0"  y="-272.0" w="96.0" rgba="FFFFFFFF" />
+		<Bitmap name="GGuide" 	file="art/TV-Top-GGuide.png" 		trans_mode="1" x="297.5"  y="-272.0" 		  rgba="FFFFFFFF" />
+	</Component>
+	<Component name="btmbar" x="0" y="0">
+		<Text   name="ExpCross"    str="戻る" 		size="16" alignment="left" 	  x="-87.0"  y="267.0" shadow="0" rgba="FFFFFFFF" />
+		<Text   name="ExpEnter"    str="決定" 		size="16" alignment="left" 	  x="51.0"	 y="267.0" shadow="0" rgba="FFFFFFFF" />
+		<Text   name="ExpTriangle" str="操作パネル"	size="16" alignment="left" 	  x="229.0"  y="267.0" shadow="0" rgba="FFFFFFFF" />
+		<Bitmap name="Category1" file="art/TV-Btm-Bar.png" 		   trans_mode="1" x="-235.0" y="275.0" w="234.0" rgba="FFFFFFFF" />
+		<Bitmap name="Cross" 	 file="art/TV-BtnNav-Cross.png"    trans_mode="1" x="-102.5" y="275.0" 		  	 rgba="FFFFFFFF" />
+		<Bitmap name="Category2" file="art/TV-Btm-Bar.png" 		   trans_mode="1" x="-54.5"  y="275.0" w="65.0"  rgba="FFFFFFFF" />
+		<Bitmap name="Enter"     file="art/TV-BtnNav-Enter.png"    trans_mode="1" x="14.5"   y="275.0" 			 rgba="FFFFFFFF" />
+		<Bitmap name="Category3" file="art/TV-Btm-Bar.png" 		   trans_mode="1" x="123.0"  y="275.0" w="144.0" rgba="FFFFFFFF" />
+		<Bitmap name="Triangle"  file="art/TV-BtnNav-Triangle.png" trans_mode="1" x="212.0"  y="275.0" 		  	 rgba="FFFFFFFF" />
+		<Bitmap name="Category4" file="art/TV-Btm-Bar.png"		   trans_mode="1" x="290.5"  y="275.0" w="123.0" rgba="FFFFFFFF" />
+	</Component>
+	<Component name="FreeSpace" x="0" y="0" >
+		<Bitmap name="FreeSpace" file="art/FreeSpace-TV.png" trans_mode="1" x="454.0" y="0.0" rgba="FFFFFFFF" />
+	</Component>
+
+	<Component name="SubMongon" visible="0" x="0" y="0" >
+		<Bitmap name="Mongon" file="art/onsei_shufuku_01.tga" trans_mode="1" x="-186.0" y="-148.0" rgba="FFFFFFFF" />
+	</Component>
+
+	<Component name="conpane" visible="0" x="0" y="0">
+		<Bitmap name="recstart" file="art/CP_Rec.png"                   x="-202" y="-80"    rgba="FFFFFF7F" />
+		<Bitmap name="recpause" file="art/CP_RecPause.png"              x="-166" y="-80"    rgba="FFFFFF7F" />
+		<Bitmap name="recstop"  file="art/CP_RecStop.png"               x="-130" y="-80"    rgba="FFFFFF7F" />
+		<Bitmap name="sound"    file="art/CP_Sound.png"                 x="-94"  y="-80"    rgba="FFFFFFDC" />
+		<Bitmap name="info"     file="art/CP_Display.png"               x="-58"  y="-80"    rgba="FFFFFFDC" />
+		<Bitmap name="help"     file="art/tv_rec_05.tga" w="180" h="28" x="-130" y="-50"    rgba="FFFF00FF" />
+	</Component>
+</App>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<App name="Sircs2" script="Sircs2.amx">
+	<!-- このファイルはＵＴＦ８を使用しています。-->
+	<Dll name="xText/xText" version="0.1.0" />
+	<Dll name="xCDVD/xCDVD" version="0.1.0" />
+	<Dll name="Sircs2/Sircs2Tester" version="0.1.0" />
+	<Dll name="xTime/xTime" version="0.1.0" />
+
+	<Text name="Title" str="---- SIRCS2 Test ----" x="-320" y="-180" size="25" rgba="FFFFFFB0"/>
+	<Text name="MSG"   str=""                      x="-300" y= "-50" size="40" rgba="808000FF"/>
+	<Text name="INP"   str=""                      x="-300" y=  "20" size="30" rgba="008080FF"/>
+	<Text name="STS"   str=""                      x="-320" y= "180" size="20" rgba="FFFFFFB0"/>
+
+</App>

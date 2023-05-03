@@ -1,0 +1,284 @@
+<?xml version="1.0"?>
+<App name="ConfigUpdate" focus="config_update_WizardList1" script="ConfigUpdate.amx">
+	<Dll name="xText/xText" version="0.1.0" />
+	<Dll name="xBitmap/xBitmap" version="0.1.0" />
+	<Dll name="xBitmap3x3/xBitmap3x3" version="0.1.0" />
+	<Dll name="xPrim/xPrim" version="0.1.0" />
+	<Dll name="xMemo/xMemo" version="0.1.0" />
+	<Dll name="xSlider/xSlider" version="0.1.0" />
+	<Dll name="xStr/xStr" version="0.1.0" />
+	<Dll name="xSet/xSet" version="0.1.0" />
+	<Dll name="xNetConfig/xNetConfig" version="0.1.0" />
+    <Dll name="xNetSmall/xNetSmall" version="0.1.0" />
+	<Dll name="xUpdateCenter_Small/xUpdateCenter_Small" version="0.1.0" />
+    <Dll name="xUpdateCenter/xUpdateCenter" version="0.1.0" />
+
+	<Bitmap name="bg" file="art/wizard_bg.png" x="0" y="0" w="720" h="480" vizible="0"/>
+
+
+	<Slider name="bar_base" x="0" y="0" w="480" visible="0"/>
+
+	<Component name="config_update_WizardList1" x="-360" y="-240" z="0" rot_x="0" rot_y="0" rot_z="0" rgba="D0D0D0FF" visible="1" >
+
+		<Component name="cell0" x="-720" y="0" rgba="D0D0D0FF" >
+		</Component>
+
+		<Component name="cell1" x="-720" y="0" rgba="D0D0D0FF" >
+			<Text name="text0" str="ネットワークアップデートを開始します。"        x="164" y="214" size="16"     />
+			<Bitmap name="text1" file="art/BtnNav-EnterCir-917-wide.tga"           x="192" y="233" />
+			<Text name="text2" str="を押して、ダウンロードを開始してください。"    x="222" y="238" size="16"     />
+		</Component>
+
+		<Component name="cell2" x="0" y="0" rgba="D0D0D0FF" >
+			<Text name="func0_text0" str="最新のソフトウェアをダウンロードしています。" x="120" y="142" size="16" rgba="D0D0D0FF"   />
+			<Text name="func0_text1" str="ダウンロードが終わるまでは、本機の電源や、"   x="120" y="166" size="16" rgba="D0D0D0FF"   />
+			<Text name="func0_text2" str="ネットワークを切断しないでください。"         x="120" y="190" size="16" rgba="D0D0D0FF"   />
+			<Text name="func0_text3" str="ダウンロード状況" x="120" y="220" size="14" />
+			<Text name="prog" str="" x="610" y="265" size="14" alignment="right" />
+		</Component>
+
+		<Component name="cell3" x="720" y="0" rgba="D0D0D0FF" >
+			<Text name="func0_text0" str="使用許諾契約"                     x="100" y="100" size="16" rgba="D0D0D0FF"   />
+			<Text name="func0_text1" str="使用許諾契約を確認したら"         x="100" y="144" size="16" rgba="D0D0D0FF"   />
+			<Bitmap name="func0_text2" file="art/arrow_R.tga"               x="313" y="139" />
+			<Text name="func0_text3" str="を押して次の画面に進んでください。"  x="321" y="144" size="16" rgba="D0D0D0FF"   />
+		    <Memo name="eula_memo" x="100" y="164" h="225" w="480"  buf_size="5120" font_size="16"
+		    		read_only="1"  have_scrollbar="1" rgba="D0D0D0FF" />  
+		</Component>
+
+
+		<Component name="cell4" x="720" y="0" rgba="D0D0D0FF" >
+			<Text name="func0_text0" str="使用許諾条件に同意しますか？"        x="165" y="192" size="16" rgba="D0D0D0FF"  />
+			<Text name="func0_text1" str="入力する項目を"                      x="165" y="215" size="16"     />
+			<Bitmap name="func0_text2" file="art/arrow_UD.tga"                 x="293" y="210" />
+			<Text name="func0_text3" str="で選んで"                            x="303" y="215" size="16"     />
+			<Bitmap name="func0_text4" file="art/arrow_R.tga"                  x="382" y="210" />
+			<Text name="func0_text5" str="を押してください。"                  x="393" y="215" size="16"     />
+
+			<Text name="agree0" str="同意しない" x="305" y="260" size="16" rgba="D0D0D0FF"   />
+			<Text name="agree1" str="同意する"   x="305" y="284" size="16" rgba="D0D0D0FF"   />
+		</Component>
+
+		<Component name="cell5" x="720" y="0" rgba="D0D0D0FF" >
+				<Text name="agree0_text0" str="これからインストールを開始します。"                    x="140" y="192" size="16" rgba="D0D0D0FF"   />
+				<Text name="agree0_text1" str="インストール中は画面にはしばらく何も表示されません。"  x="140" y="216" size="16" rgba="D0D0D0FF"   />
+				<Text name="agree0_text2" str="本機の電源を切ったり、ネットワークの接続を切断したり"  x="140" y="240" size="16" rgba="D0D0D0FF"   />
+				<Text name="agree0_text3" str="しないでください。"        x="140" y="264" size="16" rgba="D0D0D0FF"   />
+				<Bitmap name="agree0_text4" file="art/BtnNav-EnterCir-917-wide.tga"                   x="168"  y="283" />
+				<Text name="agree0_text5" str="ボタンを押すとインストールを開始します。"              x="198" y="288" size="16" rgba="D0D0D0FF"   />
+
+				<Text name="agree1_text0" str="使用許諾契約に同意しない場合、ソフトウェアを" x="170" y="210" size="16" rgba="D0D0D0FF"   />
+				<Text name="agree1_text1" str="更新することはできません。"                   x="170" y="240" size="16" rgba="D0D0D0FF"   />
+				<Text name="agree1_text2" str="ネットワークアップデートを終了します。"       x="170" y="270" size="16" rgba="D0D0D0FF"   />
+		</Component>
+
+		<Component name="cell6" x="720" y="0" rgba="D0D0D0FF" >
+				<Text name="agree0_text0" str="更新作業中です。" x="120" y="210" size="16" rgba="D0D0D0FF"   />
+				<Text name="agree0_text1" str="PSXの電源、ネットワークの接続を切らないでください。" x="120" y="240" size="16" rgba="D0D0D0FF"   />
+		</Component>
+
+		<Component name="cell7" x="720" y="0" rgba="D0D0D0FF" >
+				<Text name="agree0_text0" str="ソフトウェア更新が完了しました。"                   x="120" y="240" size="16" rgba="D0D0D0FF"   />
+		</Component>
+
+		<Component name="cell8" x="720" y="0" rgba="D0D0D0FF" >
+		</Component>
+
+		<Component name="cell9" x="720" y="0" rgba="D0D0D0FF" >
+		</Component>
+
+		<Component name="ListArrow" y="240" >
+			<Bitmap name="ListArrowLeft"  file="art/GT000020.tga" x="60"  y="-5" w="28" h="30" rot_z="0.5" rgba="D0D0D0FF"  />
+			<Bitmap name="ListArrowRight" file="art/GT000020.tga" x="650" y="-5" w="28" h="30" rgba="D0D0D0FF"  />
+		</Component>
+
+		<Component name="ModifyFocus" x="0" y="240" visible="0"/>
+
+	</Component>
+
+	<Component name="config_update_uselist" x="-210" y="-110"  visible="0" >
+		<Component name="Bar" x="-20" y="140" />
+		<Component name="cell0" x="0" y="0" rgba="FFFFFFC8">
+			<Text name="text" str="xxx" size="16" alignment="left" />
+		</Component>
+		<Component name="cell1" x="0" y="24" rgba="D0D0D0FF">
+			<Text name="text" str="xxx" size="16" alignment="left" />
+		</Component>
+		<Component name="cell2" x="0" y="48" rgba="D0D0D0FF">
+			<Text name="text" str="xxx" size="16" alignment="left" />
+		</Component>
+		<Component name="cell3" x="0" y="72" rgba="D0D0D0FF">
+			<Text name="text" str="xxx" size="16" alignment="left" />
+		</Component>
+		<Component name="cell4" x="0" y="96" rgba="D0D0D0FF">
+			<Text name="text" str="xxx" size="16" alignment="left" />
+		</Component>
+		<Component name="cell5" x="0" y="120" rgba="D0D0D0FF">
+			<Text name="text" str="xxx" size="16" alignment="left" />
+		</Component>
+		<Component name="cell6" x="0" y="144" rgba="D0D0D0FF">
+			<Text name="text" str="xxx" size="16" alignment="left" />
+		</Component>
+		<Component name="cell7" x="0" y="168" rgba="D0D0D0FF">
+			<Text name="text" str="xxx" size="16" alignment="left" />
+		</Component>
+		<Component name="cell8" x="0" y="192" rgba="D0D0D0FF">
+			<Text name="text" str="xxx" size="16" alignment="left" />
+		</Component>
+		<Component name="cell9" x="0" y="216" rgba="D0D0D0FF">
+			<Text name="text" str="xxx" size="16" alignment="left" />
+		</Component>
+		<Component name="cell10" x="0" y="240" rgba="D0D0D0FF">
+			<Text name="text" str="xxx" size="16" alignment="left" />
+		</Component>
+		<Component name="cell11" x="0" y="264" rgba="FFFFFFC8">
+			<Text name="text" str="xxx" size="16" alignment="left" />
+		</Component>
+
+		<Component name="ModifyFocus" x="0" y="240" visible="0"/>
+	</Component>
+
+
+	<Component name="Dialog0" x="-360" y="-240" visible="0" >
+		<Prim name="Bg" type="rect" rgba="000018D0" x="0" y="0" w="720" h="480" />
+		<Bitmap name="Line1" file="art/DialogBorder.tga"  y="240" x="360" w="450" />
+		<Bitmap name="Line2" file="art/DialogBorder.tga"  y="240" x="360" w="450" />
+		<Bitmap name="DNAS_OK" file="art/dnas_small_basicA.tga"   y="105" x="640" visible="0" z_depth="-4"/>
+		<Bitmap name="DNAS_NG" file="art/dnas_small_failA.tga"   y="105" x="640"  visible="0" z_depth="-4"/>
+		<Component name="Base0" x="190" y="220">
+			<Text name="text0_0" str="最新ソフトウェアを確認しています。" x="30" y="0"  size="16"   />
+			<Text name="text0_1" str="しばらくお待ちください。"           x="30" y="24" size="16"   />
+
+			<Text name="text1_0" str="&#34;DNAS&#34;認証中です。"                   y="0"  size="16"   />
+			<Text name="text1_1" str="しばらくお待ちください。"           y="24" size="16"   />
+
+			<Text name="text2_0" str="最新のソフトウェアに更新されています。" x="30" y="0"  size="16"   />
+			<Text name="text2_1" str="ソフトウェア更新を終了します。"         x="30" y="24" size="16"   />
+
+			<Text name="text3_0" str="ネットワークに接続できませんでした。"    y="0"  size="16"   />
+			<Text name="text3_1" str="ネットワークの設定を確認してください。"  y="24" size="16"   />
+
+			<Text name="text4_0" str="&#34;DNAS&#34;認証エラーです。"                    y="0"  size="16"   />
+
+			<Text name="text5_0" str="ただいまアップデートサーバは大変混みあっているか、"    y="0"  size="16"   />
+			<Text name="text5_1" str="メンテナンス中のためご利用できません。"                y="24" size="16"   />
+
+			<Text name="text6_0" str="サーバへの接続に失敗しました。"        y="0"  size="16"   />
+
+			<Text name="text7_0" str="ダウンロードに失敗しました。"          y="0"  size="16"   />
+
+			<Text name="text8_0" str="アップデートに失敗しました。"          y="0"  size="16"   />
+
+			<Text name="text9_0" str="現在&#34;DNAS&#34;サーバーが処理を受け付けることが"        y="0"  size="16"   />
+			<Text name="text9_1" str="できません。"                                      y="24" size="16"   />
+			<Text name="text9_2" str="しばらく時間をおいてから再接続してください。"      y="48" size="16"   />
+
+			<Text name="text10_0" str="タイトルの&#34;DNAS&#34;認証サービス期間以前です。"        y="0"  size="16"   />
+
+			<Text name="text11_0" str="タイトルの&#34;DNAS&#34;認証サービス期間が終了しました。" y="0"  size="16"   />
+
+			<Text name="text12_0" str="全ての&#34;DNAS&#34;サービスが終了しました。" y="0"  size="16"   />
+
+
+			<Text name="text13_0" str="&#34;DNAS&#34;サーバーとの接続がタイムアウトしました。" y="0"  size="16"   />
+			<Text name="text13_1" str="しばらく時間をおいてから再接続してください。"               y="24" size="16"   />
+
+			<Text name="text14_0" str="サーバーが正常に動作しておりません。" y="0"  size="16"   />
+			<Text name="text14_1" str="しばらく時間をおいてから再接続してください。"               y="24" size="16"   />
+
+			<Text name="text15_0" str="&#34;DNAS&#34;エラーがおこりました。" y="0"  size="16"   />
+			<Text name="text15_1" str=""               y="24" size="16"   />
+
+			<Text name="text16_0" str="&#34;DNAS&#34;サーバーエラーです。" y="0"  size="16"   />
+
+			<Text name="text17_0" str="ユニークIDエラーです。" y="0"  size="16"   />
+
+			<Text name="text18_0" str="ダウンロードエラーです。" y="0"  size="16"   />
+
+			<Text name="text19_0" str="機器情報エラーです。" y="0"  size="16"   />
+			<Text name="text19_1" str=""               y="24" size="16"   />
+
+			<Text name="text20_0" str="&#34;DNAS&#34;エラーがおこりました。" y="0"  size="16"   />
+
+			<Text name="text21_0" str="ネットワーク接続を中断しました。" y="0"  size="16"   />
+
+			<Text name="text22_0" str="プロキシの設定にエラーがあります。" y="0"  size="16"   />
+			<Text name="text22_1" str=""               y="24" size="16"   />
+
+			<Text name="text23_0" str="通信がタイムアウトしました。" y="0"  size="16"   />
+			<Text name="text23_1" str="しばらく時間をおいてから再接続してください。"               y="24" size="16"   />
+
+			<Text name="text24_0" str="DNSサーバがみつかりません。" y="0"  size="16"   />
+			<Text name="text24_1" str="ネットワーク設定を確認してください。"               y="24" size="16"   />
+
+			<Text name="text25_0" str="DNSサーバの応答にエラーがあります。" y="0"  size="16"   />
+			<Text name="text25_1" str="ネットワーク設定を確認してください。"               y="24" size="16"   />
+
+			<Text name="text26_0" str="DNSエラーです。" y="0"  size="16"   />
+			<Text name="text26_1" str="ネットワーク設定を確認してください。"               y="24" size="16"   />
+
+			<Text name="text27_0" str="&#34;DNAS&#34;サーバへの接続に失敗しました。" y="0"  size="16"   />
+
+			<Text name="text28_0" str="通信エラーです。" y="0"  size="16"   />
+
+			<Text name="text29_0" str="ネットワーク設定を読み込めません。" y="0"  size="16"   />
+
+			<Text name="texterr_0" str=""                                 y="0" size="16"   />
+			<Text name="texterr_1" str=""                                 y="24" size="16"   />
+			<Text name="texterr_2" str=""                                 y="48" size="16"   />
+			<Text name="texterr_3" str=""                                 y="72" size="16"   />
+
+		</Component>
+	</Component>
+
+	<Component name="Dialog1" x="-360" y="-240" visible="0" >
+		<Prim name="Bg" type="rect" rgba="000018D0" x="0" y="0" w="720" h="480" />
+		<Bitmap name="Line1" file="art/DialogBorder.tga"  y="240" x="360" w="450" />
+		<Bitmap name="Line2" file="art/DialogBorder.tga"  y="240" x="360" w="450" />
+		<Component name="Base0" x="190" y="220">
+			<Text name="text0_0" str="ネットワークアップデートを中止しますか？"     x="30" y="0" size="16"   />
+			<Text name="text0_Y" str="中止する" x="85" y="54" size="16" alignment="center" />
+			<Text name="text0_N" str="中止しない" x="240" y="54" size="16" alignment="center" />
+
+			<Text name="text1_0" str="録画予約時刻開始まで10分を切りました。"   y="-14" size="16"   />
+			<Text name="text1_1" str="録画開始時刻になると自動的に終了します。" y="10" size="16"   />
+			<Text name="text1_2" str="ウィザードを中止しますか？"               y="34" size="16"   />
+			<Text name="text1_Y" str="中止する" x="85"                          y="70" size="16" alignment="center" />
+			<Text name="text1_N" str="中止しない" x="240"                       y="70" size="16" alignment="center" />
+		</Component>
+		<Component name="DialogFocus" x="430" y="278" />
+		<Component name="DialogFocus2" x="275" y="278" />
+	</Component>
+
+
+
+
+	<Component name="nwupdate_noupdate" x="-360" y="-240" visible="0" >
+		<Text name="text" str="最新のソフトウェアがインストール"   x="120" y="240" size="16" rgba="D0D0D0FF"   />
+		<Text name="text" str="されています。"                     x="120" y="280" size="16" rgba="D0D0D0FF"   />
+		<Text name="text" str="アップデートする必要はありません。" x="120" y="320" size="16" rgba="D0D0D0FF"   />
+	</Component>
+	<Component name="nwupdate_noupdate" x="-360" y="-240" visible="0" >
+		<Text name="connect1_text0" str="接続に成功しました。" x="120" y="240" size="16" rgba="D0D0D0FF"   />
+		<Text name="connect1_text1" str="接続を中断しました。" x="120" y="240" size="16" rgba="D0D0D0FF"   />
+		<Text name="connect1_text2" str="接続に失敗しました。" x="120" y="240" size="16" rgba="D0D0D0FF"   />
+	</Component>
+
+
+	<Component name="TopBar" x="-360" y="-240">
+		<Bitmap name="TopBarBg" file="art/TopBar.tga" x="360" y="32" w="720" h="64" />
+		<Text name="Title" str="ネットワークアップデート" x="80" y="51" size="16" z_depth="-4"/>
+		<Bitmap name="TopIcon" file="art/sICN-Conf-917.tga" x="59" y="45" w="39" h="32" z_depth="-4"/>
+	</Component>
+	<Component name="BotBar" x="-360" y="-240" >
+		<Bitmap name="BotBarBg" file="art/TopBar.tga" x="360" y="448" w="720" h="64" rot_z="0.5" />
+		<Text name="TXTCross" str="戻る" x="273" y="442" size="16" rgba="D0D0D0FF" />
+		<Bitmap name="IcnCross" file="art/BtnNav-Crs-917.png" x="260" y="438" />
+		<Text name="TXTCircle" str="変更" x="409" y="442" size="16" rgba="D0D0D0FF" />
+		<Bitmap name="IcnCiecle" file="art/BtnNav-EnterCir-917-wide.tga" x="378" y="438" />
+	</Component>
+
+
+
+
+</App>

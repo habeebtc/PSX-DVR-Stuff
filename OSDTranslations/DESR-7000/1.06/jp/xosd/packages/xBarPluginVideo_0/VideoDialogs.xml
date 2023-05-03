@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<PSML2>
+	<Dll name="xBitmap/xBitmap" version="0.1.0" />
+	<Dll name="xBitmap3x3/xBitmap3x3" version="0.1.0" />
+	<Dll name="xButton/xButton" version="0.1.0" />
+	<Dll name="xEdit/xEdit" version="0.1.0" />
+	<Dll name="xSlider/xSlider" version="0.1.0" />
+	<Dll name="xText/xText" version="0.1.0" />
+	<Dll name="xWizard/xWizard" version="0.1.0" />
+
+	<Screen name="QTimerInput" visible="0" z_depth="-1" focus="tmMin" >
+		<Text name="Text1" str="時間を設定して下さい。" y="-30" shadow="0" alignment="center" />
+		<Component name="arw" y="30">
+			<Bitmap file="pack:TimeReserve/0.1.0/art/U_arw.png" y="-24" w="14" h="12"/>
+			<Bitmap file="pack:TimeReserve/0.1.0/art/U_arw.png" y="12" w="14" h="12" rot_x="0.5"/>
+		</Component>
+		<Text str=":" x="-16" y="30" alignment="center"/>
+		<Text name="tmHour" x="-32" y="30" alignment="center" />
+		<Text name="tmMin" y="30" alignment="center" nav_right="QTIBtnDone"/>
+		<Button name="QTIBtnDone" x="48" y="30" nav_left="tmMin">
+			<Wizard action="" />
+			<FocusOn>
+				<Bitmap3x3 file="pack:Config/0.1.0/art/TextFocus.tga" y="-4" w="80" h="40" corner_w="25" corner_h="17"/>
+				<Text str="決定" rgba="ffff84" alignment="center"/>
+			</FocusOn>
+			<FocusOff><Text str="決定" rgba="ffffff" alignment="center"/></FocusOff>
+		</Button>
+	</Screen>
+	<Screen name="QTimerEPG" visible="0" z_depth="-1" focus="QTEBtnDone" >
+		<Text name="Text1" x="0" y="-70" shadow="0" alignment="center" />
+		<Text name="tmHour" y="30" alignment="center" visible="0"/>
+		<Text name="tmMin" y="30" alignment="center" visible="0"/>
+		<Button name="QTEBtnDone" y="80">
+			<Wizard action="" />
+			<FocusOn>
+				<Bitmap3x3 file="pack:Config/0.1.0/art/TextFocus.tga" y="-4" w="80" h="40" corner_w="25" corner_h="17"/>
+				<Text str="O K" rgba="ffff84" alignment="center"/>
+			</FocusOn>
+			<FocusOff><Text str="O K" rgba="ffffff" alignment="center"/></FocusOff>
+		</Button>
+	</Screen>
+	<Screen name="QTimer" visible="0" z_depth="-1" focus="QTBtn1">
+		<Text name="Text1" x="0" shadow="0" alignment="center" />
+		<Button name="QTBtn1" x="-60" y="40" nav_right="QTBtn2">
+			<Wizard action="QTimerInput" />
+			<FocusOn>
+				<Bitmap3x3 file="pack:Config/0.1.0/art/TextFocus.tga" y="-4" w="80" h="40" corner_w="25" corner_h="17"/>
+				<Text str="手動設定" rgba="ffff84" alignment="center"/>
+			</FocusOn>
+			<FocusOff><Text str="手動設定" rgba="ffffff" alignment="center"/></FocusOff>
+		</Button>
+		<Button name="QTBtn2" x="60" y="40" nav_left="QTBtn1">
+			<Wizard action="QTimerEPG" />
+			<FocusOn>
+				<Bitmap3x3 file="pack:Config/0.1.0/art/TextFocus.tga" y="-4" w="160" h="40" corner_w="25" corner_h="17"/>
+				<Text str="番組表に合わせる" rgba="ffff84" alignment="center"/>
+			</FocusOn>
+			<FocusOff><Text str="番組表に合わせる" rgba="ffffff" alignment="center"/></FocusOff>
+		</Button>
+	</Screen>
+	<Screen name="Err1" visible="0" z_depth="-1">
+		<Text name="Text1" x="0" shadow="0" spacing_v="6" alignment="center" />
+	</Screen>
+	<Screen name="Err2" visible="0" z_depth="-1" focus="Er2BtnNo">
+		<Text name="Text1" x="0" shadow="0" spacing_v="6" alignment="center" />
+		<Button name="Er2BtnYes" x="-60" nav_right="Er2BtnNo">
+			<Wizard action="" />
+			<FocusOn>
+				<Bitmap3x3 file="pack:Config/0.1.0/art/TextFocus.tga" y="-4" w="80" h="40" corner_w="25" corner_h="17"/>
+				<Text str="はい" rgba="ffff84" alignment="center"/>
+			</FocusOn>
+			<FocusOff><Text str="はい" rgba="ffffff" alignment="center"/></FocusOff>
+		</Button>
+		<Button name="Er2BtnNo" x="60" nav_left="Er2BtnYes">
+			<Wizard action="" />
+			<FocusOn>
+				<Bitmap3x3 file="pack:Config/0.1.0/art/TextFocus.tga" y="-4" w="96" h="40" corner_w="25" corner_h="17"/>
+				<Text str="いいえ" rgba="ffff84" alignment="center"/>
+			</FocusOn>
+			<FocusOff><Text str="いいえ" rgba="ffffff" alignment="center"/></FocusOff>
+		</Button>
+	</Screen>
+	<Screen name="wait" visible="0" z_depth="-1">
+		<Text name="Text1" x="0" y="0" alignment="center" shadow="0" />
+	</Screen>
+</PSML2>

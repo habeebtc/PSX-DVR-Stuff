@@ -1,0 +1,234 @@
+﻿<?xml version="1.0"?>
+<App name="pvrEdit" file="pack:pvrEdit/0.1.0/" focus="timeline" native="pvrEdit/pvrEdit">
+	<Dll name="pvr/pvrNative" version="0.1.0" />
+	<Dll name="xBar/xBar" version="0.1.0" />
+	<Dll name="xFw/xFw" version="0.1.0" />
+	<Dll name="xTex/xTex" version="0.1.0" />
+	<Dll name="xBitmap/xBitmap" version="0.1.0" />
+	<Dll name="xBitmap3x3/xBitmap3x3" version="0.1.0" />
+	<Dll name="xPad/xPad" version="0.1.0" />
+	<Dll name="xRC/xRC" version="0.1.0" />
+	<Dll name="xButton/xButton" version="0.1.0" />
+	<Dll name="xPrim/xPrim" version="0.1.0" />
+	<Dll name="xText/xText" version="0.1.0" />
+	<Dll name="xStr/xStr" version="0.1.0" />
+
+	<Component name="global" rgba="ffffff01">
+	<Prim name="background" type="rect" rgba="A1A1A1FF" x="-320" y="224" w="640" h="448" />
+	<Component name="template01.tga">
+		<!-- template01.tga-->
+		<Bitmap name="template01.tga_bitmap" w="720" h="480" rgba="FFFFFFB0"></Bitmap>
+		<Bitmap name="alpha" file="./art/alpha.tga" w="720" h="480" rgba="FFFFFF60"></Bitmap>
+	</Component>
+	<Component name="del_mode_dlg" visible="0">
+		<Bitmap name="alpha" file="./art/alpha.tga" w="720" h="480" rgba="FFFFFF80"></Bitmap>
+		<Component name="del_mark_info" x="180" y="-146" >
+			<Component name="del_mark_in" y="-5">
+				<Text name="del_in_tag"       rgba="ffffffff" str="始点" x="-15" alignment="right" />
+				<Text name="del_in_timecode"  rgba="ffffffff" str="00:00:00:00" alignment="left" />
+			</Component>
+			<Component name="del_mark_out" y="16">
+				<Text name="del_out_tag"      rgba="ffffffff" str="終点" x="-15" alignment="right" />
+				<Text name="del_out_timecode" rgba="ffffffff" str="00:00:00:00" alignment="left" />
+			</Component>
+		</Component>
+		<Bitmap name="arrow_lr" file="./art/arrow_LR_s.tga"             rgba="ffffffff" x="-225" y="124"></Bitmap>
+		<Bitmap name="circle" file="./art/BtnNav-EnterCir-917-wide.tga" rgba="ffffffff" x="40" y="126"></Bitmap>
+		<Bitmap name="cross" file="./art/cross.tga"                     rgba="ffffffff" x="37" y="148"></Bitmap>
+		<Text name="delmode_prmpt1" str="　  で取消す編集範囲を選び、　　　を押してください。" alignment="center" y="130" size="18" rgba="FFFFFFff" />
+		<Text name="delmode_prmpt2" str="編集画面に戻りたいときは、　 を押してください。" alignment="center" y="153" size="18" rgba="FFFFFFff" />
+	</Component>
+
+	<!-- thumbnail-->
+	<Component name="thumbnail" visible="0">
+		<Component name="thumbnail_00.tga" x="416">
+			<Bitmap name="film_template" file="./art/film.tga" visible="1" w="64" rgba="FFFFFFa0"></Bitmap>
+			<Bitmap name="thumbnail.tga_bitmap" w="63.9999" h="48.0001" rgba="FFFFFFFF"></Bitmap>
+			<Bitmap name="cut_mark.png_bitmap" file="./art/thumbnail_frame_cutted.tga" visible="0" w="64" h="48" rgba="FFFFFFd0"></Bitmap>
+		</Component>
+		<Component name="thumbnail_01.tga" x="352">
+			<!-- thumbnail_01.tga-->
+			<Bitmap name="film_template" file="./art/film.tga" visible="1" w="64" rgba="FFFFFFa0"></Bitmap>
+			<Bitmap name="thumbnail.tga_bitmap" w="64" h="48" rgba="FFFFFFFF"></Bitmap>
+			<Bitmap name="cut_mark.png_bitmap" file="./art/thumbnail_frame_cutted.tga" visible="0" w="64" h="48" rgba="FFFFFFd0"></Bitmap>
+		</Component>
+		<Component name="thumbnail_02.tga" x="288">
+			<!-- thumbnail_02.tga-->
+			<Bitmap name="film_template" file="./art/film.tga" visible="1" w="64" rgba="FFFFFFa0"></Bitmap>
+			<Bitmap name="thumbnail.tga_bitmap" w="64" h="48" rgba="FFFFFFFF"></Bitmap>
+			<Bitmap name="cut_mark.png_bitmap" file="./art/thumbnail_frame_cutted.tga" visible="0" w="64" h="48" rgba="FFFFFFd0"></Bitmap>
+		</Component>
+		<Component name="thumbnail_03.tga" x="224">
+			<!-- thumbnail_03.tga-->
+			<Bitmap name="film_template" file="./art/film.tga" visible="1" w="64" rgba="FFFFFFa0"></Bitmap>
+			<Bitmap name="thumbnail.tga_bitmap" w="64" h="48" rgba="FFFFFFFF"></Bitmap>
+			<Bitmap name="cut_mark.png_bitmap" file="./art/thumbnail_frame_cutted.tga" visible="0" w="64" h="48" rgba="FFFFFFd0"></Bitmap>
+		</Component>
+		<Component name="thumbnail_04.tga" x="160">
+			<!-- thumbnail_04.tga-->
+			<Bitmap name="film_template" file="./art/film.tga" visible="1" w="64" rgba="FFFFFFa0"></Bitmap>
+			<Bitmap name="thumbnail.tga_bitmap" w="64" h="48" rgba="FFFFFFFF"></Bitmap>
+			<Bitmap name="cut_mark.png_bitmap" file="./art/thumbnail_frame_cutted.tga" visible="0" w="64" h="48" rgba="FFFFFFd0"></Bitmap>
+		</Component>
+		<Component name="thumbnail_05.tga" x="96">
+			<!-- thumbnail_05.tga-->
+			<Bitmap name="film_template" file="./art/film.tga" visible="1" w="64" rgba="FFFFFFa0"></Bitmap>
+			<Bitmap name="thumbnail.tga_bitmap" w="64" h="48" rgba="FFFFFFFF"></Bitmap>
+			<Bitmap name="cut_mark.png_bitmap" file="./art/thumbnail_frame_cutted.tga" visible="0" w="64" h="48" rgba="FFFFFFd0"></Bitmap>
+		</Component>
+		<Component name="thumbnail_06.tga" x="-96">
+			<!-- thumbnail_06.tga-->
+			<Bitmap name="film_template" file="./art/film.tga" visible="1" w="64" rgba="FFFFFFa0"></Bitmap>
+			<Bitmap name="thumbnail.tga_bitmap" w="64" h="48" rgba="FFFFFFFF"></Bitmap>
+			<Bitmap name="cut_mark.png_bitmap" file="./art/thumbnail_frame_cutted.tga" visible="0" w="64" h="48" rgba="FFFFFFd0"></Bitmap>
+		</Component>
+		<Component name="thumbnail_07.tga" x="-160">
+			<!-- thumbnail_07.tga-->
+			<Bitmap name="film_template" file="./art/film.tga" visible="1" w="64" rgba="FFFFFFa0"></Bitmap>
+			<Bitmap name="thumbnail.tga_bitmap" w="64" h="48" rgba="FFFFFFFF"></Bitmap>
+			<Bitmap name="cut_mark.png_bitmap" file="./art/thumbnail_frame_cutted.tga" visible="0" w="64" h="48" rgba="FFFFFFd0"></Bitmap>
+		</Component>
+		<Component name="thumbnail_08.tga" x="-224">
+			<!-- thumbnail_08.tga-->
+			<Bitmap name="film_template" file="./art/film.tga" visible="1" w="64" rgba="FFFFFFa0"></Bitmap>
+			<Bitmap name="thumbnail.tga_bitmap" w="64" h="48" rgba="FFFFFFFF"></Bitmap>
+			<Bitmap name="cut_mark.png_bitmap" file="./art/thumbnail_frame_cutted.tga" visible="0" w="64" h="48" rgba="FFFFFFd0"></Bitmap>
+		</Component>
+		<Component name="thumbnail_09.tga" x="-288">
+			<!-- thumbnail_09.tga-->
+			<Bitmap name="film_template" file="./art/film.tga" visible="1" w="64" rgba="FFFFFFa0"></Bitmap>
+			<Bitmap name="thumbnail.tga_bitmap" w="64" h="48" rgba="FFFFFFFF"></Bitmap>
+			<Bitmap name="cut_mark.png_bitmap" file="./art/thumbnail_frame_cutted.tga" visible="0" w="64" h="48" rgba="FFFFFFd0"></Bitmap>
+		</Component>
+		<Component name="thumbnail_10.tga" x="-352">
+			<!-- thumbnail_10.tga-->
+			<Bitmap name="film_template" file="./art/film.tga" visible="1" w="64" rgba="FFFFFFa0"></Bitmap>
+			<Bitmap name="thumbnail.tga_bitmap" w="64" h="48" rgba="FFFFFFFF"></Bitmap>
+			<Bitmap name="cut_mark.png_bitmap" file="./art/thumbnail_frame_cutted.tga" visible="0" w="64" h="48" rgba="FFFFFFd0"></Bitmap>
+		</Component>
+		<Component name="thumbnail_11.tga" x="-416">
+			<!-- thumbnail_10.tga-->
+			<Bitmap name="film_template" file="./art/film.tga" visible="1" w="64" rgba="FFFFFFa0"></Bitmap>
+			<Bitmap name="thumbnail.tga_bitmap" w="64" h="48" rgba="FFFFFFFF"></Bitmap>
+			<Bitmap name="cut_mark.png_bitmap" file="./art/thumbnail_frame_cutted.tga" visible="0" w="64" h="48" rgba="FFFFFFd0"></Bitmap>
+		</Component>
+		<Component name="thumbnail_12.tga" x="-480">
+			<!-- thumbnail_12.tga-->
+			<Bitmap name="film_template" file="./art/film.tga" visible="1" w="64" rgba="FFFFFFa0"></Bitmap>
+			<Bitmap name="thumbnail.tga_bitmap" w="64" h="48" rgba="FFFFFFFF"></Bitmap>
+			<Bitmap name="cut_mark.png_bitmap" file="./art/thumbnail_frame_cutted.tga" visible="0" w="64" h="48" rgba="FFFFFFd0"></Bitmap>
+		</Component>
+
+		<Component name="hilights_layer" y="33">
+			<!-- hidden -->
+			<Bitmap name="focus.png_bitmap"     file="./art/timeline_line.tga" w="63.9999" rgba="FFFFFF80"></Bitmap>
+			<Bitmap name="big_focus.png_bitmap" file="./art/timeline_line.tga" w="63.9999" rgba="FFFFFF80"></Bitmap>
+		</Component>
+		<Component name="thumbnail_alpha">
+			<Bitmap name="thumbnail_alpha.tga" file="./art/thumbnail_frame_present.tga" y="-33" rgba="FFFFFF80" visible="0"></Bitmap>
+		</Component>
+	</Component>
+
+	<Component name="mark_info" x="180" y="-146" >
+		<Component name="mark_in" y="-5" visible="1">
+			<Text name="in_tag"       rgba="ffffffff" str="始点" x="-15" alignment="right" />
+			<Text name="in_timecode"  rgba="ffffffff" str="00:00:00:00" alignment="left" />
+		</Component>
+		<Component name="mark_out" y="16" visible="0" >
+			<Text name="out_tag"      rgba="ffffffff" str="終点" x="-15" alignment="right" />
+			<Text name="out_timecode" rgba="ffffffff" str="00:00:00:00" alignment="left" />
+		</Component>
+	</Component>
+
+	<Component name="timeline" x="0" y="71">
+		<Text name="in_label_string" str="始点" visible="0" />
+		<Text name="out_label_string" str="終点" visible="0" />
+		<!-- timeline-->
+		<Component name="timeline_01.tga" x="0">
+			<!-- timeline_01.tga-->
+			<Bitmap name="timeline_01.shadow" file="./art/timeline_shadow.tga" rgba="FFFFFFdc"></Bitmap>
+			<Bitmap name="timeline_01.tga_bitmap" file="./art/timeline.tga" rgba="FFFFFFdc"></Bitmap>
+			<Component name="cuted_area_holder">
+			</Component>
+
+			<Component name="out_mark" visible="0">
+				<Component name="out_point" y="-12">
+					<Text name="out_label" str="終点" size="18" rgba="FFFFFFFF" alignment="center" />
+				</Component>
+				<Bitmap name="out_mark_bitmap" file="./art/timeline_point.tga" rgba="FFFFFF80"></Bitmap>
+			</Component>
+
+			<Component name="timeline_focus.tga">
+				<!-- timeline_focus.tga-->
+				<Component name="in_point" y="25">
+					<Text name="in_label" str="始点" size="18" rgba="FFFFFFFF" alignment="center" />
+				</Component>
+				<Component name="in_label_ghost_axis" y="25">
+					<!-- in_point の in_label と同じ座標系にしておく -->
+					<Text name="in_label_ghost" str="終点" size="18" rgba="FFFFFFFF" alignment="center" visible="0" />
+				</Component>
+				<Bitmap name="timeline_focus.tga_bitmap" file="./art/timeline_point_focued.tga" rgba="FFFFa0c0"></Bitmap>
+			</Component>
+
+			<!-- center of timeline-focus component -->
+			<Component name="focus">
+				<Bitmap name="focus_bitmap" file="./art/timeline_line.tga" rgba="FFFFFFc0" visible="0"></Bitmap>
+			</Component>
+
+			<Component name="_debug_mark_1" y="8">
+ 				<Bitmap name="debug_mark_bitmap" file="./art/timeline_cuted_white.tga" h="32" rgba="FFFFFF80" visible="0"></Bitmap>
+ 			</Component>
+			<Component name="_debug_mark_2" y="-8">
+ 				<Bitmap name="debug_mark_bitmap" file="./art/timeline_cuted_white.tga" h="32" rgba="FF000080" visible="0"></Bitmap>
+ 			</Component>
+		</Component>
+	</Component>
+
+	<Component name="menus" y="121" x="2">
+		<Component name="system_menu" x="4">
+			<Component name="del_mode" x="-48">
+				<Bitmap3x3 name="del_mode_btn" file="art/btn.png" w="68" h="32" corner_w="12" rgba="FFFFFFdc"/>
+				<Text name="del_mode_prmpt" str="取消" shadow="0" size="18" y="7" alignment="center" rgba="000000dc"/>
+			</Component>
+			<Component name="preview" x="42">
+				<Bitmap3x3 name="preview_btn" file="art/btn.png" w="104" h="32" corner_w="12" rgba="FFFFFFdc"/>
+				<Text name="preview_prmpt" str="確認再生" shadow="0" size="18" y="7" alignment="center" rgba="000000dc"/>
+			</Component>
+			<Component name="cancel" x="132">
+				<Bitmap3x3 name="cancel_btn" file="art/btn.png" w="68" h="32" corner_w="12" rgba="FFFFFFdc"/>
+				<Text name="cancel_prmpt" str="中止" shadow="0" size="18" y="7" alignment="center" rgba="000000dc"/>
+			</Component>
+			<Component name="quit" x="204">
+				<Bitmap3x3 name="quit_btn" file="art/btn.png" w="68" h="32" corner_w="12" rgba="FFFFFFdc"/>
+				<Text name="quit_prmpt" str="完了" shadow="0" size="18" y="7" alignment="center" rgba="000000dc"/>
+			</Component>
+		</Component>
+
+		<Component name="drive_controller" x="-16" y="1">
+			<!-- Bitmap name="skip_r"         rgba="FFFFFFdc" x="-247" file="./art/skip_F.tga" rot_y="0.5"></Bitmap -->
+			<!-- Bitmap name="skip_f"         rgba="FFFFFFdc" x="-201" file="./art/skip_F.tga"></Bitmap -->
+			<Bitmap name="search_r"       rgba="FFFFFFdc" x="-201" file="./art/search_F.tga" rot_y="0.5"></Bitmap>
+			<Bitmap name="search_f"       rgba="FFFFFFdc" x="-155" file="./art/search_F.tga"></Bitmap>
+			<Bitmap name="play"           rgba="FFFFFFdc" x="-111"  file="./art/play.tga"></Bitmap>
+			<Bitmap name="pause"          rgba="FFFFFFdc" x="-78"   file="./art/pause.tga"></Bitmap>
+		</Component>
+	</Component>
+	<Component name="guidance" y="161" rgba="FFFFFFff">
+		<Text name="prompt" str=" " size="18" shadow="1" alignment="center" />
+		<Component name="composite_prompt">
+			<Component name="prompt1" visible="0">
+				<Bitmap name="prmpt_circle"   file="./art/BtnNav-EnterCir-917-wide.tga" rgba="ffffffff" x="39" y="-4"></Bitmap>
+				<Text name="msg" rgba="ffffffff" alignment="center" str="再生したくない場面の始点で、　 　  を押してください。"/>
+			</Component>
+			<Component name="prompt2" visible="0">
+				<Bitmap name="prmpt_circle"   file="./art/BtnNav-EnterCir-917-wide.tga" rgba="ffffffff" x="39" y="-4"></Bitmap>
+				<Text name="msg" rgba="ffffffff" alignment="center" str="再生したくない場面の終点で、　 　  を押してください。"/>
+			</Component>
+		</Component>
+	</Component>
+
+	<!-- Component name="del_mark_info" x="-190" y="-146" >
+		<Text name="__debug_text" rgba="ffffffff" str="(0,0)" alignment="rleft" />
+	</Component -->
+	</Component>
+</App>

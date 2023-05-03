@@ -1,0 +1,218 @@
+<?xml version="1.0"?>
+<PSML2>
+
+<Dll name="xBitmap/xBitmap" version="0.1.0" />
+<Dll name="xBitmap3x3/xBitmap3x3" version="0.1.0" />
+<Dll name="xEdit/xEdit" version="0.1.0" />
+<Dll name="xText/xText" version="0.1.0" />
+<Dll name="xSelector/xSelector" version="0.1.0" />
+
+<!-- HDD album -->
+<!--Screen name="info_hdd" visible="0" z_depth="-1" focus="AlbumGenre"  script="DlgInformationAlbum.amx"-->
+<Screen name="info_hdd" visible="0" z_depth="-1" script="DlgInformationAlbum.amx">
+	<Bitmap name="AlbumGenreIcon" x="-112" y="-84" />
+	<Text str="アルバム名" x="-120" y="5" alignment="right" rgba="D0D0D0"/>
+    <Text name="AlbumName" str="" x="-104" y="5" max_w="400" rgba="D0D0D0" />
+	<!--Text str="アーティスト" x="-120" y="31" alignment="right" rgba="D0D0D0"/-->
+    <!--Text name="ArtistName" str="" x="-104" y="31" rgba="D0D0D0" /-->
+<!--  
+	<Edit name="ArtistName" str="" x="-104" y="31" nav_down="AlbumGenre" rgba="D0D0D0" rgba0="D0D000">
+		<FocusOn>
+			<Bitmap3x3 name="focus" file="pack:barc/0.1.0/art/TextFocus.tga" x="90" y="-5" h="30" w="210" corner_w="25" corner_h="17" />
+		</FocusOn>
+	</Edit>
+-->
+    <Text str="ファイル数" x="-120" y="31" alignment="right" rgba="D0D0D0"/>
+    <Text name="AlbumNumFiles" str="..." x="-104" y="31" rgba="D0D0D0" />
+    <Text str="サイズ" x="-120" y="57" alignment="right" rgba="D0D0D0"/>
+    <Text name="AlbumSize" str="..." x="-104" y="57" rgba="D0D0D0" />
+    <!--Text str="取り込み日時" x="-120" y="109" alignment="right" rgba="D0D0D0"/-->
+    <!--Text name="Date" str="" x="-104" y="109" rgba="D0D0D0" /-->
+    <!--Text str="ジャンル" x="-120" y="83" alignment="right" rgba="D0D0D0"/-->
+    <!--Selector name="AlbumGenre" str="" x="-104" y="83" rgba="D0D0D0" rgba0="D0D000" wrap="1"-->
+		<!--Selection str="Techno/Dance"/-->
+		<!--Selection str="Rock"/-->
+		<!--Selection str="Alternative/Indies"/-->
+		<!--Selection str="Jazz/Fusion"/-->
+		<!--Selection str="Classic"/-->
+		<!--Selection str="World Music"/-->
+		<!--Selection str="Folk/Blues"/-->
+		<!--Selection str="Japanese"/-->
+		<!--Selection str="Country Music"/-->
+		<!--Selection str="Soundtrack/Easy"/-->
+		<!--Selection str="HipHop"/-->
+		<!--Selection str="Unknown"/-->
+		<!--FocusOn z_depth="1"-->
+			<!--Bitmap3x3 name="focus" file="pack:barc/0.1.0/art/TextFocus.tga" x="90" y="-5" h="35" w="210" corner_w="25" corner_h="17" /-->
+		<!--/FocusOn-->
+	<!--/Selector-->
+</Screen>
+
+<!-- HDD single ( mp3 and atrac are currently the same ) -->
+<Screen name="info_hdd_single" visible="0" z_depth="-1" focus="TitleName">
+<!--	<Bitmap name="AlbumGenreIcon" x="-112" y="-84" />  -->
+	<Bitmap name="TrackBackground" file="pack:xBarPluginMusic/0.1.0/Base_TrackThick.tga" x="-112" y="-84" h="108" w="108" />
+	<Text name="TrackNumber" str="" x="-112" y="-68" alignment="center" width="108" rgba="D0D0D0" />
+	<Text str="トラック名" x="-120" y="5" alignment="right" rgba="D0D0D0"/>
+	<Text name="TitleName" str="" x="-104" y="5" max_w="400" rgba="D0D0D0" />
+	<Text str="サイズ" x="-120" y="31" alignment="right" rgba="D0D0D0"/>
+	<Text name="Size" str="" x="-104" y="31" rgba="D0D0D0" />
+    <!--Text str="取り込み日時" x="-120" y="57" alignment="right" rgba="D0D0D0"/-->
+    <!--Text name="Date" str="" x="-104" y="57" rgba="D0D0D0" /-->
+    <Text str="曲の長さ" x="-120" y="57" alignment="right" rgba="D0D0D0"/>
+    <Text name="Duration" str="..." x="-104" y="57" rgba="D0D0D0" />
+    <Text str="音質" x="-120" y="83" alignment="right" rgba="D0D0D0"/>
+    <Text name="Bitrate" str="" x="-104" y="83" rgba="D0D0D0" />
+    <Text str="ファイル形式" x="-120" y="109" alignment="right" rgba="D0D0D0"/>
+    <Text name="FileFormat" rgba="D0D0D0" str="オーディオトラック" visible="0" x="-104" y="109" />
+	<Text name="dummy0" str="" x="-104" y="109" />
+    <Bitmap name="FileFormatBmp" rgba="D0D0D0" str="" x="-70" y="104"/>
+</Screen>
+
+<Screen name="info_hdd_mp3" visible="0" z_depth="-1" focus="TitleName">
+<!--	<Bitmap name="AlbumGenreIcon" x="-112" y="-84" />  -->
+	<Bitmap name="TrackBackground" file="pack:xBarPluginMusic/0.1.0/Base_TrackThick.tga" x="-112" y="-84" h="108" w="108" />
+	<Text name="TrackNumber" str="" x="-112" y="-68" alignment="center" width="108" rgba="D0D0D0" />
+	<Text str="トラック名" x="-120" y="5" alignment="right" rgba="D0D0D0"/>
+	<Text name="TitleName" str="" x="-104" y="5" max_w="400" rgba="D0D0D0" />
+	<Text str="サイズ" x="-120" y="31" alignment="right" rgba="D0D0D0"/>
+	<Text name="Size" str="" x="-104" y="31" rgba="D0D0D0" />
+    <!--Text str="取り込み日時" x="-120" y="57" alignment="right" rgba="D0D0D0"/-->
+    <!--Text name="Date" str="" x="-104" y="57" rgba="D0D0D0" /-->
+    <!--Text str="曲の長さ" x="-120" y="83" alignment="right" rgba="D0D0D0"/-->
+    <!--Text name="Duration" str="..." x="-104" y="83" rgba="D0D0D0" /-->
+    <!--Text str="音質" x="-120" y="109" alignment="right" rgba="D0D0D0"/-->
+    <!--Text name="Bitrate" str="" x="-104" y="109" rgba="D0D0D0" /-->
+    <Text str="ファイル形式" x="-120" y="57" alignment="right" rgba="D0D0D0"/>
+    <Text name="FileFormat" rgba="D0D0D0" str="オーディオトラック" visible="0" x="-104" y="57" />
+	<Text name="dummy0" str="" x="-104" y="57" />
+    <Bitmap name="FileFormatBmp" rgba="D0D0D0" str="" x="-70" y="52"/>
+</Screen>
+
+<!-- Audio CD album -->
+<Screen name="info_redbook" visible="0" z_depth="-1">
+<!--	<Bitmap name="AlbumGenreIcon" x="-112" y="-84" />		-->
+	<Bitmap name="CDIcon" file="pack:barc/0.1.0/art/disc_icon_CD.png" x="-107" y="-79" h="178" w="233" />
+	<Text str="曲の長さ" x="-120" y="5" alignment="right" rgba="D0D0D0"/>
+	<Text name="Duration" str="" x="-104" y="5" rgba="D0D0D0" />
+	<Text str="取り込み後のサイズ" x="-120" y="31" alignment="right" rgba="D0D0D0"/>
+	<Text name="ImportedSize" str="" x="-104" y="31" rgba="D0D0D0" />
+	<Text str="ディスク種別" x="-120" y="57" alignment="right" rgba="D0D0D0"/>
+	<Text name="DiscType" str="Audio CD" x="-104" y="57" rgba="D0D0D0" />
+</Screen>
+
+<!-- Audio CD track -->
+<Screen name="info_redbook_single" visible="0" z_depth="-1">
+<!--	<Bitmap name="AlbumGenreIcon" x="-112" y="-84" />  -->
+	<Bitmap name="TrackBackground" file="pack:xBarPluginMusic/0.1.0/Base_TrackThick.tga" x="-112" y="-84" h="108" w="108" />
+	<Text name="TrackNumber" str="" x="-112" y="-68" alignment="center" width="108" rgba="D0D0D0" />
+	<Text str="トラック名" x="-120" y="5" alignment="right" rgba="D0D0D0"/>
+	<Text name="CDTrackName" str="" x="-104" y="5" rgba="D0D0D0" />
+	<Text str="曲の長さ" x="-120" y="31" alignment="right" rgba="D0D0D0"/>
+	<Text name="Duration" str="" x="-104" y="31" rgba="D0D0D0" />
+	<Text str="取り込み後のサイズ" x="-120" y="57" alignment="right" rgba="D0D0D0"/>
+	<Text name="ImportedSize" str="" x="-104" y="57" rgba="D0D0D0" />
+	<Text str="ファイル形式" x="-120" y="83" alignment="right" rgba="D0D0D0"/>
+	<Text name="FileFormat" str="オーディオトラック" x="-104" y="83" rgba="D0D0D0" />
+</Screen>
+
+<!-- Data Disc-->
+<Screen name="info_datadisc" visible="0" z_depth="-1" focus="Duration">
+	<Bitmap name="AlbumGenreIcon" x="-112" y="-84" />
+	<Text str="サイズ" x="-120" y="5" alignment="right" rgba="D0D0D0"/>
+	<Text name="Size" str="" x="-104" y="5" nav_down="DiscType" rgba="D0D0D0">
+		<FocusOn>
+			<Bitmap3x3 name="focus" file="pack:barc/0.1.0/art/TextFocus.tga" x="90" y="-5" h="21" w="210" corner_w="25" corner_h="17" />
+		</FocusOn>
+	</Text>
+	<Text str="作成日時" x="-120" y="31" alignment="right" rgba="D0D0D0"/>
+	<Text name="Date" str="" x="-104" y="31" nav_down="DiscType" rgba="D0D0D0">
+		<FocusOn>
+			<Bitmap3x3 name="focus" file="pack:barc/0.1.0/art/TextFocus.tga" x="90" y="-5" h="21" w="210" corner_w="25" corner_h="17" />
+		</FocusOn>
+	</Text>
+	<Text str="ディスク種別" x="-120" y="57" alignment="right" rgba="D0D0D0"/>
+	<Text name="DiscType" str="Data CD" x="-104" y="57" nav_up="Size" rgba="D0D0D0">
+		<FocusOn>
+			<Bitmap3x3 name="focus" file="pack:barc/0.1.0/art/TextFocus.tga" x="90" y="-5" h="21" w="210" corner_w="25" corner_h="17" />
+		</FocusOn>
+	</Text>
+</Screen>
+
+<!-- Data CD track -->
+<Screen name="info_datadisc_single" visible="0" z_depth="-1" focus="TitleName">
+	<Bitmap name="AlbumGenreIcon" x="-112" y="-84" />
+	<Text str="トラック名" x="-120" y="5" alignment="right" rgba="D0D0D0"/>
+	<Text name="CDTrackName" str="" x="-104" y="5" nav_down="Size" rgba="D0D0D0">
+		<FocusOn>
+			<Bitmap3x3 name="focus" file="pack:barc/0.1.0/art/TextFocus.tga" x="90" y="-5" h="21" w="210" corner_w="25" corner_h="17" />
+		</FocusOn>
+	</Text>
+	<Text str="サイズ" x="-120" y="31" alignment="right" rgba="D0D0D0"/>
+	<Text name="Size" str="" x="-104" y="31" nav_down="Date" nav_up="CDTrackName" rgba="D0D0D0">
+		<FocusOn>
+			<Bitmap3x3 name="focus" file="pack:barc/0.1.0/art/TextFocus.tga" x="90" y="-5" h="21" w="210" corner_w="25" corner_h="17" />
+		</FocusOn>
+	</Text>
+	<Text str="作成日時" x="-120" y="57" alignment="right" rgba="D0D0D0"/>
+	<Text name="Date" str="" x="-104" y="57" nav_down="Duration" rgba="D0D0D0">
+		<FocusOn>
+			<Bitmap3x3 name="focus" file="pack:barc/0.1.0/art/TextFocus.tga" x="90" y="-5" h="21" w="210" corner_w="25" corner_h="17" />
+		</FocusOn>
+	</Text>
+	<Text str="曲の長さ" x="-120" y="83" alignment="right" rgba="D0D0D0"/>
+	<Text name="Duration" str="" x="-104" y="83" nav_up="Date" nav_down="Bitrate" rgba="D0D0D0">
+		<FocusOn>
+			<Bitmap3x3 name="focus" file="pack:barc/0.1.0/art/TextFocus.tga" x="90" y="-5" h="21" w="210" corner_w="25" corner_h="17" />
+		</FocusOn>
+	</Text>
+	<Text str="音質" x="-120" y="109" alignment="right" rgba="D0D0D0"/>
+	<Text name="Bitrate" str="" x="-104" y="109" nav_up="Duration" rgba="D0D0D0">
+		<FocusOn>
+			<Bitmap3x3 name="focus" file="pack:barc/0.1.0/art/TextFocus.tga" x="90" y="-5" h="21" w="210" corner_w="25" corner_h="17" />
+		</FocusOn>
+	</Text>
+	<Text str="ファイル形式" x="-120" y="135" alignment="right" rgba="D0D0D0"/>
+	<Text name="FileFormat" rgba="D0D0D0" str="オーディオトラック" visible="0" x="-104" y="135" />
+	<Text name="dummy0" str="" x="-104" y="135" nav_up="Bitrate" >
+		<FocusOn>
+			<Bitmap3x3 name="focus" file="pack:barc/0.1.0/art/TextFocus.tga" x="90" y="-5" h="30" w="210" corner_w="25" corner_h="17"/>
+		</FocusOn>
+    </Text>
+    <Bitmap name="FileFormatBmp" rgba="D0D0D0" str="" x="-70" y="130"/>
+</Screen>
+
+<!-- MS album -->
+<Screen name="info_ms" visible="0" z_depth="-1" focus="Size">
+	<Bitmap name="AlbumGenreIcon" x="-112" y="-84" />
+	<Text str="サイズ" x="-120" y="5" alignment="right" rgba="D0D0D0"/>
+	<Text name="Size" str="" x="-104" y="5" rgba="D0D0D0">
+		<FocusOn>
+			<Bitmap3x3 name="focus" file="pack:barc/0.1.0/art/TextFocus.tga" x="90" y="-5" h="21" w="210" corner_w="25" corner_h="17" />
+		</FocusOn>
+	</Text>
+</Screen>
+
+<!-- MS mp3 -->
+<Screen name="info_ms_single" visible="0" z_depth="-1" focus="TitleName">
+	<!--Bitmap name="AlbumGenreIcon" x="-112" y="-84" /-->
+	<Bitmap name="TrackBackground" file="pack:xBarPluginMusic/0.1.0/Base_TrackThick.tga" x="-112" y="-84" h="108" w="108" />
+	<Text name="TrackNumber" str="" x="-112" y="-68" alignment="center" width="108" rgba="D0D0D0" />
+	<Text str="トラック名" x="-120" y="5" alignment="right" rgba="D0D0D0"/>
+	<Text name="CDTrackName" str="" x="-104" y="5" max_w="400" nav_down="Duration" rgba="D0D0D0"/>
+	<Text str="サイズ" x="-120" y="31" alignment="right" rgba="D0D0D0"/>
+	<Text name="Size" str="" x="-104" y="31" nav_down="DiscType" rgba="D0D0D0"/>
+	<!--Text str="作成日時" x="-120" y="57" alignment="right" rgba="D0D0D0"/-->
+	<!--Text name="Date" str="" x="-104" y="57" nav_up="Size" nav_down="Duration" rgba="D0D0D0"/-->
+	<!--Text str="曲の長さ" x="-120" y="83" alignment="right" rgba="D0D0D0"/-->
+	<!--Text name="Duration" str="" x="-104" y="83" nav_up="Date" nav_down="Bitrate" rgba="D0D0D0"/-->
+	<!--Text str="音質" x="-120" y="109" alignment="right" rgba="D0D0D0"/-->
+	<!--Text name="Bitrate" str="" x="-104" y="109" nav_up="Duration" rgba="D0D0D0"/-->
+	<Text str="ファイル形式" x="-120" y="57" alignment="right" rgba="D0D0D0"/>
+	<Text name="FileFormat" rgba="D0D0D0" str="オーディオトラック" visible="0" x="-104" y="57" />
+	<Text name="dummy0" str="" x="-104" y="57" nav_up="Bitrate" />
+    <Bitmap name="FileFormatBmp" rgba="D0D0D0" str="" x="-70" y="52"/>
+</Screen>
+
+</PSML2>
+

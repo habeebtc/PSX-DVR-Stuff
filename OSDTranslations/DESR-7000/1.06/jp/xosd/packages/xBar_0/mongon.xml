@@ -1,0 +1,834 @@
+<?xml version="1.0"?>
+<App name="MONGON">
+	<Dll name="xBitmap/xBitmap" version="0.1.0" />
+	<Dll name="xStr/xStr" version="0.1.0" />
+
+	<Component name="xBarPluginVideo">
+		<String name="str0"  str="ビデオ" />
+		<String name="str1"  str="始めから再生" />
+		<String name="str2"  str="再生" />
+		<String name="str3"  str="情報" />
+		<String name="str4"  str="保護" />
+		<String name="str5"  str="保護解除" />
+		<String name="str6"  str="名前変更" />
+		<String name="str7"  str="編集" />
+		<String name="str8"  str="編集取消し" />
+		<String name="str9"  str="削除" />
+		<String name="str10" str="フォーマット" />
+		<String name="str11" str="ファイナライズ" />
+		<String name="str12" str="このタイトルを削除します。よろしいですか?" />
+		<String name="str13" str="タイトル削除できませんでした。" />
+		<String name="str14" str="このタイトルは保護されているため、
+名前変更は実行できません。" />
+		<String name="str15" str="このタイトルは保護されているため、
+編集は実行できません。" />
+		<String name="str16" str="このタイトルは保護されているため、
+編集取消しは実行できません。" />
+		<String name="str17" str="このタイトルは保護されているため、
+削除は実行できません。" />
+		<String name="str18" str="編集を取消します。よろしいですか?" />
+		<String name="str19" str="月" />
+		<String name="str20" str="火" />
+		<String name="str21" str="水" />
+		<String name="str22" str="木" />
+		<String name="str23" str="金" />
+		<String name="str24" str="土" />
+		<String name="str25" str="日" />
+		<String name="str26" str="～" />
+		<String name="str27" str="分" />
+		<String name="str28" str="不可" />
+		<String name="str29" str="可" />
+		<String name="str30" str="毎週" />
+		<String name="str31" str="毎日" />
+		<String name="str32" str="ダビング" />
+		<String name="str33" str="取り込み" />
+		<String name="str34" str="DVD Video" />
+		<String name="str35" str="DVD VR" />
+		<String name="str36" str="DVD" />
+		<String name="str37" str="決定" />
+		<String name="str38" str="戻る" />
+		<String name="str39" str="オプション" />
+		<String name="str40" str="タイトル一覧" />
+		<String name="str41" str="現在録画中です。ダビングを行う場合は
+停止してから行ってください。" />
+		<String name="str42" str="現在予約録画準備中です。ダビングを行う場合は
+予約削除してから行ってください。" />
+		<String name="str43" str="録画中のタイトルです。
+その操作は実行できません。" />
+		<String name="str44" str="編集されていないため取消しはできません。" />
+		<String name="str45" str="エラーが発生しました。
+一度電源を切った後、再度電源を入れ直してください。" />
+		<String name="str46" str="ファイルが壊れているため編集できません。" />
+		<String name="str47" str="しばらくお待ちください。" />
+	</Component>
+	<Component name="xBarPluginTV">
+		<String name="str0"  str="テレビ" />
+		<String name="str1"  str="番組表" />
+		<String name="str2"  str="時間指定予約" />
+		<String name="str3"  str="録画予約確認" />
+		<String name="str4"  str="月" />
+		<String name="str5"  str="火" />
+		<String name="str6"  str="水" />
+		<String name="str7"  str="木" />
+		<String name="str8"  str="金" />
+		<String name="str9"  str="土" />
+		<String name="str10" str="日" />
+		<String name="str11" str="～" />
+		<String name="str12" str="分" />
+		<String name="str13" str="入" />
+		<String name="str14" str="切" />
+		<String name="str15" str="毎週" />
+		<String name="str16" str="毎日" />
+		<String name="str17" str="予約が一件もありません。" />
+		<String name="str18" str="決定" />
+		<String name="str19" str="戻る" />
+		<String name="str20" str="この番組を最後まで録画しますか?
+(終了"/>
+		<String name="str21" str="時間"/>
+		<String name="str22" str="分後"/>
+		<String name="str23" str="番組表の情報を取得できませんでした。"/>
+		<String name="str24" str="この番組を最後まで録画することはできません。
+1つのタイトルは最長6時間までです。"/>
+	</Component>
+	<Component name="pvrEdit">
+		<String name="app_title" str="編集"/>
+		<String name="disp_title_prev" str="編集－確認再生"/>
+		<String name="disp_title_uncut" str="編集－編集範囲の取消"/>
+		<String name="preview" str="編集した映像を確認します。"/>
+		<String name="preview_stop" str="確認再生を終了します。"/>
+		<String name="quit" str="編集した映像を確定して終了します。"/>
+		<String name="cancel" str="編集した映像を取消して終了します。"/>
+		<String name="search_r" str="サーチ"/>
+		<String name="search_f" str="サーチ"/>
+		<String name="skip_r" str="フラッシュ －"/>
+		<String name="skip_f" str="フラッシュ ＋"/>
+		<String name="play" str="再生"/>
+		<String name="pause" str="一時停止"/>
+		<String name="slow" str="スロー"/>
+		<String name="del_mode" str="始点終点の設定を取消します。"/>
+		<String name="preview_start_msg" str="確認再生" />
+		<String name="preview_stop_msg" str="確認終了" />
+		<String name="help1" str="決定" />
+		<String name="help2" str="戻る" />
+	</Component>
+
+	<Component name="xBarPluginGame">
+		<String name="str0" str="ディスク" />  <!--Disk-->
+		<String name="str1" str="メモリーカードユーティリティ" />  <!--MemoryCardUtility-->
+		<String name="str2" str="開始" />  <!--Start-->
+		<String name="str3" str="削除" />  <!--Delete-->
+		<String name="str4" str="情報" />  <!--Infomation-->
+		<String name="str5" str="フォルダ作成" />  <!--Create Folder-->
+		<String name="str6" str="フォーマット" />  <!--Format-->
+		<String name="str7" str="名前変更" />  <!--rename-->
+		<String name="str8" str="移動" />  <!--Move-->
+		<String name="str9" str="コピー" />  <!--Copy-->
+		<String name="str10" str="ソート" />  <!--Sort-->
+		<String name="str11" str="マーク" />  <!--Mark-->
+		<String name="str12" str="戻る" />  <!--Back-->
+		<String name="str13" str="実行" /> <!--Enter-->
+		<String name="str14" str="不明" /> <!--Unknown-->
+		<String name="str15" str="PlayStation&#174;2規格ソフトウェア" />
+		<String name="str16" str="PlayStation&#174;1規格ソフトウェア" />
+		<String name="str17" str="破損データ" /> <!--Corrupted Data-->
+	</Component>
+	
+    <Component name="xBarPluginConfig">
+		<Component name="categoryname">
+			<String name="str0"  str="設定" />
+		</Component>
+		<Component name="title">
+			<String name="str0"  str="テレビの設定" />
+			<String name="str1"  str="ビデオの設定" />
+			<String name="str2"  str="DVDの設定" />
+			<String name="str3"  str="フォトの設定" />
+			<String name="str4"  str="ミュージックの設定" />
+			<String name="str5"  str="ゲームの設定" />
+			<String name="str6"  str="本体の設定" />
+			<String name="str7"  str="日付と時刻の設定" />
+			<String name="str8"  str="リモコンの設定" />
+			<String name="str9"  str="ネットワークの設定" />
+			<String name="str10" str="ネットワークアップデート" />
+			<String name="str11" str="かんたん設定" />
+		</Component>
+		<Component name="icon">
+			<String name="str0"  str="pack:xBarPluginConf/0.1.0/art/nail-Conf-TV.png" />
+			<String name="str1"  str="pack:xBarPluginConf/0.1.0/art/Nail-Conf-Video.png" />
+			<String name="str2"  str="pack:xBarPluginConf/0.1.0/art/Nail-Conf-DVD.png" />
+			<String name="str3"  str="pack:xBarPluginConf/0.1.0/art/Nail-Conf-Photo.png" />
+			<String name="str4"  str="pack:xBarPluginConf/0.1.0/art/Nail-Conf-Music.png" />
+			<String name="str5"  str="pack:xBarPluginConf/0.1.0/art/Nail-Conf-Game.png" />
+			<String name="str6"  str="pack:xBarPluginConf/0.1.0/art/Nail-Conf-Console.png" />
+			<String name="str7"  str="pack:xBarPluginConf/0.1.0/art/Nail-Conf-System.png" />
+			<String name="str8"  str="pack:xBarPluginConf/0.1.0/art/Nail-Conf-Remocon.png" />
+			<String name="str9"  str="pack:xBarPluginConf/0.1.0/art/Nail-Conf-Network.png" />
+			<String name="str10" str="pack:xBarPluginConf/0.1.0/art/Nail-Conf-SystemUpdate.png" />
+			<String name="str11" str="pack:xBarPluginConf/0.1.0/art/Nail-Conf-EasySettings.png" />
+		</Component>
+		<Component name="title2">
+			<String name="str0_0"  str="手動チャンネル設定" />
+			<String name="str0_1"  str="自動チャンネル設定" />
+			<String name="str0_2"  str="ミュート設定" />
+			<String name="str0_3"  str="外部映像入力" />
+			<String name="str0_4"  str="自動ステレオ受信" />
+			<String name="str0_5"  str="BSチャンネル飛ばし" />
+			<String name="str0_6"  str="BSアンテナレベル表示" />
+			<String name="str0_7"  str="BSアンテナ電源" />
+			<String name="str0_8"  str="地域番号設定" />
+			<String name="str0_9"  str="番組表取得チャンネル" />
+			<String name="str0_10" str="番組表取得時刻" />
+			<String name="str1_0" str="録画モード"                  />
+			<String name="str1_1" str="DVD-RW記録モード" />
+			<String name="str1_2" str="二カ国語放送記録音声" />
+			<String name="str1_3" str="録画NR" />
+			<String name="str2_0"  str="DVDメニュー表示言語" />
+			<String name="str2_1"  str="音声言語" />
+			<String name="str2_2"  str="字幕言語" />
+			<String name="str2_3"  str="プログレッシブ出力" />
+			<String name="str2_4"  str="ドルビーデジタル" />
+			<String name="str2_5"  str="DTS" />
+			<String name="str2_6"  str="音声トラック自動選定" />
+			<String name="str2_7"  str="視聴年齢制限暗証番号" />
+			<String name="str2_8"  str="視聴年齢制限使用地域" />
+			<String name="str2_9"  str="視聴年齢制限のレベル" />
+			<String name="str3_0"  str="スライドショーの速さ" />
+			<String name="str4_0"  str="CD取り込み設定" />
+			<String name="str5_0"  str="高速読み込み" />
+			<String name="str5_0_0" str="PlayStation&#174;Discの" />
+			<String name="str5_1"  str="テクスチャ補間" />
+			<String name="str5_1_0" str="PlayStation&#174;ゲームの" />
+			<String name="str6_0"  str="TVタイプ"/>
+			<String name="str6_1"  str="DNR" />
+			<String name="str6_2"  str="輪郭強調" />
+			<String name="str6_3"  str="一時停止モード" />
+			<String name="str6_4"  str="光デジタル出力" />
+			<String name="str6_5"  str="出荷時設定に戻す" />
+			<String name="str6_6"  str="HDD領域設定" />
+			<String name="str6_7"  str="情報表示" />
+			<String name="str6_8"  str="PSXについて" />
+			<String name="str7_0"  str="時刻設定" />
+			<String name="str7_1"  str="ジャストクロック" />
+			<String name="str7_2"  str="設定チャンネル" />
+			<String name="str8_0"  str="リモコンモード" />
+			<String name="str8_1"  str="ゲームプレイ機能" />
+		</Component>
+		<Component name="button">
+			<String name="circle" str="決定" />
+			<String name="cross"  str="戻る" />
+		</Component>
+		<Component name="dialog">
+			<String name="str0"  str="BSアンテナ電源を入にできませんでした。" />
+			<String name="str1"  str="録画中は、変更できません。" />
+			<String name="str2"  str="エラーです" />
+			<String name="str3"  str="実行しますか?" />
+		</Component>
+		<Component name="dialog_button">
+			<String name="circle" str="決定" />
+			<String name="cross"  str="戻る" />
+		</Component>
+	</Component>
+	<Component name="pvrVideoApp">
+		<Component name="func_status">
+			<String name="other0" str="切" />
+			<String name="other1" str="その他" />
+			<String name="other2" str="音声" />
+			<String name="other3" str="アングル" />
+			<String name="other4" str="字幕" />
+			<String name="other5" str="リピート" />
+			<String name="other6" str="ディスク" />
+			<String name="other7" str="タイトル" />
+			<String name="other8" str="チャプター" />
+			<String name="other9" str="主/副" />
+			<String name="other10" str="主音声" />
+			<String name="other11" str="副音声" />
+		</Component>
+
+		<Component name="bar_help">
+			<String name="circle" str="決定" />
+			<String name="triangle" str="操作パネル" />
+			<String name="cross" str="戻る" />
+			<String name="square" str="" />
+		</Component>
+
+		<Component name="message">
+			<String name="message0" str="A点を設定しました。" />
+			<String name="message1" str="再生モードをクリアしました。" />
+			<String name="message2" str="現在の設定をクリアしました。" />
+			<String name="message3" str="その操作は実行できません。" />
+		</Component>
+
+		<Component name="vr">
+			<String name="str0" str="音声切り換え" />
+			<String name="str1" str="字幕切り換え" />
+			<String name="str2" str="時間指定ジャンプ" />
+			<String name="str3" str="サムネイル登録" />
+			<String name="str4" str="画面表示" />
+			<String name="str5" str="前" />
+			<String name="str6" str="次" />
+			<String name="str7" str="サーチ" />
+			<String name="str8" str="サーチ" />
+			<String name="str9" str="スロー" />
+			<String name="str10" str="再生" />
+			<String name="str11" str="一時停止" />
+			<String name="str12" str="停止" />
+			<String name="str13" str="Ａ-Ｂリピート" />
+			<String name="str14" str="リピート" />
+			<String name="str15" str="クリア" />
+		</Component>
+		<Component name="video">
+			<String name="str0" str="メニュー" />
+			<String name="str1" str="トップメニュー" />
+			<String name="str2" str="リターン" />
+			<String name="str3" str="音声切り換え" />
+			<String name="str4" str="アングル切り換え" />
+			<String name="str5" str="字幕切り換え" />
+			<String name="str6" str="時間指定ジャンプ" />
+			<String name="str7" str="画面表示" />
+			<String name="str8" str="前" />
+			<String name="str9" str="次" />
+			<String name="str10" str="サーチ" />
+			<String name="str11" str="サーチ" />
+			<String name="str12" str="スロー" />
+			<String name="str13" str="再生" />
+			<String name="str14" str="一時停止" />
+			<String name="str15" str="停止" />
+			<String name="str16" str="Ａ-Ｂリピート" />
+			<String name="str17" str="リピート" />
+			<String name="str18" str="クリア" />
+
+<!-- チャプタージャンプが入ったときには以下を有効にする 2003/11/5 - fukui -->
+<!--
+			<String name="str0" str="チャプタージャンプ" />
+			<String name="str1" str="チャプタージャンプ" />
+			<String name="str2" str="チャプタージャンプ" />
+			<String name="str3" str="チャプタージャンプ" />
+			<String name="str4" str="チャプタージャンプ" />
+			<String name="str5" str="チャプタージャンプ" />
+			<String name="str6" str="チャプタージャンプ" />
+			<String name="str7" str="チャプタージャンプ" />
+			<String name="str8" str="チャプタージャンプ" />
+			<String name="str9" str="チャプタージャンプ" />
+			<String name="str10" str="メニュー" />
+			<String name="str11" str="トップメニュー" />
+			<String name="str12" str="リターン" />
+			<String name="str13" str="音声切り換え" />
+			<String name="str14" str="アングル切り換え" />
+			<String name="str15" str="字幕切り換え" />
+			<String name="str16" str="ジャンプ" />
+			<String name="str17" str="画面表示" />
+			<String name="str18" str="前" />
+			<String name="str19" str="次" />
+			<String name="str20" str="サーチ" />
+			<String name="str21" str="サーチ" />
+			<String name="str22" str="スロー" />
+			<String name="str23" str="再生" />
+			<String name="str24" str="一時停止" />
+			<String name="str25" str="停止" />
+			<String name="str26" str="Ａ-Ｂリピート" />
+			<String name="str27" str="リピート" />
+			<String name="str28" str="クリア" />
+-->
+		</Component>
+	</Component>
+
+	<Component name="Thumbnail_Message">
+		<String name="str0" str="この画像をビデオのサムネイルに" />
+		<String name="str1" str="登録します。よろしいですか？" />
+	</Component>
+
+	<Component name="Thumbnail_Overwrite">
+		<String name="str0" str="すでに登録されています。上書きしてもよろしいですか？" />
+	</Component>
+
+	<Component name="Deletion_Message">
+		<String name="str0" str="を削除します。よろしいですか？" />
+	</Component>
+
+	<Component name="Parental_Message">
+		<String name="str0" str="視聴年齢制限を 一時レベル" />
+		<String name="str1" str="に変えますか？" />
+	</Component>
+
+	<Component name="Warning_Message">
+	    <!--/* (pvr/include のerrorcode.hを参照！！) */-->
+ 		<String name="str1" str="エラーはありません" />
+ 		<String name="str2" str="Aポイントをクリア" />
+ 		<String name="str3" str="Aポイントをメモリ" />
+ 		<String name="str4" str="Aポイントを検索" />
+ 		<String name="str5" str="ABリピートポイントをクリア" />
+ 		<String name="str6" str="Bポイントをメモリ" />
+ 		<String name="str7" str="ブックマーク表示" />
+ 		<String name="str8" str="ブックマークできません" />
+ 		<String name="str9" str="ブックマーク設定" />
+ 		<String name="str10" str="ファーストプレイを実行" />
+ 		<String name="str11" str="マルチ画面表示キャンセル" />
+ 		<String name="str12" str="マルチ画面表示" />
+ 		<String name="str13" str="先頭プログラム検索" />
+ 		<String name="str14" str="前プログラム検索" />
+ 		<String name="str15" str="次プログラム検索" />
+ 		<String name="str16" str="ピクチャーメモリ終了" />
+ 		<String name="str17" str="ピクチャーメモリ保存" />
+ 		<String name="str18" str="パレンタルレベルを変更します" />
+ 		<String name="str19" str="PSCのエラーはありません" />
+ 		<String name="str20" str="RESUME OFF" />
+ 		<String name="str21" str="RESUME ON" />
+ 		<String name="str22" str="チャプタースキャン表示終了" />
+ 		<String name="str23" str="チャプタースキャン表示失敗" />
+ 		<String name="str24" str="チャプタースキャン表示失敗終了" />
+ 		<String name="str25" str="チャプタースキャン表示" />
+ 		<String name="str26" str="パレンタルレベル設定" />
+ 		<String name="str27" str="停止状態" />
+ 		<String name="str28" str="VIEWER RESUME" />
+ 		<String name="str29" str="VIEWER TITLE" />
+ 		<String name="str30" str="PLAY MODE CLEAR" />
+ 		<String name="str31" str="リピート切" />
+ 		<String name="str32" str="リピート入" />
+ 		<String name="str33" str="DISCリピート" />
+ 		<String name="str34" str="TITLEリピート" />
+ 		<String name="str35" str="CHAPTERリピート" />
+
+ 		<String name="str100" str="PSCエラー。" />
+ 		<String name="str101" str="ディスクが読みとれません。" />
+ 		<String name="str102" str="異常が発生したので再生を停止しました。" />
+ 		<String name="str103" str="ディスクフォーマットが不正です。" />
+ 		<String name="str104" str="指定されたチャプターが無効です。" />
+ 		<String name="str105" str="指定された時間が無効です。" />
+ 		<String name="str106" str="指定されたタイトルが無効です。" />
+ 		<String name="str107" str="指定された値が無効です。" />
+ 		<String name="str108" str="次のプログラムが無効です。" />
+ 		<String name="str109" str="次のプログラムが一致しません。" />
+ 		<String name="str110" str="音声がありません。" />
+ 		<String name="str111" str="メニューがありません。" />
+ 
+ 		<String name="str112" str="このディスクには字幕はありません。" />
+ 		<String name="str113" str="アングルはありません。" />
+
+ 		<String name="str114" str="リジューム操作は禁止されています。" />
+		<String name="str115" str="このディスクでは操作できません。" />
+  		<String name="str116" str="再生が制限されているため再生できません。" />
+ 		<String name="str117" str="プログラム検索は禁止されています。" />
+ 		<String name="str118" str="再生モードを実行できません。" />
+ 		<String name="str119" str="前のプログラムが無効です。" />
+ 		<String name="str120" str="前のプログラムが一致しません。" />
+ 		<String name="str121" str="このディスクでは操作できません。" />
+ 		<String name="str122" str="このタイトルでは操作できません。" />
+ 		<String name="str123" str="チャプターサーチエラーです。" />
+ 		<String name="str124" str="このディスクは地域制限により再生を禁止されています。" />
+ 		<String name="str125" str="停止は禁止されています。" />
+ 		<String name="str126" str="時間表示は禁止されています。" />
+ 		<String name="str127" str="TVシステムが違います。" />
+  		<String name="str128" str="ユーザー操作は禁止されています。" />
+ 		<String name="str129" str="このディスクではVIEWERはできません。" />
+ 		<String name="str130" str="このタイトルではVIEWERはできません。" />
+ 		<String name="str131" str="VIEWER禁止。" />
+		<String name="str132" str="ディスクが入っていません。" />
+ 		<String name="str133" str="音声は１つだけです。" />
+		<String name="str134" str="異常が発生したので再生を停止しました。" />
+		<String name="str135" str="このディスクは再生できません。" />
+		<String name="str136" str="再生が制限されているため再生できません。" />
+<!--
+		<String name="str137" str="Core初期化エラー。" />
+		<String name="str138" str="HDD読込エラー。" />
+		<String name="str139" str="メモリ割当エラー。" />
+		<String name="str140" str="BUSYタイムアウト。" />
+-->
+		<String name="str137" str="再生できませんでした。
+一度電源を切った後、再度電源を入れ直してください。" />
+		<String name="str138" str="HDD読込エラーです。" />
+		<String name="str139" str="再生できませんでした。
+一度電源を切った後、再度電源を入れ直してください。" />
+		<String name="str140" str="再生できませんでした。
+一度電源を切った後、再度電源を入れ直してください。" />
+
+	    <!--/* (コードの追加はこの定義より上にすること！！) */-->
+		<String name="str141" str="通常再生ではない(メッセージ無し)" />
+		<String name="str142" str="アングル・ブロック直前のためアングル変更不可" />
+		<String name="str143" str="次に再生するときは今のつづきから再生します。" />
+		<String name="str144" str="一時削除状態のため再生できません(メッセージ無し)" />
+ 		<String name="str145" str="エラーコードTERMINATEコード" />
+
+		<String name="str200" str="サムネイルに登録しました。" />
+		<String name="str201" str="保護設定されているため、登録できません。" />
+		<String name="str202" str="この操作は実行できません。" />
+	</Component>
+
+	<Component name="video_langitem">
+		<String name="text0" str="日本語" />
+		<String name="text1" str="英語" />
+		<String name="text2" str="中国語" />
+		<String name="text3" str="ドイツ語" />
+		<String name="text4" str="フランス語" />
+		<String name="text5" str="イタリア語" />
+		<String name="text6" str="スペイン語" />
+		<String name="text7" str="ポルトガル語" />
+		<String name="text8" str="オランダ語" />
+		<String name="text9" str="デンマーク語" />
+		<String name="text10" str="スウェーデン語" />
+		<String name="text11" str="フィンランド語" />
+		<String name="text12" str="ノルウェー語" />
+		<String name="text13" str="ロシア語" />
+		<String name="text14" str="韓国語" />
+		<String name="text15" str="Afar" />
+		<String name="text16" str="Abkhazian" />
+		<String name="text17" str="Afrikaans" />
+		<String name="text18" str="Amharic" />
+		<String name="text19" str="Arabic" />
+		<String name="text20" str="Assamese" />
+		<String name="text21" str="Aymara" />
+		<String name="text22" str="Azerbaijani" />
+		<String name="text23" str="Bashkir" />
+		<String name="text24" str="Byelorussian" />
+		<String name="text25" str="Bulgarian" />
+		<String name="text26" str="Bihari" />
+		<String name="text27" str="Bislama" />
+		<String name="text28" str="Bengali; Bangla" />
+		<String name="text29" str="Tibetan" />
+		<String name="text30" str="Breton" />
+		<String name="text31" str="Catalan" />
+		<String name="text32" str="Corsican" />
+		<String name="text33" str="Czech" />
+		<String name="text34" str="Welsh" />
+		<String name="text35" str="Danish" />
+		<String name="text36" str="German" />
+		<String name="text37" str="Bhutani" />
+		<String name="text38" str="Greek" />
+		<String name="text39" str="English" />
+		<String name="text40" str="Esperanto" />
+		<String name="text41" str="Spanish" />
+		<String name="text42" str="Estonian" />
+		<String name="text43" str="Basque" />
+		<String name="text44" str="Persian" />
+		<String name="text45" str="Finnish" />
+		<String name="text46" str="Fiji" />
+		<String name="text47" str="Faeroese" />
+		<String name="text48" str="French" />
+		<String name="text49" str="Frisian" />
+		<String name="text50" str="Irish" />
+		<String name="text51" str="Scots Gaelic" />
+		<String name="text52" str="Galician" />
+		<String name="text53" str="Guarani" />
+		<String name="text54" str="Gujarati" />
+		<String name="text55" str="Hausa" />
+		<String name="text56" str="Hindi" />
+		<String name="text57" str="Croatian" />
+		<String name="text58" str="Hungarian" />
+		<String name="text59" str="Armenian" />
+		<String name="text60" str="Interlingua" />
+		<String name="text61" str="Interlingue" />
+		<String name="text62" str="Inupiak" />
+		<String name="text63" str="Indonesian" />
+		<String name="text64" str="Icelandic" />
+		<String name="text65" str="Italian" />
+		<String name="text66" str="Hebrew" />
+		<String name="text67" str="Japanese" />
+		<String name="text68" str="Yiddish" />
+		<String name="text69" str="Javanese" />
+		<String name="text70" str="Georgian" />
+		<String name="text71" str="Kazakh" />
+		<String name="text72" str="Greenlandic" />
+		<String name="text73" str="Cambodian" />
+		<String name="text74" str="Kannada" />
+		<String name="text75" str="Korean" />
+		<String name="text76" str="Kashmiri" />
+		<String name="text77" str="Kurdish" />
+		<String name="text78" str="Kirghiz" />
+		<String name="text79" str="Latin" />
+		<String name="text80" str="Lingala" />
+		<String name="text81" str="Laothian" />
+		<String name="text82" str="Lithuanian" />
+		<String name="text83" str="Latvian, Lettish" />
+		<String name="text84" str="Malagasy" />
+		<String name="text85" str="Maori" />
+		<String name="text86" str="Macedonian" />
+		<String name="text87" str="Malayalam" />
+		<String name="text88" str="Mongolian" />
+		<String name="text89" str="Moldavian" />
+		<String name="text90" str="Marathi" />
+		<String name="text91" str="Malay" />
+		<String name="text92" str="Maltese" />
+		<String name="text93" str="Burmese" />
+		<String name="text94" str="Nauru" />
+		<String name="text95" str="Nepali" />
+		<String name="text96" str="Dutch" />
+		<String name="text97" str="Norwegian" />
+		<String name="text98" str="Occitan" />
+		<String name="text99" str="(Afan) Oromo" />
+		<String name="text100" str="Oriya" />
+		<String name="text101" str="Punjabi" />
+		<String name="text102" str="Polish" />
+		<String name="text103" str="Pashto, Pushto" />
+		<String name="text104" str="Portuguese" />
+		<String name="text105" str="Quechua" />
+		<String name="text106" str="Rhaeto-Romance" />
+		<String name="text107" str="Kirundi" />
+		<String name="text108" str="Romanian" />
+		<String name="text109" str="Russian" />
+		<String name="text110" str="Kinyarwanda" />
+		<String name="text111" str="Sanskrit" />
+		<String name="text112" str="Sindhi" />
+		<String name="text113" str="Sangro" />
+		<String name="text114" str="Serbo-Croatian" />
+		<String name="text115" str="Singhalese" />
+		<String name="text116" str="Slovak" />
+		<String name="text117" str="Slovenian" />
+		<String name="text118" str="Samoan" />
+		<String name="text119" str="Shona" />
+		<String name="text120" str="Somali" />
+		<String name="text121" str="Albanian" />
+		<String name="text122" str="Serbian" />
+		<String name="text123" str="Siswati" />
+		<String name="text124" str="Sesotho" />
+		<String name="text125" str="Sundanese" />
+		<String name="text126" str="Swedish" />
+		<String name="text127" str="Swahili" />
+		<String name="text128" str="Tamil" />
+		<String name="text129" str="Tegulu" />
+		<String name="text130" str="Tajik" />
+		<String name="text131" str="Thai" />
+		<String name="text132" str="Tigrinya" />
+		<String name="text133" str="Turkmen" />
+		<String name="text134" str="Tagalog" />
+		<String name="text135" str="Setswana" />
+		<String name="text136" str="Tonga" />
+		<String name="text137" str="Turkish" />
+		<String name="text138" str="Tsonga" />
+		<String name="text139" str="Tatar" />
+		<String name="text140" str="Twi" />
+		<String name="text141" str="Ukrainian" />
+		<String name="text142" str="Urdu" />
+		<String name="text143" str="Uzbek" />
+		<String name="text144" str="Vietnamese" />
+		<String name="text145" str="Volapuk" />
+		<String name="text146" str="Wolof" />
+		<String name="text147" str="Xhosa" />
+		<String name="text148" str="Yoruba" />
+		<String name="text149" str="Chinese" />
+		<String name="text150" str="Zulu" />
+	</Component>
+	<Component name="video_langitem_wmusic">
+		<String name="text0" str="日本語" />
+		<String name="text1" str="英語" />
+		<String name="text2" str="中国語" />
+		<String name="text3" str="ドイツ語" />
+		<String name="text4" str="フランス語" />
+		<String name="text5" str="イタリア語" />
+		<String name="text6" str="スペイン語" />
+		<String name="text7" str="ポルトガル語" />
+		<String name="text8" str="オランダ語" />
+		<String name="text9" str="デンマーク語" />
+		<String name="text10" str="スウェーデン語" />
+		<String name="text11" str="フィンランド語" />
+		<String name="text12" str="ノルウェー語" />
+		<String name="text13" str="ロシア語" />
+		<String name="text14" str="韓国語" />
+		<String name="text15" str="音声連動" />
+		<String name="text16" str="Afar" />
+		<String name="text17" str="Abkhazian" />
+		<String name="text18" str="Afrikaans" />
+		<String name="text19" str="Amharic" />
+		<String name="text20" str="Arabic" />
+		<String name="text21" str="Assamese" />
+		<String name="text22" str="Aymara" />
+		<String name="text23" str="Azerbaijani" />
+		<String name="text24" str="Bashkir" />
+		<String name="text25" str="Byelorussian" />
+		<String name="text26" str="Bulgarian" />
+		<String name="text27" str="Bihari" />
+		<String name="text28" str="Bislama" />
+		<String name="text29" str="Bengali; Bangla" />
+		<String name="text30" str="Tibetan" />
+		<String name="text31" str="Breton" />
+		<String name="text32" str="Catalan" />
+		<String name="text33" str="Corsican" />
+		<String name="text34" str="Czech" />
+		<String name="text35" str="Welsh" />
+		<String name="text36" str="Danish" />
+		<String name="text37" str="German" />
+		<String name="text38" str="Bhutani" />
+		<String name="text39" str="Greek" />
+		<String name="text40" str="English" />
+		<String name="text41" str="Esperanto" />
+		<String name="text42" str="Spanish" />
+		<String name="text43" str="Estonian" />
+		<String name="text44" str="Basque" />
+		<String name="text45" str="Persian" />
+		<String name="text46" str="Finnish" />
+		<String name="text47" str="Fiji" />
+		<String name="text48" str="Faeroese" />
+		<String name="text49" str="French" />
+		<String name="text50" str="Frisian" />
+		<String name="text51" str="Irish" />
+		<String name="text52" str="Scots Gaelic" />
+		<String name="text53" str="Galician" />
+		<String name="text54" str="Guarani" />
+		<String name="text55" str="Gujarati" />
+		<String name="text56" str="Hausa" />
+		<String name="text57" str="Hindi" />
+		<String name="text58" str="Croatian" />
+		<String name="text59" str="Hungarian" />
+		<String name="text60" str="Armenian" />
+		<String name="text61" str="Interlingua" />
+		<String name="text62" str="Interlingue" />
+		<String name="text63" str="Inupiak" />
+		<String name="text64" str="Indonesian" />
+		<String name="text65" str="Icelandic" />
+		<String name="text66" str="Italian" />
+		<String name="text67" str="Hebrew" />
+		<String name="text68" str="Japanese" />
+		<String name="text69" str="Yiddish" />
+		<String name="text70" str="Javanese" />
+		<String name="text71" str="Georgian" />
+		<String name="text72" str="Kazakh" />
+		<String name="text73" str="Greenlandic" />
+		<String name="text74" str="Cambodian" />
+		<String name="text75" str="Kannada" />
+		<String name="text76" str="Korean" />
+		<String name="text77" str="Kashmiri" />
+		<String name="text78" str="Kurdish" />
+		<String name="text79" str="Kirghiz" />
+		<String name="text80" str="Latin" />
+		<String name="text81" str="Lingala" />
+		<String name="text82" str="Laothian" />
+		<String name="text83" str="Lithuanian" />
+		<String name="text84" str="Latvian, Lettish" />
+		<String name="text85" str="Malagasy" />
+		<String name="text86" str="Maori" />
+		<String name="text87" str="Macedonian" />
+		<String name="text88" str="Malayalam" />
+		<String name="text89" str="Mongolian" />
+		<String name="text90" str="Moldavian" />
+		<String name="text91" str="Marathi" />
+		<String name="text92" str="Malay" />
+		<String name="text93" str="Maltese" />
+		<String name="text94" str="Burmese" />
+		<String name="text95" str="Nauru" />
+		<String name="text96" str="Nepali" />
+		<String name="text97" str="Dutch" />
+		<String name="text98" str="Norwegian" />
+		<String name="text99" str="Occitan" />
+		<String name="text100" str="(Afan) Oromo" />
+		<String name="text101" str="Oriya" />
+		<String name="text102" str="Punjabi" />
+		<String name="text103" str="Polish" />
+		<String name="text104" str="Pashto, Pushto" />
+		<String name="text105" str="Portuguese" />
+		<String name="text106" str="Quechua" />
+		<String name="text107" str="Rhaeto-Romance" />
+		<String name="text108" str="Kirundi" />
+		<String name="text109" str="Romanian" />
+		<String name="text110" str="Russian" />
+		<String name="text111" str="Kinyarwanda" />
+		<String name="text112" str="Sanskrit" />
+		<String name="text113" str="Sindhi" />
+		<String name="text114" str="Sangro" />
+		<String name="text115" str="Serbo-Croatian" />
+		<String name="text116" str="Singhalese" />
+		<String name="text117" str="Slovak" />
+		<String name="text118" str="Slovenian" />
+		<String name="text119" str="Samoan" />
+		<String name="text120" str="Shona" />
+		<String name="text121" str="Somali" />
+		<String name="text122" str="Albanian" />
+		<String name="text123" str="Serbian" />
+		<String name="text124" str="Siswati" />
+		<String name="text125" str="Sesotho" />
+		<String name="text126" str="Sundanese" />
+		<String name="text127" str="Swedish" />
+		<String name="text128" str="Swahili" />
+		<String name="text129" str="Tamil" />
+		<String name="text130" str="Tegulu" />
+		<String name="text131" str="Tajik" />
+		<String name="text132" str="Thai" />
+		<String name="text133" str="Tigrinya" />
+		<String name="text134" str="Turkmen" />
+		<String name="text135" str="Tagalog" />
+		<String name="text136" str="Setswana" />
+		<String name="text137" str="Tonga" />
+		<String name="text138" str="Turkish" />
+		<String name="text139" str="Tsonga" />
+		<String name="text140" str="Tatar" />
+		<String name="text141" str="Twi" />
+		<String name="text142" str="Ukrainian" />
+		<String name="text143" str="Urdu" />
+		<String name="text144" str="Uzbek" />
+		<String name="text145" str="Vietnamese" />
+		<String name="text146" str="Volapuk" />
+		<String name="text147" str="Wolof" />
+		<String name="text148" str="Xhosa" />
+		<String name="text149" str="Yoruba" />
+		<String name="text150" str="Chinese" />
+		<String name="text151" str="Zulu" />
+	</Component>
+	<Component name="video_countryitem">
+		<String name="text0" str="アメリカ" />
+		<String name="text1" str="イギリス" />
+		<String name="text2" str="イタリア" />
+		<String name="text3" str="インドネシア" />
+		<String name="text4" str="オーストリア" />
+		<String name="text5" str="オランダ" />
+		<String name="text6" str="カナダ" />
+		<String name="text7" str="シンガポール" />
+		<String name="text8" str="スイス" />
+		<String name="text9" str="スウェーデン" />
+		<String name="text10" str="スペイン" />
+		<String name="text11" str="タイ" />
+		<String name="text12" str="台湾" />
+		<String name="text13" str="中国" />
+		<String name="text14" str="デンマーク" />
+		<String name="text15" str="ドイツ" />
+		<String name="text16" str="日本" />
+		<String name="text17" str="ノルウェー" />
+		<String name="text18" str="フィリピン" />
+		<String name="text19" str="フィンランド" />
+		<String name="text20" str="フランス" />
+		<String name="text21" str="ベルギー" />
+		<String name="text22" str="香港" />
+		<String name="text23" str="マレーシア" />
+		<String name="text24" str="ロシア" />
+	</Component>
+	<Component name="DefaultCatalogue">
+		<Component name="pvrBurn">
+			<String name="1" str="中止しました。" />
+			<String name="2" str="DVDの作成ができませんでした。" />
+			<String name="3" str="%$3:メニューテンプレート'%3$s'がありません。" />
+			<String name="4" str="%$3:メニューテンプレート'%3$s'に項目 %1$s がありません。" />
+			<String name="5" str="録画中です。エンコードできません。" />
+			<String name="6" str="DVDドライブが使用中です。" />
+			<String name="7" str="再生中です。" />
+			<String name="8" str="ファイナライズするセッションが指定されていません。" />
+			<String name="9" str="%$3:ファイナライズするセッション'%3$s'が不正です。" />
+			<String name="10" str="8cmメディアはサポートされません。" />
+			<String name="11" str="メディアのサイズが分かりません。" />
+			<String name="12" str="DVDドライブの書込み機能が使えません。" />
+			<String name="13" str="予約録画を優先しました。" />
+			<String name="14" str="録画を中止できませんでした。" />
+			<String name="10000000" str="DVDバーナー" />
+			<Component name="set1">
+				<String name="2" str="DVDドライバエラー" />
+				<String name="3" str="DVDの状況がわかりません。" />
+				<String name="4" str="トレーが閉じられません。" />
+				<String name="10000000" str="ATAPIドライバ" />
+			</Component>
+			<Component name="set2">
+				<String name="2" str="ライブラリをロードできません。" />
+			</Component>
+			<Component name="set3">
+				<String name="2" str="オーサリングエラー" />
+				<String name="3" str="DVDのステータスが読めません。" />
+				<String name="4" str="DVDのステータス取得に失敗しました。" />
+				<String name="5" str="DVDの初期化に失敗しました。" />
+				<String name="6" str="DVDのファイナライズ解除に失敗しました。" />
+				<String name="7" str="DVDにタイトルを書き込めません。" />
+				<String name="8" str="DVDのファイナライズに失敗しました。" />
+				<String name="10000000" str="オーサリングコンポーネント" />
+			</Component>
+			<Component name="set16384">
+				<String name="2" str="ATAPIエラー" />
+				<String name="3" str="DVDの状況がわかりません。" />
+				<String name="4" str="トレーが閉じられません。" />
+				<String name="10000000" str="ATAPIプロトコル" />
+				<String name="10000001" str="DVDアクセス" />
+			</Component>
+		</Component>
+        </Component>
+</App>

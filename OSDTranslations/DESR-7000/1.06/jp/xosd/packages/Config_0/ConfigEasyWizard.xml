@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<App name="ConfigEasyWizard" focus="WizardList" script="ConfigEasyWizard.amx" visible="0" >
+	<Dll name="pvr/pvrNative" version="0.1.0" />
+	<Dll name="xBitmap/xBitmap" version="0.1.0" />
+	<Dll name="xBitmap3x3/xBitmap3x3" version="0.1.0" />
+	<Dll name="xPrim/xPrim" version="0.1.0" />
+	<Dll name="xText/xText" version="0.1.0" />
+	<Dll name="xStr/xStr" version="0.1.0" />
+	<Dll name="xSlider/xSlider" version="0.1.0" />
+	<Dll name="xAudio/xAudio" version="0.1.0" />
+	<Dll name="xCDVD/xCDVD" version="0.1.0" />
+    <Dll name="xSettings/xSettings" version="0.1.0" />
+
+	<String name="page_guide0" str="設定開始" visible="0" />
+	<String name="page_guide1" str="BSアンテナ電源" visible="0" />
+	<String name="page_guide2" str="時刻設定" visible="0" />
+	<String name="page_guide3" str="地域番号設定" visible="0" />
+	<String name="page_guide4" str="自動チャンネル設定" visible="0" />
+	<String name="page_guide5" str="TVタイプ" visible="0" />
+	<String name="page_guide6" str="光デジタル出力" visible="0" />
+	<String name="page_guide7" str="ドルビーデジタル" visible="0" />
+	<String name="page_guide8" str="DTS" visible="0" />
+	<String name="page_guide9" str="設定値一覧" visible="0" />
+	<String name="page_guide10" str="ハードディスク領域説明" visible="0" />
+	<String name="page_guide11" str="設定終了" visible="0" />
+
+	<Bitmap name="bg" file="art/wizard_bg.png" x="0" y="0" w="720" h="480" />
+	<Component name="WizardList" x="-360" y="-240" >
+
+		<Component name="cell0" x="-720" y="0" rgba="D0D0D000" >
+			<Component name="text" x="200" y="214" >
+				<Text name="text0" str="本機を使うための基本的な設定を行います。" x="0" y="0" size="16" />
+				<Bitmap name="arrowR" file="art/arrow_R.tga" x="6" y="19" />
+				<Text name="text1" str="を押してかんたん設定を" x="16" y="24" size="16" />
+				<Text name="text2" str="開始してください。" x="0" y="48" size="16" />
+			</Component>
+		</Component>
+
+		<Component name="cell1" x="0" y="0" rgba="D0D0D0FF" >
+			<Component name="text" x="220" y="190" >
+				<Bitmap name="arrowUD" file="art/arrow_UD.tga" x="8" y="-6" />
+				<Text name="text0" str="でBSアンテナ電源供給の" x="16" y="0" size="16" />
+				<Text name="text1" str="入、切を選んで" x="0" y="24" size="16" />
+				<Bitmap name="arrowR" file="art/arrow_R.tga" x="6" y="43" />
+				<Text name="text2" str="を押して次の画面に移ってください。" x="16" y="48" size="16" />
+			</Component>
+			<Text name="val0" str="入" x="354" y="285" size="16" />
+			<Text name="val1" str="切" x="354" y="309" size="16" />
+		</Component>
+
+		<Component name="cell2" x="720" y="0" rgba="D0D0D0FF" >
+			<Component name="text" x="171" y="200" >
+				<Text name="text0" str="時刻を変更するときは" x="0" y="0" size="16" />
+				<Bitmap name="enter" file="art/BtnNav-EnterCir-917-wide.tga" x="200" y="-4" />
+				<Text name="text1" str="を押してください。" x="233" y="0" size="16" />
+				<Text name="text2" str="変更しないときは" x="0" y="24" size="16" />
+				<Bitmap name="arrowUD" file="art/arrow_R.tga" x="142" y="19" />
+				<Text name="text3" str="を押して次の画面へ" x="152" y="24" size="16" />
+				<Text name="text4" str="移ってください。" x="0" y="48" size="16" />
+			</Component>
+			<Component name="textM" x="195" y="200"  >
+				<Bitmap name="arrowLR" file="art/arrow_LR.tga" x="8" y="-4" />
+				<Text name="text0" str="で変更したい項目を選び" x="16" y="0" size="16" />
+				<Bitmap name="arrowUD" file="art/arrow_UD.tga" x="8" y="20" />
+				<Text name="text1" str="で数値を変更してください。" x="16" y="24" size="16" />
+				<Text name="text2" str="時刻を設定したら" x="0" y="48" size="16" />
+				<Bitmap name="enter" file="art/BtnNav-EnterCir-917-wide.tga" x="169" y="44" />
+				<Text name="text3" str="を押してください。" x="202" y="48" size="16" />
+			</Component>
+			<Text name="date0" str="" x="250" y="294" size="16" alignment="right" />
+			<Text name="date1" str="/" x="270" y="294" size="16" alignment="right" />
+			<Text name="date2" str="" x="305" y="294" size="16" alignment="right" />
+			<Text name="date3" str="/" x="325" y="294" size="16" alignment="right" />
+			<Text name="date4" str="" x="360" y="294" size="16" alignment="right" />
+
+			<Text name="date5" str="" x="415" y="294" size="16" alignment="right" />
+			<Text name="date6" str=":" x="430" y="294" size="16" alignment="right" />
+			<Text name="date7" str="" x="470" y="294" size="16" alignment="right" />
+			<Text name="date8" str=":" x="485" y="294" size="16" alignment="right" />
+			<Text name="date9" str="" x="525" y="294" size="16" alignment="right" />
+			<Text name="notation" str="" x="515" y="294" size="16" />
+		</Component>
+
+		<Component name="cell3" x="720" y="0" rgba="D0D0D0FF" >
+			<Component name="text" x="200" y="96" >
+				<Bitmap name="arrowUD" file="art/arrow_UD.tga" x="8" y="-6" />
+				<Text name="text0" str="でお住まいの地域を選んで" x="16" y="0" size="16" />
+				<Bitmap name="arrowR" file="art/arrow_R.tga" x="6" y="20" />
+				<Text name="text1" str="を押して次の画面に移ってください。" x="16" y="24" size="16" />
+			</Component>
+		</Component>
+
+		<Component name="cell4" x="720" y="0" rgba="D0D0D0FF" >
+			<Component name="text" x="220" y="190" >
+				<Bitmap name="arrowUD" file="art/arrow_UD.tga" x="8" y="-6" />
+				<Text name="text0" str="で自動チャンネル設定を" x="16" y="0" size="16" />
+				<Text name="text1" str="する、しないを選び、" x="" y="24" size="16" />
+				<Bitmap name="arrowR" file="art/arrow_R.tga" x="6" y="44" />
+				<Text name="text2" str="を押して次の画面に移ってください。" x="16" y="48" size="16" />
+			</Component>
+			<Text name="val0" str="自動チャンネル設定をする" x="252" y="285" size="16" />
+			<Text name="val1" str="自動チャンネル設定をしない" x="252" y="309" size="16" />
+		</Component>
+
+		<Component name="cell5" x="720" y="0" rgba="D0D0D0FF" >
+			<Component name="text" x="220" y="178" >
+				<Bitmap name="arrowUD" file="art/arrow_UD.tga" x="8" y="-6" />
+				<Text name="text0" str="で本機につないでいるテレビ画面の" x="16" y="0" size="16" />
+				<Text name="text1" str="縦横比を選び、" x="0" y="24" size="16" />
+				<Bitmap name="arrowR" file="art/arrow_R.tga" x="126" y="20" />
+				<Text name="text2" str="を押して次の画面に" x="136" y="24" size="16" />
+				<Text name="text3" str="移ってください。" x="0" y="48" size="16" />
+			</Component>
+			<Text name="val0" str="16:9" x="284" y="273" size="16" />
+			<Text name="val1" str="4:3 レターボックス" x="284" y="297" size="16" />
+			<Text name="val2" str="4:3 パンスキャン" x="284" y="321" size="16" />
+		</Component>
+
+		<Component name="cell6" x="720" y="0" rgba="D0D0D0FF" >
+			<Component name="text" x="220" y="190" >
+				<Bitmap name="arrowUD" file="art/arrow_UD.tga" x="8" y="-6" />
+				<Text name="text0" str="で光デジタル出力の" x="16" y="0" size="16" />
+				<Text name="text1" str="使用する、使用しないを選び、" x="" y="24" size="16" />
+				<Bitmap name="arrowR" file="art/arrow_R.tga" x="6" y="44" />
+				<Text name="text2" str="を押して次の画面に移ってください。" x="16" y="48" size="16" />
+			</Component>
+			<Text name="val0" str="使用する" x="320" y="285" size="16" />
+			<Text name="val1" str="使用しない" x="320" y="309" size="16" />
+		</Component>
+
+		<Component name="cell7" x="720" y="0" rgba="D0D0D0FF" >
+			<Component name="text" x="220" y="202" >
+				<Bitmap name="arrowUD" file="art/arrow_UD.tga" x="8" y="-6" />
+				<Text name="text0" str="でドルビーデジタルの入、切を選び、" x="16" y="0" size="16" />
+				<Bitmap name="arrowR" file="art/arrow_R.tga" x="6" y="20" />
+				<Text name="text1" str="を押して次の画面に移ってください。" x="16" y="24" size="16" />
+			</Component>
+			<Text name="val0" str="入" x="354" y="273" size="16" />
+			<Text name="val1" str="切" x="354" y="297" size="16" />
+		</Component>
+
+		<Component name="cell8" x="720" y="0" rgba="D0D0D0FF" >
+			<Component name="text" x="220" y="190" >
+				<Bitmap name="arrowUD" file="art/arrow_UD.tga" x="8" y="-6" />
+				<Text name="text0" str="でDTSの入、切を選び、" x="16" y="0" size="16" />
+				<Bitmap name="arrowR" file="art/arrow_R.tga" x="6" y="20" />
+				<Text name="text1" str="を押して次の画面に移ってください。" x="16" y="24" size="16" />
+			</Component>
+			<Text name="val0" str="入" x="354" y="273" size="16" />
+			<Text name="val1" str="切" x="354" y="297" size="16" />
+		</Component>
+
+		<Component name="cell9" x="720" y="0" rgba="D0D0D0FF" >
+			<Component name="text" x="220" y="120" >
+				<Text name="text0" str="かんたん設定で設定した値の一覧です。" x="0" y="0" size="16" />
+				<Text name="text1" str="この設定でよければ" x="0" y="24" size="16" />
+				<Bitmap name="arrowR" file="art/arrow_R.tga" x="162" y="20" />
+				<Text name="text2" str="を押して" x="170" y="24" size="16" />
+				<Text name="text3" str="次の画面に移ってください。" x="0" y="48" size="16" />
+			</Component>
+			<Component name="set_val" x="118" y="220" >
+				<Text name="text0" str="BSアンテナ電源" x="0" y="0" size="16" />
+				<Text name="text1" str="時刻合わせ" x="0" y="24" size="16" />
+				<Text name="text2" str="地域番号" x="0" y="48" size="16" />
+				<Text name="text3" str="TVタイプ" x="0" y="72" size="16" />
+				<Text name="text4" str="光デジタル出力" x="0" y="96" size="16" />
+				<Text name="text5" str="ドルビーデジタル出力" x="0" y="120" size="16" />
+				<Text name="text6" str="DTS出力" x="0" y="144" size="16" />
+				<Text name="bs_power" str="" x="230" y="0" size="16" />
+				<Text name="date" str="" x="230" y="24" size="16" />
+				<Text name="area" str="" x="230" y="48" size="16" />
+				<Text name="tv_type" str="" x="230" y="72" size="16" />
+				<Text name="spd_if" str="" x="230" y="96" size="16" />
+				<Text name="dolby_digital" str="" x="230" y="120" size="16" />
+				<Text name="dts" str="" x="230" y="144" size="16" />
+				<Text name="bs_power_error" y="500" str="切 (入に出来ませんでした)" />
+			</Component>
+		</Component>
+
+		<Component name="cell10" x="720" y="0" rgba="D0D0D0FF" >
+			<Component name="textA" x="215" y="150" >
+				<Text name="text0" str="「ＨＤＤ領域設定」でのゲーム領域は" x="0" y="0" size="16" />
+				<Text name="hdd_size" str="?GB" x="120" y="30" size="16" />
+				<Text name="text1" str="に設定されています。" x="64" y="60" size="16" />
+				<Bitmap name="arrowR" file="art/arrow_R.tga" x="6" y="80" />
+				<Text name="text2" str="を押して次の画面に移ってください。" x="16" y="84" size="16" />
+			</Component>
+			<Component name="textB" x="140" y="270" >
+				<Text name="text0" str="ゲーム領域を" x="0" y="0" size="16" />
+				<Text name="hdd_size" str="?GB" x="104" y="0" size="16" />
+				<Text name="text1" str="にする場合は、かんたん設定を終了後" x="160" y="0" size="16" />
+				<Text name="text2" str="「本体設定」/「ＨＤＤ領域設定」で変更してください。" x="0" y="24" size="16" />
+				<Text name="text3" str="変更した場合、映像、音楽、写真、番組表のデータは" x="0" y="48" size="16" />
+				<Text name="text4" str="すべて削除されますので、ご注意ください。" x="0" y="72" size="16" />
+			</Component>
+		</Component>
+
+		<Component name="cell11" x="720" y="0" rgba="D0D0D0FF" >
+			<Text name="text" str="これでかんたん設定を終了します。" x="224" y="240" size="16" />
+		</Component>
+
+		<Component name="cell12" x="720" y="0" rgba="D0D0D0FF" >
+			<Text name="text0" str="設定を初期化しています。" x="360" y="166" size="16" alignment="center" />
+			<Text name="text1" str="初期化中は本機の電源を切らないでください。" x="360" y="190" size="16" alignment="center" />
+			<Text name="text2" str="進行状況" x="110" y="230" size="14" />
+			<Component name="bar" y="240" />
+			<Text name="prog" str="" x="610" y="265" size="14" alignment="right" />
+		</Component>
+
+		<Component name="cell13" x="720" y="0" rgba="D0D0D0FF" />
+		<Component name="cell14" x="720" y="0" rgba="D0D0D0FF" />
+		<Component name="cell15" x="720" y="0" rgba="D0D0D000" />
+
+		<Component name="ModifyFocus" x="0" y="240" >
+			<Component name="ModifyFocusArrow" x="0" >
+				<Bitmap name="ModifyFocusArrowUp" file="art/arrow_U.tga" y="-20" w="14" h="12" />
+				<Bitmap name="ModifyFocusArrowDn" file="art/arrow_U.tga" y="8" rot_x="0.5" w="14" h="12" />
+			</Component>
+		</Component>
+		<Component name="ModifyFocus2" x="0" y="240" />
+
+		<Component name="ListArrow" y="240" >
+			<Bitmap name="ListArrowLeft"  file="art/GT000020.tga" x="65"  y="-4" rot_y="0.5" w="28"  h="30" visible="0" />
+			<Bitmap name="ListArrowRight" file="art/GT000020.tga" x="646" y="-4" w="28"  h="30" visible="0" />
+		</Component>
+	</Component>
+
+	<Component name="AreaListBase" x="-360" y="0" >
+		<Component name="AreaList" x="-56" y="-104">
+			<Component name="Bar" x="-20" y="140" />
+			<Component name="cell0" x="0" y="0" rgba="D0D0D000">
+				<Text name="text" str="" size="16" />
+			</Component>
+			<Component name="cell1" x="0" y="24" rgba="D0D0D0A0">
+				<Text name="text" str="" size="16" />
+			</Component>
+			<Component name="cell2" x="0" y="48" rgba="D0D0D0FF">
+				<Text name="text" str="" size="16" />
+			</Component>
+			<Component name="cell3" x="0" y="72" rgba="D0D0D0FF">
+				<Text name="text" str="" size="16" />
+			</Component>
+			<Component name="cell4" x="0" y="96" rgba="D0D0D0FF">
+				<Text name="text" str="" size="16" />
+			</Component>
+			<Component name="cell5" x="0" y="120" rgba="D0D0D0FF">
+				<Text name="text" str="" size="16" />
+			</Component>
+			<Component name="cell6" x="0" y="144" rgba="D0D0D0FF">
+				<Text name="text" str="" size="16" />
+			</Component>
+			<Component name="cell7" x="0" y="168" rgba="D0D0D0FF">
+				<Text name="text" str="" size="16" />
+			</Component>
+			<Component name="cell8" x="0" y="192" rgba="D0D0D0FF">
+				<Text name="text" str="" size="16" />
+			</Component>
+			<Component name="cell9" x="0" y="216" rgba="D0D0D0FF">
+				<Text name="text" str="" size="16" />
+			</Component>
+			<Component name="cell10" x="0" y="240" rgba="D0D0D0FF">
+				<Text name="text" str="" size="16" />
+			</Component>
+			<Component name="cell11" x="0" y="264" rgba="D0D0D0A0">
+				<Text name="text" str="" size="16" />
+			</Component>
+			<Component name="cell12" x="0" y="288" rgba="D0D0D000">
+				<Text name="text" str="" size="16" />
+			</Component>
+		</Component>
+	</Component>
+
+	<Component name="Dialog2" x="-360" y="-240" visible="0" >
+		<Prim name="Bg" type="rect" rgba="000018D0" x="0" y="0" w="720" h="480" />
+		<Bitmap name="Line1" file="art/DialogBorder.tga"  y="240" x="360" w="450" />
+		<Bitmap name="Line2" file="art/DialogBorder.tga"  y="240" x="360" w="450" />
+		<Component name="Base" x="161" y="228" >
+			<Text name="text1" str="かんたん設定を中止しますか？" x="80" y="0" size="16" rgba="D0D0D0FF" />
+			<Text name="textY" str="中止する" x="95" y="40" size="16" rgba="D0D0D0FF" />
+			<Text name="textN" str="中止しない" x="223" y="40" size="16" rgba="D0D0D0FF" />
+		</Component>
+		<Component name="DialogFocus" x="360" y="268" />
+		<Component name="DialogFocus2" x="360" y="268" />
+	</Component>
+
+	<Component name="Dialog3" x="-360" y="-240" visible="0" >
+		<Prim name="Bg" type="rect" rgba="000018D0" x="0" y="0" w="720" h="480" />
+		<Bitmap name="Line1" file="art/DialogBorder.tga"  y="240" x="360" w="450" />
+		<Bitmap name="Line2" file="art/DialogBorder.tga"  y="240" x="360" w="450" />
+		<Component name="Base" x="161" y="204" >
+			<Text name="text1" str="録画予約時刻開始まで10分を切りました。" x="40" y="0" size="16" rgba="D0D0D0FF" />
+			<Text name="text2" str="録画開始時刻になると中止して終了します。" x="40" y="24" size="16" rgba="D0D0D0FF" />
+			<Text name="text3" str="ウィザードを中止しますか？" y="48" x="40" size="16" rgba="D0D0D0FF" />
+			<Text name="textY" str="中止する" x="95" y="88" size="16" rgba="D0D0D0FF" />
+			<Text name="textN" str="中止しない" x="223" y="88" size="16" rgba="D0D0D0FF" />
+		</Component>
+		<Component name="DialogFocus" x="360" y="292" />
+		<Component name="DialogFocus2" x="360" y="292" />
+	</Component>
+
+	<Component name="TopBar" x="-360" y="-240" >
+		<Bitmap name="TopBarBg" file="art/TopBar.tga" x="360" y="32" w="720" h="64" />
+		<Text name="Title" str="かんたん設定 / " x="80" y="51" size="16" rgba="D0D0D0FF" />
+		<Text name="Title2" str="" x="204" y="51" size="16" rgba="D0D0D0FF" />
+		<Bitmap name="TopIcon" file="art/sICN-Conf-917.tga" x="59" y="45" w="39" h="32" />
+		<Text name="Page" str="" x="580" y="51" size="16" />
+	</Component>
+	<Component name="BotBar" x="-360" y="-240" >
+		<Bitmap name="BotBarBg" file="art/TopBar.tga" x="360" y="448" w="720" h="64" rot_z="0.5" />
+		<Text name="TXTCross" str="戻る" x="271" y="442" size="16" rgba="D0D0D0FF" />
+		<Bitmap name="IcnCross" file="art/BtnNav-Crs-917.png" x="258" y="438" />
+		<Text name="TXTCircle0" str="変更" x="409" y="442" size="16" rgba="D0D0D0FF" />
+		<Text name="TXTCircle1" str="決定" x="409" y="442" size="16" rgba="D0D0D0FF" />
+		<Bitmap name="IcnCiecle" file="art/BtnNav-EnterCir-917-wide.tga" x="375" y="438" />
+	</Component>
+
+</App>

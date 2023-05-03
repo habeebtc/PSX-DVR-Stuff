@@ -1,0 +1,313 @@
+<?xml version="1.0"?>
+<App name="ConfigVideo" focus="config_list_video" script="ConfigVideo.amx" z_depth="1">
+	<Dll name="pvr/pvrNative" version="0.1.0" />
+	<Dll name="xStr/xStr" version="0.1.0" />
+	<Dll name="xText/xText" version="0.1.0" />
+	<Dll name="xBitmap/xBitmap" version="0.1.0" />
+	<Dll name="xBitmap3x3/xBitmap3x3" version="0.1.0" />
+	<Dll name="xButton/xButton" version="0.1.0" />
+	<Dll name="xPrim/xPrim" version="0.1.0" />
+	<Dll name="xAudio/xAudio" version="0.1.0" />
+	<Dll name="xCDVD/xCDVD" version="0.1.0" />
+	<Dll name="xSettings/xSettings" version="0.1.0" />
+	<Component name="config_list_video" visible="0" y="-16" rgba="D0D0D0FF">
+		<Bitmap name="BMPthumb_2" file="art/TitleZab1.tga"  x="-38" y="15" w="230" h="54" rgba="FFFFFFFF" visible="0" />
+		<Component name="cell0" x="-180" y="-275" z="0" a="128">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10"></Bitmap>
+			<Bitmap name="BMPthumb_1" w="54" h="54" rgba="FFFFFFFF"></Bitmap>
+			<Text name="text0" x="40" y="-5" />
+			<Text name="label0" x="40" y="5" size="18"/>
+			<Text name="label1" x="315" y="4" size="16"/>
+			<Bitmap name="BMPthumb0" x="325" y="0" rgba="FFFFFFFF" />
+		</Component>
+		<Component name="cell1" x="-180" y="-221" z="0" a="255">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10"></Bitmap>
+			<Bitmap name="BMPthumb_1" w="54" h="54" rgba="FFFFFFFF"></Bitmap>
+			<Text name="text0" x="40" y="-5"/>
+			<Text name="label0" x="40" y="5" size="18"/>
+			<Text name="label1" x="315" y="4" size="16"/>
+		</Component>
+		<Component name="cell2" x="-180" y="-167" z="0" a="255">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10"></Bitmap>
+			<Bitmap name="BMPthumb_1" w="54" h="54" rgba="FFFFFFFF"></Bitmap>
+			<Text name="text0" x="40" y="-5"/>
+			<Text name="label0" x="40" y="5" size="18"/>
+			<Text name="label1" x="315" y="4" size="16"/>
+		</Component>
+		<Component name="cell3" x="-180" y="-113" z="0" a="255">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10"></Bitmap>
+			<Bitmap name="BMPthumb_1" fileres="Trckbmp_file3" w="54" h="54" rgba="FFFFFFFF"></Bitmap>
+			<Text name="text0" x="40" y="-5"/>
+			<Text name="label0" x="40" y="5" size="18"/>
+			<Text name="label1" x="315" y="4" size="16"/>
+		</Component>
+		<Component name="cell4" x="-180" y="-59" z="0" a="255">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10"></Bitmap>
+			<Bitmap name="BMPthumb_1" w="54" h="54" rgba="FFFFFFFF"></Bitmap>
+			<Text name="text0" x="40" y="-5"/>
+			<Text name="label0" x="40" y="5" size="18"/>
+			<Text name="label1" x="315" y="4" size="16"/>
+		</Component>
+		<Component name="cell5" x="-180" y="16" z="0" a="255">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10"></Bitmap>
+			<Bitmap name="BMPthumb_1" w="54" h="54" rgba="FFFFFFFF"></Bitmap>
+			<Text name="text0" x="40" y="-5"/>
+			<Text name="label0" x="40" y="5" size="18"/>
+			<Text name="label1" x="315" y="4" size="16"/>
+		</Component>
+		<Component name="cell6" x="-180" y="91" z="0" a="255">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10"></Bitmap>
+			<Bitmap name="BMPthumb_1" fileres="Trckbmp_file3" w="54" h="54" rgba="FFFFFFFF"></Bitmap>
+			<Text name="text0" x="40" y="-5"/>
+			<Text name="label0" x="40" y="5" size="18"/>
+			<Text name="label1" x="315" y="4" size="16"/>
+		</Component>
+		<Component name="cell7" x="-180" y="145" z="0" a="255">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10"></Bitmap>
+			<Bitmap name="BMPthumb_1" w="54" h="54" rgba="FFFFFFFF"></Bitmap>
+			<Text name="text0" x="40" y="-5"/>
+			<Text name="label0" x="40" y="5" size="18"/>
+			<Text name="label1" x="315" y="4" size="16"/>
+		</Component>
+		<Component name="cell8" x="-180" y="199" z="0" a="255">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10"></Bitmap>
+			<Bitmap name="BMPthumb_1" w="54" h="54" rgba="FFFFFFFF"></Bitmap>
+			<Text name="text0" x="40" y="-5"/>
+			<Text name="label0" x="40" y="5" size="18"/>
+			<Text name="label1" x="315" y="4" size="16"/>
+		</Component>
+		<Component name="cell9" x="-180" y="253" z="0" a="128">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10"></Bitmap>
+			<Bitmap name="BMPthumb_1" w="54" h="54" rgba="FFFFFFFF"></Bitmap>
+			<Text name="text0" x="40" y="-5"/>
+			<Text name="label0" x="40" y="5" size="18"/>
+			<Text name="label1" x="315" y="4" size="16"/>
+		</Component>
+		<Component name="cell10" x="-180" y="307" z="0" a="128">
+			<Bitmap name="focus" file="art/NailFocus-72x54.tga" w="54" h="54" a="170" z_sort="-10"></Bitmap>
+			<Bitmap name="BMPthumb_1" w="54" h="54" rgba="FFFFFFFF"></Bitmap>
+			<Text name="text0" x="40" y="-5"/>
+			<Text name="label0" x="40" y="5" size="18"/>
+			<Text name="label1" x="315" y="4" size="16"/>
+		</Component>
+	</Component>
+	<Component name="config_sublist_video">
+		<Component name="config_scroll_bar" x="120" y="-300" visible="0">
+			<Bitmap name="SBBase" y="300" file="art/ScrollBarBase.tga" h="336"/>
+			<Bitmap3x3 name="SBCurrent" y="300" file="art/ScrollBarCurrent.tga" w_constraint="0" h_constraint="9"/>
+		</Component>
+		<Bitmap name="BMPzab" file="art/ZabOptMenu.tga" x="172" h="480" visible="1" />
+		<Component name="config_arrow">
+			<Bitmap name="guide_up" x="141" y="-21" file="art/arrow_U.tga" w="14" h="12" visible="0" />
+			<Bitmap name="guide_down" x="141" y="19" file="art/arrow_U.tga" w="14" h="12" rot_x="0.5" visible="0" />
+		</Component>
+		<Component name="config_submenu_video" x="250" y="4" visible="1">
+			<Text name="cell0" x="-115" y="-390" size="16" z="0"/>
+			<Bitmap name="BMPthumb0" x="-105" y="-395" rgba="FFFFFFFF" />
+			<Text name="cell1" x="-115" y="-360" size="16" z="0"/>
+			<Bitmap name="BMPthumb1" x="-105" y="-365" rgba="FFFFFFFF" />
+			<Text name="cell2" x="-115" y="-330" size="16" z="0"/>
+			<Bitmap name="BMPthumb2" x="-105" y="-335" rgba="FFFFFFFF" />
+			<Text name="cell3" x="-115" y="-300" size="16" z="0"/>
+			<Bitmap name="BMPthumb3" x="-105" y="-305" rgba="FFFFFFFF" />
+			<Text name="cell4" x="-115" y="-270" size="16" z="0"/>
+			<Bitmap name="BMPthumb4" x="-105" y="-275" rgba="FFFFFFFF" />
+			<Text name="cell5" x="-115" y="-240" size="16" z="0"/>
+			<Bitmap name="BMPthumb5" x="-105" y="-245" rgba="FFFFFFFF" />
+			<Text name="cell6" x="-115" y="-210" size="16" z="0"/>
+			<Text name="cell7" x="-115" y="-180" size="16" z="0"/>
+			<Text name="cell8" x="-115" y="-150" size="16" z="0"/>
+			<Text name="cell9" x="-115" y="-120" size="16" z="0"/>
+			<Text name="cell10" x="-115" y="-90" size="16" z="0"/>
+			<Text name="cell11" x="-115" y="-60" size="16" z="0"/>
+			<Text name="cell12" x="-115" y="-30" size="16" z="0"/>
+			<Text name="cell13" x="-115" y="0" size="16" z="0"/>
+			<Text name="cell14" x="-115" y="30" size="16" z="0"/>
+			<Text name="cell15" x="-115" y="60" size="16" z="0"/>
+			<Text name="cell16" x="-115" y="90" size="16" z="0"/>
+			<Text name="cell17" x="-115" y="120" size="16" z="0"/>
+			<Text name="cell18" x="-115" y="150" size="16" z="0"/>
+			<Text name="cell19" x="-115" y="180" size="16" z="0"/>
+			<Text name="cell20" x="-115" y="210" size="16" z="0"/>
+			<Text name="cell21" x="-115" y="240" size="16" z="0"/>
+			<Text name="cell22" x="-115" y="270" size="16" z="0"/>
+			<Text name="cell23" x="-115" y="300" size="16" z="0"/>
+			<Text name="cell24" x="-115" y="330" size="16" z="0"/>
+			<Text name="cell25" x="-115" y="360" size="16" z="0"/>
+			<Text name="cell26" x="-115" y="390" size="16" z="0"/>
+			<Text name="cell27" x="-115" y="420" size="16" z="0"/>
+			<Text name="cell28" x="-115" y="450" size="16" z="0"/>
+			<Text name="cell29" x="-115" y="480" size="16" z="0"/>
+		</Component>
+		<Component name="config_pua_abc" x="140" y="29.5" rgba="D0D0D0FF">
+			<Bitmap name="guide_up" x="80" y="-20" file="art/arrow_U.tga" w="14" h="12" visible="0" />
+			<Bitmap name="guide_down" x="80" y="20" file="art/arrow_U.tga" w="14" h="12" rot_x="0.5" visible="0"/>
+			<Text name="abc0" size="16" x="77" y="5" alignment="center" visible="0"/>
+			<Text name="abc1" size="16" x="94" y="5" alignment="center" visible="0"/>
+			<Text name="abcx" size="16" x="86" y="5" alignment="center" visible="0"/>
+			<Text name="kakko" size="16" x="52" y="5" str="（      ）" visible="0"/>
+		</Component>
+	</Component>
+	<Component name="config_submenuitem0_0">
+		<String name="text0" str="     画質1（高画質）"/>
+		<String name="text1" str="     画質2" />
+		<String name="text2" str="     画質3" />
+		<String name="text3" str="     画質4" />
+		<String name="text4" str="     画質5" />
+		<String name="text5" str="     画質6（長時間）"/>
+	</Component>
+	<Component name="config_submenuitem0_1">
+		<String name="text0" str="DVD-Video" />
+		<String name="text1" str="DVD-VR" />
+	</Component>
+	<Component name="config_submenuitem0_2">
+		<String name="text0" str="主音声" />
+		<String name="text1" str="副音声" />
+	</Component>
+	<Component name="config_submenuitem0_3">
+		<String name="text0" str="3" />
+		<String name="text1" str="2" />
+		<String name="text2" str="1" />
+		<String name="text3" str="切"/>
+	</Component>
+	<Component name="config_submenuitem1_0">
+		<String name="text0"/>
+	</Component>
+	<Component name="config_submenuitem1_1">
+	</Component>
+	<Component name="config_submenuitem1_2">
+		<String name="text0"/>
+	</Component>
+	<Component name="config_submenuitem1_3">
+		<String name="text0" str="入"/>
+		<String name="text1" str="切"/>
+	</Component>
+	<Component name="config_submenuitem1_4">
+		<String name="text0" str="入"/>
+		<String name="text1" str="切"/>
+	</Component>
+	<Component name="config_submenuitem1_5">
+		<String name="text0" str="入"/>
+		<String name="text1" str="切"/>
+	</Component>
+	<Component name="config_submenuitem1_6">
+		<String name="text0" str="入"/>
+		<String name="text1" str="切"/>
+	</Component>
+	<Component name="config_submenuitem1_7">
+		<String name="text0"/>
+	</Component>
+	<Component name="config_submenuitem1_8">
+		<String name="text0" str="アメリカ"/>
+		<String name="text1" str="その他"  />
+	</Component>
+	<Component name="config_submenuitem1_9">
+		<String name="text0"/>
+	</Component>
+	<Component name="config_dialog_video" x="-345" y="-239" visible="0" rgba="D0D0D0FF">
+		<Prim name="bgm" type="rect" rgba="000000D0" x="0" y="0" w="720" h="480" />
+		<Bitmap name="Line1" file="art/DialogBorder.tga" x ="350" y="240" w="450" />
+		<Bitmap name="Line2" file="art/DialogBorder.tga" x ="350" y="240" w="450" />
+		<Component name="Base" x="190" y="221" >
+			<Text name="text1" str="4桁の暗証番号を入力してください。" x="20" y="0" size="16" alignment="left" />
+			<Text name="text1_1" str="暗証番号が違います。" x="80" y="24" size="16" visible="0" />
+			<Button name="no0" nav_right="no1" nav_left="no9" x="15" y="24" >
+				<FocusOff>
+					<Text str="0" size="16" rgba="D0D0D0FF"/>
+				</FocusOff>
+				<FocusOn>
+					<Text str="0" font="font2" rgba="D0D000" size="16" />
+				</FocusOn>
+			</Button>
+			<Button name="no1" nav_right="no2" nav_left="no0" x="45" y="24" >
+				<FocusOff>
+					<Text str="1" size="16" rgba="D0D0D0FF"/>
+				</FocusOff>
+				<FocusOn>
+					<Text str="1" font="font2" rgba="D0D000" size="16" />
+				</FocusOn>
+			</Button>
+			<Button name="no2" nav_right="no3" nav_left="no1" x="75" y="24" >
+				<FocusOff>
+					<Text str="2" size="16" rgba="D0D0D0FF"/>
+				</FocusOff>
+				<FocusOn>
+					<Text str="2" font="font2" rgba="D0D000" size="16" />
+				</FocusOn>
+			</Button>
+			<Button name="no3" nav_right="no4" nav_left="no2" x="105" y="24" >
+				<FocusOff>
+					<Text str="3" size="16" rgba="D0D0D0FF"/>
+				</FocusOff>
+				<FocusOn>
+					<Text str="3" font="font2" rgba="D0D000" size="16" />
+				</FocusOn>
+			</Button>
+			<Button name="no4" nav_right="no5" nav_left="no3" x="135" y="24" >
+				<FocusOff>
+					<Text str="4" size="16" rgba="D0D0D0FF"/>
+				</FocusOff>
+				<FocusOn>
+					<Text str="4" font="font2" rgba="D0D000" size="16" />
+				</FocusOn>
+			</Button>
+			<Button name="no5" nav_right="no6" nav_left="no4" x="165" y="24" >
+				<FocusOff>
+					<Text str="5" size="16" rgba="D0D0D0FF"/>
+				</FocusOff>
+				<FocusOn>
+					<Text str="5" font="font2" rgba="D0D000" size="16" />
+				</FocusOn>
+			</Button>
+			<Button name="no6" nav_right="no7" nav_left="no5" x="195" y="24" >
+				<FocusOff>
+					<Text str="6" size="16" rgba="D0D0D0FF"/>
+				</FocusOff>
+				<FocusOn>
+					<Text str="6" font="font2" rgba="D0D000" size="16" />
+				</FocusOn>
+			</Button>
+			<Button name="no7" nav_right="no8" nav_left="no6" x="225" y="24" >
+				<FocusOff>
+					<Text str="7" size="16" rgba="D0D0D0FF"/>
+				</FocusOff>
+				<FocusOn>
+					<Text str="7" font="font2" rgba="D0D000" size="16" />
+				</FocusOn>
+			</Button>
+			<Button name="no8" nav_right="no9" nav_left="no7" x="255" y="24" >
+				<FocusOff>
+					<Text str="8" size="16" rgba="D0D0D0FF"/>
+				</FocusOff>
+				<FocusOn>
+					<Text str="8" font="font2" rgba="D0D000" size="16" />
+				</FocusOn>
+			</Button>
+			<Button name="no9" nav_right="no0" nav_left="no8" x="285" y="24" >
+				<FocusOff>
+					<Text str="9" size="16" rgba="D0D0D0FF"/>
+				</FocusOff>
+				<FocusOn>
+					<Text str="9" font="font2" rgba="D0D000" size="16"/>
+				</FocusOn>
+			</Button>
+			<Text name="code0" str="・" x="103" y="50" size="16" />
+			<Text name="code1" str="・" x="133" y="50" size="16" />
+			<Text name="code2" str="・" x="163" y="50" size="16" />
+			<Text name="code3" str="・" x="193" y="50" size="16" />
+		</Component>
+	</Component>
+	<Component name="TopBar" x="-355" y="-235">
+		<Bitmap name="TopBarBg" file="art/TopBar.tga" x="360" y="34" w="720" h="64" />
+		<Text name="Title0" str="DVDの設定 /" x="82" y="52" size="16" z_depth="-4"/>
+		<Text name="Title1" str="" x="195" y="52" size="16" z_depth="-4"/>
+		<Bitmap name="TopIcon" file="art/sICN-Conf-917.tga" x="59" y="45" w="39" h="32" z_depth="-4"/>
+	</Component>
+	<Component name="BotBar" x="-365" y="-245" >
+		<Bitmap name="BotBarBg" file="art/TopBar.tga" x="362" y="448" w="720" h="64" rot_z="0.5" />
+		<Text name="TXTCross" str="戻る" x="273" y="441" size="16" rgba="D0D0D0FF" />
+		<Bitmap name="IcnCross" file="art/BtnNav-Crs-917.png" x="260" y="436" />
+		<Text name="TXTCircle" str="決定" x="414" y="441.5" size="16" rgba="D0D0D0FF" />
+		<Bitmap name="IcnCiecle" file="art/BtnNav-EnterCir-917-wide.tga" x="379" y="436.5" />
+	</Component>
+</App>

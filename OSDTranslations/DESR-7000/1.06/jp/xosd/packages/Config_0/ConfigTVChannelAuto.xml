@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<App name="ConfigTVChannelAuto" focus="base" script="ConfigTVChannelAuto.amx" >
+	<Dll name="pvr/pvrNative" version="0.1.0" />
+	<Dll name="xBitmap/xBitmap" version="0.1.0" />
+	<Dll name="xBitmap3x3/xBitmap3x3" version="0.1.0" />
+	<Dll name="xPrim/xPrim" version="0.1.0" />
+	<Dll name="xText/xText" version="0.1.0" />
+	<Dll name="xSlider/xSlider" version="0.1.0" />
+
+	<Component name="base" x="-360" y="-240" visizle="0">
+		<Text name="Channel" str="" x="580" y="51" size="16" alignment="left" rgba="D0D0D0FF" />
+		<Text name="Title1" str="自動チャンネル設定中です。" x="360" y="186" size="16" rgba="D0D0D0FF" alignment="center" />
+		<Text name="Title2" str="設定中は本機の電源を切らないでください。" x="360" y="210" size="16" alignment="center" />
+		<Component name="bar" y="240" />
+	</Component>
+
+	<Component name="Dialog1" x="-360" y="-240" visible="0" visizle="0">
+		<Prim name="Bg" type="rect" rgba="000000D0" x="0" y="0" w="720" h="480" />
+		<Bitmap name="Line1" file="art/DialogBorder.tga"  y="240" x="360" w="450" />
+		<Bitmap name="Line2" file="art/DialogBorder.tga"  y="240" x="360" w="450" />
+		<Component name="Base" x="161" y="228" >
+			<Text name="text1" str="自動チャンネル設定を実行しますか？" x="55" y="0" size="16" rgba="D0D0D0FF" alignment="left" />
+			<Text name="textY" str="実行する" x="119" y="40" size="16" rgba="D0D0D0FF" alignment="left" />
+			<Text name="textN" str="戻る" x="247" y="40" size="16" rgba="D0D0D0FF" alignment="left" />
+		</Component>
+		<Component name="DialogFocus" x="424" y="268" />
+		<Component name="DialogFocus2" x="424" y="268" />
+	</Component>
+
+	<Component name="Dialog3" x="-360" y="-240" visible="0" >
+		<Prim name="Bg" type="rect" rgba="000000D0" x="0" y="0" w="720" h="480" />
+		<Bitmap name="Line1" file="art/DialogBorder.tga"  y="240" x="360" w="450" />
+		<Bitmap name="Line2" file="art/DialogBorder.tga"  y="240" x="360" w="450" />
+		<Component name="Base" x="200" y="212" >
+			<Text name="text1" str="録画予約時刻開始まで10分を切りました。" y="0" size="16" rgba="D0D0D0FF" />
+			<Text name="text2" str="自動チャンネル設定を実行しますか？" y="24" size="16" rgba="D0D0D0FF" />
+			<Text name="textY" str="実行する" x="79" y="64" size="16" rgba="D0D0D0FF" alignment="left" />
+			<Text name="textN" str="戻る" x="207" y="64" size="16" rgba="D0D0D0FF" alignment="left" />
+		</Component>
+		<Component name="DialogFocus" x="360" y="276" />
+		<Component name="DialogFocus2" x="360" y="276" />
+	</Component>
+
+	<Component name="TopBar" x="-360" y="-240" >
+		<Text name="Title0" str="テレビの設定 / 自動チャンネル設定" x="80" y="51" size="16" rgba="D0D0D0FF" />
+		<Text name="Title1" str="かんたん設定 / 自動チャンネル設定" x="80" y="51" size="16" rgba="D0D0D0FF" visible="0" />
+		<Bitmap name="TopIcon" file="art/sICN-Conf-917.tga" x="59" y="45" w="39" h="32" />
+		<Bitmap name="TopBarBg" file="art/TopBar.tga" x="360" y="32" w="720" h="64" rgba="FFFFFF60" />
+	</Component>
+	<Component name="BotBar" x="-360" y="-240" >
+		<Text name="TXTCross" str="戻る" x="271" y="442" size="16" rgba="D0D0D0FF" />
+		<Bitmap name="IcnCross" file="art/BtnNav-Crs-917.png" x="258" y="438" />
+		<Text name="TXTCircle" str="決定" x="409" y="442" size="16" rgba="D0D0D0FF" />
+		<Bitmap name="IcnCiecle" file="art/BtnNav-EnterCir-917-wide.tga" x="375" y="438" />
+		<Bitmap name="BotBarBg" file="art/TopBar.tga" x="360" y="448" w="720" h="64" rot_z="0.5" rgba="FFFFFF60" />
+	</Component>
+</App>

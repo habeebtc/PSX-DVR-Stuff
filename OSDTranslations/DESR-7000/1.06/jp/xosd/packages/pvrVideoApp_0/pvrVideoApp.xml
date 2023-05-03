@@ -1,0 +1,290 @@
+<?xml version="1.0"?>
+<App name="pvrVideoApp" focus="VRMenu" native="pvrVideoApp/pvrVideoApp">
+	<Dll name="pvr/pvrNative" version="0.1.0" />
+	<Dll name="xBitmap/xBitmap" version="0.1.0" />
+	<Dll name="xButton/xButton" version="0.1.0" />
+	<Dll name="xPrim/xPrim" version="0.1.0" />
+	<Dll name="xText/xText" version="0.1.0" />
+	<Dll name="xSlider/xSlider" version="0.1.0" />
+	<Dll name="xWizard/xWizard" version="0.1.0" />
+	<!-- Dll name="xMemo/xMemo" version="0.1.0" / -->
+
+	<Bitmap name="BG" file="art/wp_kyomu_256.png" x="0" y="0" w="704" h="480"/>
+
+<!--
+	<Component name="Chapter" visible="0" x="150" y="-100">
+		<Text name="ChapterMessage" str="" alignment="center" x="0" y="0" size="22" rgba="FFFFFFD0" />
+		<Bitmap name="ChapterBG" file="art/CP_ABRepeatA.png" rgba="FFFFFFD0" x="0" y="0"/>
+	</Component>
+-->
+	<Text name="ABMessage" str="" alignment="center" x="0.0" y="0.0" size="16" rgba="FFFFFFD0" />
+	<Component name="ABConfirmation" visible="0">
+		<Bitmap name="AB" file="art/CP_ABRepeat.png" rgba="FFFFFFD0" x="0" y="0"/>
+		<Bitmap name="A" file="art/CP_ABRepeatA.png" rgba="FFFFFFD0" x="0" y="0"/>
+	</Component>
+
+	<Component name="Jump" visible="0" x="0" y="0">
+		<Bitmap name="jump_carpet" file="art/duration_number_carpet.png" rgba="FFFFFFFF" x="252.0" y="151.0" />
+
+		<Text name="Jump1" str=""    x="204.0" y="156.0" rgba="D0D000FF" />
+		<Text name="Jump2" str=""    x="217.0" y="156.0" rgba="FFFFFFD0" />
+		<Text name="Colon1" str="：" x="227.0" y="156.0" rgba="FFFFFFD0" />
+		<Text name="Jump3" str=""    x="240.0" y="156.0" rgba="FFFFFFD0" />
+		<Text name="Jump4" str=""    x="253.0" y="156.0" rgba="FFFFFFD0" />
+		<Text name="Colon2" str="：" x="263.0" y="156.0" rgba="FFFFFFD0" />
+		<Text name="Jump5" str=""    x="276.0" y="156.0" rgba="FFFFFFD0" />
+		<Text name="Jump6" str=""    x="289.0" y="156.0" rgba="FFFFFFD0" />
+
+		<Component name="Arrow" visible="0">
+			<Bitmap name="UA"  file="art/Arrow_U.png" rgba="FFFFFFFF" x="210.0" y="131.0" />
+			<Bitmap name="DA"  file="art/Arrow_D.png" rgba="FFFFFFFF" x="210.0" y="169.0" />
+		</Component>
+
+
+	</Component>
+
+	<Component name="VideoCoordSysConvert">
+
+<!-- チャプタージャンプが入ったときに以下を有効にする 2003/11/5 - fukui -->
+
+<!--
+		<Component name="Video_TopBar" x="0" y="0" z="0">
+			<Bitmap name="top_bar"    file="art/TopBar.tga"			 w="720"	h="71"	x="0"    y="-205.0" rgba="FFFFFFFF" />
+			<Bitmap name="title_bar"  file="art/TopTitleBar.tga"	 w="720"	h="35"	x="0"    y="-190.0" rgba="FFFFFFFF" />
+			<Bitmap name="GguideIcon" file="art/GguideIcon-8bit.png" 					x="279"  y="-196"   rgba="FFFFFFFF" />
+			<Bitmap name="icon"		  file="art/sICN-Top-Video.png"  					x="-293" y="-187.0"   rgba="FFFFFFFF" />
+			<Text name="Text_VideoTitle" str="" alignment="left"  shadow="0" w="408"    x="-280" y="-183.0" size="16" rgba="FFFFFFBF" />
+			<Text name="Text_VideoDate" str=""  alignment="right" shadow="0" w="78"     x="238"  y="-183.0" size="16" rgba="FFFFFFBF" />
+		</Component>
+-->
+		<Component name="info" x="-280" y="150" z="0">
+			<Bitmap name="SokoIcon" file="art/Play.png" x="0" y="0" rgba="FFFFFFDC" />
+			<Component name="recinfo" x="-19" y="-19" z="0">
+				<Bitmap name="RecSokoIcon" file="" x="0" y="0" rgba="FFFFFFDC" />
+			</Component>
+			<Component name="repeatinfo" x="70" y="0" z="0">
+				<Bitmap name="RepeatSokoIcon" file="" x="0" y="0" rgba="FFFFFFD0" />
+			</Component>
+		</Component>
+
+		<Component name="VideoProgress">
+			<Bitmap name="slider_carpet" file="art/progBar_Carpet.png" rgba="FFFFFFC8" x="0" y="150" w="250" h="10" visible="1" />
+			<Slider name="ProgressBar" x="0" y="150" w="230" visible="1"/>
+		</Component>
+		<Component name="ChapterNavi">
+			<Bitmap name="jump_carpet" file="art/Chapter_number_carpet.png" rgba="FFFFFFFF" x="120" y="151.0"  visible="1" />
+			<Text name="Chapter" str="Chapter 1" x="120"  y="156" size="16" rgba="FFFFFFFF" visible="1" alignment="center" />
+		</Component>
+	</Component>
+
+	<Text name="Common" str="" x="-276" y="-148" size="18" rgba="d1d1d1d1" />
+
+	<Component name="VRMenu" visible="0" x="0" y="0">
+		<Component name="Buttons">
+			<Bitmap name="Button0"  file="art/CP_Sound.png"       rgba="FFFFFFFF" x="-204" y="-116" />
+			<Bitmap name="Button1"  file="art/CP_Subscript.png"   rgba="FFFFFFDC" x="-168" y="-116" />
+			<Bitmap name="Button2"  file="art/CP_Jump.png"        rgba="FFFFFFDC" x="-132" y="-116" />
+			<Bitmap name="Button3"  file="art/CP_BeThumbnail.png" rgba="FFFFFFDC" x="-96"  y="-116" />
+			<Bitmap name="Button4"  file="art/CP_Display.png"     rgba="FFFFFFDC" x="-60"  y="-116" />
+			<Bitmap name="Button5"  file="art/CP_Prev.png"        rgba="FFFFFFDC" x="-258" y="-80" />
+			<Bitmap name="Button6"  file="art/CP_Next.png"        rgba="FFFFFFDC" x="-222" y="-80" />
+			<Bitmap name="Button7"  file="art/CP_Search_B.png"    rgba="FFFFFFDC" x="-186" y="-80" />
+			<Bitmap name="Button8"  file="art/CP_Search_F.png"    rgba="FFFFFFDC" x="-150" y="-80" />
+			<Bitmap name="Button9"  file="art/CP_Slow_F.png"      rgba="FFFFFFDC" x="-114" y="-80" />
+			<Bitmap name="Button10" file="art/CP_Play.png"        rgba="FFFFFFDC" x="-78"  y="-80" />
+			<Bitmap name="Button11" file="art/CP_Pause.png"       rgba="FFFFFFDC" x="-42"  y="-80" />
+			<Bitmap name="Button12" file="art/CP_Stop.png"        rgba="FFFFFFDC" x="-6"   y="-80" />
+
+			<Component name="Button13">
+				<Bitmap name="AB" file="art/CP_ABRepeat.png"    rgba="FFFFFFDC" x="-204" y="-44" />
+				<Bitmap name="A" file="art/CP_ABRepeatA.png"    rgba="FFFFFFDC" x="-204" y="-44" />
+			</Component>
+			<Bitmap name="Button14" file="art/CP_Repeat.png"      rgba="FFFFFFDC" x="-132" y="-44" />
+			<Bitmap name="Button15" file="art/CP_Clear.png"       rgba="FFFFFFDC" x="-60"  y="-44" />
+		</Component>
+
+		<Text name="help" str="" alignment="center" x="-132" y="-8" size="18" rgba="D0D000FF" />
+
+	</Component>
+
+	<Component name="VideoMenu" visible="0" x="0" y="0">
+		<Component name="Buttons">
+			<Bitmap name="Button0" file="art/CP_DVDMenu.png"     rgba="D0D000FF" x="-258" y="-116" />
+			<Bitmap name="Button1" file="art/CP_Title.png"       rgba="FFFFFFDC" x="-222" y="-116" />
+			<Bitmap name="Button2" file="art/CP_Return.png"      rgba="FFFFFFDC" x="-186" y="-116" />
+			<Bitmap name="Button3" file="art/CP_Sound.png"       rgba="FFFFFFDC" x="-150" y="-116" />
+			<Bitmap name="Button4" file="art/CP_Angle.png"       rgba="FFFFFFDC" x="-114" y="-116" />
+			<Bitmap name="Button5" file="art/CP_Subscript.png"   rgba="FFFFFFDC" x="-78"  y="-116" />
+			<Bitmap name="Button6" file="art/CP_Jump.png"        rgba="FFFFFFDC" x="-42"  y="-116" />
+			<Bitmap name="Button7" file="art/CP_Display.png"     rgba="FFFFFFDC" x="-6"   y="-116" />
+
+			<Bitmap name="Button8" file="art/CP_Prev.png"        rgba="FFFFFFDC"  x="-258" y="-80" />
+			<Bitmap name="Button9" file="art/CP_Next.png"        rgba="FFFFFFDC"  x="-222" y="-80" />
+			<Bitmap name="Button10" file="art/CP_Search_B.png"   rgba="FFFFFFDC"  x="-186" y="-80" />
+			<Bitmap name="Button11" file="art/CP_Search_F.png"   rgba="FFFFFFDC"  x="-150" y="-80" />
+			<Bitmap name="Button12" file="art/CP_Slow_F.png"     rgba="FFFFFFDC"  x="-114" y="-80" />
+			<Bitmap name="Button13" file="art/CP_Play.png"       rgba="FFFFFFDC"  x="-78"  y="-80" />
+			<Bitmap name="Button14" file="art/CP_Pause.png"      rgba="FFFFFFDC"  x="-42"  y="-80" />
+			<Bitmap name="Button15" file="art/CP_Stop.png"       rgba="FFFFFFDC"  x="-6"   y="-80" />
+                                                                                              
+			<Component name="Button16">
+				<Bitmap name="AB" file="art/CP_ABRepeat.png"    rgba="FFFFFFDC" x="-204" y="-44" />
+				<Bitmap name="A" file="art/CP_ABRepeatA.png"    rgba="FFFFFFDC" x="-204" y="-44" />
+			</Component>
+
+			<Bitmap name="Button17" file="art/CP_Repeat.png"      rgba="FFFFFFDC" x="-132" y="-44" />
+			<Bitmap name="Button18" file="art/CP_Clear.png"       rgba="FFFFFFDC" x="-60"  y="-44" />
+		</Component>
+
+		<Text name="help" str="" alignment="center" x="-132.0" y="-8" size="18" rgba="D0D000FF" />
+
+	</Component>
+
+<!-- チャプタージャンプが入ったときに以下を有効にする 2003/11/5 - norihiko -->
+
+<!--
+		<Text name="help" str="" alignment="center" x="-96.0" y="52" size="18" rgba="D0D000FF" />
+
+		<Component name="Buttons">
+			<Bitmap name="Button0"  file="art/CP_0.png"           rgba="D0D000FF" x="-258.0" y="-94.0" />
+			<Bitmap name="Button1"  file="art/CP_1.png"           rgba="FFFFFFDC" x="-222.0" y="-94.0" />
+			<Bitmap name="Button2"  file="art/CP_2.png"           rgba="FFFFFFDC" x="-186.0" y="-94.0" />
+			<Bitmap name="Button3"  file="art/CP_3.png"           rgba="FFFFFFDC" x="-150.0" y="-94.0" />
+			<Bitmap name="Button4"  file="art/CP_4.png"           rgba="FFFFFFDC" x="-114.0" y="-94.0" />
+			<Bitmap name="Button5"  file="art/CP_5.png"           rgba="FFFFFFDC" x="-78.0" y="-94.0" />
+			<Bitmap name="Button6"  file="art/CP_6.png"           rgba="FFFFFFDC" x="-42.0"  y="-94.0" />
+			<Bitmap name="Button7"  file="art/CP_7.png"           rgba="FFFFFFDC" x="-6.0"  y="-94.0" />
+			<Bitmap name="Button8"  file="art/CP_8.png"           rgba="FFFFFFDC" x="30.0"   y="-94.0" />
+			<Bitmap name="Button9"  file="art/CP_9.png"           rgba="FFFFFFDC" x="66.0"   y="-94.0" />
+
+			<Bitmap name="Button10" file="art/CP_DVDMenu.png"     rgba="FFFFFFDC" x="-222" y="-58" />
+			<Bitmap name="Button11" file="art/CP_Title.png"       rgba="FFFFFFDC" x="-186" y="-58" />
+			<Bitmap name="Button12" file="art/CP_Return.png"      rgba="FFFFFFDC" x="-150" y="-58" />
+			<Bitmap name="Button13" file="art/CP_Sound.png"       rgba="FFFFFFDC" x="-114" y="-58" />
+			<Bitmap name="Button14" file="art/CP_Angle.png"       rgba="FFFFFFDC" x="-78" y="-58" />
+			<Bitmap name="Button15" file="art/CP_Subscript.png"   rgba="FFFFFFDC" x="-42"  y="-58" />
+			<Bitmap name="Button16" file="art/CP_Jump.png"        rgba="FFFFFFDC" x="-6"  y="-58" />
+			<Bitmap name="Button17" file="art/CP_Display.png"     rgba="FFFFFFDC" x="30"   y="-58" />
+
+			<Bitmap name="Button18" file="art/CP_Prev.png"        rgba="FFFFFFDC" x="-222" y="-22" />
+			<Bitmap name="Button19" file="art/CP_Next.png"        rgba="FFFFFFDC" x="-186" y="-22" />
+			<Bitmap name="Button20" file="art/CP_Search_B.png"    rgba="FFFFFFDC" x="-150" y="-22" />
+			<Bitmap name="Button21" file="art/CP_Search_F.png"    rgba="FFFFFFDC" x="-114" y="-22" />
+			<Bitmap name="Button22" file="art/CP_Slow_F.png"      rgba="FFFFFFDC" x="-78"  y="-22" />
+			<Bitmap name="Button23" file="art/CP_Play.png"        rgba="FFFFFFDC" x="-42"  y="-22" />
+			<Bitmap name="Button24" file="art/CP_Pause.png"       rgba="FFFFFFDC" x="-6"  y="-22" />
+			<Bitmap name="Button25" file="art/CP_Stop.png"        rgba="FFFFFFDC" x="30"   y="-22" />
+
+			<Component name="Button26">
+				<Bitmap name="AB" file="art/CP_ABRepeat.png"    rgba="FFFFFFDC" x="-168" y="14" />
+				<Bitmap name="A" file="art/CP_ABRepeatA.png"    rgba="FFFFFFDC" x="-168" y="14" />
+			</Component>
+
+			<Bitmap name="Button27" file="art/CP_Repeat.png"      rgba="FFFFFFDC" x="-96" y="14" />
+			<Bitmap name="Button28" file="art/CP_Clear.png"       rgba="FFFFFFDC" x="-24"  y="14" />
+		</Component>
+	</Component>
+-->
+
+	<Component name="PersonalID" x="-345" y="-240" visible="0" rgba="D0D0D0FF" focus="no0">
+		<Prim name="bgm" type="rect" rgba="000000D0" x="0" y="0" w="720" h="480" />
+		<Bitmap name="Bar1" file="art/DialogBorder.tga" x ="350" y="185" w="450" />
+		<Bitmap name="Bar2" file="art/DialogBorder.tga" x ="350" y="300" w="450" />
+		<Component name="Base" x="190" y="220">
+			<Text name="text1" str="4桁の暗証番号を入力してください。" x="20" y="0" size="16" alignment="left" />
+			<Text name="text1_1" str="暗証番号が違います。" x="90" y="24" size="16" visible="0" />
+			<Button name="no0" nav_left="no9" nav_right="no1" x="15" y="24" >
+				<FocusOff>
+					<Text str="0" size="16" rgba="D0D0D0FF"/>
+				</FocusOff>
+				<FocusOn>
+					<Text str="0" font="font2" rgba="D0D000" size="16" />
+				</FocusOn>
+			</Button>
+			<Button name="no1" nav_left="no0" nav_right="no2" x="45" y="24" >
+				<FocusOff>
+					<Text str="1" size="16" rgba="D0D0D0FF"/>
+				</FocusOff>
+				<FocusOn>
+					<Text str="1" font="font2" rgba="D0D000" size="16" />
+				</FocusOn>
+			</Button>
+			<Button name="no2" nav_left="no1" nav_right="no3" x="75" y="24" >
+				<FocusOff>
+					<Text str="2" size="16" rgba="D0D0D0FF"/>
+				</FocusOff>
+				<FocusOn>
+					<Text str="2" font="font2" rgba="D0D000" size="16" />
+				</FocusOn>
+			</Button>
+			<Button name="no3" nav_left="no2" nav_right="no4" x="105" y="24" >
+				<FocusOff>
+					<Text str="3" size="16" rgba="D0D0D0FF"/>
+				</FocusOff>
+				<FocusOn>
+					<Text str="3" font="font2" rgba="D0D000" size="16" />
+				</FocusOn>
+			</Button>
+			<Button name="no4" nav_left="no3" nav_right="no5" x="135" y="24" >
+				<FocusOff>
+					<Text str="4" size="16" rgba="D0D0D0FF"/>
+				</FocusOff>
+				<FocusOn>
+					<Text str="4" font="font2" rgba="D0D000" size="16" />
+				</FocusOn>
+			</Button>
+			<Button name="no5" nav_left="no4" nav_right="no6" x="165" y="24" >
+				<FocusOff>
+					<Text str="5" size="16" rgba="D0D0D0FF"/>
+				</FocusOff>
+				<FocusOn>
+					<Text str="5" font="font2" rgba="D0D000" size="16" />
+				</FocusOn>
+			</Button>
+			<Button name="no6" nav_left="no5" nav_right="no7" x="195" y="24" >
+				<FocusOff>
+					<Text str="6" size="16" rgba="D0D0D0FF"/>
+				</FocusOff>
+				<FocusOn>
+					<Text str="6" font="font2" rgba="D0D000" size="16" />
+				</FocusOn>
+			</Button>
+			<Button name="no7" nav_left="no6" nav_right="no8" x="225" y="24" >
+				<FocusOff>
+					<Text str="7" size="16" rgba="D0D0D0FF"/>
+				</FocusOff>
+				<FocusOn>
+					<Text str="7" font="font2" rgba="D0D000" size="16" />
+				</FocusOn>
+			</Button>
+			<Button name="no8" nav_left="no7" nav_right="no9" x="255" y="24" >
+				<FocusOff>
+					<Text str="8" size="16" rgba="D0D0D0FF"/>
+				</FocusOff>
+				<FocusOn>
+					<Text str="8" font="font2" rgba="D0D000" size="16" />
+				</FocusOn>
+			</Button>
+			<Button name="no9" nav_left="no8" nav_right="no0" x="285" y="24" >
+				<FocusOff>
+					<Text str="9" size="16" rgba="D0D0D0FF"/>
+				</FocusOff>
+				<FocusOn>
+					<Text str="9" font="font2" rgba="D0D000" size="16" />
+				</FocusOn>
+			</Button>
+			<Text name="code0" str="・" x="103" y="50" size="16" />
+			<Text name="code1" str="・" x="133" y="50" size="16" />
+			<Text name="code2" str="・" x="163" y="50" size="16" />
+			<Text name="code3" str="・" x="193" y="50" size="16" />
+		</Component>
+		<Component name="DialogFocus" x="-360" y="250" >
+			<!--Bitmap name="DialogFocusBar" file="art/MenuFocus.tga" y="-2" w="45" h="30" rgba="FFFFFFFF" /-->
+		</Component>
+	</Component>
+
+	<Screen name="Warning" visible="0" z_depth="-1">
+		<Text name="text1" x="0" y="0" alignment="center"/>
+	</Screen>
+
+</App>

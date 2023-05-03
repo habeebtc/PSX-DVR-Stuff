@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<App name="ConfigBSAntennaLevel" focus="base" script="ConfigBSAntennaLevel.amx" >
+	<Dll name="pvr/pvrNative" version="0.1.0" />
+	<Dll name="xBitmap/xBitmap" version="0.1.0" />
+	<Dll name="xPrim/xPrim" version="0.1.0" />
+	<Dll name="xText/xText" version="0.1.0" />
+
+	<Prim name="Bg" type="rect" rgba="101010FF" x="-360" y="-240" w="720" h="480" z_depth="1"/>
+
+	<Component name="TopBar" x="-360" y="-240" >
+		<Bitmap name="TopBarBg" file="art/TopBar.tga" x="360" y="32" w="720" h="64" />
+		<Text name="Title" str="テレビの設定 / BSアンテナレベル表示" x="80" y="51" size="16" rgba="D0D0D0FF" />
+		<Bitmap name="TopIcon" file="art/sICN-Conf-917.tga" x="59" y="45" w="39" h="32" />
+	</Component>
+
+	<Component name="base" x="-360" y="-240" >
+		<Text name="Channel" str="" x="580" y="51" size="16" alignment="left" rgba="D0D0D0FF" />
+
+		<Text name="LevelNow" str="" x="360" y="345" size="16" alignment="center" rgba="D0D0D0FF" />
+		<Text name="LevelMax" str="" x="360" y="350" size="16" alignment="center" rgba="D0D0D0FF" visible="0" />
+
+		<Prim name="Shadow1" type="rect" rgba="000000FF" x="105" y="350" w="510" h="60" />
+		<Component name="bar" y="380" >
+			<Bitmap name="barBg0" file="art/LevelBarB.tga"  y="0" x="120" w="20" h="50" />
+			<Bitmap name="barBg1" file="art/LevelBarB.tga"  y="0" x="140" w="20" h="50" />
+			<Bitmap name="barBg2" file="art/LevelBarB.tga"  y="0" x="160" w="20" h="50" />
+			<Bitmap name="barBg3" file="art/LevelBarB.tga"  y="0" x="180" w="20" h="50" />
+			<Bitmap name="barBg4" file="art/LevelBarB.tga"  y="0" x="200" w="20" h="50" />
+			<Bitmap name="barBg5" file="art/LevelBarB.tga"  y="0" x="220" w="20" h="50" />
+			<Bitmap name="barBg6" file="art/LevelBarB.tga"  y="0" x="240" w="20" h="50" />
+			<Bitmap name="barBg7" file="art/LevelBarB.tga"  y="0" x="260" w="20" h="50" />
+			<Bitmap name="barBg8" file="art/LevelBarB.tga"  y="0" x="280" w="20" h="50" />
+			<Bitmap name="barBg9" file="art/LevelBarB.tga"  y="0" x="300" w="20" h="50" />
+			<Bitmap name="barBg10" file="art/LevelBarB.tga"  y="0" x="320" w="20" h="50" />
+			<Bitmap name="barBg11" file="art/LevelBarB.tga"  y="0" x="340" w="20" h="50" />
+			<Bitmap name="barBg12" file="art/LevelBarB.tga"  y="0" x="360" w="20" h="50" />
+			<Bitmap name="barBg13" file="art/LevelBarB.tga"  y="0" x="380" w="20" h="50" />
+			<Bitmap name="barBg14" file="art/LevelBarB.tga"  y="0" x="400" w="20" h="50" />
+			<Bitmap name="barBg15" file="art/LevelBarB.tga"  y="0" x="420" w="20" h="50" />
+			<Bitmap name="barBg16" file="art/LevelBarB.tga"  y="0" x="440" w="20" h="50" />
+			<Bitmap name="barBg17" file="art/LevelBarB.tga"  y="0" x="460" w="20" h="50" />
+			<Bitmap name="barBg18" file="art/LevelBarB.tga"  y="0" x="480" w="20" h="50" />
+			<Bitmap name="barBg19" file="art/LevelBarB.tga"  y="0" x="500" w="20" h="50" />
+			<Bitmap name="barBg20" file="art/LevelBarB.tga"  y="0" x="520" w="20" h="50" />
+			<Bitmap name="barBg21" file="art/LevelBarB.tga"  y="0" x="540" w="20" h="50" />
+			<Bitmap name="barBg22" file="art/LevelBarB.tga"  y="0" x="560" w="20" h="50" />
+			<Bitmap name="barBg23" file="art/LevelBarB.tga"  y="0" x="580" w="20" h="50" />
+			<Bitmap name="barBg24" file="art/LevelBarB.tga"  y="0" x="600" w="20" h="50" />
+			<Bitmap name="barFg0" file="art/LevelBarC.tga"  y="0" x="120" w="20" h="50" />
+			<Bitmap name="barFg1" file="art/LevelBarC.tga"  y="0" x="140" w="20" h="50" />
+			<Bitmap name="barFg2" file="art/LevelBarC.tga"  y="0" x="160" w="20" h="50" />
+			<Bitmap name="barFg3" file="art/LevelBarC.tga"  y="0" x="180" w="20" h="50" />
+			<Bitmap name="barFg4" file="art/LevelBarC.tga"  y="0" x="200" w="20" h="50" />
+			<Bitmap name="barFg5" file="art/LevelBarC.tga"  y="0" x="220" w="20" h="50" />
+			<Bitmap name="barFg6" file="art/LevelBarC.tga"  y="0" x="240" w="20" h="50" />
+			<Bitmap name="barFg7" file="art/LevelBarC.tga"  y="0" x="260" w="20" h="50" />
+			<Bitmap name="barFg8" file="art/LevelBarC.tga"  y="0" x="280" w="20" h="50" />
+			<Bitmap name="barFg9" file="art/LevelBarC.tga"  y="0" x="300" w="20" h="50" />
+			<Bitmap name="barFg10" file="art/LevelBarC.tga"  y="0" x="320" w="20" h="50" />
+			<Bitmap name="barFg11" file="art/LevelBarC.tga"  y="0" x="340" w="20" h="50" />
+			<Bitmap name="barFg12" file="art/LevelBarC.tga"  y="0" x="360" w="20" h="50" />
+			<Bitmap name="barFg13" file="art/LevelBarC.tga"  y="0" x="380" w="20" h="50" />
+			<Bitmap name="barFg14" file="art/LevelBarC.tga"  y="0" x="400" w="20" h="50" />
+			<Bitmap name="barFg15" file="art/LevelBarC.tga"  y="0" x="420" w="20" h="50" />
+			<Bitmap name="barFg16" file="art/LevelBarC.tga"  y="0" x="440" w="20" h="50" />
+			<Bitmap name="barFg17" file="art/LevelBarC.tga"  y="0" x="460" w="20" h="50" />
+			<Bitmap name="barFg18" file="art/LevelBarC.tga"  y="0" x="480" w="20" h="50" />
+			<Bitmap name="barFg19" file="art/LevelBarC.tga"  y="0" x="500" w="20" h="50" />
+			<Bitmap name="barFg20" file="art/LevelBarC.tga"  y="0" x="520" w="20" h="50" />
+			<Bitmap name="barFg21" file="art/LevelBarC.tga"  y="0" x="540" w="20" h="50" />
+			<Bitmap name="barFg22" file="art/LevelBarC.tga"  y="0" x="560" w="20" h="50" />
+			<Bitmap name="barFg23" file="art/LevelBarC.tga"  y="0" x="580" w="20" h="50" />
+			<Bitmap name="barFg24" file="art/LevelBarC.tga"  y="0" x="600" w="20" h="50" />
+		</Component>
+	</Component>
+
+	<Component name="BotBar" x="-360" y="-240" >
+		<Bitmap name="BotBarBg" file="art/TopBar.tga" x="360" y="448" w="720" h="64" rot_z="0.5" />
+		<Text name="TXTCross" str="戻る" x="271" y="442" size="16" rgba="D0D0D0FF" />
+		<Bitmap name="IcnCross" file="art/BtnNav-Crs-917.png" x="258" y="438" />
+	</Component>
+</App>

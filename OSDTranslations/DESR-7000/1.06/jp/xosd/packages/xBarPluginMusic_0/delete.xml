@@ -1,0 +1,181 @@
+<?xml version="1.0" ?>
+<PSML2>
+	<!--Delete Dialog Boxes ( contains 4 wizards )-->
+	<!--delete_ms is format -->
+	<!--delete_ms_single-->
+	<!--delete_hdd-->
+	<!--delete_hdd_single-->
+	<Dll name="xButton/xButton" version="0.1.0" />
+	<Dll name="xText/xText" version="0.1.0" />
+	<Dll name="xSlider/xSlider" version="0.1.0" />
+	<Dll name="xWizard/xWizard" version="0.1.0" />
+	<!--Memory Stick-->
+	<Screen name="delete_ms" visible="0" z_depth="-1" focus="d_no">
+		<Text str="初期化するとメモリースティックに入っている" x="-199" y="-33" />
+		<Text str="全てのデータが消去されます。" x="-199" y="-12" />
+		<Text str="初期化してよろしいですか？" x="-199" y="8" />
+		<Button name="d_yes" x="-72" y="49" nav_right="d_no" alignment="right">
+			<Wizard variable="album" value="1" action="delete_ms_process" />
+			<FocusOn>
+				<Text str="はい" rgba="D0D000" />
+			</FocusOn>
+			<FocusOff>
+				<Text str="はい" />
+			</FocusOff>
+		</Button>
+		<Button name="d_no" x="24" y="49" nav_left="d_yes" alignment="left">
+			<FocusOn>
+				<Text str="いいえ" rgba="D0D000" />
+			</FocusOn>
+			<FocusOff>
+				<Text str="いいえ" />
+			</FocusOff>
+		</Button>
+	</Screen>
+	<Screen name="delete_ms_process" visible="0" z_depth="-1">
+		<Text str="初期化しています。しばらくお待ちください。" x="-199" y="-41" />
+		<Text str="本機の電源を切ったり、" x="-199" y="-20" />
+		<Text str="メモリースティックを抜いたりしないでください。" x="-199" y="1" />
+		<Slider name="DeleteProgress" x="0" y="31" w="382" />
+		<Text name="DeleteProgressPercentage" str="$$$%d$$$%" x="-24" y="57" />
+		<Button name="DeleteEnd" visible="0" x="-159" y="170">
+			<Wizard action="delete_end" />
+		</Button>
+		<Button name="DeleteError" visible="0" x="-159" y="170">
+			<Wizard action="delete_ms_error" />
+		</Button>
+	</Screen>
+	<Screen name="delete_ms_single" visible="0" z_depth="-1" focus="d_no">
+		<Text str="このトラックを削除します。よろしいですか？" x="-168" y="-12" />
+		<Button name="d_yes" x="-72" y="28" nav_right="d_no">
+			<Wizard action="delete_ms_process_single" />
+			<FocusOn>
+				<Text str="はい" rgba="D0D000" />
+			</FocusOn>
+			<FocusOff>
+				<Text str="はい" />
+			</FocusOff>
+		</Button>
+		<Button name="d_no" x="24" y="28" nav_left="d_yes">
+			<FocusOn>
+				<Text str="いいえ" rgba="D0D000" />
+			</FocusOn>
+			<FocusOff>
+				<Text str="いいえ" />
+			</FocusOff>
+		</Button>
+	</Screen>
+	<Screen name="delete_ms_process_single" visible="0" z_depth="-1">
+		<Text str="削除しています。しばらくお待ちください。" x="-199" y="-2" />
+		<Text str="削除中は本機の電源を切らないでください。" x="-199" y="18" />
+		<Button name="DeleteEnd" visible="0" x="-159" y="170">
+			<Wizard action="delete_end" />
+		</Button>
+		<Button name="DeleteError" visible="0" x="-159" y="170">
+			<Wizard action="delete_ms_error" />
+		</Button>
+	</Screen>
+	<Screen name="delete_ms_error" visible="0" z_depth="-1" focus="d_ok">
+		<Text str="削除できませんでした。" x="-199" y="-13" />
+		<Text str="メモリースティックが正しく挿入されていることを" x="-199" y="8" />
+		<Text str="確認してください。" x="-199" y="29" />
+		<Button name="d_ok" x="-100" y="40">
+			<FocusOn>
+				<Text str="Back(invisible)" rgba="D0D000" />
+			</FocusOn>
+			<FocusOff>
+				<Text str="Back(invisible)" />
+			</FocusOff>
+		</Button>
+	</Screen>
+	<!--HDD-->
+	<Screen name="delete_hdd" visible="0" z_depth="-1" focus="d_no">
+		<Text str="このアルバム内の全てのトラックを削除します。" x="-199" y="-23" />
+		<Text str="よろしいですか？" x="-199" y="-2" />
+		<Button name="d_yes" x="-72" y="39" nav_right="d_no">
+			<Wizard variable="album" value="1" action="delete_hdd_process" />
+			<FocusOn>
+				<Text str="はい" rgba="D0D000" />
+			</FocusOn>
+			<FocusOff>
+				<Text str="はい" />
+			</FocusOff>
+		</Button>
+		<Button name="d_no" x="24" y="39" nav_left="d_yes">
+			<FocusOn>
+				<Text str="いいえ" rgba="D0D000" />
+			</FocusOn>
+			<FocusOff>
+				<Text str="いいえ" />
+			</FocusOff>
+		</Button>
+	</Screen>
+	<Screen name="delete_hdd_process" visible="0" z_depth="-1" script="DlgDeleteProcess.amx">
+		<Text str="削除しています。しばらくお待ちください。" x="-199" y="-30" />
+		<Text str="削除中は本機の電源を切らないでください。" x="-199" y="-9" />
+		<Slider name="DeleteProgress" x="0" y="20" w="382" />
+		<Text name="DeleteProgressPercentage" str="$$$%d$$$%" x="-24" y="46" />
+		<Button name="DeleteEnd" visible="0" x="-159" y="170">
+			<Wizard action="delete_end" />
+		</Button>
+		<Button name="DeleteError" visible="0" x="-159" y="170">
+			<Wizard action="delete_error" />
+		</Button>
+	</Screen>
+	<Screen name="delete_hdd_single" visible="0" z_depth="-1" focus="d_no">
+		<Text str="このトラックを削除します。よろしいですか？" x="-168" y="-12" />
+		<Button name="d_yes" x="-72" y="28" nav_right="d_no">
+			<Wizard action="delete_hdd_process_single" />
+			<FocusOn>
+				<Text str="はい" rgba="D0D000" />
+			</FocusOn>
+			<FocusOff>
+				<Text str="はい" />
+			</FocusOff>
+		</Button>
+		<Button name="d_no" x="24" y="28" nav_left="d_yes">
+			<FocusOn>
+				<Text str="いいえ" rgba="D0D000" />
+			</FocusOn>
+			<FocusOff>
+				<Text str="いいえ" />
+			</FocusOff>
+		</Button>
+	</Screen>
+	<Screen name="delete_hdd_process_single" visible="0" z_depth="-1" script="DlgDeleteProcess.amx">
+		<Text str="削除しています。しばらくお待ちください。" x="-199" y="-30" />
+		<Text str="削除中は本機の電源を切らないでください。" x="-199" y="-9" />
+		<Slider name="DeleteProgress" x="0" y="20" w="382" />
+		<Text name="DeleteProgressPercentage" str="$$$%d$$$%" x="-24" y="46" />
+		<Button name="DeleteEnd" visible="0" x="-159" y="170">
+			<Wizard action="delete_end" />
+		</Button>
+		<Button name="DeleteError" visible="0" x="-159" y="170">
+			<Wizard action="delete_error" />
+		</Button>
+	</Screen>
+	<!--Common-->
+	<Screen name="delete_end" visible="0" z_depth="-1" focus="d_ok">
+		<Text str="削除が完了しました。" x="-80" y="8" />
+		<Button name="d_ok" visible="0" x="-100" y="40">
+			<FocusOn>
+				<Text str="Back(invisible)" rgba="D0D000" />
+			</FocusOn>
+			<FocusOff>
+				<Text str="Back(invisible)" />
+			</FocusOff>
+		</Button>
+	</Screen>
+	<Screen name="delete_error" visible="0" z_depth="-1" focus="d_ok">
+		<Text str="削除できませんでした。" x="-88" y="8" />
+		<Button name="d_ok" visible="0" x="-100" y="40">
+			<FocusOn>
+				<Text str="Back(invisible)" rgba="D0D000" />
+			</FocusOn>
+			<FocusOff>
+				<Text str="Back(invisible)" />
+			</FocusOff>
+		</Button>
+	</Screen>
+</PSML2>
+
