@@ -34,12 +34,12 @@ Source should always be original Japanese OSD files + in the root of the folder 
 
 ### Notes
 
-Regardless of what language the source string was in (and there's some English in there), it'll run it through the translation.  Non-Japanese languages will just stay the way they are do to specifying Japanese as source instead of auto-detect.
+Regardless of what language the source string was in (and there's some English in there), it'll run it through the translation.  Non-Japanese languages will just stay the way they are due to specifying Japanese as source instead of auto-detect.
 
 The processing takes place in 4 phases:
 
 1. File copy, which clones the source folder to the destination folder.
-2. XML translation - every XML file in the folder will have their nodes matching certain criteria have their attribute strings translated to the target language, and the XML files saved in place.
+2. XML translation - every XML file in the folder will have their nodes matching certain criteria will have their attribute strings translated to the target language, and the XML files saved in place.
 3. The  `imagesourcestrings.csv` copied to the destination OSD folder has all of its source strings translated, and saved back to the CSV file.
 4. Each record in the CSV file is used as input to modify the images containing Japanese text.
 
@@ -47,4 +47,4 @@ Each of these phases is optional via parameters on `process-osd` (`-bCopyFolder`
 
 ### API Rate Limiting
 
-This free, undocumented translation API will soon get killed off if too many people are hitting it too often.  This script has a 100ms "sleep" after calling a translate operation, which greatly increases the runtime.  If you like the free Translate API - leave the 100ms sleep in place.
+This script uses a free, undocumented Google translation API that will soon get killed off if too many people are hitting it too often.  This script has a 100ms "sleep" after calling a translate operation, which greatly increases the runtime.  If you like the free translate API - leave the 100ms sleep in place and be patient.
