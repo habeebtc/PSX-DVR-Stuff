@@ -10,6 +10,8 @@ A repo for files related to softmodding the Sony PSX DESR-#### Japanese DVR/Play
 
 `imagesourcestrings.csv` is the OSD specific list of images, the Japanese strings contained within, their coordinates, and as well the font they are to be printed in.
 
+`ImageMagick` - used by the script for image format conversion (there's no friendly library I could find).  It's free, so just go grab it at https://imagemagick.org/, and the script reads the install location out of the registry.
+
 ## Usage
 
 ```
